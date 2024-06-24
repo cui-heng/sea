@@ -99,8 +99,7 @@ line-height: 24px;text-align: center;">投资耆关系 | 关于我们 | 软件�
         <div class="group_52 flex-row">
           <div class="text-wrapper_23">
             <span class="text_52">*</span>
-            <span class="text_53"
-              >咨询时请说明来自海洋财经，以便得到更佳服务</span
+            <span class="text_53">咨询时请说明来自海洋财经，以便得到更佳服务1</span
             >
           </div>
         </div>
@@ -3369,5 +3368,8 @@ $light_gray: #eee;
       display: none;
     }
   }
+}
+.reset_span {
+  margin: 10px;
 }
 </style>

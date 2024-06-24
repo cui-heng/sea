@@ -5,7 +5,7 @@
         <el-menu-item index="/lanhu_shouye">首页</el-menu-item>
         <el-menu-item index="/lanhu_youwenbida">有问必答</el-menu-item>
         <el-menu-item index="/aboutPhone">期货手续费</el-menu-item>
-        <el-menu-item index="/aboutPhone">期货保证金</el-menu-item>
+        <el-menu-item index="/aboutPhoneMargin">期货保证金</el-menu-item>
         <el-menu-item index="/lanhu_qihuobaozhengjin">期货一对一服务</el-menu-item>
       </el-menu>
     </el-drawer>
@@ -44,7 +44,7 @@
         <img  style=" margin: 0.107rem 0 0 0.48rem;width: 7px;height: 7px;" referrerpolicy="no-referrer"
           src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG378c59d9ff2c6ab7928bcb7dacf26fb5.png" />
         <div class="image-text_1 flex-row justify-between">
-          <span class="text-group_1">期货一对一服务</span>
+          <span class="text-group_1">期货手续费</span>
           <img class="thumbnail_2" referrerpolicy="no-referrer"
             src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG378c59d9ff2c6ab7928bcb7dacf26fb5.png" />
         </div>
@@ -53,19 +53,19 @@
       <!-- <div class="section_6 flex-col"></div> -->
     </div>
     <el-row class="main" type="flex" justify="center">
-      <el-col :span="20">
+      <el-col :span="23">
         <el-tabs v-model="activeName" @tab-click="msData">
           <el-tab-pane v-for="item in listData" :label="item.title" :name="item.title">
-            <div style="width: 100%;height: 40px;border-bottom: 1px solid #000;font-size: 22px;
+            <div style="width: 100%;height: 20px;font-size: .72rem;
 font-family: PingFang SC-Medium, PingFang SC;
 font-weight: 500;
 color: #000000;
 line-height: 22px;">期货全品种手续费一览表</div>
-            <p style="font-size: 18px;
+            <p class="ht_box" style="font-size: 14px;
 font-family: PingFang SC-Medium, PingFang SC;
 font-weight: 500;
-color: #090909;
-line-height: 36px;" v-html="msData1">
+color: #707070 !important;
+line-height: 29px;" v-html="msData1">
             </p>
 
             <div>
@@ -83,14 +83,14 @@ line-height: 16px;padding-right: 30px;cursor: pointer;" v-for="item1 in item.ite
                   }}</span>
               </div>
             </div>
-            <div style="margin-top: 100px;">
+            <div style="margin-top: 20px;">
               <el-button type="primary" size="small">只显示主力合约</el-button>
               <el-button type="primary" size="small" @click="dlowData">下载手续费Excel表格</el-button>
               <p style="font-size: 14px;
 font-family: PingFang SC-Medium, PingFang SC;
 font-weight: 500;
 color: #545454;
-line-height: 14px;">(手续费更新时间:2024-03-12 17:45:12.528，价格更新时间:2024-03-12 17:45:12.528)</p>
+line-height: 24px;">(手续费更新时间:2024-03-12 17:45:12.528，价格更新时间:2024-03-12 17:45:12.528)</p>
             </div>
             <div>
               <el-table :data="tableData" style="width: 100%">
@@ -285,6 +285,29 @@ export default {
 }
 ::v-deep .el-drawer {
   width: 7rem !important;
+}
+.section_3 {
+  height: 4.4rem !important;
+}
+.ht_box {
+  p {
+    span {
+      color: #707070 !important;
+    }
+  }
+}
+
+::v-deep .el-table__row {
+  font-family: PingFang SC, PingFang SC;
+  font-weight: 500;
+  font-size: 14px;
+  color: #242629;
+}
+::v-deep .el-table__row .el-table_1_column_1 {
+  font-family: PingFang SC, PingFang SC;
+  font-weight: bold;
+  font-size: 14px;
+  color: #023665;
 }
 </style>
 <style scoped lang="css" src="./lanhu_youwenbida/assets/index.rem.css" />

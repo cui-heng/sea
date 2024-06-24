@@ -2,7 +2,7 @@
   <div>
     <HUIYAUN v-if="!show" @dianji="godod"/>
   <div  v-if="show" class="page flex-col">
-    <img class="image_1" referrerpolicy="no-referrer"
+    <img @click="$router.push('/')" class="image_1" referrerpolicy="no-referrer"
       src="./assets/img/FigmaDDSSlicePNG98c5bc5f50d252746043a47d32d33336.png" />
     <img class="image_2" referrerpolicy="no-referrer"
       src="./assets/img/FigmaDDSSlicePNGc99fdf18684b30e3fef612ad5d029f3f.png" />
@@ -99,9 +99,10 @@
         <div class="group_52 flex-row">
           <div class="text-wrapper_23">
             <span class="text_52">*</span>
-            <span class="text_53">咨询时请说明来自海洋财经，以便得到更佳服务</span>
+            <span class="text_53 reset_span">咨询时请说明来自海洋财经，以便得到更佳服务</span>
           </div>
         </div>
+        <div class="back_btn" @click="toIndex()">返回</div>
       </div>
     <!-- 关闭按钮 -->
     </div>
@@ -172,10 +173,14 @@ export default {
     }
     this.getService()
   },
+  
   destroyed() {
     // window.removeEventListener('storage', this.afterQRScan)
   },
   methods: {
+    toIndex() {
+    this.$router.push('/')
+  },
     async getService() {
       const {data} = await getAlertInfo({})
       this.serviceInfo = data
@@ -661,7 +666,7 @@ h5 {
 .group_32 {
   background-color: rgba(255, 255, 255, 1);
   border-radius: 10px;
-  height: 572px;
+  height: 630px;
   width: 613px;
   margin: 112px 0 0 254px;
   z-index: 99999999999999;
@@ -811,5 +816,22 @@ h5 {
   text-align: center;
   white-space: nowrap;
   line-height: 16px;
+}
+.reset_span {
+  margin-left: 10px;
+}
+.back_btn {
+  width: 21.12rem;
+  height: 2.38rem;
+  margin: 0 auto;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 8px;
+  font-family: PingFang SC-Medium;
+  font-weight: bold;
+  text-align: center;
+  line-height: 2.38rem;
+  background: -webkit-gradient(linear, left top, right top, from(#1ABCFC), to(#0796D2));
+  background: linear-gradient(90deg, #1ABCFC 0%, #0796D2 100%);
 }
 </style>

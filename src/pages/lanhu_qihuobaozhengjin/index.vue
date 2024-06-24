@@ -5,7 +5,7 @@
         <el-menu-item index="/lanhu_shouye">首页</el-menu-item>
         <el-menu-item index="/lanhu_youwenbida">有问必答</el-menu-item>
         <el-menu-item index="/aboutPhone">期货手续费</el-menu-item>
-        <el-menu-item index="/aboutPhone">期货保证金</el-menu-item>
+        <el-menu-item index="/aboutPhoneMargin">期货保证金</el-menu-item>
         <el-menu-item index="/lanhu_qihuobaozhengjin">期货一对一服务</el-menu-item>
       </el-menu>
     </el-drawer>
@@ -38,7 +38,7 @@
       </div>
       <div class="group_4 flex-col"></div>
     </div>
-    <div class="box_4 flex-col">
+    <div class="box_4 flex-col hei_sty">
       <img class="image_3 cl_tit_to" referrerpolicy="no-referrer"
         src="./assets/img/FigmaDDSSlicePNGaed6b8de8e053613b1875e49619a90ee.png" />
 
@@ -128,8 +128,8 @@
           <div class="per_item" v-for="item in dataList1.slice(0,6)">
             <div class="section_6 flex-row">
               <div class="image-text_12 flex-row justify-between">
-                <img class="image_4" referrerpolicy="no-referrer"
-                  src="./assets/img/FigmaDDSSlicePNG8e6104d3ccde290b76a1941918f9eb50.png" />
+                <img @click="$router.push('/lanhu_wanghaijingli/'+item.userId)" class="image_4" referrerpolicy="no-referrer"
+                  :src="baseUrlImg + item.avatar" />
                 <div class="block_4 flex-col justify-between">
                   <span class="text-group_10">{{ item.nickName }}</span>
                   <div class="text-wrapper_5 flex-col"><span class="text_20">股票顾问</span></div>
@@ -138,11 +138,11 @@
               <div class="text-wrapper_6 flex-col"><span class="text_21">帮助{{ item.helpNumber
                   }}</span></div>
               <div class="image-wrapper_3 flex-col">
-                <img class="label_9" referrerpolicy="no-referrer"
+                <img @click="diaShow = true" class="label_9" referrerpolicy="no-referrer"
                   src="./assets/img/FigmaDDSSlicePNG854cf5844a8ddcd486c61b1cf69fb52c.png" />
               </div>
               <div class="image-wrapper_4 flex-col">
-                <img class="label_10" referrerpolicy="no-referrer"
+                <img @click="diaShow = true" class="label_10" referrerpolicy="no-referrer"
                   src="./assets/img/FigmaDDSSlicePNG7235843c577a660f1e6f88cc5aa9a3f6.png" />
               </div>
             </div>
@@ -178,7 +178,7 @@
         <div class="block_6 flex-col"></div>
         <div class="block_7 flex-col justify-between">
           <div class="box_15 flex-col" v-for="item in dataList2">
-            <img class="colo_le_nick" referrerpolicy="no-referrer"
+            <img @click="$router.push('/lanhu_wanghaijingli/'+item.userId)" class="colo_le_nick" referrerpolicy="no-referrer"
               :src="baseUrlImg + item.avatar">
 
             <div class="block_8 flex-row justify-between">
@@ -189,7 +189,7 @@
               <span class="text_33">{{ item.createTime }}</span>
             </div>
             <div class="block_10 flex-col">
-              <div class="box_16 flex-row justify-between">
+              <div class="box_16 flex-row justify-between" @click="toAanterDetail(item.id)">
                 <div class="text-wrapper_17 flex-col"><span class="text_34">问</span></div>
                 <span class="text_35">{{ item.title.slice(0,20) }}</span>
               </div>
@@ -229,7 +229,7 @@
           </div>
           <div class="text-wrapper_24 flex-col">
             <div class="te_item" v-for="item in dataList3.slice(0,6)">
-              <span class="text_50">{{ item.title }}</span>
+              <span class="text_50" @click="toAanterDetail(item.id)">{{ item.title }}</span>
               <span class="text_51" v-html="item.result.slice(0, 20)">
               </span>
             </div>
@@ -252,20 +252,23 @@
         &#64;&nbsp;2024&nbsp;中国海洋财经有限公司&nbsp;All&nbsp;Rights&nbsp;Reserved.
       </span>
     </div>
+    <Dialog :dialogVisible1="diaShow" @closeDia="closeDia()"></Dialog>
   </div>
 </template>
 
 <script>
 import { getRecommendUser, getUsers, getLatestAnswer, getLasterAnswerII } from '@/api/index'
+import Dialog from '@/components/Dialog/index.vue'
 
 export default {
 
   name: 'Index',
   components: {
-
+    Dialog
   },
   data() {
     return {
+      diaShow: false,
       drawer: false,
       loopData0: [
         {
@@ -297,6 +300,14 @@ export default {
     getLasterAnswerII().then(res => {
       this.dataList3 = res.data.list
     })
+  },
+  methods: {
+    closeDia() {
+      this.diaShow = false
+    },
+    toAanterDetail(id) {
+      this.$router.push('wendaxiangqingphone/'+id)
+    }
   }
 }
 </script>
@@ -491,7 +502,7 @@ export default {
     }
 }
 .box_14 {
-  margin-top: 0;
+  margin-top: 50px;
 }
 .colo_le_nick {
   border-radius: 50%;
@@ -600,6 +611,12 @@ export default {
   }
   .box_4 {
     height: auto;
+  }
+  .hei_sty {
+    height: 47.4rem;
+  }
+  .image_4 {
+    border-radius: 50%;
   }
 
 </style>

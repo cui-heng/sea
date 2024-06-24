@@ -5,7 +5,7 @@
         <el-menu-item index="/lanhu_shouye">首页</el-menu-item>
         <el-menu-item index="/lanhu_youwenbida">有问必答</el-menu-item>
         <el-menu-item index="/aboutPhone">期货手续费</el-menu-item>
-        <el-menu-item index="/aboutPhone">期货保证金</el-menu-item>
+        <el-menu-item index="/aboutPhoneMargin">期货保证金</el-menu-item>
         <el-menu-item index="/lanhu_qihuobaozhengjin">期货一对一服务</el-menu-item>
       </el-menu>
     </el-drawer>

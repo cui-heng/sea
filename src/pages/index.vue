@@ -13,17 +13,18 @@ color: #8A8A8A;"> Today's news</span></router-link></h5>
                 <div>
                   <div class="swip_box" style="position: absolute;background-color: rgba(0,0,0,0.4);width: 100%;height: 100%;">
                     <div style="position: relative;top: 52%;padding: 20px;">
-                    <router-link :to="`/article/` + item.id + '/' + item.userId" tag="span">
-                    <p style="font-size: 14px;
-font-family: PingFang SC-Bold, PingFang SC;
-font-weight: bold;
-color: #fff;cursor: pointer;
-line-height: 22px;">{{ item.title }}</p></router-link>
+                      <router-link :to="`/article/` + item.id + '/' + item.userId" tag="span">
+                      <p style="font-size: 14px;
+                        font-family: PingFang SC-Bold, PingFang SC;
+                        font-weight: bold;
+                        color: #fff;cursor: pointer;
+                        line-height: 22px;">{{ item.title }}</p>
  <div class="art-abstract" style="font-size: 12px;" v-html="item.content.slice(0,100)">
                   </div>
                   <div class="ava_pic">
                     <img style="width: 100%;height: 100%;" :src="baseUrlImg + item.avatar">
                   </div>
+                </router-link>
                   <div class="art-abstract nick_na" style="font-size: 12px;">
                    作者：{{ item.nickName }}
                   </div>
@@ -31,6 +32,7 @@ line-height: 22px;">{{ item.title }}</p></router-link>
                   </div>
                   <img style="width: 100%;height: 100%;" :src="baseUrlImg + item.coverImg">
                 </div>
+              
               </el-carousel-item>
             </el-carousel>
             <div v-for="item in artList.slice(4, artList.length)" style="margin-top: 10px;">

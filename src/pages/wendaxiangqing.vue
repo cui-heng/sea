@@ -104,7 +104,7 @@ line-height: 20px;  border-left: 3px solid #1ABCFC;
 height:109px;
 border-radius: 10px 10px 10px 10px;">
                 <el-col :span="4" style="width: 74px; margin-right: 13px;">
-                  <img :src="baseUrlImg + item.avatar" style="width: 74px;
+                  <img  @click="$router.push('/ydy/'+item.userId)" :src="baseUrlImg + item.avatar" style="width: 74px;
 height: 74px;border-radius: 50%" />
                 </el-col>
                 <el-col :span="8">
@@ -128,15 +128,11 @@ color: #7A7A7A;margin-left: 10px;">帮助{{
 
 
                 </el-col>
-                <el-popover placement="top" title="电话咨询" width="200" trigger="click">
-                  <el-button slot="reference" style="background-color: #FF3D3D;color: #fff;margin-top: 10px;"><img
+                  <el-button @click="showPhone" slot="reference" style="background-color: #FF3D3D;color: #fff;margin-top: 10px;"><img
                       src="../assets/p.png">电话咨询</el-button>
-                </el-popover>
-                <el-popover placement="top" title="微信咨询" width="200" trigger="click">
                   <!-- <img :src="baseUrlImg + queryData.wxQrCode" style="width: 100%;" /> -->
-                  <el-button slot="reference" style="background-color: #10CB8C;color: #fff;margin-left: 60px;margin-top: 10px;"><img
+                  <el-button @click="showWchat" slot="reference" style="background-color: #10CB8C;color: #fff;margin-left: 60px;margin-top: 10px;"><img
                       src="../assets/v.png">微信咨询</el-button>
-                </el-popover>
 
 
               </div>
@@ -148,13 +144,17 @@ line-height: 36px;
 text-align: justified;
 font-style: normal;
 text-transform: none;"><span v-html="item.result"></span></div>
+
+            <div class="bott_img_sty">
+              <img @click="showWchat" src="@/assets/Group 3148@2x.png" alt="">
+            </div>
             </div>
           </el-card>
           <!-- <img class="star" src="../assets/star.png"> -->
         </el-row>
         <div style="position: relative;top: -20px;">
           <img @click="dialogVisible = true" src="../assets/lijt.png" style="float: right;position: relative;top: 50px;left: -100px;">
-        <img src="../assets/tw.png" style="float: right;"/>
+        <img src="../assets/tw.png" style="float: right; width: 100%"/>
       </div>
       
         <el-row class="art-item" style="clear: both;">
@@ -168,12 +168,12 @@ text-transform: none;"><span v-html="item.result"></span></div>
 font-family: PingFang SC-Bold, PingFang SC;
 font-weight: bold;
 color: #000000;
-line-height: 20px;">其他类型问题1</span>
+line-height: 20px;">其他类型问题</span>
                 </div>
                 <div style="width: 100%;
 height: 49px;
 border-radius: 10px 10px 10px 10px;" v-for="item in  artList1">
-                  <div>
+                  <div @click="toThisPage(item.id)">
                     <div style="display: inline-block;
   width: 6px;
   height: 6px;
@@ -217,11 +217,12 @@ line-height: 16px;font-size: 14px;position: relative;left: 100px;">更多></span
                   </div>
                   <div v-for="item in qhguwt">
                     <div style="padding-top: 20px;">
-                      <div style="width: 22px;
-height: 22px;float: left;">
+                      <div @click="$router.push('/ydy/'+item.userId)">
+                        <div style="width: 22px;height: 22px;float: left;">
                         <img style="border-radius: 50%;width:62px;height:62px;" :src="baseUrlImg + item.avatar" />
                       </div>
                       <div class="mar_to_nick" style="">{{ item.nickName }}</div>
+                      </div>
                       <div style="text-align: center;line-height: 24px;font-size: 12px;position: relative;left: 70px;">
                         <div style="width: 72px;height: 24px;background-color: #F7F7F7;float: left;">{{ item.remark }}
                         </div>
@@ -230,7 +231,8 @@ height: 22px;float: left;">
         item.helpNumber
       }}</div>
                         <div class="turn_to">
-                          <img src="../assets/2924.png"><img src="../assets/2925.png" style="padding-left: 10px;">
+                          <img @click="showPhone()" src="../assets/2924.png">
+                          <img @click="showWchat()" src="../assets/2925.png" style="padding-left: 10px;">
                         </div>
                       </div>
                       <div class="art-more1">
@@ -268,7 +270,7 @@ line-height: 20px;">热议问题</span>
               <div style="width: 100%;
 height: 49px;
 border-radius: 10px 10px 10px 10px;" v-for="item in HotAnswer">
-                <div>
+                <div @click="toThisPage(item.id)">
                   <div style="display: inline-block;
   width: 6px;
   height: 6px;
@@ -288,11 +290,104 @@ line-height: 20px;padding-left: 10px;">{{ item.title }}{{ item.replyCount }}</sp
 </div>
     </el-row>
 
+
+    <div v-if="dialogVisible1" class="popup" style="z-index: 999999999999;">
+    <!-- 弹窗的内容 -->
+    <div class="group_32 dialog_cont flex-col" :class="isPhone?'dialog_cont1':''" style="position: absolute;background: #fff">
+        <div class="image-wrapper_14 flex-row">
+          <img
+            class="thumbnail_46"
+            referrerpolicy="no-referrer"
+            src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG1a1730c41af2279e3053b2e67cc48a4c.png"
+            @click="dialogVisible1=false"
+          />
+        </div>
+        <div class="image-wrapper_15 flex-row">
+          <img
+            class="image_12"
+            referrerpolicy="no-referrer"
+            src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNGfdd1de355ade847646e5b7e03b5ef02c.png"
+          />
+        </div>
+        <div class="text-wrapper_24">
+          <span class="text_50" style="text-align: center;">{{serviceInfo.nickName}}</span>
+        </div>
+        <div v-if="!isPhone">
+          <div class="image-wrapper_16 flex-row">
+          <img
+            class="image_13"
+            referrerpolicy="no-referrer"
+            :src="baseUrlImg+serviceInfo.wxQrCode"
+          />
+        </div>
+        <div class="text-wrapper_25 flex-row">
+          <span class="text_51">微信扫一扫&nbsp;添加顾问</span>
+        </div>
+        </div>
+        <div class="group_51 flex-row">
+          <div class="image-text_76 flex-row justify-between">
+            <div class="box_17 flex-col">
+              <img src="../assets/Vector.png">
+            </div>
+            <span class="text-group_43">{{serviceInfo.phonenumber}}</span>
+          </div>
+        </div>
+        <div class="group_52 flex-row">
+          <div class="text-wrapper_23">
+            <span class="text_52">*</span>
+            <span class="text_53"
+              >咨询时请说明来自海洋财经，以便得到更佳服务</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div v-if="dialogVisible3" class="popup">
+    <!-- 弹窗的内容 -->
+    <div class="section_9 flex-col" style="position: absolute;left: 20%;">
+        <div class="image-wrapper_11 flex-row">
+          <img @click="dialogVisible=false"
+            class="thumbnail_46"
+            referrerpolicy="no-referrer"
+            src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG1a1730c41af2279e3053b2e67cc48a4c.png"
+          />
+        </div>
+        <div class="group_18 flex-row">
+          <div class="image-text_38 flex-col justify-between">
+            <img
+              class="image_12"
+              referrerpolicy="no-referrer"
+              src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNGfdd1de355ade847646e5b7e03b5ef02c.png"
+            />
+            <span class="text-group_431">{{serviceInfo.nickName}}</span>
+          </div>
+        </div>
+        <div class="group_19 flex-row">
+          <div class="image-text_39 flex-row justify-between">
+            <div class="box_17 flex-col">
+              <img src="../assets/Vector.png">
+            </div>
+            <span class="text-group_44">{{serviceInfo.phonenumber}}</span>
+          </div>
+        </div>
+        <div class="group_20 flex-row">
+          <div class="text-wrapper_21">
+            <span class="text_54">*</span>
+            <span class="text_55"
+              >咨询时请说明来自海洋财经，以便得到更佳服务</span
+            >
+          </div>
+        </div>
+      </div>
+    <!-- 关闭按钮 -->
+
+    </div>
+
   </div>
 </template>
 
 <script>
-import { getAnswerInfo, getRecommendUser, getHotAnswer, getOtherTypeAnswer, insertLeaveMessage } from '@/api/index'
+import { getAnswerInfo,getAlertInfo, getRecommendUser, getHotAnswer, getOtherTypeAnswer, insertLeaveMessage } from '@/api/index'
 import route from '@/router'
 export default {
 
@@ -317,7 +412,11 @@ export default {
       },
       currentPage: 1,
       count: 0,
-      total: 0
+      total: 0,
+      serviceInfo: {},
+      dialogVisible1: false,
+      dialogVisible3: false,
+      isPhone: false
     }
   },
   created() {
@@ -328,10 +427,26 @@ export default {
   },
   mounted() {
     this.getArtList()
+    this.getService()
   },
   methods: {
-
-    
+    toThisPage(id) {
+      this.$router.push('/wendaxiangqing/'+id)
+      // this.$forceUpdate()
+      location.reload()
+    },
+    showPhone() {
+      this.dialogVisible1 = true
+      this.isPhone = true
+    },
+    showWchat() {
+      this.dialogVisible1 = true
+      this.isPhone = false
+    },
+    async getService() {
+      const {data} = await getAlertInfo({})
+      this.serviceInfo = data
+    },
     handleCurrentChange: function (currentPage) {
       this.queryParam.pagenum = currentPage
       // eslint-disable-next-line no-console
@@ -375,6 +490,7 @@ insertLeaveMessage(param).then(res=>{
 </script>
 
 <style scoped lang="scss">
+
 
 .art-item {
   margin-bottom: 30px;
@@ -506,6 +622,96 @@ h5 {
 }
 .turn_bott {
   transform: translateY(15px);
+}
+.bott_img_sty {
+  width: 100%;
+  height: 130px;
+  img {
+    width: 100%;
+  height: 100%;
+  }
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ 
+.popup-content {
+  background: #fff !important;
+  padding: 20px;
+  border-radius: 5px;
+}
+.dialog_cont {
+  width: 513px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 544px;
+  background: #FFFFFF;
+  border-radius: 10px 10px 10px 10px;
+  .text-wrapper_24 {
+    font-family: PingFang SC, PingFang SC;
+    font-weight: bold;
+    font-size: 20px;
+    color: #242629;
+  }
+  .image-wrapper_15 {
+    margin-bottom: 23px;
+    margin-top: 50px;
+  }
+  .image_12 {
+    width: 192px;
+    height: 40px;
+  }
+  .image_13 {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 23px;
+  }
+  .text_51 {
+    font-family: PingFang SC, PingFang SC;
+    font-weight: bold;
+    font-size: 18px;
+    color: #7A7A7A;
+    margin-bottom: 23px;
+  }
+  .text-group_43 {
+    font-family: PingFang SC, PingFang SC;
+    font-weight: bold;
+    font-size: 40px;
+    color: #1ABCFC;
+    line-height: 40px;
+  }
+  .text_53 {
+    margin: 0;
+    font-family: PingFang SC, PingFang SC;
+    font-weight: 500;
+    font-size: 16px;
+    color: #7A7A7A;
+  }
+  .group_52 {
+    transform: translateX(-150px)
+
+  }
+  .image-wrapper_14 {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+  }
+  .text-wrapper_24 {
+    text-align: center;
+  }
+}
+.dialog_cont1 {
+  height: 294px;
 }
 
 </style>

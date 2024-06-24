@@ -23,7 +23,7 @@
         <div class="per_det" style="width: 100%;
           ">
           <el-col :span="4" class="img_box">
-            <img :src="baseUrlImg + queryData.avatar" style="width: 74px;
+            <img @click="$router.push('/ydy/'+ queryData.userId)" :src="baseUrlImg + queryData.avatar" style="width: 74px;
 height: 74px;border-radius: 50%" />
           </el-col>
           <el-col :span="8" class="nic_right">
@@ -38,13 +38,9 @@ height: 74px;border-radius: 50%" />
             </div>
           </el-col>
           <div class="tr_lag">
-            <el-popover placement="top" title="电话咨询" width="200" trigger="click" :content="queryData.phonenumber">
-              <el-button slot="reference" style=" margin-right: 22px;background-color: #FF3D3D;color: #fff;">电话咨询</el-button>
-            </el-popover>
-            <el-popover placement="top" title="微信咨询" width="200" trigger="click">
-              <img :src="baseUrlImg + queryData.wxQrCode" style="width: 100%;" />
-              <el-button slot="reference" style="background-color: #10CB8C;color: #fff;">微信咨询</el-button>
-            </el-popover>
+              <el-button @click="dialogVisible4 = true" slot="reference" style=" margin-right: 22px;background-color: #FF3D3D;color: #fff;">电话咨询</el-button>
+            
+              <el-button @click="dialogVisible4 = true" slot="reference" style="background-color: #10CB8C;color: #fff;">微信咨询</el-button>
           </div>
           
 
@@ -67,7 +63,7 @@ line-height: 36px;">
           </div>
           <div class="bottom_per_box">
             <el-col :span="4" class="img_box">
-              <img :src="baseUrlImg + queryData.avatar" style="width: 74px;
+              <img @click="$router.push('/ydy/'+ queryData.userId)" :src="baseUrlImg + queryData.avatar" style="width: 74px;
                 height: 74px;border-radius: 50%" />
             </el-col>
             <el-col :span="8" class="right_box_de">
@@ -80,10 +76,7 @@ line-height: 36px;">
                 line-height: 12px;"><span>{{ queryData.position }}</span>
               </div>
             </el-col>
-          <el-popover placement="top" title="在线咨询" width="200" trigger="click">
-            <img :src="baseUrlImg + queryData.wxQrCode" style="width: 100%;" />
-            <el-button slot="reference" style="background-color: #FF3D3D;color: #fff; float: right;transform: translateY(10px);">在线咨询</el-button>
-          </el-popover>
+            <el-button @click="dialogVisible4 = true" slot="reference" style="background-color: #FF3D3D;color: #fff; float: right;transform: translateY(10px);">在线咨询</el-button>
 
         </div>
         <br>
@@ -93,7 +86,7 @@ line-height: 36px;">
       <div class="box_9 flex-row justify-between">
         <span class="text_28">推荐相关阅读</span>
         <div class="image-text_10 flex-row justify-between">
-          <span class="text-group_10">查看更多</span>
+          <span class="text-group_10" @click="$router.push('/ydy/'+ queryData.userId)">查看更多</span>
           <img
             class="thumbnail_7"
             referrerpolicy="no-referrer"
@@ -106,7 +99,8 @@ line-height: 36px;">
           <div class="text-wrapper_8 flex-col">
             <span class="text_29">优质</span>
           </div>
-          <span class="text_30"
+          <span class="text_30" style="cursor: pointer"
+            @click="toThisPage(item)"
             >{{ item.title }}</span
         >
           <span class="text_31"
@@ -114,7 +108,7 @@ line-height: 36px;">
           >
           <div class="section_7 flex-row justify-between">
             <div class="image-text_11 flex-row justify-between">
-              <img style="border-radius: 50%;" class="label_1"
+              <img @click="$router.push('/ydy/'+ item.userId)" style="border-radius: 50%;" class="label_1"
                 referrerpolicy="no-referrer" :src="baseUrlImg + item.avatar">
 
               <span class="text-group_11">{{ item.nickName }}</span>
@@ -140,7 +134,7 @@ line-height: 36px;">
 font-size: 20px;
 color: #000000;">TA的文章 </span> <a style="font-weight: 500;
 font-size: 16px;
-color: #8A8A8A;float: right;">更多></a>
+color: #8A8A8A;float: right;" @click="$router.push('/ydy/'+ queryData.userId)">更多></a>
               </div>
               <div style="width: 100%;
 height: 49px;
@@ -153,7 +147,8 @@ border-radius: 10px 10px 10px 10px;" v-for="item in Article">
 font-family: PingFang SC-Bold, PingFang SC;
 font-weight: bold;
 color: #242629;
-line-height: 22px;padding-left: 10px;">{{ item.title }}</span>
+cursor:pointer;
+line-height: 22px;padding-left: 10px;" @click="toThisPage(item)">{{ item.title }}</span>
 
 
               </div>
@@ -169,7 +164,7 @@ line-height: 22px;padding-left: 10px;">{{ item.title }}</span>
 font-size: 20px;
 color: #000000;">TA的回答</span><a style="font-weight: 500;
 font-size: 16px;
-color: #8A8A8A;float: right;">更多></a>
+color: #8A8A8A;float: right;" @click="$router.push('/ydy/'+ queryData.userId)">更多></a>
               </div>
               <div  style="width: 100%;
 height: 49px;
@@ -182,7 +177,8 @@ border-radius: 10px 10px 10px 10px;" v-for="item in Answer">
 font-family: PingFang SC-Bold, PingFang SC;
 font-weight: bold;
 color: #242629;
-line-height: 22px;padding-left: 10px;">{{ item.title }}</span>
+cursor: pointer;
+line-height: 22px;padding-left: 10px;" @click="$router.push('/wendaxiangqing/'+item.id)">{{ item.title }}</span>
               </div>
             </el-card>
           </div>
@@ -208,7 +204,7 @@ line-height: 22px;padding-left: 10px;">{{ item.title }}</span>
                     <div style="padding-top: 20px;">
                       <div style="width: 22px;
 height: 22px;float: left;">
-                        <img style="border-radius: 50%;width:62px;height:62px;" :src="baseUrlImg + item.avatar" />
+                        <img @click="$router.push('/ydy/'+ item.userId)" style="border-radius: 50%;width:62px;height:62px;" :src="baseUrlImg + item.avatar" />
                       </div>
                       <div class="mg_20">{{ item.nickName }}</div>
                       <div class="fo_fim" style="text-align: center;line-height: 24px;font-size: 12px;position: relative;left: 70px;">
@@ -219,7 +215,8 @@ height: 22px;float: left;">
         item.helpNumber
       }}</div>
                         <div class="righ_btn">
-                          <img class="le_ma" src="../assets/2924.png" @click="dialogVisible=true"><img src="../assets/2925.png" style="padding-left: 10px;" @click="dialogVisible1=true">
+                          <img class="le_ma" src="../assets/2924.png" @click="dialogVisible4=true">
+                          <img src="../assets/2925.png" style="padding-left: 10px;" @click="dialogVisible4=true">
                         </div>
                       </div>
                       <div class="art-more1">
@@ -338,12 +335,51 @@ line-height: 14px;" />{{ item.userViews }}</div> -->
     <!-- 关闭按钮 -->
 
     </div>
+
+    <div v-if="dialogVisible4" class="popup" style="z-index: 999999999999;">
+    <!-- 弹窗的内容 -->
+    <div class="group_32 flex-col" style="position: absolute;left: 20%;">
+        <div class="image-wrapper_14 flex-row">
+          <img class="thumbnail_46" referrerpolicy="no-referrer"
+            src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG1a1730c41af2279e3053b2e67cc48a4c.png"
+            @click="dialogVisible4=false"/>
+        </div>
+        <div class="image-wrapper_15 flex-row">
+          <img class="image_12" referrerpolicy="no-referrer" src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNGfdd1de355ade847646e5b7e03b5ef02c.png"/>
+        </div>
+        <div class="text-wrapper_24">
+          <span class="text_50" style="text-align: center;">{{serviceInfo.nickName}}</span>
+        </div>
+        <div class="image-wrapper_16 flex-row">
+          <img class="image_13" referrerpolicy="no-referrer" :src="baseUrlImg + serviceInfo.wxQrCode"/>
+        </div>
+        <div class="text-wrapper_25 flex-row">
+          <span class="text_51">微信扫一扫&nbsp;添加顾问</span>
+        </div>
+        <div class="group_51 flex-row">
+          <div class="image-text_76 flex-row justify-between">
+            <div class="box_17 flex-col">
+              <img src="@/assets/Vector.png">
+            </div>
+            <span class="text-group_43">{{ serviceInfo.phonenumber }}</span>
+          </div>
+        </div>
+        <div class="group_52 flex-row">
+          <div class="text-wrapper_23 tran_to">
+            <span class="text_52">*</span>
+            <span class="text_53 reset_span">咨询时请说明来自海洋财经，以便得到更佳服务</span>
+          </div>
+        </div>
+        <!-- <div class="back_btn" @click="toIndex()">返回</div> -->
+      </div>
+    <!-- 关闭按钮 -->
+    </div>
   </div>
 </template>
 
 <script>
 import route from '@/router'
-import { getArticleInfo, getFiveArticle, getFiveAnswer,getRecommendUser,getRelativeArticle } from '@/api/index'
+import { getArticleInfo, getFiveArticle, getFiveAnswer,getRecommendUser,getRelativeArticle,getAlertInfo } from '@/api/index'
 export default {
   name: 'Article',
   components: {
@@ -351,6 +387,7 @@ export default {
   },
   data() {
     return {
+      dialogVisible4: false,
       dialogVisible:false,
       dialogVisible1:false,
       queryData: {
@@ -360,7 +397,8 @@ export default {
       Article: [],
       Answer: [],
       Answer1:[],
-      data3:[]
+      data3:[],
+      serviceInfo: {}
     }
   },
   created() {
@@ -381,10 +419,18 @@ export default {
       })
       getRelativeArticle().then(res => {
         this.data3 = res.data
-      })
+      }),
+      this.getService()
   },
   methods: {
-
+    async getService() {
+      const {data} = await getAlertInfo({})
+      this.serviceInfo = data
+    },
+    toThisPage(item) {
+      this.$router.push('/article/'+item.id+'/'+item.userId)
+      location.reload()
+    }
   }
 }
 </script>
@@ -3973,6 +4019,16 @@ h5 {
   .le_ma {
     margin-right: 10px;
   }
+}
+.box_17 {
+  background: none;
+}
+.reset_span {
+  margin-left: 0;
+  margin-bottom: 30px;
+}
+.tran_to {
+  transform: translateY(-30px);
 }
 
 </style>

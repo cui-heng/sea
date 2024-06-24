@@ -130,7 +130,7 @@ insertLeaveMessage(param).then(res=>{
 
 <style>
 .popup {
-  z-index: 999999999999999999999999999999999999999999999999999999999999999999999999999999;
+  z-index: 999999999;
   position: fixed;
   top: 0;
   left: 0;

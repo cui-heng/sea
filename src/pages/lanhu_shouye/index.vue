@@ -5,7 +5,7 @@
         <el-menu-item index="/lanhu_shouye">首页</el-menu-item>
         <el-menu-item index="/lanhu_youwenbida">有问必答</el-menu-item>
         <el-menu-item index="/aboutPhone">期货手续费</el-menu-item>
-        <el-menu-item index="/aboutPhone">期货保证金</el-menu-item>
+        <el-menu-item index="/aboutPhoneMargin">期货保证金</el-menu-item>
         <el-menu-item index="/lanhu_qihuobaozhengjin">期货一对一服务</el-menu-item>
       </el-menu>
     </el-drawer>
@@ -53,7 +53,7 @@
       </div>
       <div>
         <el-carousel indicator-position="none" :autoplay="false" height="200px">
-          <el-carousel-item v-for="item in artList.slice(0, 3)" :key="item">
+          <el-carousel-item v-for="item in artList.slice(0, 3)" :key="item.id">
             <div>
               <div style="position: absolute;background-color: rgba(0,0,0,0.4);width: 100%;height: 100%;">
                 <div style="position: relative;top: 60%;padding: 20px;">
@@ -65,7 +65,7 @@
                       line-height: 3px;">{{ item.title }}</p>
                   </router-link>
                   <div class="author_box">
-                    <div class="img_box">
+                    <div class="img_box" @click="$router.push('lanhu_wanghaijingli/'+item.userId)">
                       <img :src="baseUrlImg + item.avatar" alt="">
                     </div>
                     <div class="nic_bo">{{ item.nickName }}</div>
@@ -83,7 +83,7 @@
       <el-row :gutter="20">
         <el-col :span="12" v-for="item in artList" style="padding-top: 20px;">
           <div class="image-text_13 flex-col justify-between">
-            <div class="group_20 flex-col" :style="{ backgroundImage: 'url(' + baseUrlImg + item.coverImg + ')' }">
+            <div @click="$router.push(`/lanhu_shouyezixun/` + item.id + '/' + item.userId)" class="group_20 flex-col" :style="{ backgroundImage: 'url(' + baseUrlImg + item.coverImg + ')' }">
               <div class="block_2 flex-row justify-between">
                 <span class="text_22">作者：{{ item.nickName }}1</span>
                 <div class="image-text_14 flex-row justify-between">
@@ -119,11 +119,14 @@
         <div class="group_5 flex-col">
           <div class="group_6 flex-col"></div>
         </div>
-        <span class="text_8">{{ item.title }}</span>
-        <span class="text_9" v-html="item.content.slice(0, 50)">
-        </span>
+        <div @click="$router.push(`/lanhu_shouyezixun/` + item.id + '/' + item.userId)">
+          <span class="text_8">{{ item.title }}</span>
+          <span class="text_9" v-html="item.content.slice(0, 50)">
+          </span>
+
+        </div>
         <div class="group_7 flex-row justify-between">
-          <div class="image-text_1 flex-row justify-between">
+          <div class="image-text_1 flex-row justify-between" @click="$router.push('lanhu_wanghaijingli/'+item.userId)">
             <img :src="baseUrlImg + item.avatar" style="width: 22px;
 height: 22px;float: left;
 border-radius: 50%;">
@@ -442,6 +445,9 @@ h5 {
 }
 ::v-deep .el-drawer {
   width: 7rem !important;
+}
+.group_5 {
+  margin-bottom: 12px;
 }
 
 </style>

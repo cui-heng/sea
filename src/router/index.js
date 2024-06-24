@@ -13,6 +13,7 @@ import nestedRouter from './modules/nested'
 import about from '@/pages/about'
 import aboutbzj from '@/pages/aboutbzj'
 import aboutPhone from '@/pages/aboutPhone'
+import aboutPhoneMargin from '@/pages/aboutPhoneMargin'
 import about2 from '@/pages/about2'
 import article from '@/pages/article'
 import archive from '@/pages/archive'
@@ -94,6 +95,11 @@ export const constantRoutes = [
     path: '/aboutPhone',
     name: 'aboutPhone',
     component: aboutPhone
+  },
+  {
+    path: '/aboutPhoneMargin',
+    name: 'aboutPhoneMargin',
+    component: aboutPhoneMargin
   },
   {
     path: '/about1',

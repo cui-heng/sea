@@ -14,12 +14,12 @@ color: #242629;">有问必答</span>></el-col>
 
             <el-row class="art-item">
               <el-card shadow="hover" style="border-radius:  15px;">
-                <div style="text-align: right;color: #8A8A8A; cursor: pointer;" slot="header">
-                  <span @click="getArtList('全部')" style="padding-right: 5px;">全部 |</span> <span
-                    @click="getArtList('热门回答')" style="padding-right: 5px;">热门回答 |</span> <span
-                    @click="getArtList('全部')" style="padding-right: 5px;">最新回答 |</span> <span @click="getArtList('全部')"
+                <div @click="getArtList()" style="text-align: right;color: #8A8A8A; cursor: pointer;" slot="header">
+                  <span style="padding-right: 5px;">全部 |</span> <span
+                    style="padding-right: 5px;">热门回答 |</span> <span
+                    style="padding-right: 5px;">最新回答 |</span> <span 
                     style="padding-right: 5px;">最新点赞回答
-                    |</span> <span @click="getArtList('全部')" style="padding-right: 5px;">最新分享回答</span>
+                    |</span> <span  style="padding-right: 5px;">最新分享回答</span>
                 </div>
                 <div v-for="item in artList" style="border-bottom:  1px dashed #E0E0E0;">
                   <p style="font-size: 16px;
@@ -36,7 +36,7 @@ line-height: 10px;cursor: pointer;">{{ item.title }}</p>
                   </router-link>
                   <el-row class="art-body">
 
-                    <div><img style="border-radius: 50%;width:50px;height: 50px;" :src="baseUrlImg + item.avatar"></div>
+                    <div @click="$router.push('/ydy/'+item.userId)"><img style="border-radius: 50%;width:50px;height: 50px;" :src="baseUrlImg + item.avatar"></div>
                     <div class="side-abstract" style="position: relative;top: -15px;">
                       <p style="font-size: 16px;
 font-family: PingFang SC-Bold, PingFang SC;
@@ -106,9 +106,10 @@ line-height: 16px;font-size: 14px;position: relative;left: 100px;">更多></span
                   </div>
                   <div v-for="item in qhguwt">
                     <div style="padding-top: 20px;">
-                      <div style="width: 22px;
-height: 22px;float: left;">
-                        <img style="border-radius: 50%;width:62px;height:62px;" :src="baseUrlImg + item.avatar" />
+                      <div style="float: left;width: 22px;height: 22px;" >
+                        <img @click="toUserPage(item.userId)"  style="
+    position: relative;
+    z-index: 999;border-radius: 50%;width:62px;height:62px;" :src="baseUrlImg + item.avatar" />
                       </div>
                       <div class="turn_top_bo">
                         <div style="width: 66px;font-size: 16px;
@@ -158,7 +159,7 @@ border-radius: 10px 10px 10px 10px;" v-for="item in HotAnswer">
   height: 6px;
   border-radius: 50%;background-color:#17B6F5;"></div>
 
-                      <span style="font-size: 14px;
+                      <span @click="toTitLe(item.id)" style="font-size: 14px;
 font-family: PingFang SC-Medium, PingFang SC;
 font-weight: 500;
 color: #000000;
@@ -194,13 +195,13 @@ border-radius: 0px 0px 0px 0px;padding-left: 10px;"></span>{{ item.title }}<span
           />
         </div>
         <div class="text-wrapper_24">
-          <span class="text_50" style="text-align: center;">金牌顾问</span>
+          <span class="text_50" style="text-align: center;">{{serviceInfo.nickName}}</span>
         </div>
         <div class="image-wrapper_16 flex-row">
           <img
             class="image_13"
             referrerpolicy="no-referrer"
-            src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG5effd93d3a4fbd95d5f329c537dca3d6.png"
+            :src="baseUrlImg+serviceInfo.wxQrCode"
           />
         </div>
         <div class="text-wrapper_25 flex-row">
@@ -211,7 +212,7 @@ border-radius: 0px 0px 0px 0px;padding-left: 10px;"></span>{{ item.title }}<span
             <div class="box_17 flex-col">
               <img src="../assets/Vector.png">
             </div>
-            <span class="text-group_43">137&nbsp;7733&nbsp;5959</span>
+            <span class="text-group_43">{{serviceInfo.phonenumber}}</span>
           </div>
         </div>
         <div class="group_52 flex-row">
@@ -223,8 +224,6 @@ border-radius: 0px 0px 0px 0px;padding-left: 10px;"></span>{{ item.title }}<span
           </div>
         </div>
       </div>
-    <!-- 关闭按钮 -->
-
     </div>
     <div v-if="dialogVisible" class="popup">
     <!-- 弹窗的内容 -->
@@ -243,7 +242,7 @@ border-radius: 0px 0px 0px 0px;padding-left: 10px;"></span>{{ item.title }}<span
               referrerpolicy="no-referrer"
               src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNGfdd1de355ade847646e5b7e03b5ef02c.png"
             />
-            <span class="text-group_431">金牌顾问</span>
+            <span class="text-group_431">{{serviceInfo.nickName}}</span>
           </div>
         </div>
         <div class="group_19 flex-row">
@@ -251,7 +250,7 @@ border-radius: 0px 0px 0px 0px;padding-left: 10px;"></span>{{ item.title }}<span
             <div class="box_17 flex-col">
               <img src="../assets/Vector.png">
             </div>
-            <span class="text-group_44">137&nbsp;7733&nbsp;5959</span>
+            <span class="text-group_44">{{serviceInfo.phonenumber}}</span>
           </div>
         </div>
         <div class="group_20 flex-row">
@@ -284,7 +283,8 @@ border-radius: 0px 0px 0px 0px;padding-left: 10px;"></span>{{ item.title }}<span
 </template>
 
 <script>
-import { getAnswer, getRecommendUser, getHotAnswer } from '@/api/index'
+import { getAnswer, getRecommendUser, getHotAnswer,getAlertInfo } from '@/api/index'
+import service from '@/utils/request'
 
 export default {
 
@@ -306,13 +306,26 @@ export default {
       },
       currentPage: 1,
       count: 0,
-      total: 0
+      total: 0,
+      serviceInfo: {}
     }
+  },
+  created() {
+          this.getService()
+
   },
   mounted() {
     this.getArtList()
   },
   methods: {
+    toTitLe(id) {
+      this.$router.push('/wendaxiangqing/'+id)
+    },
+    async getService() {
+
+      const {data} = await getAlertInfo({})
+      this.serviceInfo = data
+    },
     handleCurrentChange: function (currentPage) {
       this.queryParam.pagenum = currentPage
       // eslint-disable-next-line no-console
@@ -334,6 +347,11 @@ export default {
       this.qhguwt = res1.data
       const res2 = await getHotAnswer()
       this.HotAnswer = res2.data
+    },
+    toUserPage(id) {
+      console.log(id)
+      this.$router.push('/ydy/'+id)
+
     }
   }
 }
@@ -761,6 +779,7 @@ h5 {
   text-align: center;
   white-space: nowrap;
   line-height: 16px;
+  margin: 0;
 }
 .img_box_sty {
   transform: translateY(-27px);

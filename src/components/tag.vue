@@ -7,6 +7,7 @@
 color: #8A8A8A;"> Preferred article</span></span>
       </div>
       <div v-for="item in cateList.slice(0,9)">
+        <router-link :to="`/article/` + item.id + '/' + item.userId" tag="span">
         <p style="font-size: 14px;
 font-family: PingFang SC-Bold, PingFang SC;
 font-weight: bold;
@@ -17,9 +18,12 @@ font-family: PingFang SC-Medium, PingFang SC;
 font-weight: 500;
 color: #707070;
 line-height: 20px;" v-html=" item.content.slice(0,50) "></p>
+</router-link>
         <div>
 
-          <div style="width: 22px;
+
+          <router-link :to="'/ydy/'+ item.userId">
+            <div style="width: 22px;
 height: 22px;float: left;
 border-radius: 50%;background-color: red">
             <img :src="baseUrlImg + item.avatar" style="width: 22px;
@@ -31,6 +35,7 @@ font-family: PingFang SC-Medium, PingFang SC;
 font-weight: 500;
 color: #242629;
 line-height: 22px;float: left;margin-left: 10px;">{{ item.nickName }}</span>
+          </router-link>
           <div class="view" style="float: right;font-size: 12px;"><i class="el-icon-view" style="font-size: 12px;
 font-family: PingFang SC-Medium, PingFang SC;
 font-weight: 500;

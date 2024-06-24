@@ -87,15 +87,16 @@ line-height: 0px;text-align: center;position: relative;top: -60px;">最具影响
             <el-col :span="24" style="margin-left: 20px;">
               <el-col :span="6" class="wid_au">
              
-                <img class="wid_74" style="border-radius: 50%;" :src="baseUrlImg + item.avatar"></el-col>
+                <img @click="toUserDetail(item.userId)" class="wid_74" style="border-radius: 50%;" :src="baseUrlImg + item.avatar"></el-col>
               <el-col :span="9">
                 <span style="
-font-family: PingFang SC, PingFang SC;
-font-weight: bold;
-font-size: 16px;
-color: #242629;
-text-align: justified;
-font-style: normal;">{{ item.nickName }}</span>
+                  font-family: PingFang SC, PingFang SC;
+                  font-weight: bold;
+                  font-size: 16px;
+                  color: #242629;
+                  text-align: justified;font-style: normal;">
+                  {{ item.nickName }}  
+                </span>
                 <br>
                 <div style="width: 100%;height: 10px;"></div>
                 <div class="btn_lab" style="background-color: #F7F7F7; color: #7A7A7A;display: inline;padding: 6px 9px;font-size: 12px; font-family: PingFang SC, PingFang SC;">{{ item.remark }}</div>
@@ -123,7 +124,7 @@ line-height: 0px;text-align: center;position: relative;top: -60px;">最具影响
             <el-col :span="24" style="margin-left: 20px;">
               <el-col :span="6">
              
-                <img class="wid_74" style="border-radius: 50%;" :src="baseUrlImg + item.avatar"></el-col>
+                <img @click="toUserDetail(item.userId)" class="wid_74" style="border-radius: 50%;" :src="baseUrlImg + item.avatar"></el-col>
               <el-col :span="9">
                 <span style="
 font-family: PingFang SC, PingFang SC;
@@ -160,7 +161,7 @@ line-height: 0px;text-align: center;position: relative;top: -60px;">最具影响
             <el-col :span="24" style="margin-left: 20px;">
               <el-col :span="6">
              
-                <img class="wid_74" style="border-radius: 50%;" :src="baseUrlImg + item.avatar"></el-col>
+                <img @click="toUserDetail(item.userId)" class="wid_74" style="border-radius: 50%;" :src="baseUrlImg + item.avatar"></el-col>
               <el-col :span="9">
                 <span style="
 font-family: PingFang SC, PingFang SC;
@@ -198,7 +199,7 @@ color: #000000;">最新问答</p>
           <div class="line"></div>
  <el-card>
           <el-col :span="24" v-for="item in dataList2">
-            <el-col :span="4"> <img class="wid_74" style="border-radius: 50%;" :src="baseUrlImg + item.avatar"></el-col>
+            <el-col :span="4"> <img @click="toUserDetail(item.userId)" class="wid_74" style="border-radius: 50%;" :src="baseUrlImg + item.avatar"></el-col>
             <el-col :span="16" class="wid_450">
               <div class="top_tit"> <p>{{ item.nickName }}<img src="../assets/2929.png" style="width: 15px;"/><span style="float: right;font-weight: 500;
 font-size: 14px;
@@ -206,9 +207,10 @@ color: #242629;">{{item.createTime }}</span></p></div>
              
               <p class="ques_to">
                 <img src="../assets/Group 2918.png" style="width: 20px;position: relative;top:5px"/>&nbsp;
-                <span>{{ item.title }}</span>
+                <span @click="toArtcal(item)">{{ item.title }}</span>
               </p>
               <img src="../assets/Group 2919.png" style="width: 20px;
+              transform: translateY(7px);
     float: left;
     position: relative;
     top: 18px;
@@ -234,7 +236,7 @@ color: #000000;">最新咨询</p>
   background: #ffffff;
   border-radius: 50%;
   border: 3px solid red;" />
-            <span class="right_tit_s">{{ item.title }}</span>
+            <span @click="toArtcal(item)" class="right_tit_s">{{ item.title }}</span>
             <p class="bott_p_s_ri" v-html="item.result.slice(0,50)" style="color: #8A8A8A;font-weight: 500;
 font-size: 13px;
 color: #8A8A8A;line-height:20px;margin-left: 22px;"></p>
@@ -264,13 +266,13 @@ color: #8A8A8A;line-height:20px;margin-left: 22px;"></p>
           />
         </div>
         <div class="text-wrapper_24">
-          <span class="text_50" style="text-align: center;">金牌顾问</span>
+          <span class="text_50" style="text-align: center;">{{serviceInfo.nickName}}</span>
         </div>
         <div class="image-wrapper_16 flex-row">
           <img
             class="image_13"
             referrerpolicy="no-referrer"
-            src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG5effd93d3a4fbd95d5f329c537dca3d6.png"
+            :src="baseUrlImg+serviceInfo.wxQrCode"
           />
         </div>
         <div class="text-wrapper_25 flex-row">
@@ -281,7 +283,7 @@ color: #8A8A8A;line-height:20px;margin-left: 22px;"></p>
             <div class="box_17 flex-col">
               <img src="../assets/Vector.png">
             </div>
-            <span class="text-group_43">137&nbsp;7733&nbsp;5959</span>
+            <span class="text-group_43">{{serviceInfo.phonenumber}}</span>
           </div>
         </div>
         <div class="group_52 flex-row">
@@ -339,7 +341,7 @@ color: #8A8A8A;line-height:20px;margin-left: 22px;"></p>
   </div>
 </template>
 <script>
-import { getRecommendUser, getUsers, getLatestAnswer, getLasterAnswerII,getFirstAnaswer } from '@/api/index'
+import { getRecommendUser, getAlertInfo, getUsers, getLatestAnswer, getLasterAnswerII,getFirstAnaswer } from '@/api/index'
 
 export default {
 
@@ -356,6 +358,7 @@ export default {
       dataList2: [],
       dataList3: [],
       dataList4: '',
+      serviceInfo: {}
     }
   },
   created() {
@@ -374,6 +377,20 @@ export default {
     getFirstAnaswer().then(res => {
       this.dataList4 = res.data[0].title
     })
+    this.getService()
+  },
+  methods: {
+    toUserDetail(id) {
+      this.$router.push(`/ydy/${id}`)
+    },
+    async getService() {
+    const {data} = await getAlertInfo({})
+    this.serviceInfo = data
+    },
+    toArtcal(item) {
+      console.log(item)
+      this.$router.push('/wendaxiangqing/'+item.id)
+    }
   }
 }
 </script>
@@ -2208,7 +2225,6 @@ export default {
 }
 
 .box_17 {
-  background-color: rgba(23, 182, 245, 1);
   border-radius: 50%;
   width: 6px;
   height: 6px;
@@ -3578,6 +3594,9 @@ h5 {
   height: 17px;
   margin: 32px 0 0 558px;
 }
+.image-wrapper_11 {
+  border: none;
+}
 
 .thumbnail_46 {
   width: 16px;
@@ -4047,6 +4066,7 @@ h5 {
         img {
           margin-right: 10px;
           margin-left: 12px;
+          transform: translateY(3px);
         }
         span {
           display: inline-block;
@@ -4057,5 +4077,97 @@ h5 {
           transform: translateY(10px);
         }
       }
+      .el-col-4 {
+        width: 79px;
+      }
+      .text_53 {
+        margin: 0;
+        margin-bottom: 20px;
+      }
+      .group_52 {
+        margin: 0px 0 40px 134px;
+      }
+
+      .popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ 
+.popup-content {
+  background: #fff !important;
+  padding: 20px;
+  border-radius: 5px;
+}
+.dialog_cont {
+  width: 513px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 544px;
+  background: #FFFFFF;
+  border-radius: 10px 10px 10px 10px;
+  .text-wrapper_24 {
+    font-family: PingFang SC, PingFang SC;
+    font-weight: bold;
+    font-size: 20px;
+    color: #242629;
+  }
+  .image-wrapper_15 {
+    margin-bottom: 23px;
+    margin-top: 50px;
+  }
+  .image_12 {
+    width: 192px;
+    height: 40px;
+  }
+  .image_13 {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 23px;
+  }
+  .text_51 {
+    font-family: PingFang SC, PingFang SC;
+    font-weight: bold;
+    font-size: 18px;
+    color: #7A7A7A;
+    margin-bottom: 23px;
+  }
+  .text-group_43 {
+    font-family: PingFang SC, PingFang SC;
+    font-weight: bold;
+    font-size: 40px;
+    color: #1ABCFC;
+    line-height: 40px;
+  }
+  .text_53 {
+    margin: 0;
+    font-family: PingFang SC, PingFang SC;
+    font-weight: 500;
+    font-size: 16px;
+    color: #7A7A7A;
+  }
+  .group_52 {
+    transform: translateX(-150px)
+
+  }
+  .image-wrapper_14 {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+  }
+  .text-wrapper_24 {
+    text-align: center;
+  }
+}
+.dialog_cont1 {
+  height: 294px;
+}
 
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mar_bott_s" @mousewheel="scrollChange($event)" ref="scrollview">
     <div >
       <div class="group_5 flex-col">
         <div class="section_1 flex-row">
@@ -56,7 +56,7 @@
               <span class="text_18">投资难题随时解答</span>
             </div>
             <div class="group_10 flex-row">
-              <div class="image-text_3 flex-row justify-between">
+              <div class="image-text_3 flex-row justify-between" @click="showWchat">
                 <img
                   class="thumbnail_4"
                   referrerpolicy="no-referrer"
@@ -79,7 +79,7 @@
               <span class="text_21">电话高效沟通，快速解答疑问</span>
             </div>
             <div class="group_11 flex-row">
-              <div class="image-text_4 flex-row justify-between">
+              <div class="image-text_4 flex-row justify-between" @click="showPhone">
                 <img
                   class="thumbnail_5"
                   referrerpolicy="no-referrer"
@@ -92,8 +92,9 @@
         </div>
       </div>
       <span class="text_22">顾问文章</span>
-      <div class="group_12 flex-col"></div>
-      <div v-for="item in artList" style="margin-top: 20px;">
+      <div class="group_12 flex-col" style="transform: translateY(-40px);"></div>
+      <div class="tr_to">
+        <div v-for="item in artList" class="item_art_sty">
       <span class="text_23"
         >{{ item.title }}</span
       >
@@ -101,7 +102,7 @@
         <img
           class="image_4"
           referrerpolicy="no-referrer"
-          src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG3cbfc6d04a123c96d9a121efa7966fd9.png"
+          :src="baseUrlImg + item.avatar"
         />
         <div class="block_9 flex-col justify-between">
           <div class="section_5 flex-row justify-between">
@@ -141,7 +142,7 @@
         />
       </div>
       <div class="group_14 flex-row">
-        <div class="image-text_7 flex-row justify-between">
+        <div class="marg_right image-text_7 flex-row justify-between">
           <img
             class="thumbnail_8"
             referrerpolicy="no-referrer"
@@ -160,18 +161,20 @@
       </div>
       <div ></div>
     </div>
-    <div style="height: 100px;width: 100%;"></div>
-      <div >
+      </div>
+      
+   
+      <div class="bott_fix_sty" v-show="isShowImg">
         <div class="box_6 flex-row" style="position: relative;top: 20px">
           <img
             class="image_7"
             referrerpolicy="no-referrer"
-            src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNGa3e0f7df5659c6a1801493fa77018235.png"
+            :src="baseUrlImg + dataList.avatar"
           />
           <div class="block_11 flex-col justify-between">
             <div class="text-wrapper_15 flex-row justify-between">
-              <span class="text_35">王海经理</span>
-              <span class="text_36">期货顾问</span>
+              <span class="text_35">{{ dataList.nickName }}</span>
+              <span class="text_36">{{ dataList.position }}</span>
             </div>
             <div class="box_7 flex-row justify-between">
               <div class="box_8 flex-row">
@@ -208,23 +211,23 @@
             </div>
           </div>
           <div class="block_13 flex-row">
-            <div class="image-text_19 flex-row justify-between">
+            <div @click="showPhone" class="image-text_19 flex-row justify-between">
               <img
                 class="thumbnail_20"
                 referrerpolicy="no-referrer"
                 src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNGd29b96d9f62ec237c29dd706fbcd56eb.png"
               />
-              <span class="text-group_21">电话</span>
+              <span class="text-group_21" >电话</span>
             </div>
           </div>
-          <div class="block_14 flex-row">
+          <div class="block_14 flex-row" @click="showWchat">
             <div class="image-text_20 flex-row justify-between">
               <img
                 class="thumbnail_21"
                 referrerpolicy="no-referrer"
                 src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG9bd40b3d845709e9404ff86613d12d87.png"
               />
-              <span class="text-group_22">微信</span>
+              <span class="text-group_22" >微信</span>
             </div>
           </div>
         </div>
@@ -232,10 +235,62 @@
       <div style="height: 180px;width: 100%;"></div>
     </div>
     <el-backtop target=".page-component__scroll .el-scrollbar__wrap"></el-backtop>
+
+    <div v-if="dialogVisible1" class="popup" style="z-index: 999999999999;">
+    <!-- 弹窗的内容 -->
+    <div class="group_32 dialog_cont flex-col" :class="isPhone?'dialog_cont1':''" style="position: absolute;background: #fff">
+        <div class="image-wrapper_14 flex-row">
+          <img
+            class="thumbnail_46"
+            referrerpolicy="no-referrer"
+            src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG1a1730c41af2279e3053b2e67cc48a4c.png"
+            @click="dialogVisible1=false"
+          />
+        </div>
+        <div class="image-wrapper_15 flex-row">
+          <img
+            class="image_12"
+            referrerpolicy="no-referrer"
+            src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNGfdd1de355ade847646e5b7e03b5ef02c.png"
+          />
+        </div>
+        <div class="text-wrapper_24">
+          <span class="text_50" style="text-align: center;">{{serviceInfo.nickName}}</span>
+        </div>
+        <div v-if="!isPhone">
+          <div class="image-wrapper_16 flex-row">
+          <img
+            class="image_13"
+            referrerpolicy="no-referrer"
+            :src="baseUrlImg+serviceInfo.wxQrCode"
+          />
+        </div>
+        <div class="text-wrapper_25 flex-row">
+          <span class="text_51">微信扫一扫&nbsp;添加顾问</span>
+        </div>
+        </div>
+        <div class="group_51 flex-row">
+          <div class="image-text_76 flex-row justify-between">
+            <div class="box_17 flex-col">
+              <img src="../assets/Vector.png">
+            </div>
+            <span class="text-group_43">{{serviceInfo.phonenumber}}</span>
+          </div>
+        </div>
+        <div class="group_52 flex-row">
+          <div class="text-wrapper_23">
+            <span class="text_52">*</span>
+            <span class="text_53"
+              >咨询时请说明来自海洋财经，以便得到更佳服务</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
-import { getUserInfo,getAnswer, } from '@/api/index'
+import { getUserInfo,getAnswer,getAlertInfo } from '@/api/index'
 import route from '@/router'
 export default {
 
@@ -254,6 +309,10 @@ export default {
       dataList2: [],
       dataList3: [],
       constants: {},
+      isShowImg: false,
+      serviceInfo: {},
+      isPhone: false,
+      dialogVisible1: false
     }
   },
   created() {
@@ -264,6 +323,20 @@ export default {
     // getUsers().then(res => {
     //   this.dataList1 = res.data
     // })
+  },
+  mounted () {
+    // 获取指定元素
+    const scrollview = this.$refs['scrollview']
+    // 添加滚动监听，该滚动监听了拖拽滚动条
+    // 尾部的 true 最好加上，我这边测试没加 true ，拖拽滚动条无法监听到滚动，加上则可以监听到拖拽滚动条滚动回调
+    scrollview.addEventListener('scroll', this.scrollChange, true)
+    this.getService()
+  },
+  beforeDestroy () {
+    // 获取指定元素
+    const scrollview = this.$refs['scrollview']
+    // 移除监听
+    scrollview.removeEventListener('scroll', this.scrollChange, true)
   },
   methods: {
 
@@ -276,7 +349,27 @@ export default {
       })
       this.artList = res.data.list
       this.total = res.data.total
-    }
+    },
+
+    scrollChange (e) {
+      if (e.layerY > 700) {
+        this.isShowImg = true
+      } else {
+        this.isShowImg = false
+      }
+    },
+    async getService() {
+      const {data} = await getAlertInfo({})
+      this.serviceInfo = data
+    },
+    showPhone() {
+      this.dialogVisible1 = true
+      this.isPhone = true
+    },
+    showWchat() {
+      this.dialogVisible1 = true
+      this.isPhone = false
+    },
   }
 }
 </script>
@@ -285,13 +378,13 @@ export default {
 .page {
   background-color: rgba(255, 255, 255, 1);
   position: relative;
-  width: 1920px;
+  width: 100vw;
   height: 2553px;
   overflow: hidden;
 }
 
 .block_1 {
-  width: 1920px;
+  width: 100vw;
   height: 483px;
   background: url(./img/FigmaDDSSlicePNG1359293f48a39df490eb1b4e950fa14b.png)
     100% no-repeat;
@@ -980,6 +1073,7 @@ export default {
   width: 50px;
   height: 50px;
   margin-top: 2px;
+  border-radius: 50%;
 }
 
 .block_9 {
@@ -1935,6 +2029,117 @@ export default {
   text-align: center;
   line-height: 28px;
   margin: 16px 0 16px 724px;
+}
+.item_art_sty {
+  .group_14 {
+    border-bottom: 1px solid #E0E0E0;
+        margin-top: 20px;
+        padding-bottom: 38px;
+        -webkit-transform: translateX(-110px);
+        transform: translateX(-86px);
+        padding-left: 82px;
+        display: flex;
+        justify-content: space-between;
+    .marg_right {
+      margin-right: 1px;
+    }
+  }
+  margin-top: 20px;
+}
+.tr_to {
+  transform: translateY(-30px);
+}
+.bott_fix_sty {
+  position: fixed;
+  width: 100vw;
+  z-index: 999999;
+  bottom: 1px;
+
+}
+.mar_bott_s {
+  position: relative;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ 
+.popup-content {
+  background: #fff !important;
+  padding: 20px;
+  border-radius: 5px;
+}
+.dialog_cont {
+  width: 513px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 544px;
+  background: #FFFFFF;
+  border-radius: 10px 10px 10px 10px;
+  .text-wrapper_24 {
+    font-family: PingFang SC, PingFang SC;
+    font-weight: bold;
+    font-size: 20px;
+    color: #242629;
+  }
+  .image-wrapper_15 {
+    margin-bottom: 23px;
+    margin-top: 50px;
+  }
+  .image_12 {
+    width: 192px;
+    height: 40px;
+  }
+  .image_13 {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 23px;
+  }
+  .text_51 {
+    font-family: PingFang SC, PingFang SC;
+    font-weight: bold;
+    font-size: 18px;
+    color: #7A7A7A;
+    margin-bottom: 23px;
+  }
+  .text-group_43 {
+    font-family: PingFang SC, PingFang SC;
+    font-weight: bold;
+    font-size: 40px;
+    color: #1ABCFC;
+    line-height: 40px;
+  }
+  .text_53 {
+    margin: 0;
+    font-family: PingFang SC, PingFang SC;
+    font-weight: 500;
+    font-size: 16px;
+    color: #7A7A7A;
+  }
+  .group_52 {
+    transform: translateX(-150px)
+
+  }
+  .image-wrapper_14 {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+  }
+  .text-wrapper_24 {
+    text-align: center;
+  }
+}
+.dialog_cont1 {
+  height: 294px;
 }
 
 </style>

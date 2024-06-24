@@ -5,7 +5,7 @@
         <el-menu-item index="/lanhu_shouye">首页</el-menu-item>
         <el-menu-item index="/lanhu_youwenbida">有问必答</el-menu-item>
         <el-menu-item index="/aboutPhone">期货手续费</el-menu-item>
-        <el-menu-item index="/aboutPhone">期货保证金</el-menu-item>
+        <el-menu-item index="/aboutPhoneMargin">期货保证金</el-menu-item>
         <el-menu-item index="/lanhu_qihuobaozhengjin">期货一对一服务</el-menu-item>
       </el-menu>
     </el-drawer>
@@ -47,7 +47,7 @@
       <div class="box_2 flex-row">
         <div class="box_3 flex-col justify-between">
           <div class="group_5 flex-row">
-            <div class="image-text_1 flex-row justify-between">
+            <div class="image-text_1 flex-row justify-between" @click="toUserPage(queryData.userId)">
               <img class="image_3" referrerpolicy="no-referrer"
                 :src="baseUrlImg + queryData.avatar" />
               <div class="section_1 flex-col justify-between">
@@ -73,22 +73,21 @@
         </div>
         <div class="box_4 flex-col justify-between">
           <div class="block_5 flex-row">
-            <div class="image-text_4 flex-row justify-between">
+            <div class="image-text_4 flex-row justify-between" @click="diaShow = true">
               <img class="thumbnail_5" referrerpolicy="no-referrer"
                 src="./assets/img/FigmaDDSSlicePNG95e5c14581117ddb18691a993bf92982.png" />
-              <span class="text-group_4"> <el-popover placement="top" title="微信咨询" width="200" trigger="click">
-                  <img :src="baseUrlImg + queryData.wxQrCode" style="width: 100%;" />
+              <span class="text-group_4">
                   <a slot="reference">微信咨询</a>
-                </el-popover></span>
+              </span>
             </div>
           </div>
           <div class="block_6 flex-row">
-            <div class="image-text_5 flex-row justify-between">
+            <div class="image-text_5 flex-row justify-between" @click="diaShow = true">
               <img class="image_4" referrerpolicy="no-referrer"
                 src="./assets/img/e9dcc2ce722143b0a548dadfd94627de_mergeImage.png" />
-              <span class="text-group_5"><el-popover placement="top" title="电话咨询" width="200" trigger="click" :content="queryData.phonenumber">
+              <span class="text-group_5">
             <a slot="reference">电话咨询</a>
-          </el-popover></span>
+          </span>
             </div>
           </div>
         </div>
@@ -100,7 +99,7 @@
     </div>
     <div class="bussiness_card_box">
       <div class="card_con">
-        <div class="img_box">
+        <div class="img_box" @click="toUserPage(queryData.userId)">
           <img :src="baseUrlImg + queryData.avatar" alt="">
         </div>
         <div class="cent_box">
@@ -109,12 +108,12 @@
         </div>
         <div class="right_box">
           <div class="block_6 paddi-r flex-row">
-            <div class="image-text_5 flex-row justify-between">
+            <div class="image-text_5 flex-row justify-between" @click="diaShow = true">
               <img class="image_4" referrerpolicy="no-referrer"
                 src="./assets/img/e9dcc2ce722143b0a548dadfd94627de_mergeImage.png" />
-              <span class="text-group_5"><el-popover placement="top" title="电话咨询" width="200" trigger="click" :content="queryData.phonenumber">
+              <span class="text-group_5">
             <a slot="reference">电话咨询</a>
-          </el-popover></span>
+          </span>
             </div>
           </div>
         </div>
@@ -128,8 +127,8 @@
         <div class="tit_left">TA的文章</div>
         <div class="rit_more">更多&nbsp;></div>
       </div>
-      <div class="art_line_item" v-for="item in Article">
-        <div class="point_sty"></div>
+      <div class="art_line_item" v-for="item in Article" @click="getNewArt(item)">
+        <div class="point_sty" ></div>
         {{ item.title }}
       </div>
     </div>
@@ -139,7 +138,7 @@
         <div class="tit_left">TA的回答</div>
         <div class="rit_more">更多&nbsp;></div>
       </div>
-      <div class="art_line_item" v-for="item in Answer">
+      <div class="art_line_item" v-for="item in Answer" @click="toAnswer(item.id)">
         <div class="point_sty"></div>
         {{ item.title }}
       </div>
@@ -153,12 +152,13 @@
         <div class="rit_more">更多&nbsp;></div>
       </div>
       <div class="art_item_recommend" v-for="item in data3">
-        <div class="reco_tit">{{ item.title }}</div>
+        <div class="high_quality">优质</div>
+        <div class="reco_tit" @click="getNewArt(item)">{{ item.title }}</div>
         <div class="cont_comm">
           {{ item.content.replace(/<[^>]+>/g,"").slice(0, 50) }}
         </div>
         <div class="bottom_de">
-          <img class="nic_ava" :src="baseUrlImg + item.avatar" alt="">
+          <img @click="toUserPage(item.userId)" class="nic_ava" :src="baseUrlImg + item.avatar" alt="">
           <div class="nic_sty">{{ item.nickName }}</div>
           <div class="right_num">
             <img class="eyes" referrerpolicy="no-referrer"
@@ -186,9 +186,10 @@
       <div class="section_15 flex-row">
         <div class="image-text_33 flex-row justify-between">
           <img
+            @click="toUserPage(item.userId)"
             class="image_10"
             referrerpolicy="no-referrer"
-            src="./assets/img/FigmaDDSSlicePNG03e2cbc4b64ac921df21926b4b9f0d45.png"
+            :src="baseUrlImg + item.avatar"
           />
           <div class="section_16 flex-col justify-between">
             <span class="text-group_33">{{ item.nickName }}</span>
@@ -198,14 +199,15 @@
         <div class="text-wrapper_16 flex-col"><span class="text_44">帮助{{
         item.helpNumber
       }}万</span></div>
-        <div class="image-wrapper_3 flex-col">
+        <div class="image-wrapper_3 flex-col" >
           <img
+            @click="diaShow = true"
             class="label_6"
             referrerpolicy="no-referrer"
             src="./assets/img/FigmaDDSSlicePNG854cf5844a8ddcd486c61b1cf69fb52c.png"
           />
         </div>
-        <div class="image-wrapper_4 flex-col">
+        <div class="image-wrapper_4 flex-col" @click="diaShow = true">
           <img
             class="label_7"
             referrerpolicy="no-referrer"
@@ -236,7 +238,15 @@
     </div>
   
     <div class="block_13 flex-col">
+      <div style="display: flex; justify-content:space-around;transform: translateY(10px);">
+        <div class="img_box" v-for="(item, index) in loopData0">
+        <div>
+          <img  :src="item.lanhuimage0" alt="">
+        </div>
+        <p>{{ item.lanhutext0 }}</p>
 
+      </div>
+      </div>
       <div class="block_14 flex-col"></div>
       <span class="paragraph_1">
         京ICP备19048506号-2&nbsp;Copyright
@@ -244,18 +254,21 @@
         &#64;&nbsp;2024&nbsp;中国海洋财经有限公司&nbsp;All&nbsp;Rights&nbsp;Reserved.
       </span>
     </div>
+    <Dialog :dialogVisible1="diaShow" @closeDia="closeDia()"></Dialog>
   </div>
 </template>
 <script>
 import route from '@/router'
 import { getArticleInfo, getFiveArticle, getFiveAnswer, getRelativeArticle, getRecommendUser } from '@/api/index'
+import Dialog from '@/components/Dialog/index.vue'
 export default {
   name: 'Article',
   components: {
-
+    Dialog
   },
   data() {
     return {
+      diaShow: false,
       drawer:false,      direction: false,
       queryData: {
         pagesize: 10,
@@ -270,10 +283,23 @@ export default {
         }
       ],
       data3: [],
-      qhguwt: []
+      qhguwt: [],
+      loopData0: [
+        {
+          lanhuimage0: 'https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNGfcd97fd90f0f75097d6661238ccc7d77.png',
+          lanhutext0: '咨询'
+        },
+        {
+          lanhuimage0: 'https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNGfcd97fd90f0f75097d6661238ccc7d77.png',
+          lanhutext0: '关注'
+        }
+      ],
+      scrollTop: null
     }
   },
   created() {
+
+    
     console.log(route);
     getRelativeArticle().then(res => {
         this.data3 = res.data
@@ -293,10 +319,44 @@ this.getPer()
       
 
   },
+  mounted() {
+    const that = this
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+    that.scrollTop = scrollTop
+  },
   methods: {
     async getPer() {
       const res1 = await getRecommendUser()
       this.qhguwt = res1.data
+    },
+    closeDia() {
+      this.diaShow = false
+    },
+    toUserPage(id) {
+      this.$router.push('/lanhu_wanghaijingli/' + id)
+    },
+    toThisPage(item) {
+      this.$router.push('/lanhu_shouyezixun/'+ item.id + '/' + item.userId)
+      location.reload()
+    },
+    toAnswer(id) {
+      this.$router.push('/wendaxiangqingphone/' + id)
+    },
+    getNewArt(item) {
+      getArticleInfo({ articleId: item.id }).then(res => {
+        this.queryData = res.data
+        this.backTop()
+      })
+    },
+    backTop () {
+      const that = this
+      let timer = setInterval(() => {
+        let ispeed = Math.floor(-that.scrollTop / 5)
+        document.documentElement.scrollTop = document.body.scrollTop = that.scrollTop + ispeed
+        if (that.scrollTop === 0) {
+          clearInterval(timer)
+        }
+      }, 16)
     }
   }
 }
@@ -350,6 +410,7 @@ this.getPer()
   }
   .text_11 {
     font-family: PingFang SC, PingFang SC !important;
+    height: auto !important;
   }
 
   .label_4 {
@@ -472,6 +533,7 @@ this.getPer()
   }
 
   .art_item_recommend {
+    position: relative;
     width: 17.76rem;
     
     background: #FFFFFF;
@@ -524,6 +586,21 @@ this.getPer()
         }
       }
     }
+  }
+  .high_quality {
+    position: absolute;
+    width: 2rem;
+    height: 1.06rem;
+    line-height: 1.06rem;
+    background: #FF3D3D;
+    border-radius: 88px 0px 0px 88px;
+    font-family: PingFang SC, PingFang SC;
+    font-weight: 500;
+    font-size: 0.53rem;
+    text-align: center;
+    color: #FFFFFF;
+    right: 0;
+    top: 12px;
   }
 
   .section_12 {
@@ -609,6 +686,7 @@ this.getPer()
 .image_10 {
   width: 1.707rem;
   height: 1.707rem;
+  border-radius: 50%;
 }
 
 .section_16 {
@@ -778,10 +856,33 @@ this.getPer()
     margin: 0.234rem 0 0 0.254rem;
   }
   .turn_big {
-    transform: translateX(-40px);
     font-size: .6rem;
+    text-align: left !important;
   }
   .box_1 {
     margin: 0.107rem 0 0 0.5rem;
+    margin-top: 19px;
+    border: none;
+    border-bottom: 1px dashed #E0E0E0;
+  }
+  .page {
+    height: auto;
+  }
+  .block_13 {
+    height: 8.534rem;
+    img {
+      width: 2.66rem;
+      height: 2.66rem;
+    }
+    p {
+      font-family: PingFang SC, PingFang SC;
+      font-weight: 500;
+      font-size: .53rem;
+      color: #BEBEBE;
+      text-align: center;
+    }
+  }
+  .block_4 {
+    height: auto !important;
   }
 </style>

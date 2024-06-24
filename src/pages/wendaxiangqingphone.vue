@@ -5,7 +5,7 @@
         <el-menu-item index="/lanhu_shouye">首页</el-menu-item>
         <el-menu-item index="/lanhu_youwenbida">有问必答</el-menu-item>
         <el-menu-item index="/aboutPhone">期货手续费</el-menu-item>
-        <el-menu-item index="/aboutPhone">期货保证金</el-menu-item>
+        <el-menu-item index="/aboutPhoneMargin">期货保证金</el-menu-item>
         <el-menu-item index="/lanhu_qihuobaozhengjin">期货一对一服务</el-menu-item>
       </el-menu>
     </el-drawer>
@@ -75,7 +75,7 @@
       </div>
       <div v-for="item in artList">
       <div class="section_2 flex-row">
-        <div class="image-text_3 flex-row justify-between">
+        <div @click="toUserDetail(item)" class="image-text_3 flex-row justify-between">
           <img class="image_3" referrerpolicy="no-referrer"
           :src="baseUrlImg + item.avatar"  />
           <div class="section_3 flex-col justify-between">
@@ -92,25 +92,36 @@
       }}万</span>
         </div>
         <div class="box_5 flex-row">
-          <div class="image-text_4 flex-row justify-between">
+          <div @click="diaShow = true"  class="image-text_4 flex-row justify-between">
             <img class="image_4" referrerpolicy="no-referrer"
               src="https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/8ca4dec2a34e44a4a95a7c50c2d6ec25_mergeImage.png" />
             <span class="text-group_4">电话咨询</span>
           </div>
         </div>
         <div class="box_6 flex-row">
-          <div class="image-text_5 flex-row justify-between">
+          <div @click="diaShow = true" class="image-text_5 flex-row justify-between">
             <img class="thumbnail_5" referrerpolicy="no-referrer"
               src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG95e5c14581117ddb18691a993bf92982.png" />
             <span class="text-group_5">微信咨询</span>
           </div>
         </div>
       </div>
-      <span class="text_15" v-html="item.result"></span>
+      <span class="text_15" v-html="'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+item.result"></span>
+      <div class="great_review">
+        <div class="btn_box">
+          <p><img src="@/assets/img/resolve/Frame.png" alt="">赞</p>
+          <img src="@/assets/img/resolve/Frame(1).png" alt="">
+        </div>
+        <ul>
+          <li><img src="@/assets/img/resolve/Frame(3).png" alt="">追问</li>
+          <!-- <li><img src="@/assets/img/resolve/Frame(4).png" alt="">分享</li> -->
+          <li><img src="@/assets/img/resolve/Frame(2).png" alt="">更多</li>
+        </ul>
+      </div>
       <div class="section_4 flex-col"></div>
       </div>
     </div>
-    <div class="img_box_phone">
+    <div class="img_box_phone" @click="diaShow = true">
       <img src="@/assets/img/Group 3145.png" alt="">
     <!-- <div class="box_10 flex-col great_question">
         <div class="section_5 flex-row">
@@ -165,7 +176,7 @@
           <div class="block_3 flex-col"></div>
         </div>
         <div class="per_item_sty" v-for="item in dataList1.slice(0,6)">
-        <div class="left_img">
+        <div class="left_img" @click="toUserDetail(item)">
           <img class="ava_ing" :src="baseUrlImg + item.avatar" alt="">
         </div>
         <div class="cent_box">
@@ -186,14 +197,14 @@
           </div>
         </div>
         <div class="right_btn">
-          <div class="image-wrapper_3 flex-col">
-              <img class="label_9" referrerpolicy="no-referrer"
-                src="@/pages/lanhu_qihuobaozhengjin/assets/img/FigmaDDSSlicePNG854cf5844a8ddcd486c61b1cf69fb52c.png" />
-            </div>
-            <div class="image-wrapper_4 flex-col">
-              <img class="label_10" referrerpolicy="no-referrer"
-                src="@/pages/lanhu_qihuobaozhengjin/assets/img/FigmaDDSSlicePNG7235843c577a660f1e6f88cc5aa9a3f6.png" />
-            </div>
+          <div class="image-wrapper_3 flex-col" @click="diaShow = true">
+            <img class="label_9" referrerpolicy="no-referrer"
+              src="@/pages/lanhu_qihuobaozhengjin/assets/img/FigmaDDSSlicePNG854cf5844a8ddcd486c61b1cf69fb52c.png" />
+          </div>
+          <div class="image-wrapper_4 flex-col" @click="diaShow = true">
+            <img class="label_10" referrerpolicy="no-referrer"
+              src="@/pages/lanhu_qihuobaozhengjin/assets/img/FigmaDDSSlicePNG7235843c577a660f1e6f88cc5aa9a3f6.png" />
+          </div>
         </div>
       </div>
 
@@ -201,7 +212,7 @@
 
       <div class="hot_question mar-bott">
         <div class="group_30 flex-row justify-between">
-          <span class="text_35" >其他类型问题</span>
+          <span class="text_35" >热门问题</span>
           <div class="image-text_28 flex-row">
             <span class="text-group_28" >更多</span>
             <img class="thumbnail_19" referrerpolicy="no-referrer" src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG378b835325af5a684c617c3fec63849a.png" />
@@ -213,7 +224,7 @@
         </div>
         <div class="group_32 flex-row">
           <div class="box_10 flex-col"></div>
-          <span class="text_36">{{ item.title }}</span>
+          <span class="text_36" @click="toThisPage(item.id)">{{ item.title }}</span>
           <span class="text_37">{{ item.replyCount }}个回答</span>
         </div>
       </div>
@@ -221,7 +232,7 @@
     
       <div class="hot_question">
         <div class="group_30 flex-row justify-between">
-          <span class="text_35" >期货顾问推荐</span>
+          <span class="text_35" >其他类型问题</span>
           <div class="image-text_28 flex-row">
             <span class="text-group_28" >更多</span>
             <img class="thumbnail_19" referrerpolicy="no-referrer" src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG378b835325af5a684c617c3fec63849a.png" />
@@ -233,7 +244,7 @@
         </div>
         <div class="group_32 flex-row">
           <div class="box_10 flex-col"></div>
-          <span class="text_36">{{ item.title }}</span>
+          <span class="text_36" @click="toThisPage(item.id)" >{{ item.title }}</span>
           <span class="text_37">{{ item.replyCount }}个回答</span>
         </div>
       </div>
@@ -249,20 +260,23 @@
       <span
         class="paragraph_1">京ICP备19048506号-2&nbsp;Copyright<br />&#64;&nbsp;2024&nbsp;中国海洋财经有限公司&nbsp;All&nbsp;Rights&nbsp;Reserved.</span>
     </div>
+    <Dialog :dialogVisible1="diaShow" @closeDia="closeDia()"></Dialog>
   </div>
 </template>
 
 <script>
 import { getAnswerInfo, getRecommendUser, getHotAnswer, getOtherTypeAnswer, getUsers } from '@/api/index'
+import Dialog from '@/components/Dialog/index.vue'
 import route from '@/router'
 export default {
 
   name: 'Index',
   components: {
-
+    Dialog
   },
   data() {
     return {
+      diaShow: false,
       drawer:false,
       dataList1: [],
       loopData0: [
@@ -356,6 +370,9 @@ export default {
     this.getArtList()
   },
   methods: {
+    closeDia() {
+      this.diaShow = false
+    },
     handleCurrentChange: function (currentPage) {
       this.queryParam.pagenum = currentPage
       // eslint-disable-next-line no-console
@@ -379,6 +396,14 @@ export default {
       this.qhguwt = res1.data
       const res2 = await getHotAnswer()
       this.HotAnswer = res2.data
+    },
+    toUserDetail(item) {
+      this.$router.push('/lanhu_wanghaijingli/'+ item.userId)
+    },
+    toThisPage(id) {
+      this.$router.push('/wendaxiangqingphone/'+id)
+      location.reload()
+
     }
   }
 }
@@ -672,7 +697,7 @@ html {
   font-size: 0.586rem;
   font-family: PingFang SC-Bold;
   font-weight: 700;
-  text-align: center;
+  text-align: left;
   white-space: nowrap;
   line-height: 0.587rem;
   margin: 0.8rem 0 0 0.8rem;
@@ -967,21 +992,22 @@ html {
 }
 
 .text_15 {
-  width: 15.147rem;
-  height: 1.92rem;
   overflow-wrap: break-word;
   color: rgba(112, 112, 112, 1);
   font-size: 0.64rem;
   font-family: PingFang SC-Medium;
   font-weight: 500;
   text-align: justified;
-  line-height: 0.96rem;
+  line-height: 1.2rem;
   margin: 0.64rem 0 0 3.04rem;
-  transform: translateY(-10px);
+  display: inline-block;
+  margin-top: 23px;
+  margin-left: 9px;
+  margin-right: 2px;
 }
 ::v-deep .text_15 p{
   margin: 0 0;
-  margin-left: 3rem;
+  margin-left: .8rem;
 }
 
 .section_4 {
@@ -2789,6 +2815,55 @@ html {
 }
 .mar-bott {
   margin-bottom: 18px;
+}
+.great_review {
+  width: calc(100% - .8rem);
+  height: 1.17rem;
+  margin: 0 .4rem;
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  ul {
+    transform: translateY(-5px);
+    display: flex;
+    align-items: center;
+    img {
+      width: 14px;
+      margin:0 5px;
+      transform: translateY(3px);
+      height: 14px;
+    }
+
+    li {
+      list-style: none;
+      font-family: PingFang SC, PingFang SC;
+      font-weight: 500;
+      font-size: 12px;
+      color: #7A7A7A;
+    }
+  }
+}
+.btn_box {
+  display: flex;
+  width: 4.26rem;
+  height: 1.17rem;
+  background: #FFF2F2;
+  border-radius: .58rem;
+  font-size: 12px;
+  color:#FF3D3D;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  p {
+    img {
+      margin-right: 5px;
+    }
+  }
+  img {
+    width: .53rem;
+    height: .53rem;
+  }
+  
 }
 
 </style>

@@ -59,7 +59,7 @@ line-height: 16px;padding-right: 25px;cursor: pointer;" v-for="item1 in item.ite
                   }}</span>
               </div>
             </div>
-            <div style="margin-top: 14px;">
+            <div style="margin-top: 14px; margin-bottom: 14px;">
               <el-button type="primary" size="small" @click="showZhuli">{{ isMain? '显示全部': '只显示主力合约' }}</el-button>
               <el-button class="down_btn" type="primary" size="small" @click="dlowData">下载手续费Excel表格</el-button>
               <span style="font-size: 14px;
@@ -217,14 +217,18 @@ export default {
         newAc = this.activeName
       }
       getExchangeInfo({ name: newAc }).then(res => {
+        console.log(res, 'shang')
         this.msData1 = res.data.remark
       })
+      this.dataList()
+      console.log(this.msData1)
     },
     dlowData() {
+      console.log(this.title1, this.productName1)
       getTransactionData1({
         title: this.title1,
         productName: this.productName1,
-        remark: '主力合约',
+        remark: this.isMain? '主力合约': '',
         export: true
       }).then(res => {
         let blob = new Blob([res], { type: 'application/vnd.ms-excel' });
@@ -238,7 +242,7 @@ export default {
       this.productName1 = val1
       this.dataList()
     },
-    dataList(val) {
+    dataList() {
 
       if (this.activeName == '手续费总表') {
         getTransactionData({
@@ -246,20 +250,24 @@ export default {
         productName: this.productName1,
         remark:  this.isMain? '主力合约': '',
       }).then(res => {
+        console.log(res, 'zong')
         this.tableData = res.data
       })
       }else{
         getTransactionData({
         title: this.activeName,
         productName: this.productName1,
-        remark: val != undefined ? val : '',
+        remark: this.isMain? '主力合约': '',
       }).then(res => {
+        console.log(res, 'fen ')
         this.tableData = res.data[0].items
       })
       }
     },
     showZhuli() {
       this.isMain = !this.isMain
+      console.log(this.isMain)
+
       this.dataList('主力合约')
     },
     submitForm(formName) {

@@ -1,11 +1,11 @@
 <template>
   <div class="que_mod_sty">
-    <el-drawer :visible.sync="drawer" :direction="direction" :before-close="handleClose">
+    <el-drawer :visible.sync="drawer"  :before-close="handleClose">
       <el-menu :default-active="activeIndex" :router="true" class="el-menu-vertical-demo">
         <el-menu-item index="/lanhu_shouye">首页</el-menu-item>
         <el-menu-item index="/lanhu_youwenbida">有问必答</el-menu-item>
         <el-menu-item index="/aboutPhone">期货手续费</el-menu-item>
-        <el-menu-item index="/aboutPhone">期货保证金</el-menu-item>
+        <el-menu-item index="/aboutPhoneMargin">期货保证金</el-menu-item>
         <el-menu-item index="/lanhu_qihuobaozhengjin">期货一对一服务</el-menu-item>
       </el-menu>
     </el-drawer>
@@ -60,12 +60,13 @@
       </div>
       <div  v-for="item in artList">
       <p class="text_6">来自：期货</p>
-      <p class="text_7">{{ item.title }}</p>
+      <p class="text_7" @click="$router.push(`/wendaxiangqingphone/${item.id}`)">{{ item.title }}</p>
       <div class="group_2 flex-row justify-between">
         <img
+          @click="$router.push('lanhu_wanghaijingli/'+item.userId)"
           class="image_3"
           referrerpolicy="no-referrer"
-          src="./assets/img/FigmaDDSSlicePNG79ba894dcb3a3978a5bc3eb43b0a6c83.png"
+          :src="baseUrlImg+item.avatar"
         />
         <div class="block_1 flex-col justify-between">
           <div class="image-text_2 flex-row justify-between">
@@ -145,8 +146,9 @@
         <div class="image-text_33 flex-row justify-between">
           <img
             class="image_10"
+            @click="$router.push('lanhu_wanghaijingli/'+item.userId)"
             referrerpolicy="no-referrer"
-            src="./assets/img/FigmaDDSSlicePNG03e2cbc4b64ac921df21926b4b9f0d45.png"
+            :src="baseUrlImg+item.avatar"
           />
           <div class="section_16 flex-col justify-between">
             <span class="text-group_33">{{ item.nickName }}</span>
@@ -158,6 +160,7 @@
       }}万</span></div>
         <div class="image-wrapper_3 flex-col">
           <img
+            @click="diaShow = true"
             class="label_6"
             referrerpolicy="no-referrer"
             src="./assets/img/FigmaDDSSlicePNG854cf5844a8ddcd486c61b1cf69fb52c.png"
@@ -165,6 +168,7 @@
         </div>
         <div class="image-wrapper_4 flex-col">
           <img
+            @click="diaShow = true"
             class="label_7"
             referrerpolicy="no-referrer"
             src="./assets/img/FigmaDDSSlicePNG7235843c577a660f1e6f88cc5aa9a3f6.png"
@@ -197,7 +201,7 @@
       <div class="section_31 flex-col"><div class="block_6 flex-col"></div></div>
       <div class="section_32 flex-row rese_sty_p" v-for="item in HotAnswer">
         <div class="group_27 flex-col"></div>
-        <span class="text_54">{{ item.title }}</span>
+        <span class="text_54" @click="$router.push(`/wendaxiangqingphone/${item.id}`)">{{ item.title }}</span>
         <span class="text_55">{{ item.replyCount }}个回答</span>
       </div>
     </div>
@@ -215,20 +219,23 @@
         &#64;&nbsp;2024&nbsp;中国海洋财经有限公司&nbsp;All&nbsp;Rights&nbsp;Reserved.
       </span>
     </div>
+    <Dialog :dialogVisible1="diaShow" @closeDia="closeDia()"></Dialog>
   </div>
 </template>
 
 <script>
 import { getAnswer, getRecommendUser, getHotAnswer } from '@/api/index'
+import Dialog from '@/components/Dialog/index.vue'
 
 export default {
 
   name: 'Index',
   components: {
-
+    Dialog
   },
   data() {
     return {
+      diaShow: false,
       drawer: false,
       loopData0: [
         {
@@ -258,6 +265,9 @@ export default {
     this.getArtList()
   },
   methods: {
+    closeDia() {
+      this.diaShow = false
+    },
     handleCurrentChange: function (currentPage) {
       this.queryParam.pagenum = currentPage
       // eslint-disable-next-line no-console
@@ -382,6 +392,9 @@ export default {
   }
   ::v-deep .label_4 {
     margin: 0.107rem 0 0 0.147rem;
+  }
+  .image_10, .image_3 {
+    border-radius: 50%;
   }
   
 </style>

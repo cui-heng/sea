@@ -1,11 +1,11 @@
 <template>
   <div class="box_personal_detail" ref="scrollview" @mousewheel="scrollChange($event)">
-    <el-drawer :visible.sync="drawer" :direction="direction" :before-close="handleClose">
-      <el-menu :default-active="activeIndex" :router="true" class="el-menu-vertical-demo">
+    <el-drawer :visible.sync="drawer">
+      <el-menu  :router="true" class="el-menu-vertical-demo">
         <el-menu-item index="/lanhu_shouye">首页</el-menu-item>
         <el-menu-item index="/lanhu_youwenbida">有问必答</el-menu-item>
         <el-menu-item index="/aboutPhone">期货手续费</el-menu-item>
-        <el-menu-item index="/aboutPhone">期货保证金</el-menu-item>
+        <el-menu-item index="/aboutPhoneMargin">期货保证金</el-menu-item>
         <el-menu-item index="/lanhu_qihuobaozhengjin">期货一对一服务</el-menu-item>
       </el-menu>
     </el-drawer>
@@ -60,7 +60,8 @@
     </div>
     <div class="section_3 flex-col">
       <div class="group_1 flex-col">
-        <div class="group_2 flex-col">
+        <img class="top_bg" src="@/assets/232.png" alt="">
+        <div class="group_2 flex-col" style="position: absolute;">
           <div class="image-text_2 flex-col justify-between">
             <img
               class="image_3"
@@ -101,7 +102,7 @@
                 referrerpolicy="no-referrer"
                 src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG9bd40b3d845709e9404ff86613d12d87.png"
               />
-              <span class="text-group_6">微信</span>
+              <span class="text-group_6" @click="diaShow = true">微信</span>
             </div>
           </div>
         </div>
@@ -120,7 +121,7 @@
                 referrerpolicy="no-referrer"
                 src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNGd29b96d9f62ec237c29dd706fbcd56eb.png"
               />
-              <span class="text-group_8">微信</span>
+              <span class="text-group_8" @click="diaShow = true">电话</span>
             </div>
           </div>
         </div>
@@ -133,13 +134,15 @@
       </div>
       <div v-for="item in artList" class="item_box">
       <span class="text_18"
+      @click="toArtDetail(item)"
+        
         >{{ item.title }}</span
       >
       <div class="section_10 flex-row justify-between">
         <img
           class="image_4"
           referrerpolicy="no-referrer"
-          src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNGcacd4e8b89ff5a9c2d3da38ecf73525a.png"
+          :src="baseUrlImg+item.avatar"
         />
         <div class="box_7 flex-col justify-between">
           <div class="group_4 flex-row justify-between">
@@ -170,7 +173,7 @@
           <span class="text_21"
             >{{ item.description.slice(0,40) }}...</span
           >
-          <span class="text_22">阅读全文</span>
+          <span class="text_22" @click="toArtDetail(item)">阅读全文</span>
         </div>
         <img
           class="thumbnail_9"
@@ -283,7 +286,7 @@
                   referrerpolicy="no-referrer"
                   src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG79dd58795a0b538ba2563bab95c3e96c.png"
                 />
-                <span class="text-group_28">电话</span>
+                <span class="text-group_28" @click="diaShow = true">电话</span>
               </div>
             </div>
             <div class="section_29 flex-row">
@@ -293,7 +296,7 @@
                   referrerpolicy="no-referrer"
                   src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG95e5c14581117ddb18691a993bf92982.png"
                 />
-                <span class="text-group_29">微信</span>
+                <span class="text-group_29" @click="diaShow = true">微信</span>
               </div>
             </div>
           </div>
@@ -314,20 +317,23 @@
     </div>
       </div>
     </div>
+    <Dialog :dialogVisible1="diaShow" @closeDia="closeDia()"></Dialog>
   </div>
 </template>
 
 <script>
 import { getUserInfo,getAnswer, } from '@/api/index'
+import Dialog from '@/components/Dialog/index.vue'
 import route from '@/router'
 export default {
 
   name: 'Index',
   components: {
-
+    Dialog
   },
   data() {
     return {
+      diaShow: false,
       isShowImg: false,
       drawer:false,    
       queryParam: {
@@ -378,6 +384,12 @@ export default {
     scrollview.removeEventListener('scroll', this.scrollChange, true)
   },
   methods: {
+    toArtDetail(item) {
+      this.$router.push(`/wendaxiangqingphone/` + item.id)
+    },
+    closeDia() {
+      this.diaShow = false
+    },
     scrollChange (e) {
       if (e.layerY > 700) {
         this.isShowImg = true
@@ -621,11 +633,19 @@ html {
 
 .group_1 {
   height: 18.16rem;
-  background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG9de912f4322a4e6c14c6e719bf87ff74.png)
-    100% no-repeat;
+  /* background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG9de912f4322a4e6c14c6e719bf87ff74.png)
+    100% no-repeat; */
   background-size: 100% 100%;
   width: 17.654rem;
   margin: 0.587rem 0 0 0.587rem;
+  position: relative;
+}
+.top_bg {
+  width: 17.654rem;
+  height: 18.16rem;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 .group_2 {
@@ -1090,6 +1110,7 @@ html {
 .image_4 {
   width: 1.707rem;
   height: 1.707rem;
+  border-radius: 50%;
 }
 
 .box_7 {

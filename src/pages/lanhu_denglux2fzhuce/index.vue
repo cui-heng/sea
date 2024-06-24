@@ -42,7 +42,7 @@
               </span> -->
               <el-input :key="passwordType" ref="password" v-model="loginForm.password" :type="passwordType"
                 placeholder="Password" name="password" tabindex="2" autocomplete="on" @keyup.native="checkCapslock"
-                @blur="capsTooltip = false" @keyup.enter.native="handleLogin" style="width: 70%;"/>
+                @blur="capsTooltip = false" @keyup.enter.native="handleLogin" style="width: 70%;margin-right: 12px;"/>
               <span class="show-pwd" @click="showPwd">
                 <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
               </span>
