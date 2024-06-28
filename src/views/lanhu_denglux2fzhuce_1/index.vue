@@ -35,7 +35,7 @@
           <img class="thumbnail_1" referrerpolicy="no-referrer"
             src="./assets/img/FigmaDDSSlicePNG3ad1186f82f76e0a619a7baa7fb32077.png" />
         </div>
-        <div class="text-wrapper_4 flex-col"><span class="text_8">登&nbsp;录</span></div>
+        <div class="text-wrapper_4 flex-col" @click="loginMethod()"><span class="text_8">登&nbsp;录</span></div>
         <span class="text_9 cur_sty" @click="dialogVisible1=true">注册账号</span>
         <div class="box_3 flex-row justify-between">
           <div class="group_4 flex-col"></div>
@@ -245,6 +245,26 @@ this.show=true
         }
         return acc
       }, {})
+    },
+    async loginMethod() {
+
+      userLogin(this.loginForm).then(res => {
+            if (res.code == 1) {
+              window.sessionStorage.setItem('token', res.data)
+              this.$router.push({ path: '/' })
+              this.loading = false
+            } else {
+              // this.$message({
+              //   message: 'The title has been edited',
+              //   type: 'success'
+              // })
+              this.loading = false
+              this.$message.error(res.message)
+            }
+
+          }).catch(() => {
+            this.loading = false
+          })
     }
     // afterQRScan() {
     //   if (e.key === 'x-admin-oauth-code') {
@@ -833,5 +853,8 @@ h5 {
   line-height: 2.38rem;
   background: -webkit-gradient(linear, left top, right top, from(#1ABCFC), to(#0796D2));
   background: linear-gradient(90deg, #1ABCFC 0%, #0796D2 100%);
+}
+.text_8 {
+  cursor: pointer;
 }
 </style>
