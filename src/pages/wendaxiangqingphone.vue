@@ -258,9 +258,13 @@
       </div>
       <div class="group_40 flex-col"></div>
       <span
-        class="paragraph_1">京ICP备19048506号-2&nbsp;Copyright<br />&#64;&nbsp;2024&nbsp;中国海洋财经有限公司&nbsp;All&nbsp;Rights&nbsp;Reserved.</span>
+        class="paragraph_1">京ICP备19048506号-2&nbsp;Copyright<br />&#64;&nbsp;2024&nbsp;中国海洋财经有限公司&nbsp;All&nbsp;Rights&nbsp;Reserved.
+        <p @click="diaDis = true">免责声明</p>
+      </span>
+        
     </div>
     <Dialog :dialogVisible1="diaShow" @closeDia="closeDia()"></Dialog>
+    <Disclaimer :dialogVisible1="diaDis" @closeDia="closeDis"/>
   </div>
 </template>
 
@@ -268,67 +272,20 @@
 import { getAnswerInfo, getRecommendUser, getHotAnswer, getOtherTypeAnswer, getUsers } from '@/api/index'
 import Dialog from '@/components/Dialog/index.vue'
 import route from '@/router'
+import Disclaimer from '@/components/ConSay/index.vue'
 export default {
 
   name: 'Index',
   components: {
-    Dialog
+    Dialog,
+    Disclaimer
   },
   data() {
     return {
+      diaDis: false,
       diaShow: false,
       drawer:false,
       dataList1: [],
-      loopData0: [
-        {
-          lanhutext0: '热议问题',
-          lanhutext1: '更多',
-          lanhuimage0:
-            'https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG378b835325af5a684c617c3fec63849a.png',
-          lanhutext2:
-            '如何在技术上实现广告植入的正常姿势，从而达成用流量、收益三者之间的动态平衡？',
-          lanhutext3: '46个回答',
-          lanhutext4:
-            '如何在技术上实现广告植入的正常姿势，从而达成用流量、收益三者之间的动态平衡？',
-          lanhutext5: '46个回答',
-          lanhutext6:
-            '如何在技术上实现广告植入的正常姿势，从而达成用流量、收益三者之间的动态平衡？',
-          lanhutext7: '46个回答',
-          lanhutext8:
-            '如何在技术上实现广告植入的正常姿势，从而达成用流量、收益三者之间的动态平衡？',
-          lanhutext9: '46个回答',
-          lanhutext10:
-            '如何在技术上实现广告植入的正常姿势，从而达成用流量、收益三者之间的动态平衡？',
-          lanhutext11: '46个回答',
-          lanhutext12:
-            '如何在技术上实现广告植入的正常姿势，从而达成用流量、收益三者之间的动态平衡？',
-          lanhutext13: '46个回答',
-        },
-        {
-          lanhutext0: '其他类型问题',
-          lanhutext1: '更多',
-          lanhuimage0:
-            'https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG378b835325af5a684c617c3fec63849a.png',
-          lanhutext2:
-            '如何在技术上实现广告植入的正常姿势，从而达成用流量、收益三者之间的动态平衡？',
-          lanhutext3: '46个回答',
-          lanhutext4:
-            '如何在技术上实现广告植入的正常姿势，从而达成用流量、收益三者之间的动态平衡？',
-          lanhutext5: '46个回答',
-          lanhutext6:
-            '如何在技术上实现广告植入的正常姿势，从而达成用流量、收益三者之间的动态平衡？',
-          lanhutext7: '46个回答',
-          lanhutext8:
-            '如何在技术上实现广告植入的正常姿势，从而达成用流量、收益三者之间的动态平衡？',
-          lanhutext9: '46个回答',
-          lanhutext10:
-            '如何在技术上实现广告植入的正常姿势，从而达成用流量、收益三者之间的动态平衡？',
-          lanhutext11: '46个回答',
-          lanhutext12:
-            '如何在技术上实现广告植入的正常姿势，从而达成用流量、收益三者之间的动态平衡？',
-          lanhutext13: '46个回答',
-        },
-      ],
       topDataTo: {},
       loopData1: [
         {
@@ -370,6 +327,9 @@ export default {
     this.getArtList()
   },
   methods: {
+    closeDis() {
+      this.diaDis = false
+    },
     closeDia() {
       this.diaShow = false
     },
@@ -2605,7 +2565,7 @@ html {
 .group_39 {
   background-color: rgba(61, 60, 68, 1);
   width: 20rem;
-  height: 6.534rem;
+  height: 7.534rem;
   margin-top: 1.067rem;
   justify-content: flex-center;
 }
@@ -2864,6 +2824,9 @@ html {
     height: .53rem;
   }
   
+}
+.group_39 {
+  height: 8.5rem;
 }
 
 </style>

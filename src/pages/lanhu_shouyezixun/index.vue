@@ -252,22 +252,27 @@
         京ICP备19048506号-2&nbsp;Copyright
         <br />
         &#64;&nbsp;2024&nbsp;中国海洋财经有限公司&nbsp;All&nbsp;Rights&nbsp;Reserved.
+        <span @click="diaDis = true">免责声明</span>
       </span>
     </div>
     <Dialog :dialogVisible1="diaShow" @closeDia="closeDia()"></Dialog>
+    <Disclaimer :dialogVisible1="diaDis" @closeDia="closeDis"/>
   </div>
 </template>
 <script>
 import route from '@/router'
 import { getArticleInfo, getFiveArticle, getFiveAnswer, getRelativeArticle, getRecommendUser } from '@/api/index'
 import Dialog from '@/components/Dialog/index.vue'
+import Disclaimer from '@/components/ConSay/index.vue'
 export default {
   name: 'Article',
   components: {
-    Dialog
+    Dialog,
+    Disclaimer
   },
   data() {
     return {
+      diaDis: false,
       diaShow: false,
       drawer:false,      direction: false,
       queryData: {
@@ -325,6 +330,9 @@ this.getPer()
     that.scrollTop = scrollTop
   },
   methods: {
+    closeDis() {
+      this.diaDis = false
+    },
     async getPer() {
       const res1 = await getRecommendUser()
       this.qhguwt = res1.data

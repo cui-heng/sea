@@ -154,14 +154,17 @@ border-radius: 50%;">
         京ICP备19048506号-2&nbsp;Copyright
         <br />
         &#64;&nbsp;2024&nbsp;中国海洋财经有限公司&nbsp;All&nbsp;Rights&nbsp;Reserved.
+        <span @click="diaShow = true">免责声明</span>
       </span>
     </div>
+    <Disclaimer :dialogVisible1="diaShow" @closeDia="closeDis"/>
   </div>
 </template>
 
 <!-- <style scoped lang="css" src="./assets/index.rem.css" /> -->
 <script>
 import { getArticle, getPreferredArticle } from '@/api/index'
+import Disclaimer from '@/components/ConSay/index.vue'
 // import friend from '../components/friend'
 import tag from '../../components/tag'
 
@@ -169,10 +172,12 @@ export default {
   name: 'Index',
   components: {
     // friend,
-    tag
+    tag,
+    Disclaimer
   },
   data() {
     return {
+      diaShow: false,
       profileInfo: {
         id: 1
       },
@@ -207,6 +212,9 @@ export default {
     this.GetCateList()
   },
   methods: {
+    closeDis() {
+      this.diaShow = false
+    },
     tag(name) {
       this.$router.push({
         name: 'tag',
@@ -448,6 +456,9 @@ h5 {
 }
 .group_5 {
   margin-bottom: 12px;
+}
+.group_16 {
+  height: 7.534rem;
 }
 
 </style>

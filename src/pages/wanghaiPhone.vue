@@ -313,26 +313,31 @@
         京ICP备19048506号-2&nbsp;Copyright
         <br />
         &#64;&nbsp;2024&nbsp;中国海洋财经有限公司&nbsp;All&nbsp;Rights&nbsp;Reserved.
+        <p @click="diaDis = true">免责声明</p>
       </span>
     </div>
       </div>
     </div>
     <Dialog :dialogVisible1="diaShow" @closeDia="closeDia()"></Dialog>
+    <Disclaimer :dialogVisible1="diaDis" @closeDia="closeDis"/>
   </div>
 </template>
 
 <script>
 import { getUserInfo,getAnswer, } from '@/api/index'
 import Dialog from '@/components/Dialog/index.vue'
+import Disclaimer from '@/components/ConSay/index.vue'
 import route from '@/router'
 export default {
 
   name: 'Index',
   components: {
-    Dialog
+    Dialog,
+    Disclaimer
   },
   data() {
     return {
+      diaDis: false,
       diaShow: false,
       isShowImg: false,
       drawer:false,    
@@ -384,6 +389,9 @@ export default {
     scrollview.removeEventListener('scroll', this.scrollChange, true)
   },
   methods: {
+    closeDis() {
+      this.diaDis = false
+    },
     toArtDetail(item) {
       this.$router.push(`/wendaxiangqingphone/` + item.id)
     },
@@ -2285,7 +2293,7 @@ html {
 .section_30 {
   background-color: rgba(61, 60, 68, 1);
   width: 20rem;
-  height: 6.534rem;
+  height: 7.534rem;
   margin-bottom: 0.027rem;
   justify-content: flex-center;
 }
@@ -2411,7 +2419,7 @@ html {
   .section_40 {
   background-color: rgba(61, 60, 68, 1);
   width: 20rem;
-  height: 6.534rem;
+  height: 7.534rem;
   justify-content: flex-center;
   margin-bottom: 200px;
 }

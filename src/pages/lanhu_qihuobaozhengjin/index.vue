@@ -250,24 +250,29 @@
         京ICP备19048506号-2&nbsp;Copyright
         <br />
         &#64;&nbsp;2024&nbsp;中国海洋财经有限公司&nbsp;All&nbsp;Rights&nbsp;Reserved.
+        <p @click="diaDis = true">免责声明</p>
       </span>
     </div>
     <Dialog :dialogVisible1="diaShow" @closeDia="closeDia()"></Dialog>
+    <Disclaimer :dialogVisible1="diaDis" @closeDia="closeDis"/>
   </div>
 </template>
 
 <script>
 import { getRecommendUser, getUsers, getLatestAnswer, getLasterAnswerII } from '@/api/index'
 import Dialog from '@/components/Dialog/index.vue'
+import Disclaimer from '@/components/ConSay/index.vue'
 
 export default {
 
   name: 'Index',
   components: {
-    Dialog
+    Dialog,
+    Disclaimer
   },
   data() {
     return {
+      diaDis: false,
       diaShow: false,
       drawer: false,
       loopData0: [
@@ -302,6 +307,9 @@ export default {
     })
   },
   methods: {
+    closeDis() {
+      this.diaDis = false
+    },
     closeDia() {
       this.diaShow = false
     },

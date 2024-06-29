@@ -670,7 +670,7 @@ html {
 .group_5 {
   background-color: rgba(61, 60, 68, 1);
   width: 20rem;
-  height: 6.534rem;
+  height: 7.534rem;
   justify-content: flex-center;
   margin: 6.96rem 0 0.027rem 0;
 }
