@@ -12,7 +12,11 @@
     "new": "plop",
     "svgo": "svgo -f src/icons/svg --config=src/icons/svgo.yml",
     "test:unit": "jest --clearCache && vue-cli-service test:unit",
-    "test:ci": "npm run lint && npm run test:unit"
+    "test:ci": "npm run lint && npm run test:unit",
+    "nd": "cross-env NODE_ENV=dev nuxt --mode local",
+    "nb": "cross-env NODE_ENV=prod nuxt build --mode prod",
+    "nr": "cross-env NODE_ENV=prod nuxt start --port=3001 --mode prod",
+    "serve": "cross-env NODE_ENV=prod nuxt --mode prod"
   },
   "dependencies": {
     "@toast-ui/editor": "^3.1.3",
@@ -34,6 +38,7 @@
     "moment": "^2.29.1",
     "normalize.css": "7.0.0",
     "nprogress": "0.2.0",
+    "nuxt": "^3.12.2",
     "path-to-regexp": "2.4.0",
     "screenfull": "4.2.0",
     "script-loader": "0.7.2",
@@ -50,6 +55,8 @@
     "xlsx": "0.14.1"
   },
   "devDependencies": {
+    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/proxy": "^2.1.0",
     "@vue/cli-plugin-babel": "4.4.4",
     "@vue/cli-plugin-eslint": "4.4.4",
     "@vue/cli-plugin-unit-jest": "4.4.4",
@@ -62,6 +69,7 @@
     "chalk": "2.4.2",
     "chokidar": "2.1.5",
     "connect": "3.6.6",
+    "cross-env": "^7.0.3",
     "eslint": "6.7.2",
     "eslint-plugin-vue": "6.2.2",
     "html-webpack-plugin": "3.2.0",
