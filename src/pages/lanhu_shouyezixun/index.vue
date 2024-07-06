@@ -19,7 +19,7 @@
         </div>
         <div class="block_3 flex-col">
           <div class="image-wrapper_2 flex-col">
-            <img class="label_4" referrerpolicy="no-referrer"
+            <img @click="$router.push('/lanhu_denglux2fzhucePhone')" class="label_4" referrerpolicy="no-referrer"
               src="./assets/img/FigmaDDSSlicePNGc91b60cc0d136034d7e1cde253d50a91.png" />
           </div>
         </div>
@@ -249,7 +249,7 @@
       </div>
       <div class="block_14 flex-col"></div>
       <span class="paragraph_1">
-        京ICP备19048506号-2&nbsp;Copyright
+        <!-- 京ICP备19048506号-2&nbsp;Copyright -->
         <br />
         &#64;&nbsp;2024&nbsp;中国海洋财经有限公司&nbsp;All&nbsp;Rights&nbsp;Reserved.
         <span @click="diaDis = true">免责声明</span>

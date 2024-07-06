@@ -379,7 +379,7 @@
       </div>
       <div class="group_28 flex-col"></div>
       <span class="paragraph_1">
-        京ICP备19048506号-2&nbsp;Copyright
+        <!-- 京ICP备19048506号-2&nbsp;Copyright -->
         <br />
         &#64;&nbsp;2024&nbsp;中国海洋财经有限公司&nbsp;All&nbsp;Rights&nbsp;Reserved.
       </span>

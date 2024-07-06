@@ -49,6 +49,8 @@ Object.keys(filters).forEach(key => {
 Vue.config.productionTip = false
 // main.js
 Vue.prototype.baseUrlImg = "http://47.115.209.54:8080"
+// Vue.prototype.baseUrlImg = "http://39.105.169.244:8080"
+// Vue.prototype.baseUrlImg = "https://www.haiyangcaijing.com/"
 
 new Vue({
   el: '#app',

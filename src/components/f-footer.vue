@@ -14,7 +14,7 @@
               <span style="margin-left: 20px;">关注</span>
             </div>
             <div style="width: 100%;border: 0.1px solid rgb(132, 132, 132,0.5);"></div>
-            <p>京ICP备19048506号-2 Copyright</p>
+            <!-- <p>京ICP备19048506号-2 Copyright</p> -->
             <p> @ 2024 中国海洋财经有限公司 All Rights Reserved.<span @click="dialogTableVisible=true">免责声明</span></p>
            
           </div>

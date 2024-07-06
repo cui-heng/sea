@@ -29,6 +29,7 @@
               class="label_4"
               referrerpolicy="no-referrer"
               src="./lanhu_youwenbida/assets/img/FigmaDDSSlicePNGc91b60cc0d136034d7e1cde253d50a91.png"
+              @click="$router.push('/lanhu_denglux2fzhucePhone')"
             />
           </div>
         </div>
@@ -315,6 +316,13 @@ export default {
 }
 .section_3 {
   height: 4.4rem !important;
+}
+
+
+</style>
+<style scoped>
+  .label_4 {
+  margin: 0.1rem 0 0 0.127rem !important;
 }
 </style>
 <style scoped lang="css" src="./lanhu_youwenbida/assets/index.rem.css" />
