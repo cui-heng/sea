@@ -4,18 +4,9 @@
   "description": "A magical vue admin. An out-of-box UI solution for enterprise applications. Newest development stack of vue. Lots of awesome features",
   "author": "Pan <panfree23@gmail.com>",
   "scripts": {
-    "dev": "vue-cli-service serve",
-    "lint": "eslint --ext .js,.vue src",
-    "build:prod": "vue-cli-service build",
-    "build:stage": "vue-cli-service build --mode staging",
-    "preview": "node build/index.js --preview",
-    "new": "plop",
-    "svgo": "svgo -f src/icons/svg --config=src/icons/svgo.yml",
-    "test:unit": "jest --clearCache && vue-cli-service test:unit",
-    "test:ci": "npm run lint && npm run test:unit",
-    "nd": "cross-env NODE_ENV=dev nuxt --mode local",
-    "nb": "cross-env NODE_ENV=prod nuxt build --mode prod",
-    "nr": "cross-env NODE_ENV=prod nuxt start --port=3001 --mode prod",
+    "dev": "cross-env NODE_ENV=dev nuxt dev --mode local",
+    "build": "cross-env NODE_ENV=prod nuxt build --mode prod",
+    "start": "cross-env NODE_ENV=prod nuxt start --port=3001 --mode prod",
     "serve": "cross-env NODE_ENV=prod nuxt --mode prod"
   },
   "dependencies": {
