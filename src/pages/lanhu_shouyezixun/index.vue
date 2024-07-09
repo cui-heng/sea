@@ -248,12 +248,7 @@
       </div>
       </div>
       <div class="block_14 flex-col"></div>
-      <span class="paragraph_1">
-        <!-- 京ICP备19048506号-2&nbsp;Copyright -->
-        <br />
-        &#64;&nbsp;2024&nbsp;中国海洋财经有限公司&nbsp;All&nbsp;Rights&nbsp;Reserved.
-        <span @click="diaDis = true">免责声明</span>
-      </span>
+      <p> <img style="  width: 17px;height: 17px; margin-left: 10px;transform: translateY(5px);" src="@/assets/gn.jpg" alt=""><span style="display: inline-block;margin: 0 10px">京公网安备11011402054225号 </span>京ICP备2024075475号-1<span style="margin-left: 10px;" @click="diaDis=true">免责声明</span></p>
     </div>
     <Dialog :dialogVisible1="diaShow" @closeDia="closeDia()"></Dialog>
     <Disclaimer :dialogVisible1="diaDis" @closeDia="closeDis"/>

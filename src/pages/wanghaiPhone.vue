@@ -205,26 +205,6 @@
     </div>
     <div >
     
-      <!-- <div >
-        <div class="list_1 flex-row">
-          <div
-            class="image-text_29 flex-col justify-between"
-            v-for="(item, index) in loopData0"
-            :key="index"
-          >
-            <img
-              class="image_9"
-              referrerpolicy="no-referrer"
-              :src="item.lanhuimage0"
-            />
-            <span class="text-group_30" v-html="item.lanhutext0"></span>
-          </div>
-        </div>
-        <div class="group_11 flex-col"></div>
-        <span class="paragraph_1"
-          >京ICP备19048506号-2&nbsp;Copyright<br />&#64;&nbsp;2024&nbsp;中国海洋财经有限公司&nbsp;All&nbsp;Rights&nbsp;Reserved.</span
-        >
-      </div> -->
       <div style="width: 100%;height: 10px;">
         <div class="block_5 flex-col" v-show="isShowImg">
           <div class="group_9 flex-row">
@@ -310,12 +290,7 @@
         </div>
       </div>
       <div class="group_28 flex-col"></div>
-      <span class="paragraph_1">
-        <!-- 京ICP备19048506号-2&nbsp;Copyright -->
-        <br />
-        &#64;&nbsp;2024&nbsp;中国海洋财经有限公司&nbsp;All&nbsp;Rights&nbsp;Reserved.
-        <p @click="diaDis = true">免责声明</p>
-      </span>
+      <p class="font_fot"><img style="margin-left: 10px;transform: translateY(5px);" src="@/assets/gn.jpg" alt=""><span style="display: inline-block;margin: 0 10px">京公网安备11011402054225号 </span>京ICP备2024075475号-1<br/><span style="margin-left: 40%;" @click="diaDis=true">免责声明</span></p>
     </div>
       </div>
     </div>
@@ -424,7 +399,10 @@ export default {
 html {
   font-size: 37.5px;
 }
-
+.font_fot {
+  font-size: 12px;
+  color: #fff;
+}
 .page {
   background-color: rgba(246, 246, 246, 1);
   position: relative;
