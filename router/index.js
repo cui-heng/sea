@@ -23,6 +23,10 @@ import ydy from '@/pages/ydy'
 // import admin from '@/views/admin'
 import index from '@/pages/index'
 
+
+import lanhu_denglux2fzhuce from '@/pages/lanhu_denglux2fzhuce/index'
+import lanhu_shouye from '@/pages/lanhu_shouye/index'
+
 /**
  * constantRoutes
  * a base page that does not have permission requirements
@@ -42,13 +46,13 @@ export const constantRoutes = [
   {
     path: '/lanhu_denglux2fzhuce',
     name:'lanhu_denglux2fzhuce',
-    component: () => import('@/views/lanhu_denglux2fzhuce/index'),
+    component: lanhu_denglux2fzhuce,
     hidden: true
   },
   {
     path: '/lanhu_denglux2fzhucePhone',
     name:'lanhu_denglux2fzhucePhone',
-    component: () => import('@/pages/lanhu_denglux2fzhuce/index'),
+    component: lanhu_denglux2fzhuce,
     hidden: true
   },
   {
@@ -169,33 +173,36 @@ export const constantRoutes = [
 
 ]
 
-const createRouter = () => new VueRouter({
-  mode: 'history', // require service support
-  scrollBehavior: () => ({ y: 0 }),
-  base: process.env.BASE_URL,
-  routes: constantRoutes
-})
+export const createRouter = (ssrContext, createDefaultRouter, routerOptions, config, store) => {
 
-const router = createRouter()
 
-router.beforeEach((to, from, next) => {
-  if (to.meta.title) {
-    document.title = to.meta.title ? to.meta.title : '加载中'
-  }
-  next()
-  const userToken = window.sessionStorage.getItem('token')
-  if (to.path === '/admin/login') return next()
-  if (!userToken && to.path.startsWith('/admin')) {
-    next('/admin/login')
-  } else {
-    next()
-  }
-})
-
-// Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
-export function resetRouter() {
-  const newRouter = createRouter()
-  router.matcher = newRouter.matcher // reset router
+  return new VueRouter({
+    mode: 'history',
+    scrollBehavior: () => ({ y: 0 }),
+    // base: process.env.BASE_URL,
+    routes: constantRoutes
+  });
 }
 
-export default router
+// TODO 中间件中实现 admin的问题 
+// router.beforeEach((to, from, next) => {
+//   if (to.meta.title) {
+//     document.title = to.meta.title ? to.meta.title : '加载中'
+//   }
+//   next()
+//   const userToken = window.sessionStorage.getItem('token')
+//   if (to.path === '/admin/login') return next()
+//   if (!userToken && to.path.startsWith('/admin')) {
+//     next('/admin/login')
+//   } else {
+//     next()
+//   }
+// })
+
+// Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
+// export function resetRouter() {
+//   const newRouter = createRouter()
+//   router.matcher = newRouter.matcher // reset router
+// }
+
+// export default router

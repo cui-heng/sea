@@ -101,7 +101,6 @@ line-height: 36px;">
 </template>
 <script>
 import { getUserInfo,getAnswer, } from '@/api/index'
-import route from '@/router'
 export default {
 
   name: 'Index',
@@ -121,7 +120,7 @@ export default {
     }
   },
   mounted() {
-    getUserInfo({userId:route.history.current.params.id }).then(res => {
+    getUserInfo({userId:this.$route.params.id }).then(res => {
       this.dataList = res.data
     })
     this.getArtList()

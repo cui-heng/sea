@@ -1,4 +1,4 @@
-Math.easeInOutQuad = function(t, b, c, d) {
+Math.easeInOutQuad = function easeInOutQuad(t, b, c, d) {
   t /= d / 2
   if (t < 1) {
     return c / 2 * t * t + b
@@ -8,9 +8,12 @@ Math.easeInOutQuad = function(t, b, c, d) {
 }
 
 // requestAnimationFrame for Smart Animating http://goo.gl/sx5sts
-var requestAnimFrame = (function() {
-  return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function(callback) { window.setTimeout(callback, 1000 / 60) }
-})()
+if (process.client) {
+  var requestAnimFrame = (function() {
+    return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function(callback) { window.setTimeout(callback, 1000 / 60) }
+  })()
+}
+
 
 /**
  * Because it's so fucking difficult to detect the scrolling element, just move them all

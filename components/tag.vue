@@ -87,8 +87,8 @@ export default {
     },
     // 获取分类
     async GetCateList() {
-      const { data: res } = await this.$http.get('category')
-      this.cateList = res.data
+      const data = await this.$axios.$get(`${process.env.FSOU_BASE_URL}/category`);
+      this.cateList = data
     }
   }
 }

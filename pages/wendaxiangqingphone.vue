@@ -267,7 +267,6 @@
 <script>
 import { getAnswerInfo, getRecommendUser, getHotAnswer, getOtherTypeAnswer, getUsers } from '@/api/index'
 import Dialog from '@/components/Dialog/index.vue'
-import route from '@/router'
 export default {
 
   name: 'Index',
@@ -358,7 +357,7 @@ export default {
     }
   },
   mounted() {
-    getAnswerInfo({ answerId: route.history.current.params.id }).then(res => {
+    getAnswerInfo({ answerId: this.$route.params.id }).then(res => {
       this.artList = res.data.answerReplyList
       this.topDataTo = res.data.answer
     }),

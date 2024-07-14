@@ -388,7 +388,6 @@ line-height: 20px;padding-left: 10px;">{{ item.title }}{{ item.replyCount }}</sp
 
 <script>
 import { getAnswerInfo,getAlertInfo, getRecommendUser, getHotAnswer, getOtherTypeAnswer, insertLeaveMessage } from '@/api/index'
-import route from '@/router'
 export default {
 
   name: 'Index',
@@ -420,7 +419,7 @@ export default {
     }
   },
   mounted() {
-    getAnswerInfo({ answerId: route.history.current.params.id }).then(res => {
+    getAnswerInfo({ answerId: this.$route.params.id }).then(res => {
       this.artList = res.data.answerReplyList
       this.answerTit = res.data.answer
     })

@@ -1,95 +1,84 @@
-const env = require('./env');
+import i18nMessages from './i18n/i18n';
 
-module.exports = {
-    alias: {
-        "@": "/",
+export default {
+  head: {
+    title: 'nuxt2',
+    htmlAttrs: {
+      lang: 'en'
     },
-    env: {
-        baseUrl: env[process.env.NODE_ENV].BASE_URL,
-        apiPrefix: env[process.env.NODE_ENV].URL_PREFIX
-    },
-
-    css: [
-        // '@/assets/css/main.scss',
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no' },
+      { name: "keywords", content: "期货,期货开户,期货手续费,期货公司,期货账户,期货保证金" },
+      {  name: "description", content: "描述" }
     ],
-    plugins: [
-        {
-            src: '~plugins/extend',
-            ssr: true
-        }
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://unpkg.com/dropzone@5/dist/min/dropzone.min.css' },
     ],
-    // modules: [
-    //     '@nuxtjs/axios',
-    //     '@nuxtjs/proxy',
-    //     '@nuxtjs/style-resources'
-    // ],
-    axios: {
-        proxy: true,
-        credentials: true,
-    },
+    script: [
+      { src: 'https://unpkg.com/dropzone@5/dist/min/dropzone.min.js' }
+    ]
+  },
 
-    proxy: {
-        '/api/front': {
-            target: env[process.env.NODE_ENV].BASE_URL,
-        },
-        '/file': {
-            target: env[process.env.NODE_ENV].BASE_URL,
-        },
-        '/files': {
-            target: env[process.env.NODE_ENV].BASE_URL,
-        },
-    },
+  css: [
+    'element-ui/lib/theme-chalk/index.css',
+    'normalize.css/normalize.css',
+    '@/common.css',
+    '@/styles/index.scss',
+    '@/styles/element-variables.scss',
+  ],
 
-    head: {
-        link: [{
-            rel: 'stylesheet',
-            // href: '//at.alicdn.com/t/font_2040977_ozb90g6ebjp.css'
-        }, ],
-        script: [{
-            // src: 'http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js'
-        }],
-        meta: [
-            {
-                charset: 'utf-8'
-            },
-            {
-                name: 'viewport',
-                content: 'width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'
-            },
-            {
-                name: "keywords",
-                content:
-                    "期货,期货开户,期货手续费,期货公司,期货账户,期货保证金",
-                hid: "keywords",
-            },
-            {
-                name: "description",
-                content:
-                    "描述",
-                hid: "description",
-            }
-        ]
-    },
+  plugins: [
+    '@/plugins/element-ui',
+    '@/plugins/extend',
+    '@/plugins/axios',
+  ],
 
-    build: {
-        extend(config, {
-            isDev,
-            isClient
-        }) {
-            if (isDev && isClient) {
-                config.module.rules.push({
-                    enforce: 'pre',
-                    test: /\.(js|vue)$/,
-                    loader: 'eslint-loader',
-                    exclude: /(node_modules)/
-                })
-            }
-        },
-        postcss: {
-            plugins: {},
-            preset: {
-                autoprefixer: true
-            },
-        },
+  middleware: ['auth'],
+
+  components: true,
+
+  buildModules: [
+    '@nuxtjs/router',
+  ],
+
+  routerModule: {
+    path: './router',
+    fileName: 'index.js',
+  },
+
+  modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/i18n',
+  ],
+
+  router: {
+    middleware: 'auth'
+  },
+
+  axios: {
+    baseURL: process.env.BASE_URL,
+  },
+
+  i18n: {
+    locales: ['en', 'zh'],
+    defaultLocale: 'en',
+    vueI18n: {
+      fallbackLocale: 'en',
+      messages: i18nMessages,
     }
+  },
+
+  build: {
+    transpile: [/^element-ui/],
+  },
+
+  env: {
+    FSOU_BASE_URL: process.env.FSOU_BASE_URL
+  },
+
+  publicRuntimeConfig: {
+    baseURL: process.env.BASE_URL,
+  }
 }

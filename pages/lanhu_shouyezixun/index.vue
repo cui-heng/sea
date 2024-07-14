@@ -258,7 +258,6 @@
   </div>
 </template>
 <script>
-import route from '@/router'
 import { getArticleInfo, getFiveArticle, getFiveAnswer, getRelativeArticle, getRecommendUser } from '@/api/index'
 import Dialog from '@/components/Dialog/index.vue'
 export default {
@@ -300,19 +299,18 @@ export default {
   created() {
 
     
-    console.log(route);
     getRelativeArticle().then(res => {
         this.data3 = res.data
       })
     // 获取文章列表
-    getArticleInfo({ articleId: route.history.current.params.id }).then(res => {
+    getArticleInfo({ articleId: this.$route.params.id }).then(res => {
       this.queryData = res.data
     })
 
-    getFiveArticle({ userId: route.history.current.params.userid }).then(res => {
+    getFiveArticle({ userId: this.$route.params.userid }).then(res => {
       this.Article = res.data
     })
-      , getFiveAnswer({ userId: route.history.current.params.userid }).then(res => {
+      , getFiveAnswer({ userId: this.$route.params.userid }).then(res => {
         this.Answer = res.data
       })
 this.getPer()

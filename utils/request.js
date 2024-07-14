@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { MessageBox, Message } from 'element-ui'
-import store from '@/store'
 import { getToken } from '@/utils/auth'
 
 // create an axios instance
@@ -16,7 +15,8 @@ service.interceptors.request.use(
   config => {
     // do something before request is sent
 
-    if (store.getters.token) {
+    // TODO remove store.getter.token???
+    if (true) {
       // let each request carry token
       // ['X-Token'] is a custom headers key
       // please modify it according to the actual situation

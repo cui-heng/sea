@@ -83,13 +83,12 @@ color: #5b5959;" v-html="item.content.slice(0,100)">
 
 <script>
 import { getArticle } from '@/api/index'
-// import friend from '../components/friend'
 import tag from '../components/tag'
+import { website } from '../api'
 
 export default {
   name: 'Index',
   components: {
-    // friend,
     tag
   },
   data() {
@@ -99,24 +98,24 @@ export default {
         pagesize: 11,
         pagenum: 1
       },
-      currentPage: 1,
-      count: 0,
       total: 0
     }
   },
-  mounted() {
-    this.getArtList()
+
+  async asyncData(context) {
+    const res = await context.$axios.$get(website.getArticle, {
+      page: context.query.current || 1,
+      size: context.query.pageSize || 10
+    });
+    return {
+      artList: res.list || [],
+      total: res.total,
+    }
   },
   methods: {
-    handleCurrentChange: function (currentPage) {
-      this.queryParam.pagenum = currentPage
-      // eslint-disable-next-line no-console
-      console.log(this.currentPage) // 点击第几页
-      this.getArtList()
-    },
     // 获取文章列表
     async getArtList() {
-      const res = await getArticle({
+      const res = await this.$axios.$get(website.getArticle, {
         size: this.queryParam.pagesize,
         page: this.queryParam.pagenum
       })

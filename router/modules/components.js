@@ -24,12 +24,13 @@ const componentsRouter = {
       name: 'MarkdownDemo',
       meta: { title: 'Markdown' }
     },
-    {
-      path: 'json-editor',
-      component: () => import('@/views/components-demo/json-editor'),
-      name: 'JsonEditorDemo',
-      meta: { title: 'JSON Editor' }
-    },
+    // TODO tui-editor失败
+    // {
+    //   path: 'json-editor',
+    //   component: () => import('@/views/components-demo/json-editor'),
+    //   name: 'JsonEditorDemo',
+    //   meta: { title: 'JSON Editor' }
+    // },
     {
       path: 'split-pane',
       component: () => import('@/views/components-demo/split-pane'),

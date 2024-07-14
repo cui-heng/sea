@@ -1,8 +1,8 @@
-const state = {
+export const state = () => ({
   logs: []
-}
+});
 
-const mutations = {
+export const mutations = {
   ADD_ERROR_LOG: (state, log) => {
     state.logs.push(log)
   },
@@ -11,18 +11,11 @@ const mutations = {
   }
 }
 
-const actions = {
+export const actions = {
   addErrorLog({ commit }, log) {
     commit('ADD_ERROR_LOG', log)
   },
   clearErrorLog({ commit }) {
     commit('CLEAR_ERROR_LOG')
   }
-}
-
-export default {
-  namespaced: true,
-  state,
-  mutations,
-  actions
 }

@@ -1,4 +1,5 @@
-import request from '@/utils/request'
+import request from '@/utils/request';
+export * from './website';
 
 export function getPreferredArticle(query) {
   return request({

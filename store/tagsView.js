@@ -1,9 +1,9 @@
-const state = {
+export const state = () => ({
   visitedViews: [],
   cachedViews: []
-}
+});
 
-const mutations = {
+export const mutations = {
   ADD_VISITED_VIEW: (state, view) => {
     if (state.visitedViews.some(v => v.path === view.path)) return
     state.visitedViews.push(
@@ -66,7 +66,7 @@ const mutations = {
   }
 }
 
-const actions = {
+export const actions = {
   addView({ dispatch }, view) {
     dispatch('addVisitedView', view)
     dispatch('addCachedView', view)
@@ -150,11 +150,4 @@ const actions = {
   updateVisitedView({ commit }, view) {
     commit('UPDATE_VISITED_VIEW', view)
   }
-}
-
-export default {
-  namespaced: true,
-  state,
-  mutations,
-  actions
 }

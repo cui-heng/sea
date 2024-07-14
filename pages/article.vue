@@ -378,7 +378,6 @@ line-height: 14px;" />{{ item.userViews }}</div> -->
 </template>
 
 <script>
-import route from '@/router'
 import { getArticleInfo, getFiveArticle, getFiveAnswer,getRecommendUser,getRelativeArticle,getAlertInfo } from '@/api/index'
 export default {
   name: 'Article',
@@ -402,16 +401,15 @@ export default {
     }
   },
   mounted() {
-    console.log(route);
     // 获取文章列表
-    getArticleInfo({ articleId: route.history.current.params.id }).then(res => {
+    getArticleInfo({ articleId: this.$route.params.id }).then(res => {
       this.queryData = res.data
     })
 
-    getFiveArticle({ userId: route.history.current.params.userid }).then(res => {
+    getFiveArticle({ userId: this.$route.params.userid }).then(res => {
       this.Article = res.data
     })
-      , getFiveAnswer({ userId: route.history.current.params.userid }).then(res => {
+      , getFiveAnswer({ userId: this.$route.params.userid }).then(res => {
         this.Answer = res.data
       }),
       getRecommendUser().then(res => {

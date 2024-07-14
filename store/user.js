@@ -2,15 +2,15 @@ import { login, logout, getInfo } from '@/api/user'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 
 
-const state = {
+export const state = () => ({
   token: getToken(),
   name: '',
   avatar: '',
   introduction: '',
   roles: []
-}
+});
 
-const mutations = {
+export const mutations = {
   SET_TOKEN: (state, token) => {
     state.token = token
   },
@@ -28,7 +28,7 @@ const mutations = {
   }
 }
 
-const actions = {
+export const actions = {
   // user login
   login({ commit }, userInfo) {
     const { username, password } = userInfo
@@ -121,11 +121,4 @@ const actions = {
     // reset visited views and cached views
     dispatch('tagsView/delAllViews', null, { root: true })
   }
-}
-
-export default {
-  namespaced: true,
-  state,
-  mutations,
-  actions
 }

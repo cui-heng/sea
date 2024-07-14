@@ -324,7 +324,6 @@
 <script>
 import { getUserInfo,getAnswer, } from '@/api/index'
 import Dialog from '@/components/Dialog/index.vue'
-import route from '@/router'
 export default {
 
   name: 'Index',
@@ -361,7 +360,7 @@ export default {
     }
   },
   mounted () {
-    getUserInfo({userId:route.history.current.params.id }).then(res => {
+    getUserInfo({userId: this.$route.params.id }).then(res => {
       this.dataList = res.data
     })
     this.getArtList()

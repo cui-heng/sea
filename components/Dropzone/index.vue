@@ -5,11 +5,6 @@
 </template>
 
 <script>
-import Dropzone from 'dropzone'
-import 'dropzone/dist/dropzone.css'
-// import { getToken } from 'api/qiniu';
-
-Dropzone.autoDiscover = false
 
 export default {
   props: {
@@ -88,6 +83,7 @@ export default {
     }
   },
   mounted() {
+    Dropzone.autoDiscover = false;
     const element = document.getElementById(this.id)
     const vm = this
     this.dropzone = new Dropzone(element, {

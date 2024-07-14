@@ -52,7 +52,7 @@ line-height: 0px;padding-left: 10px;position: relative;top:-6px;right: -3px;">{{
         item.helpNumber
       }}</div>
                       </div>
-                      <router-link :to="`/wendaxiangqing/${item.id}`" >
+                      <nuxt-link :to="`/wendaxiangqing/${item.id}`" >
                         <p style="font-size: 18px;
 font-family: PingFang SC-Medium, PingFang SC;
 font-weight: 500;
@@ -60,8 +60,8 @@ color: #707070;
 line-height: 26px;">
                           {{ item.description.slice(0,80) }}...
                         </p>
-                        <router-link :to="`/wendaxiangqing/${item.id}`" tag="span"><p style="color: #1ABCFC;">阅读全文<img src="../assets/check-more.png" style="position: relative;top:-3px;right: -3px;"/></p></router-link>
-                      </router-link>
+                        <nuxt-link :to="`/wendaxiangqing/${item.id}`" tag="span"><p style="color: #1ABCFC;">阅读全文<img src="../assets/check-more.png" style="position: relative;top:-3px;right: -3px;"/></p></nuxt-link>
+                      </nuxt-link>
                     </div>
 
                   </el-row>
@@ -159,14 +159,14 @@ border-radius: 10px 10px 10px 10px;" v-for="item in HotAnswer">
   height: 6px;
   border-radius: 50%;background-color:#17B6F5;"></div>
 
-                      <span @click="toTitLe(item.id)" style="font-size: 14px;
+                      <nuxt-link :to="`/wendaxiangqing/${item.id}`" style="font-size: 14px;
 font-family: PingFang SC-Medium, PingFang SC;
 font-weight: 500;
 color: #000000;
 line-height: 20px;
 "><span style="
 border-radius: 0px 0px 0px 0px;padding-left: 10px;"></span>{{ item.title }}<span style="color: #7A7A7A;font-size: 12px;padding-left: 10px;">{{
-                          item.replyCount }}个回答</span></span>
+                          item.replyCount }}个回答</span></nuxt-link>
 
                   </div>
                 </el-card>
@@ -283,9 +283,7 @@ border-radius: 0px 0px 0px 0px;padding-left: 10px;"></span>{{ item.title }}<span
 </template>
 
 <script>
-import { getAnswer, getRecommendUser, getHotAnswer,getAlertInfo } from '@/api/index'
-import service from '@/utils/request'
-
+import { website } from '../api'
 export default {
 
   name: 'Index',
@@ -310,45 +308,40 @@ export default {
       serviceInfo: {}
     }
   },
-  mounted() {
-    this.getService()
-    this.getArtList()
+
+  async asyncData({ $axios }) {
+    const [serviceInfo, answerData, qhguwt, HotAnswer] = await Promise.all([
+      $axios.$get(website.getAnswerInfo),
+      $axios.$get(website.getAnswer, {
+        page: 1,
+        size: 10,
+        searchText: ''
+      }),
+      $axios.$get(website.getRecommendUser),
+      $axios.$get(website.getHotAnswer)
+    ]);
+
+    return {
+      serviceInfo,
+      artList: answerData.list,
+      total: answerData.total,
+      qhguwt,
+      HotAnswer,
+    }
   },
   methods: {
-    toTitLe(id) {
-      this.$router.push('/wendaxiangqing/'+id)
-    },
-    async getService() {
-
-      const {data} = await getAlertInfo({})
-      this.serviceInfo = data
-    },
-    handleCurrentChange: function (currentPage) {
-      this.queryParam.pagenum = currentPage
-      // eslint-disable-next-line no-console
-      console.log(this.currentPage) // 点击第几页
-      this.getArtList()
-    },
     // 获取文章列表
     async getArtList(val) {
-      const res = await getAnswer({
+      const res = await this.$axios.$get(website.getAnswer, {
         size: this.queryParam.pagesize,
         page: this.queryParam.pagenum,
         searchText: val
       })
-      this.artList = res.data.list
-      this.total = res.data.total
-      // eslint-disable-next-line no-console
-      console.log(this.artList)
-      const res1 = await getRecommendUser()
-      this.qhguwt = res1.data
-      const res2 = await getHotAnswer()
-      this.HotAnswer = res2.data
+      this.artList = res.data.list;
+      this.total = res.data.total;
     },
     toUserPage(id) {
-      console.log(id)
       this.$router.push('/ydy/'+id)
-
     }
   }
 }

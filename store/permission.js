@@ -1,5 +1,3 @@
-import { asyncRoutes, constantRoutes } from '@/router'
-
 /**
  * Use meta.role to determine if the current user has permission
  * @param roles
@@ -34,19 +32,20 @@ export function filterAsyncRoutes(routes, roles) {
   return res
 }
 
-const state = {
+export const state = () => ({
   routes: [],
   addRoutes: []
-}
+});
 
-const mutations = {
+export const mutations = {
   SET_ROUTES: (state, routes) => {
     state.addRoutes = routes
-    state.routes = constantRoutes.concat(routes)
+    // TODO remove state.routes
+    // state.routes = constantRoutes.concat(routes)
   }
 }
 
-const actions = {
+export const actions = {
   generateRoutes({ commit }, roles) {
     return new Promise(resolve => {
       let accessedRoutes
@@ -59,11 +58,4 @@ const actions = {
       resolve(accessedRoutes)
     })
   }
-}
-
-export default {
-  namespaced: true,
-  state,
-  mutations,
-  actions
 }

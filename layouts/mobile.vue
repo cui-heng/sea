@@ -26,10 +26,12 @@ export default {
     }
   },
   mounted() {
-    this.minHeight = document.documentElement.clientHeight
-    window.addEventListener('scroll', this.watchScroll)
+    console.log(this.$route, '5555');
+    const that = this
+    that.minHeight = document.documentElement.clientHeight
+    window.addEventListener('scroll', that.watchScroll)
     window.onresize = function () {
-      this.minHeight = document.documentElement.clientHeight
+      that.minHeight = document.documentElement.clientHeight
     }
   },
 
@@ -48,6 +50,7 @@ export default {
   }
 }
 </script>
+
 <style scoped>
 .app {
   font-family: "microsoft yahei", serif;
