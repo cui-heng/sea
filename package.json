@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
+    "dev": "nuxt --dotenv ./.env.development",
+    "build": "nuxt build --dotenv ./.env.production",
     "start": "nuxt start",
     "generate": "nuxt generate"
   },
@@ -44,6 +44,7 @@
   "devDependencies": {
     "@nuxtjs/router": "^1.7.0",
     "sass": "1.26.2",
-    "sass-loader": "8.0.2"
+    "sass-loader": "8.0.2",
+    "cross-env": "^7.0.3"
   }
 }
