@@ -290,7 +290,7 @@
   </div>
 </template>
 <script>
-import { getUserInfo,getAnswer,getAlertInfo } from '@/api/index'
+import { getUserInfo,getAnswer,getAlertInfo } from '@/services/index'
 export default {
 
   name: 'Index',

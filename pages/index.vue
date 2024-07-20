@@ -82,9 +82,8 @@ color: #5b5959;" v-html="item.content.slice(0,100)">
 </template>
 
 <script>
-import { getArticle } from '@/api/index'
 import tag from '../components/tag'
-import { website } from '../api'
+import { website } from '@/services'
 
 export default {
   name: 'Index',

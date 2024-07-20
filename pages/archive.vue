@@ -283,7 +283,7 @@ border-radius: 0px 0px 0px 0px;padding-left: 10px;"></span>{{ item.title }}<span
 </template>
 
 <script>
-import { website } from '../api'
+import { website } from '@/services'
 export default {
 
   name: 'Index',

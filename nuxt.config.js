@@ -30,12 +30,17 @@ export default {
   ],
 
   plugins: [
+    '@/plugins/cookie',
     '@/plugins/element-ui',
     '@/plugins/extend',
     '@/plugins/axios',
   ],
 
   middleware: ['auth'],
+
+  serverMiddleware: [
+    { path: '/api', handler: '~/api' }
+  ],
 
   components: true,
 
@@ -58,7 +63,14 @@ export default {
   },
 
   axios: {
-    baseURL: process.env.BASE_URL,
+    proxy: true,
+  },
+
+  proxy: {
+    '/website': {
+      target: process.env.BASE_URL
+    },
+    '/article/v1': process.env.FSOU_BASE_URL,
   },
 
   i18n: {

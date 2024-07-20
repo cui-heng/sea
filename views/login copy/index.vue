@@ -62,7 +62,7 @@ line-height: 24px;text-align: center;">投资耆关系 | 关于我们 | 软件�
 
 <script>
 // import { validUsername } from '@/utils/validate'
-import { userLogin } from '@/api/index'
+import { userLogin } from '@/services/index'
 export default {
   name: 'Login',
   data() {

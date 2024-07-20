@@ -100,7 +100,7 @@ line-height: 36px;">
   </div>
 </template>
 <script>
-import { getUserInfo,getAnswer, } from '@/api/index'
+import { getUserInfo,getAnswer, } from '@/services/index'
 export default {
 
   name: 'Index',

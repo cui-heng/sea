@@ -78,7 +78,7 @@ style="margin-top: 10px;"
 </template>
 
 <script>
-import {insertLeaveMessage} from '../api/index.js'
+import {insertLeaveMessage} from '@/services/index.js'
 export default {
   data() {
     return {

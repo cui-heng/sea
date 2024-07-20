@@ -265,7 +265,7 @@
 </template>
 
 <script>
-import { getAnswerInfo, getRecommendUser, getHotAnswer, getOtherTypeAnswer, getUsers } from '@/api/index'
+import { getAnswerInfo, getRecommendUser, getHotAnswer, getOtherTypeAnswer, getUsers } from '@/services/index'
 import Dialog from '@/components/Dialog/index.vue'
 export default {
 

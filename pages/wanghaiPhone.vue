@@ -322,7 +322,7 @@
 </template>
 
 <script>
-import { getUserInfo,getAnswer, } from '@/api/index'
+import { getUserInfo,getAnswer, } from '@/services/index'
 import Dialog from '@/components/Dialog/index.vue'
 export default {
 

@@ -224,7 +224,7 @@
 </template>
 
 <script>
-import { getAnswer, getRecommendUser, getHotAnswer } from '@/api/index'
+import { getAnswer, getRecommendUser, getHotAnswer } from '@/services/index'
 import Dialog from '@/components/Dialog/index.vue'
 
 export default {

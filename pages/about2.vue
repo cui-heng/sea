@@ -341,7 +341,7 @@ color: #8A8A8A;line-height:20px;margin-left: 22px;"></p>
   </div>
 </template>
 <script>
-import { getRecommendUser, getAlertInfo, getUsers, getLatestAnswer, getLasterAnswerII,getFirstAnaswer } from '@/api/index'
+import { getRecommendUser, getAlertInfo, getUsers, getLatestAnswer, getLasterAnswerII,getFirstAnaswer } from '@/services/index'
 
 export default {
 

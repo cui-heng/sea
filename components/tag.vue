@@ -49,7 +49,7 @@ line-height: 14px;" />{{ item.browseNumber }}</div>
 </template>
 
 <script>
-import { getPreferredArticle } from '@/api/index'
+import { getPreferredArticle } from '@/services/index'
 export default {
   name: 'Tag',
   data() {
@@ -87,7 +87,7 @@ export default {
     },
     // 获取分类
     async GetCateList() {
-      const data = await this.$axios.$get(`${process.env.FSOU_BASE_URL}/category`);
+      const data = await this.$axios.$get('/article/v1/category');
       this.cateList = data
     }
   }

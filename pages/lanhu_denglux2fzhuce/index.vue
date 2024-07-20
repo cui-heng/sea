@@ -138,7 +138,7 @@
 </template>
 <script>
 // import { validUsername } from '@/utils/validate'
-import { userLogin, getAlertInfo } from '@/api/index'
+import { userLogin, getAlertInfo } from '@/services/index'
 export default {
   name: 'Login',
   data() {

@@ -257,7 +257,7 @@
 </template>
 
 <script>
-import { getRecommendUser, getUsers, getLatestAnswer, getLasterAnswerII } from '@/api/index'
+import { getRecommendUser, getUsers, getLatestAnswer, getLasterAnswerII } from '@/services/index'
 import Dialog from '@/components/Dialog/index.vue'
 
 export default {

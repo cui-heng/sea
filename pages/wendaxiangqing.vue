@@ -387,7 +387,7 @@ line-height: 20px;padding-left: 10px;">{{ item.title }}{{ item.replyCount }}</sp
 </template>
 
 <script>
-import { getAnswerInfo,getAlertInfo, getRecommendUser, getHotAnswer, getOtherTypeAnswer, insertLeaveMessage } from '@/api/index'
+import { getAnswerInfo,getAlertInfo, getRecommendUser, getHotAnswer, getOtherTypeAnswer, insertLeaveMessage } from '@/services/index'
 export default {
 
   name: 'Index',

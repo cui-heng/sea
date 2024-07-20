@@ -57,8 +57,8 @@ import Tinymce from '@/components/Tinymce'
 import Upload from '@/components/Upload/SingleImage3'
 import MDinput from '@/components/MDinput'
 import { validURL } from '@/utils/validate'
-import { fetchArticle } from '@/api/article'
-import { searchUser } from '@/api/remote-search'
+import { fetchArticle } from '@/services/article'
+import { searchUser } from '@/services/remote-search'
 
 const articleType = [
   { label: 'CN', value: 'China' },

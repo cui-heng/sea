@@ -161,7 +161,7 @@ border-radius: 50%;">
 
 <!-- <style scoped lang="css" src="./assets/index.rem.css" /> -->
 <script>
-import { getArticle, getPreferredArticle } from '@/api/index'
+import { getArticle, getPreferredArticle } from '@/services/index'
 // import friend from '../components/friend'
 import tag from '../../components/tag'
 
@@ -228,7 +228,7 @@ export default {
     },
     // 获取分类
     async GetCateList() {
-      const data = await this.$axios.$get(`${process.env.FSOU_BASE_URL}/category`)
+      const data = await this.$axios.$get('/article/v1/category')
       this.cateList = data
     },
     handleCurrentChange: function (currentPage) {
