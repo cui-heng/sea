@@ -17,7 +17,8 @@ export default {
       { rel: 'stylesheet', href: 'https://unpkg.com/dropzone@5/dist/min/dropzone.min.css' },
     ],
     script: [
-      { src: 'https://unpkg.com/dropzone@5/dist/min/dropzone.min.js' }
+      { src: '/flexible.js' },
+      { src: 'https://unpkg.com/dropzone@5/dist/min/dropzone.min.js' },
     ]
   },
 
