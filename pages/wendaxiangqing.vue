@@ -35,9 +35,9 @@ line-height: 20px;">{{ answerTit.title }}</p>
               </div>
               <div style="padding-top: 20px;">
                 <el-button slot="reference"
-                  style="color: #fff;background: linear-gradient( 90deg, #1ABCFB 0%, #0796D2 100%);"><router-link to="/login"> <img src="../assets/answer-edit.png"> 我来回答</router-link></el-button>
-                <el-button slot="reference" plain type="danger"><router-link to="/login"><img
-                      src="../assets/residence.png" style="width: 13px;"> 入驻注册</router-link></el-button>
+                  style="color: #fff;background: linear-gradient( 90deg, #1ABCFB 0%, #0796D2 100%);"><nuxt-link to="/login"> <img src="../assets/answer-edit.png"> 我来回答</nuxt-link></el-button>
+                <el-button slot="reference" plain type="danger"><nuxt-link to="/login"><img
+                      src="../assets/residence.png" style="width: 13px;"> 入驻注册</nuxt-link></el-button>
               </div>
 
 

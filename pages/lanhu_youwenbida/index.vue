@@ -90,7 +90,7 @@
           <span class="text_10">
             {{ item.description.slice(0, 40) }}...
           </span>
-          <span class="text_11"> <router-link :to="`/wendaxiangqingphone/${item.id}`">阅读全文</router-link></span>
+          <span class="text_11"> <nuxt-link :to="`/wendaxiangqingphone/${item.id}`">阅读全文</nuxt-link></span>
         </div>
         <img
           class="thumbnail_3"
@@ -201,7 +201,7 @@
       <div class="section_31 flex-col"><div class="block_6 flex-col"></div></div>
       <div class="section_32 flex-row rese_sty_p" v-for="item in HotAnswer">
         <div class="group_27 flex-col"></div>
-        <span class="text_54" @click="$router.push(`/wendaxiangqingphone/${item.id}`)">{{ item.title }}</span>
+        <nuxt-link class="text_54" :to="`/wendaxiangqingphone/${item.id}`">{{ item.title }}</nuxt-link>
         <span class="text_55">{{ item.replyCount }}个回答</span>
       </div>
     </div>

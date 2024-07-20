@@ -7,7 +7,7 @@
 color: #8A8A8A;"> Preferred article</span></span>
       </div>
       <div v-for="item in cateList.slice(0,9)">
-        <router-link :to="`/article/` + item.id + '/' + item.userId" tag="span">
+        <nuxt-link :to="`/article/` + item.id + '/' + item.userId" tag="span">
         <p style="font-size: 14px;
 font-family: PingFang SC-Bold, PingFang SC;
 font-weight: bold;
@@ -18,11 +18,11 @@ font-family: PingFang SC-Medium, PingFang SC;
 font-weight: 500;
 color: #707070;
 line-height: 20px;" v-html=" item.content.slice(0,50) "></p>
-</router-link>
+</nuxt-link>
         <div>
 
 
-          <router-link :to="'/ydy/'+ item.userId">
+          <nuxt-link :to="'/ydy/'+ item.userId">
             <div style="width: 22px;
 height: 22px;float: left;
 border-radius: 50%;background-color: red">
@@ -35,7 +35,7 @@ font-family: PingFang SC-Medium, PingFang SC;
 font-weight: 500;
 color: #242629;
 line-height: 22px;float: left;margin-left: 10px;">{{ item.nickName }}</span>
-          </router-link>
+          </nuxt-link>
           <div class="view" style="float: right;font-size: 12px;"><i class="el-icon-view" style="font-size: 12px;
 font-family: PingFang SC-Medium, PingFang SC;
 font-weight: 500;
@@ -66,24 +66,12 @@ export default {
     this.GetCateList()
   },
   methods: {
-    tag(name) {
-      this.$router.push({
-        name: 'tag',
-        params: {
-          'name': name
-        }
-      })
-    },
     // 获取个人设置
     getProfileInfo() {
-
       getPreferredArticle().then(res => {
         console.log(res, '999');
         this.cateList = res.data
       })
-    },
-    gotoCate(cid) {
-      this.$router.push(`/category/${cid}`).catch((err) => err)
     },
     // 获取分类
     async GetCateList() {

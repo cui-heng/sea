@@ -14,8 +14,8 @@
     padding-left: 6px;width: 302px;height: 182px;display: flex;  
     align-items: center;margin-top: 60px;">
           <el-col :span="11">
-            <router-link :to="`/ydy/${item.userId}`" tag="span" style="cursor: pointer;"> <img style="width: 132px;height: 156px;"
-                :src="baseUrlImg + item.avatar"></router-link>
+            <nuxt-link :to="`/ydy/${item.userId}`" tag="span" style="cursor: pointer;"> <img style="width: 132px;height: 156px;"
+                :src="baseUrlImg + item.avatar"></nuxt-link>
                 <div style="width: 132px;
                 height: 42px;background-color: rgba(0,0,0,0.5);position: relative;bottom: 46px;font-size: 12px;  color: #fff;text-align: center;line-height: 46px;font-family: PingFang SC, PingFang SC;
                 font-weight: 500;
@@ -57,7 +57,7 @@
             <el-button style="background-color: #023665;color: #fff;width: 126px;font-size: 16px;height: 36px;display: flex;font-weight: bold;
           align-items: center;
           justify-content: center;
-          margin-top: 4px;"><router-link :to="`/ydy/${item.userId}`" tag="span" style="cursor: pointer;"><img src="../assets/p.png" style="width: 17px;transform: translate(-17px, 1px);"/> 咨询</router-link></el-button>
+          margin-top: 4px;"><nuxt-link :to="`/ydy/${item.userId}`" tag="span" style="cursor: pointer;"><img src="../assets/p.png" style="width: 17px;transform: translate(-17px, 1px);"/> 咨询</nuxt-link></el-button>
 
           </el-col>
         </div>

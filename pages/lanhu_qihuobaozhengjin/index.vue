@@ -61,14 +61,14 @@
                   <!-- <div class="image-text_6 flex-row justify-between cl_le">
                     <img class="label_7" referrerpolicy="no-referrer"
                       src="./assets/img/152698e1a95c49d89c9b93819104b31a_mergeImage.png" />
-                    <span class="text-group_5"><router-link
-                        :to="`/lanhu_wanghaijingli/${item.userId}`">咨询</router-link></span>
+                    <span class="text-group_5"><nuxt-link
+                        :to="`/lanhu_wanghaijingli/${item.userId}`">咨询</nuxt-link></span>
                   </div> -->
                   <div class="image-text_7 flex-row justify-between cl_le">
                     <img class="label_7" referrerpolicy="no-referrer"
                       src="./assets/img/152698e1a95c49d89c9b93819104b31a_mergeImage.png" />
-                    <span class="text-group_5"><router-link
-                        :to="`/lanhu_wanghaijingli/${item.userId}`">咨询</router-link></span>
+                    <span class="text-group_5"><nuxt-link
+                        :to="`/lanhu_wanghaijingli/${item.userId}`">咨询</nuxt-link></span>
                   </div>
                 </div>
               </div>
@@ -91,14 +91,14 @@
                   <div class="image-text_6 flex-row justify-between">
                     <img class="label_7" referrerpolicy="no-referrer"
                       src="./assets/img/152698e1a95c49d89c9b93819104b31a_mergeImage.png" />
-                    <span class="text-group_5"><router-link
-                        :to="`/lanhu_wanghaijingli/${item.userId}`">咨询</router-link></span>
+                    <span class="text-group_5"><nuxt-link
+                        :to="`/lanhu_wanghaijingli/${item.userId}`">咨询</nuxt-link></span>
                   </div>
                   <div class="image-text_7 flex-row justify-between">
                     <img class="label_7" referrerpolicy="no-referrer"
                       src="./assets/img/152698e1a95c49d89c9b93819104b31a_mergeImage.png" />
-                    <span class="text-group_5"><router-link
-                        :to="`/lanhu_wanghaijingli/${item.userId}`">咨询</router-link></span>
+                    <span class="text-group_5"><nuxt-link
+                        :to="`/lanhu_wanghaijingli/${item.userId}`">咨询</nuxt-link></span>
                   </div>
                 </div>
               </div>

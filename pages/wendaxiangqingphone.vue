@@ -55,14 +55,14 @@
             <div class="image-text_1 flex-row justify-between">
               <img class="thumbnail_3" referrerpolicy="no-referrer"
                 src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG60e4fb5985e853c498d48dc833114e70.png" />
-              <span class="text-group_1"> <router-link to="/wlhd">我来回答</router-link></span>
+              <span class="text-group_1"> <nuxt-link to="/wlhd">我来回答</nuxt-link></span>
             </div>
           </div>
           <div class="group_6 flex-row">
             <div class="image-text_2 flex-row justify-between">
               <img class="thumbnail_4" referrerpolicy="no-referrer"
                 src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG7f1fda1bd9617e23a5d1598d93cedd60.png" />
-              <span class="text-group_2"><router-link to="/lanhu_denglux2fzhucePhone">入驻注册</router-link></span>
+              <span class="text-group_2"><nuxt-link to="/lanhu_denglux2fzhucePhone">入驻注册</nuxt-link></span>
             </div>
           </div>
         </div>

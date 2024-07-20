@@ -5,7 +5,7 @@
         <img class="card-icon" src="../assets/lianjie.png">
         <span>{{ $t('friend.friend') }}</span>
         <el-button class="ml-auto" style="padding: 3px 0" type="text">
-          <router-link to="/apply" tag="span">{{ $t('friend.exchange') }}</router-link>
+          <nuxt-link to="/apply" tag="span">{{ $t('friend.exchange') }}</nuxt-link>
         </el-button>
       </div>
       <div class="text item"><a href="#">某某的博客</a></div>

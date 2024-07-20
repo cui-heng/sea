@@ -6,7 +6,7 @@
 - [-] js-cookie的问题
 - [ ] store hasPermission的问题
 - [-] login token的问题
-- [ ] router-link 替换成nuxt-link
+- [-] nuxt-link 替换成nuxt-link
 - [ ] moblie 布局的问题
 - [-] tui-editor 安装不成功 暂时删除 
 

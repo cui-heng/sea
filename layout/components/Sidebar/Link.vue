@@ -22,7 +22,7 @@ export default {
       if (this.isExternal) {
         return 'a'
       }
-      return 'router-link'
+      return 'nuxt-link'
     }
   },
   methods: {

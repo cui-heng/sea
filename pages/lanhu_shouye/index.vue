@@ -57,13 +57,13 @@
             <div>
               <div style="position: absolute;background-color: rgba(0,0,0,0.4);width: 100%;height: 100%;">
                 <div style="position: relative;top: 60%;padding: 20px;">
-                  <router-link :to="`/lanhu_shouyezixun/` + item.id + '/' + item.userId" tag="span">
+                  <nuxt-link :to="`/lanhu_shouyezixun/` + item.id + '/' + item.userId" tag="span">
                     <p style="font-size: 14px;
                       font-family: PingFang SC-Bold, PingFang SC;
                       font-weight: bold;
                       color: #fff;cursor: pointer;
                       line-height: 3px;">{{ item.title }}</p>
-                  </router-link>
+                  </nuxt-link>
                   <div class="author_box">
                     <div class="img_box" @click="$router.push('lanhu_wanghaijingli/'+item.userId)">
                       <img :src="baseUrlImg + item.avatar" alt="">
@@ -99,8 +99,8 @@
               </div>
             </div>
             <span class="text-group_14"> 
-              <router-link :to="`/lanhu_shouyezixun/` + item.id + '/' + item.userId" tag="span">
-                {{ item.title.slice(0, 10) }}</router-link>
+              <nuxt-link :to="`/lanhu_shouyezixun/` + item.id + '/' + item.userId" tag="span">
+                {{ item.title.slice(0, 10) }}</nuxt-link>
             </span>
             <p class="creat_time_sty">{{ item.createTime }}</p>
           </div>
