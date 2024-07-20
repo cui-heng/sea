@@ -1,6 +1,8 @@
 import i18nMessages from './i18n/i18n';
 
 export default {
+  target: 'server',
+
   head: {
     title: 'nuxt2',
     htmlAttrs: {
