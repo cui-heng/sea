@@ -342,6 +342,7 @@ color: #8A8A8A;line-height:20px;margin-left: 22px;"></p>
 </template>
 <script>
 import { getRecommendUser, getAlertInfo, getUsers, getLatestAnswer, getLasterAnswerII,getFirstAnaswer } from '@/api/index'
+import { website } from '../api'
 
 export default {
 
@@ -359,6 +360,12 @@ export default {
       dataList3: [],
       dataList4: '',
       serviceInfo: {}
+    }
+  },
+  async asyncData(context) {
+    const res = await context.$axios.$get(website.getRecommendUser);
+    return {
+      dataList: res.data || [],
     }
   },
   mounted() {

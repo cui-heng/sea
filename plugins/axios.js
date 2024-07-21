@@ -24,6 +24,7 @@ export default (context) => {
   });
 
   context.$axios.onError(error => {
+    console.log(error)
     if (process.client) {
       Message({
         message: error.message,

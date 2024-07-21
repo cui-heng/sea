@@ -130,6 +130,7 @@ line-height: 14px;">(手续费更新时间:2024-03-12 17:45:12.528，价格更�
 
 <script>
 import { getTransactionCategory, getTransactionData, getTransactionData1, getExchangeInfo, getBreedInfo } from '@/api/index'
+import { website } from '../api'
 export default {
   name: 'About',
   data() {
@@ -185,27 +186,41 @@ export default {
       this.mbx = this.$route.path
     }
   },
-  mounted() {
-    console.log(this.$route.path, 'kkkk');
-    getTransactionCategory().then(res => {
-      this.listData = JSON.parse(JSON.stringify(res.data))
+  async asyncData({ $axios }) {
+    const [data, data1] = await Promise.all([
+      $axios.$get(website.getTransactionCategory),
+      $axios.$get(website.getExchangeInfo, {
+        name: 'all'
+      }),
+    ]);
+    let newList = JSON.parse(JSON.stringify(data))
       let newItems = []
-      newItems = JSON.parse(JSON.stringify(res.data))
-      // res.data.map(item=>{
-      //   newItems.push({
-      //     title:"",
-      //     items:()...item.items
-      //   })
-      // })
-      this.listData.unshift({
+      newItems = JSON.parse(JSON.stringify(data))
+      newList.unshift({
         title: '手续费总表',
         items: newItems
       })
-      console.log(this.listData, newItems, '0000');
-    })
-    getExchangeInfo({ name: 'all' }).then(res => {
-      this.msData1 = res.data.remark
-    })
+
+    return {
+      listData: newList,
+      msData1: data1.remark
+    }
+  },
+  mounted() {
+    // console.log(this.$route.path, 'kkkk');
+    // getTransactionCategory().then(res => {
+    //   this.listData = JSON.parse(JSON.stringify(res.data))
+    //   let newItems = []
+    //   newItems = JSON.parse(JSON.stringify(res.data))
+    //   this.listData.unshift({
+    //     title: '手续费总表',
+    //     items: newItems
+    //   })
+    // })
+    
+    // getExchangeInfo({ name: 'all' }).then(res => {
+    //   this.msData1 = res.data.remark
+    // })
     this.dataList()
   },
   methods: {

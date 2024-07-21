@@ -1,4 +1,5 @@
 import i18nMessages from './i18n/i18n';
+console.log(process.env, '------')
 
 export default {
   head: {
@@ -59,6 +60,7 @@ export default {
 
   axios: {
     baseURL: process.env.BASE_URL,
+    // baseURL: 'http://47.115.209.54:8080',
   },
 
   i18n: {

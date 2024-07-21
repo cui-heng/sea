@@ -234,7 +234,7 @@
       </div>
       <div style="height: 180px;width: 100%;"></div>
     </div>
-    <el-backtop target=".page-component__scroll .el-scrollbar__wrap"></el-backtop>
+    <!-- <el-backtop target=".page-component__scroll .el-scrollbar__wrap"></el-backtop> -->
 
     <div v-if="dialogVisible1" class="popup" style="z-index: 999999999999;">
     <!-- 弹窗的内容 -->
@@ -291,6 +291,7 @@
 </template>
 <script>
 import { getUserInfo,getAnswer,getAlertInfo } from '@/api/index'
+import { website } from '../api'
 export default {
 
   name: 'Index',
@@ -314,11 +315,33 @@ export default {
       dialogVisible1: false
     }
   },
+  // async asyncData({ $axios, context }) {
+  //   async getArtList(val) {
+  //     const res = await getAnswer({
+  //       size: this.queryParam.pagesize,
+  //       page: this.queryParam.pagenum,
+  //       searchText: val
+  //     })
+  //     this.artList = res.data.list
+  //     this.total = res.data.total
+  //   },
+  //   console.log(context)
+  // },
+  async asyncData(context) {
+    const res = await context.$axios.$get(website.getAnswer, {
+      page: context.query.current || 1,
+      size: context.query.pageSize || 10
+    });
+    return {
+      artList: res.list || [],
+      total: res.total,
+    }
+  },
   mounted () {
     getUserInfo({userId:this.$route.params.id }).then(res => {
       this.dataList = res.data
     })
-    this.getArtList()
+    // this.getArtList()
     // 获取指定元素
     const scrollview = this.$refs['scrollview']
     // 添加滚动监听，该滚动监听了拖拽滚动条
