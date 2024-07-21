@@ -132,7 +132,7 @@ line-height: 14px;">(保证金更新时间:2024-03-12 17:45:12.528，价格更�
 </template>
 
 <script>
-import { getTransactionCategory, getTransactionData, getTransactionData1, getExchangeInfo, getBreedInfo } from '@/api/index'
+import { getTransactionCategory, getTransactionData, getTransactionData1, getExchangeInfo, getBreedInfo } from '@/services/index'
 export default {
   name: 'About',
   data() {

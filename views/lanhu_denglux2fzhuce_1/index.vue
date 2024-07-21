@@ -108,14 +108,14 @@
     </div>
 </div>
 </template>
-<style scoped lang="css" src="./assets/index.css" />
 <script>
 // import { validUsername } from '@/utils/validate'
 import HUIYAUN from '../lanhu_denglux2fzhuce/index.vue'
-import { userLogin, getAlertInfo } from '@/api/index'
+import { userLogin, getAlertInfo } from '@/services/index'
 export default {
   components: {HUIYAUN},
   name: 'Login',
+  layout: 'blank',
   data() {
     // const validateUsername = (rule, value, callback) => {
     //   if (!validUsername(value)) {
@@ -244,8 +244,10 @@ this.show=true
       }, {})
     },
     async loginMethod() {
+      // this.$axios.$get('/api/login', this.loginForm)
+      console.log(this.loginForm);
 
-      userLogin(this.loginForm).then(res => {
+      this.$axios.$post('/api/login', this.loginForm).then(res => {
             if (res.code == 1) {
               window.sessionStorage.setItem('token', res.data)
               this.$router.push({ path: '/' })
@@ -285,6 +287,7 @@ this.show=true
 }
 </script>
 
+<style scoped lang="css" src="./assets/index.css" />
 <style lang="scss">
 /* 修复input 背景不协调 和光标变色 */
 /* Detail see https://github.com/PanJiaChen/vue-element-admin/pull/927 */

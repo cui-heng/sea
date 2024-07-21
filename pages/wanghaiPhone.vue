@@ -133,11 +133,7 @@
         <div class="section_9 flex-col"></div>
       </div>
       <div v-for="item in artList" class="item_box">
-      <span class="text_18"
-      @click="toArtDetail(item)"
-        
-        >{{ item.title }}</span
-      >
+      <nuxt-link class="text_18" :to="`/wendaxiangqingphone/` + item.id">{{ item.title }}</nuxt-link>
       <div class="section_10 flex-row justify-between">
         <img
           class="image_4"
@@ -173,7 +169,7 @@
           <span class="text_21"
             >{{ item.description.slice(0,40) }}...</span
           >
-          <span class="text_22" @click="toArtDetail(item)">阅读全文</span>
+          <nuxt-link class="text_18" :to="`/wendaxiangqingphone/` + item.id">阅读全文</nuxt-link>
         </div>
         <img
           class="thumbnail_9"
@@ -322,7 +318,7 @@
 </template>
 
 <script>
-import { getUserInfo,getAnswer, } from '@/api/index'
+import { getUserInfo,getAnswer, } from '@/services/index'
 import Dialog from '@/components/Dialog/index.vue'
 export default {
 
@@ -378,9 +374,6 @@ export default {
     scrollview.removeEventListener('scroll', this.scrollChange, true)
   },
   methods: {
-    toArtDetail(item) {
-      this.$router.push(`/wendaxiangqingphone/` + item.id)
-    },
     closeDia() {
       this.diaShow = false
     },

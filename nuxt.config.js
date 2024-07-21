@@ -2,6 +2,8 @@ import i18nMessages from './i18n/i18n';
 console.log(process.env, '------')
 
 export default {
+  target: 'server',
+
   head: {
     title: 'nuxt2',
     htmlAttrs: {
@@ -18,7 +20,8 @@ export default {
       { rel: 'stylesheet', href: 'https://unpkg.com/dropzone@5/dist/min/dropzone.min.css' },
     ],
     script: [
-      { src: 'https://unpkg.com/dropzone@5/dist/min/dropzone.min.js' }
+      { src: '/flexible.js' },
+      { src: 'https://unpkg.com/dropzone@5/dist/min/dropzone.min.js' },
     ]
   },
 
@@ -31,12 +34,17 @@ export default {
   ],
 
   plugins: [
+    '@/plugins/cookie',
     '@/plugins/element-ui',
     '@/plugins/extend',
     '@/plugins/axios',
   ],
 
   middleware: ['auth'],
+
+  serverMiddleware: [
+    { path: '/api', handler: '~/api' }
+  ],
 
   components: true,
 
@@ -59,8 +67,14 @@ export default {
   },
 
   axios: {
-    baseURL: process.env.BASE_URL,
-    // baseURL: 'http://47.115.209.54:8080',
+    proxy: true,
+  },
+
+  proxy: {
+    '/website': {
+      target: process.env.BASE_URL
+    },
+    '/article/v1': process.env.FSOU_BASE_URL,
   },
 
   i18n: {

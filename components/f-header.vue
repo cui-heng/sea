@@ -12,10 +12,10 @@
 
       </template>
     </el-input>
-    <router-link to="/login" tag="span">
+    <nuxt-link to="/login" tag="span">
       <el-button type="primary"
         style="color: #FFFFFF;background: linear-gradient(90deg, #1ABCFC 0%, #0796D2 100%);margin-top: 200px;position: relative;left: 71%;">注册/登录</el-button>
-    </router-link>
+    </nuxt-link>
   </div>
     <div style="position: absolute;left: 270px;top: 150px;"> <img src="../assets/img/2902.png" />
       <img src="../assets/img/2554.png" style="position:relative;bottom: 20px;left: 10px;" />
@@ -78,7 +78,7 @@ style="margin-top: 10px;"
 </template>
 
 <script>
-import {insertLeaveMessage} from '../api/index.js'
+import {insertLeaveMessage} from '@/services/index.js'
 export default {
   data() {
     return {

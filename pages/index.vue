@@ -4,8 +4,8 @@
     <el-row id="artList" type="flex" justify="space-around" style="background-color: #fff;position: relative;bottom: 175px;display: flex;">
       <el-col :span="17">
         <el-row class="art-item">
-          <h5><router-link to="/article/1" tag="span" class="art-title">今日资讯<span style="font-size: 12px;
-color: #8A8A8A;"> Today's news</span></router-link></h5>
+          <h5><nuxt-link to="/article/1" tag="span" class="art-title">今日资讯<span style="font-size: 12px;
+color: #8A8A8A;"> Today's news</span></nuxt-link></h5>
           <!-- <el-card shadow="hover"> -->
        
             <el-carousel height="400px" style="border-radius:  15px;">
@@ -13,7 +13,7 @@ color: #8A8A8A;"> Today's news</span></router-link></h5>
                 <div>
                   <div class="swip_box" style="position: absolute;background-color: rgba(0,0,0,0.4);width: 100%;height: 100%;">
                     <div style="position: relative;top: 52%;padding: 20px;">
-                      <router-link :to="`/article/` + item.id + '/' + item.userId" tag="span">
+                      <nuxt-link :to="`/article/` + item.id + '/' + item.userId" tag="span">
                       <p style="font-size: 14px;
                         font-family: PingFang SC-Bold, PingFang SC;
                         font-weight: bold;
@@ -24,7 +24,7 @@ color: #8A8A8A;"> Today's news</span></router-link></h5>
                   <div class="ava_pic">
                     <img style="width: 100%;height: 100%;" :src="baseUrlImg + item.avatar">
                   </div>
-                </router-link>
+                </nuxt-link>
                   <div class="art-abstract nick_na" style="font-size: 12px;">
                    作者：{{ item.nickName }}
                   </div>
@@ -40,12 +40,12 @@ color: #8A8A8A;"> Today's news</span></router-link></h5>
                 <div class="side-img hidden-sm-and-down"><img class="art-banner" :src="baseUrlImg + item.coverImg" style="border-radius:  15px;">
                 </div>
                 <div class="side-abstract">
-                  <router-link :to="`/article/` + item.id + '/' + item.userId" tag="span">
+                  <nuxt-link :to="`/article/` + item.id + '/' + item.userId" tag="span">
                     <span style="font-size: 14px;
 font-family: PingFang SC-Bold, PingFang SC;
 font-weight: bold;
 color: #242629;cursor: pointer">{{ item.title }}</span>
-                  </router-link>
+                  </nuxt-link>
                   <div class="art-abstract co_sty" style="font-size: 14px;font-family: PingFang SC, PingFang SC;
 font-weight: 500;
 font-size: 14px;
@@ -82,9 +82,8 @@ color: #5b5959;" v-html="item.content.slice(0,100)">
 </template>
 
 <script>
-import { getArticle } from '@/api/index'
 import tag from '../components/tag'
-import { website } from '../api'
+import { website } from '@/services'
 
 export default {
   name: 'Index',

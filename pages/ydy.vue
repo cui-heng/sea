@@ -132,9 +132,9 @@
         > {{ item.description.slice(0,50) }}</p
       >
       <div class="image-text_6 flex-row justify-between">
-        <router-link :to="`/wendaxiangqing/${item.id}`" tag="span">
+        <nuxt-link :to="`/wendaxiangqing/${item.id}`" tag="span">
         <span class="text-group_8">阅读全文</span>
-        </router-link>
+        </nuxt-link>
         <img
           class="thumbnail_7"
           referrerpolicy="no-referrer"
@@ -290,8 +290,9 @@
   </div>
 </template>
 <script>
-import { getUserInfo,getAnswer,getAlertInfo } from '@/api/index'
-import { website } from '../api'
+// import { getUserInfo,getAnswer,getAlertInfo } from '@/api/index'
+import { website } from '@/services/index'
+import { getUserInfo,getAnswer,getAlertInfo } from '@/services/index'
 export default {
 
   name: 'Index',

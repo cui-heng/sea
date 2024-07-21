@@ -378,7 +378,7 @@ line-height: 14px;" />{{ item.userViews }}</div> -->
 </template>
 
 <script>
-import { getArticleInfo, getFiveArticle, getFiveAnswer,getRecommendUser,getRelativeArticle,getAlertInfo } from '@/api/index'
+import { getArticleInfo, getFiveArticle, getFiveAnswer,getRecommendUser,getRelativeArticle,getAlertInfo } from '@/services/index'
 export default {
   name: 'Article',
   components: {

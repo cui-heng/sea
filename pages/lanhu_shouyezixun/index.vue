@@ -258,7 +258,7 @@
   </div>
 </template>
 <script>
-import { getArticleInfo, getFiveArticle, getFiveAnswer, getRelativeArticle, getRecommendUser } from '@/api/index'
+import { getArticleInfo, getFiveArticle, getFiveAnswer, getRelativeArticle, getRecommendUser } from '@/services/index'
 import Dialog from '@/components/Dialog/index.vue'
 export default {
   name: 'Article',

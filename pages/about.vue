@@ -129,8 +129,8 @@ line-height: 14px;">(手续费更新时间:2024-03-12 17:45:12.528，价格更�
 </template>
 
 <script>
-import { getTransactionCategory, getTransactionData, getTransactionData1, getExchangeInfo, getBreedInfo } from '@/api/index'
-import { website } from '../api'
+import { website } from '@/services/index'
+import { getTransactionCategory, getTransactionData, getTransactionData1, getExchangeInfo, getBreedInfo } from '@/services/index'
 export default {
   name: 'About',
   data() {
@@ -217,7 +217,7 @@ export default {
     //     items: newItems
     //   })
     // })
-    
+
     // getExchangeInfo({ name: 'all' }).then(res => {
     //   this.msData1 = res.data.remark
     // })

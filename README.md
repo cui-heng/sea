@@ -2,13 +2,13 @@
 
 
 ## NUXT TODO
-- [ ] env.js 文件的问题
-- [ ] js-cookit的问题
+- [-] env.js 文件的问题
+- [-] js-cookie的问题
 - [ ] store hasPermission的问题
-- [ ] login token的问题
-- [ ] router-link 替换成nuxt-link
-- [ ] moblie 布局的问题
-- [ ] tui-editor 安装不成功 暂时删除 
+- [-] login token的问题
+- [-] nuxt-link 替换成nuxt-link
+- [-] moblie 布局的问题
+- [-] tui-editor 安装不成功 暂时删除 
 
 
 

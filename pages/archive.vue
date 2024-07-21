@@ -27,13 +27,13 @@ font-family: PingFang SC-Medium, PingFang SC;
 font-weight: 500;
 color: #8A8A8A;
 line-height: 16px;">来自：期货</p>
-                  <router-link :to="`/wendaxiangqing/${item.id}`" tag="span">
+                  <nuxt-link :to="`/wendaxiangqing/${item.id}`" tag="span">
                     <p style="font-size: 20px;
 font-family: PingFang SC-Bold, PingFang SC;
 font-weight: bold;
 color: #000000;
 line-height: 10px;cursor: pointer;">{{ item.title }}</p>
-                  </router-link>
+                  </nuxt-link>
                   <el-row class="art-body">
 
                     <div @click="$router.push('/ydy/'+item.userId)"><img style="border-radius: 50%;width:50px;height: 50px;" :src="baseUrlImg + item.avatar"></div>
@@ -283,7 +283,7 @@ border-radius: 0px 0px 0px 0px;padding-left: 10px;"></span>{{ item.title }}<span
 </template>
 
 <script>
-import { website } from '../api'
+import { website } from '@/services'
 export default {
 
   name: 'Index',

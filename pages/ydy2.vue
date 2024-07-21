@@ -72,7 +72,7 @@ line-height: 6px;padding-left: 10px;">{{ item.nickName }}<img src="../assets/292
         item.helpNumber
       }}</div>
                   </div>
-                  <router-link :to="`/wendaxiangqing/${item.id}`" tag="span">
+                  <nuxt-link :to="`/wendaxiangqing/${item.id}`" tag="span">
                     <p style="font-size: 18px;
 font-family: PingFang SC-Medium, PingFang SC;
 font-weight: 500;
@@ -80,7 +80,7 @@ color: #707070;
 line-height: 36px;">
                       {{ item.description }}
                     </p>
-                  </router-link>
+                  </nuxt-link>
                 </div>
 
               </el-row>
@@ -100,7 +100,7 @@ line-height: 36px;">
   </div>
 </template>
 <script>
-import { getUserInfo,getAnswer, } from '@/api/index'
+import { getUserInfo,getAnswer, } from '@/services/index'
 export default {
 
   name: 'Index',

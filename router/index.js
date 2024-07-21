@@ -20,12 +20,20 @@ import archive from '@/pages/archive'
 import apply from '@/pages/apply'
 import wendaxiangqing from '@/pages/wendaxiangqing'
 import ydy from '@/pages/ydy'
-// import admin from '@/views/admin'
+import admin from '@/views/admin'
 import index from '@/pages/index'
 
 
 import lanhu_denglux2fzhuce from '@/pages/lanhu_denglux2fzhuce/index'
+import lanhu_denglux2fzhuce_1 from '@/views/lanhu_denglux2fzhuce_1/index'
 import lanhu_shouye from '@/pages/lanhu_shouye/index'
+import lanhu_shouyezixun from '@/pages/lanhu_shouyezixun/index'
+import lanhu_shouyezixun1 from '@/pages/lanhu_shouyezixun1/index'
+import lanhu_youwenbida from '@/pages/lanhu_youwenbida/index'
+import lanhu_qihuobaozhengjin from '@/pages/lanhu_qihuobaozhengjin/index'
+import wanghaiPhone from '@/pages/wanghaiPhone'
+import wlhd from '@/pages/wlhd'
+import wendaxiangqingphone from '@/pages/wendaxiangqingphone'
 
 /**
  * constantRoutes
@@ -40,7 +48,7 @@ export const constantRoutes = [
   {
     path: '/login',
     name:'login',
-    component: () => import('@/views/lanhu_denglux2fzhuce_1/index'),
+    component: lanhu_denglux2fzhuce_1,
     hidden: true
   },
   {
@@ -58,32 +66,32 @@ export const constantRoutes = [
   {
     path: '/lanhu_shouye',
     name: 'lanhu_shouye',
-    component:  () => import('@/pages/lanhu_shouye/index')
+    component:  lanhu_shouye
   },
   {
     path: '/lanhu_shouyezixun/:id/:userid',
     name: 'lanhu_shouyezixun',
-    component:  () => import('@/pages/lanhu_shouyezixun/index')
+    component:  lanhu_shouyezixun
   },
   {
     path: '/lanhu_shouyezixun1',
     name: 'lanhu_shouyezixun1',
-    component:  () => import('@/pages/lanhu_shouyezixun1/index')
+    component:  lanhu_shouyezixun1
   },
   {
     path: '/lanhu_youwenbida',
     name: 'lanhu_youwenbida',
-    component:  () => import('@/pages/lanhu_youwenbida/index')
+    component:  lanhu_youwenbida
   },
   {
     path: '/lanhu_qihuobaozhengjin',
     name: 'lanhu_qihuobaozhengjin',
-    component:  () => import('@/pages/lanhu_qihuobaozhengjin/index')
+    component:  lanhu_qihuobaozhengjin
   },
   {
     path: '/lanhu_wanghaijingli/:id',
     name: 'lanhu_wanghaijingli',
-    component:  () => import('@/pages/wanghaiPhone')
+    component:  wanghaiPhone
   },
   {
     path: '/home',
@@ -144,14 +152,14 @@ export const constantRoutes = [
     name: 'wendaxiangqingphone',
     meta: { title: '文章详情' },
     props: true,
-    component:  () => import('@/pages/wendaxiangqingphone')
+    component:  wendaxiangqingphone
   },
   {
     path: '/wlhd',
     name: 'wlhd',
     meta: { title: '文章详情' },
     props: true,
-    component:  () => import('@/pages/wlhd')
+    component:  wlhd
   },
   {
     path: '/ydy/:id',
@@ -168,7 +176,7 @@ export const constantRoutes = [
   {
     path: '/admin/',
     name: 'admin',
-    component: () => import('@/views/admin')
+    component: admin
   },
 
 ]

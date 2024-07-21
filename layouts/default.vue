@@ -1,12 +1,17 @@
 <template>
   <div class="app">
-    <VHeader />
-    <el-row id="content" type="flex" justify="center" class="app-content">
-      <el-col :style="{ 'minHeight': minHeight + 'px' }">
-        <nuxt />
-      </el-col>
-    </el-row>
-    <VFooter />
+    <template v-if="!$isMobile">
+      <VHeader />
+      <el-row id="content" type="flex" justify="center" class="app-content">
+        <el-col :style="{ 'minHeight': minHeight + 'px' }">
+          <nuxt />
+        </el-col>
+      </el-row>
+      <VFooter />
+    </template>
+    <template v-else>
+      <nuxt />
+    </template>
   </div>
 </template>
 
@@ -20,9 +25,9 @@ export default {
   },
   data() {
     return {
+      isMobile: false,
       minHeight: 0,
       navBarFixed: false,
-      name:''
     }
   },
   mounted() {
@@ -30,13 +35,6 @@ export default {
     window.addEventListener('scroll', this.watchScroll)
     window.onresize = function () {
       this.minHeight = document.documentElement.clientHeight
-    }
-  },
-
-  watch: {
-    $route(to, from) {
-      console.log(to.name);
-      this.name=to.name
     }
   },
   methods: {

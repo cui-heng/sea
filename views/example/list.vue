@@ -35,19 +35,19 @@
 
       <el-table-column min-width="300px" label="Title">
         <template slot-scope="{row}">
-          <router-link :to="'/example/edit/'+row.id" class="link-type">
+          <nuxt-link :to="'/example/edit/'+row.id" class="link-type">
             <span>{{ row.title }}</span>
-          </router-link>
+          </nuxt-link>
         </template>
       </el-table-column>
 
       <el-table-column align="center" label="Actions" width="120">
         <template slot-scope="scope">
-          <router-link :to="'/example/edit/'+scope.row.id">
+          <nuxt-link :to="'/example/edit/'+scope.row.id">
             <el-button type="primary" size="small" icon="el-icon-edit">
               Edit
             </el-button>
-          </router-link>
+          </nuxt-link>
         </template>
       </el-table-column>
     </el-table>
@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import { fetchList } from '@/api/article'
+import { fetchList } from '@/services/article'
 import Pagination from '@/components/Pagination' // Secondary package based on el-pagination
 
 export default {

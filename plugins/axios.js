@@ -5,11 +5,9 @@ export default (context) => {
    * axios prototype
    */
   context.$axios.onRequest(config => {
+    console.log(context.$cookies['TOKEN']);
     console.log('Making request to ' + config.url);
-    // TODO token cookies???
-    if (true) {
-      // config.headers['X-Token'] = getToken()
-    }
+    context.$axios.setToken(context.$cookies['TOKEN']);
   });
 
   context.$axios.onResponse(response => {
@@ -19,8 +17,6 @@ export default (context) => {
     if (result.code === 1) {
       return result;
     }
-
-    // TODO error
   });
 
   context.$axios.onError(error => {
@@ -32,6 +28,5 @@ export default (context) => {
         duration: 5 * 1000
       });
     }
-    
   });
 }

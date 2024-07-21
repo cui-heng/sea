@@ -35,7 +35,7 @@
     </div>
 </template>
 <script>
-import { getAlertInfo } from '@/api/index'
+import { getAlertInfo } from '@/services/index'
   export default {
     data() {
       return {
