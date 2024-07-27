@@ -21,7 +21,7 @@ export default {
   mounted() {
     this._isMobile()
     if (this.isH5) {
-      this.$router.replace('/lanhu_denglux2fzhucePhone');
+      this.$router.replace('/lanhu_shouye');
     } else {
       this.$router.replace('/');
     }

@@ -26,7 +26,8 @@
         <div class="box_1 flex-col">
           <div class="image-wrapper_2 flex-col">
             <img
-              class="label_4"
+              @click="$router.push('/lanhu_denglux2fzhucePhone')"
+              class="label_4 per_img_sty"
               referrerpolicy="no-referrer"
               src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNGc91b60cc0d136034d7e1cde253d50a91.png"
             />
@@ -200,26 +201,6 @@
     </div>
     <div >
     
-      <!-- <div >
-        <div class="list_1 flex-row">
-          <div
-            class="image-text_29 flex-col justify-between"
-            v-for="(item, index) in loopData0"
-            :key="index"
-          >
-            <img
-              class="image_9"
-              referrerpolicy="no-referrer"
-              :src="item.lanhuimage0"
-            />
-            <span class="text-group_30" v-html="item.lanhutext0"></span>
-          </div>
-        </div>
-        <div class="group_11 flex-col"></div>
-        <span class="paragraph_1"
-          >京ICP备19048506号-2&nbsp;Copyright<br />&#64;&nbsp;2024&nbsp;中国海洋财经有限公司&nbsp;All&nbsp;Rights&nbsp;Reserved.</span
-        >
-      </div> -->
       <div style="width: 100%;height: 10px;">
         <div class="block_5 flex-col" v-show="isShowImg">
           <div class="group_9 flex-row">
@@ -305,29 +286,29 @@
         </div>
       </div>
       <div class="group_28 flex-col"></div>
-      <span class="paragraph_1">
-        京ICP备19048506号-2&nbsp;Copyright
-        <br />
-        &#64;&nbsp;2024&nbsp;中国海洋财经有限公司&nbsp;All&nbsp;Rights&nbsp;Reserved.
-      </span>
+      <p class="font_fot"><img style="margin-left: 10px;transform: translateY(5px);" src="@/assets/gn.jpg" alt=""><span style="display: inline-block;margin: 0 10px">京公网安备11011402054225号 </span>京ICP备2024075475号-1<br/><span style="margin-left: 40%;" @click="diaDis=true">免责声明</span></p>
     </div>
       </div>
     </div>
     <Dialog :dialogVisible1="diaShow" @closeDia="closeDia()"></Dialog>
+    <Disclaimer :dialogVisible1="diaDis" @closeDia="closeDis"/>
   </div>
 </template>
 
 <script>
 import { getUserInfo,getAnswer, } from '@/services/index'
 import Dialog from '@/components/Dialog/index.vue'
+import Disclaimer from '@/components/ConSay/index.vue'
 export default {
 
   name: 'Index',
   components: {
-    Dialog
+    Dialog,
+    Disclaimer
   },
   data() {
     return {
+      diaDis: false,
       diaShow: false,
       isShowImg: false,
       drawer:false,    
@@ -374,6 +355,12 @@ export default {
     scrollview.removeEventListener('scroll', this.scrollChange, true)
   },
   methods: {
+    closeDis() {
+      this.diaDis = false
+    },
+    toArtDetail(item) {
+      this.$router.push(`/wendaxiangqingphone/` + item.id)
+    },
     closeDia() {
       this.diaShow = false
     },
@@ -402,7 +389,10 @@ export default {
 html {
   font-size: 37.5px;
 }
-
+.font_fot {
+  font-size: 12px;
+  color: #fff;
+}
 .page {
   background-color: rgba(246, 246, 246, 1);
   position: relative;
@@ -2272,7 +2262,7 @@ html {
 .section_30 {
   background-color: rgba(61, 60, 68, 1);
   width: 20rem;
-  height: 6.534rem;
+  height: 7.534rem;
   margin-bottom: 0.027rem;
   justify-content: flex-center;
 }
@@ -2398,7 +2388,7 @@ html {
   .section_40 {
   background-color: rgba(61, 60, 68, 1);
   width: 20rem;
-  height: 6.534rem;
+  height: 7.534rem;
   justify-content: flex-center;
   margin-bottom: 200px;
 }
@@ -2438,5 +2428,8 @@ html {
 .paragraph_1 {
     width: 14rem;
     text-align: center
+  }
+  .per_img_sty {
+    margin-left: 2px !important;
   }
 </style>

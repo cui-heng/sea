@@ -378,11 +378,7 @@
         </div>
       </div>
       <div class="group_28 flex-col"></div>
-      <span class="paragraph_1">
-        京ICP备19048506号-2&nbsp;Copyright
-        <br />
-        &#64;&nbsp;2024&nbsp;中国海洋财经有限公司&nbsp;All&nbsp;Rights&nbsp;Reserved.
-      </span>
+      <p><img style="margin-left: 10px;transform: translateY(5px);" src="@/assets/gn.jpg" alt=""><span style="display: inline-block;margin: 0 10px">京公网安备11011402054225号 </span>京ICP备2024075475号-1</p>
     </div>
   </div>
 </template>

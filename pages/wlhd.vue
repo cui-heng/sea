@@ -134,9 +134,7 @@
           </div>
         </div>
         <div class="group_6 flex-col"></div>
-        <span class="paragraph_1"
-          >京ICP备19048506号-2&nbsp;Copyright<br />&#64;&nbsp;2024&nbsp;中国海洋财经有限公司&nbsp;All&nbsp;Rights&nbsp;Reserved.</span
-        >
+        <p><img style="margin-left: 10px;transform: translateY(5px);" src="@/assets/gn.jpg" alt=""><span style="display: inline-block;margin: 0 10px">京公网安备11011402054225号 </span>京ICP备2024075475号-1</p>
       </div>
     </div>
   </div>
@@ -670,7 +668,7 @@ html {
 .group_5 {
   background-color: rgba(61, 60, 68, 1);
   width: 20rem;
-  height: 6.534rem;
+  height: 7.534rem;
   justify-content: flex-center;
   margin: 6.96rem 0 0.027rem 0;
 }

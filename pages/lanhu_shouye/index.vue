@@ -14,8 +14,9 @@
       <div class="section_1 flex-row justify-between">
         <div class="box_1 flex-col">
           <div class="image-wrapper_1 flex-col">
-            <img class="label_4" referrerpolicy="no-referrer"
-              src="./assets/img/FigmaDDSSlicePNGc91b60cc0d136034d7e1cde253d50a91.png" />
+            <img class="label_4 cl_big" style="width: 17px;height: 17px" referrerpolicy="no-referrer"
+              src="./assets/img/FigmaDDSSlicePNGc91b60cc0d136034d7e1cde253d50a91.png" 
+              @click="$router.push('/lanhu_denglux2fzhucePhone')"/>
           </div>
         </div>
         <img class="label_5" referrerpolicy="no-referrer" @click="drawer = true"
@@ -150,18 +151,16 @@ border-radius: 50%;">
         </div>
       </div>
       <div class="group_17 flex-col"></div>
-      <span class="paragraph_1">
-        京ICP备19048506号-2&nbsp;Copyright
-        <br />
-        &#64;&nbsp;2024&nbsp;中国海洋财经有限公司&nbsp;All&nbsp;Rights&nbsp;Reserved.
-      </span>
+      <p class="font_fot"><img style="margin-left: 10px;transform: translateY(5px);" src="@/assets/gn.jpg" alt=""><span style="display: inline-block;margin: 0 10px">京公网安备11011402054225号 </span>京ICP备2024075475号-1<br/><span style="margin-left: 40%;" @click="diaShow=true">免责声明</span></p>
     </div>
+    <Disclaimer :dialogVisible1="diaShow" @closeDia="closeDis"/>
   </div>
 </template>
 
 <!-- <style scoped lang="css" src="./assets/index.rem.css" /> -->
 <script>
-import { getArticle, getPreferredArticle } from '@/services/index'
+import { getArticle, getPreferredArticle } from '@/api/index'
+import Disclaimer from '@/components/ConSay/index.vue'
 // import friend from '../components/friend'
 import tag from '../../components/tag'
 
@@ -169,10 +168,12 @@ export default {
   name: 'Index',
   components: {
     // friend,
-    tag
+    tag,
+    Disclaimer
   },
   data() {
     return {
+      diaShow: false,
       profileInfo: {
         id: 1
       },
@@ -207,6 +208,9 @@ export default {
     this.GetCateList()
   },
   methods: {
+    closeDis() {
+      this.diaShow = false
+    },
     tag(name) {
       this.$router.push({
         name: 'tag',
@@ -449,6 +453,16 @@ h5 {
 .group_5 {
   margin-bottom: 12px;
 }
+.group_16 {
+  height: 7.534rem;
+}
 
+.cl_big {
+  margin-left: 2px;
+}
+.font_fot {
+  font-size: 12px;
+  color: #fff;
+}
 </style>
 <style></style>

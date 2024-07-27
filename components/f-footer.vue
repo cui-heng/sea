@@ -14,9 +14,7 @@
               <span style="margin-left: 20px;">关注</span>
             </div>
             <div style="width: 100%;border: 0.1px solid rgb(132, 132, 132,0.5);"></div>
-            <p>京ICP备19048506号-2 Copyright</p>
-            <p> @ 2024 中国海洋财经有限公司 All Rights Reserved.<span @click="dialogTableVisible=true">免责声明</span></p>
-           
+            <p class="font_fot"><img style="margin-left: 10px;transform: translateY(5px);" src="@/assets/gn.jpg" alt=""><span style="display: inline-block;margin: 0 10px">京公网安备11011402054225号 </span>京ICP备2024075475号-1<br/><span style="margin-left: 40%;" @click="diaShow=true">免责声明</span></p>
           </div>
         </el-col>
       </el-row>
@@ -84,5 +82,9 @@ export default {
 
 .item span {
   margin-right: 5px;
+}
+.font_fot {
+  font-size: 12px;
+  color: #fff;
 }
 </style>

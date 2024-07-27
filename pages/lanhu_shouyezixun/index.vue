@@ -19,7 +19,7 @@
         </div>
         <div class="block_3 flex-col">
           <div class="image-wrapper_2 flex-col">
-            <img class="label_4" referrerpolicy="no-referrer"
+            <img @click="$router.push('/lanhu_denglux2fzhucePhone')" class="label_4" referrerpolicy="no-referrer"
               src="./assets/img/FigmaDDSSlicePNGc91b60cc0d136034d7e1cde253d50a91.png" />
           </div>
         </div>
@@ -248,25 +248,25 @@
       </div>
       </div>
       <div class="block_14 flex-col"></div>
-      <span class="paragraph_1">
-        京ICP备19048506号-2&nbsp;Copyright
-        <br />
-        &#64;&nbsp;2024&nbsp;中国海洋财经有限公司&nbsp;All&nbsp;Rights&nbsp;Reserved.
-      </span>
+      <p> <img style="  width: 17px;height: 17px; margin-left: 10px;transform: translateY(5px);" src="@/assets/gn.jpg" alt=""><span style="display: inline-block;margin: 0 10px">京公网安备11011402054225号 </span>京ICP备2024075475号-1<span style="margin-left: 10px;" @click="diaDis=true">免责声明</span></p>
     </div>
     <Dialog :dialogVisible1="diaShow" @closeDia="closeDia()"></Dialog>
+    <Disclaimer :dialogVisible1="diaDis" @closeDia="closeDis"/>
   </div>
 </template>
 <script>
 import { getArticleInfo, getFiveArticle, getFiveAnswer, getRelativeArticle, getRecommendUser } from '@/services/index'
 import Dialog from '@/components/Dialog/index.vue'
+import Disclaimer from '@/components/ConSay/index.vue'
 export default {
   name: 'Article',
   components: {
-    Dialog
+    Dialog,
+    Disclaimer
   },
   data() {
     return {
+      diaDis: false,
       diaShow: false,
       drawer:false,      direction: false,
       queryData: {
@@ -323,6 +323,9 @@ this.getPer()
     that.scrollTop = scrollTop
   },
   methods: {
+    closeDis() {
+      this.diaDis = false
+    },
     async getPer() {
       const res1 = await getRecommendUser()
       this.qhguwt = res1.data

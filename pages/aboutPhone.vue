@@ -26,9 +26,10 @@
         <div class="box_1 flex-col">
           <div class="image-wrapper_2 flex-col">
             <img
-              class="label_4"
+              class="label_4 cl_sty_big"
               referrerpolicy="no-referrer"
               src="./lanhu_youwenbida/assets/img/FigmaDDSSlicePNGc91b60cc0d136034d7e1cde253d50a91.png"
+              @click="$router.push('/lanhu_denglux2fzhucePhone')"
             />
           </div>
         </div>
@@ -308,6 +309,12 @@ export default {
   font-weight: bold;
   font-size: 14px;
   color: #023665;
+}
+.label_4 {
+  margin: 0.1rem 0 0 0.117rem;
+}
+.cl_sty_big {
+  margin: 2px !important;
 }
 </style>
 <style scoped lang="css" src="./lanhu_youwenbida/assets/index.rem.css" />
