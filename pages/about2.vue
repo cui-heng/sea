@@ -341,8 +341,7 @@ color: #8A8A8A;line-height:20px;margin-left: 22px;"></p>
   </div>
 </template>
 <script>
-// import { getRecommendUser, getAlertInfo, getUsers, getLatestAnswer, getLasterAnswerII,getFirstAnaswer } from '@/api/index'
-import { website } from '../api'
+import { website } from '@/services/index'
 import { getRecommendUser, getAlertInfo, getUsers, getLatestAnswer, getLasterAnswerII,getFirstAnaswer } from '@/services/index'
 
 export default {
@@ -363,10 +362,19 @@ export default {
       serviceInfo: {}
     }
   },
-  async asyncData(context) {
-    const res = await context.$axios.$get(website.getRecommendUser);
+  async asyncData({ $axios }) {
+    
+    const [data, dataAn, data1] = await Promise.all([
+      $axios.$get(website.getRecommendUser),
+      $axios.$get(website.getLatestAnswer),
+      $axios.$get(website.getLasterAnswerII, {
+        name: 'all'
+      }),
+    ]);
     return {
-      dataList: res.data || [],
+      dataList: data || [],
+      dataList2: dataAn || [],
+      dataList3: data1.list
     }
   },
   mounted() {
@@ -376,12 +384,7 @@ export default {
     getUsers().then(res => {
       this.dataList1 = res.data
     })
-    getLatestAnswer().then(res => {
-      this.dataList2 = res.data
-    })
-    getLasterAnswerII().then(res => {
-      this.dataList3 = res.data.list
-    })
+    
     getFirstAnaswer().then(res => {
       this.dataList4 = res.data[0].title
     })

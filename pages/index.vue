@@ -1,10 +1,9 @@
 <template>
-  <div class="home" style="padding-left: 280px;padding-right: 280px;">
-    <div style="width: 100%;height: 80px;border: 1px solid #fff;position: relative;bottom: 170px;z-index: 999;"></div>
-    <el-row id="artList" type="flex" justify="space-around" style="background-color: #fff;position: relative;bottom: 175px;display: flex;">
+  <div class="home" >
+    <el-row id="artList" type="flex" justify="space-around" style="background-color: #fff;display: flex;">
       <el-col :span="17">
         <el-row class="art-item">
-          <h5><nuxt-link to="/article/1" tag="span" class="art-title">今日资讯<span style="font-size: 12px;
+          <h5><nuxt-link to="/article/1" tag="span" class="art-title">今日1资讯<span style="font-size: 12px;
 color: #8A8A8A;"> Today's news</span></nuxt-link></h5>
           <!-- <el-card shadow="hover"> -->
        

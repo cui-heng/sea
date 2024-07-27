@@ -1,5 +1,42 @@
 <template>
-  <div class="bak" style="font-family: PingFang SC, PingFang SC;">
+    <div class="header_wrap">
+      <div class="top_line"></div>
+      <div class="top_nav">
+        <div class="nav_logo">
+          <img src="@/assets/newBanner/sea_img_logo.png" alt="">
+        </div>
+        <div class="nav_right">
+          <div class="login_top">
+            <span>登录</span>
+            |
+            <span>注册</span>
+          </div>
+          <div class="nav_click">
+            <el-menu :default-active="activeIndex" :router="true" text-color="#474747" id="top-menu" active-text-color="#0242AC"
+              class="el-menu-demo" mode="horizontal" @select="handleSelect">
+              <el-menu-item index="/home">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首页</el-menu-item>
+              <el-menu-item index="/archive">&nbsp;&nbsp;百问百答</el-menu-item>
+              <el-menu-item index="/about">期货手续费</el-menu-item>
+              <el-menu-item index="/about1">期货保证金</el-menu-item>
+              <el-menu-item class="last_li" index="/about2">期货一对一服务</el-menu-item>
+            </el-menu>
+          </div>
+        </div>
+      </div>
+      <div class="banner_wrap">
+        <img class="banner_bg" src="@/assets/newBanner/banner_bg.png" alt="">
+        <div class="search_box">
+          <div class="ipt_box">
+            <el-input v-model="searchVal" placeholder="请输入内容"></el-input>
+          </div>
+          <div class="search_btn">
+            <img src="@/assets/newBanner/turn_big.png" alt="">
+            搜索
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- <div class="bak" style="font-family: PingFang SC, PingFang SC;">
     <div style="position: absolute;left: 40vw;">
       
     <el-input placeholder="请输入关键词" v-model="input2"
@@ -30,7 +67,6 @@
       <el-menu-item index="/about2">期货一对一服务</el-menu-item>
     </el-menu>
     <div v-if="dialogVisible" class="popup">
-    <!-- 弹窗的内容 -->
     <div class="group_25 flex-col">
         <div class="block_36 flex-row justify-between">
           <span class="text_51">期货顾问一对一</span>
@@ -49,9 +85,6 @@
   placeholder="请详细描述您的问题，有助于理财顾问更准确的分析问题哦!"
   v-model="textarea">
 </el-input>
-          <!-- <span class="text_52"
-            >请详细描述您的问题，有助于理财顾问更准确的分析问题哦!</span
-          > -->
         </div>
         <div class="block_37 flex-row justify-between">
           <div class="text-wrapper_23">
@@ -63,18 +96,16 @@ style="margin-top: 10px;"
   placeholder="请输入手机号码"
   v-model="textarea1">
 </el-input>
-            <!-- <span class="text_56">请输入手机号码</span> -->
           </div>
         </div>
         <div class="text-wrapper_22 flex-col" @click="lydata">
           <span class="text_53" >提交</span>
         </div>
       </div>
-    <!-- 关闭按钮 -->
 
     </div>
 
-  </div>
+  </div> -->
 </template>
 
 <script>
@@ -86,7 +117,8 @@ export default {
       textarea1:'',
       dialogVisible:false,
       input2: '',
-      activeIndex: '/home'
+      activeIndex: '/home',
+      searchVal: ''
     }
   },
   methods: {
@@ -128,7 +160,93 @@ insertLeaveMessage(param).then(res=>{
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.header_wrap {
+  font-family: PingFang;
+  width: 100%;
+  height: 510px;
+  .top_line {
+    height:10px;
+    width: 100vw;
+    background: #0242AC;
+  }
+  .top_nav {
+    height: 100px;
+    background: #fff;
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    .nav_logo {
+      display: flex;
+      align-items: center;
+      width: 251px;
+      height: 100px;
+      img {
+        width: 251px;
+        height: 52px;
+      }
+    }
+  }
+  .banner_wrap {
+    width: 100vw;
+    height: 400px;
+    position: relative;
+    .banner_bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    .search_box {
+      display: flex;
+      width: 713px;
+      margin: 0 auto;
+      transform: translateY(207px);
+      height: 60px;
+      ::v-deep .ipt_box {
+        width: 543px;
+        height: 60px;
+        background: #FFFFFF;
+        border-radius: 6px 0px 0px 6px;
+        .el-input {
+          height: 100%;
+          input {
+            height: 100%;
+          }
+        }
+      }
+      .search_btn {
+        flex: 1;
+        height: 60px;
+        background: #0242AC;
+        border-radius: 0px 6px 6px 0px;
+        font-family: PingFang SC;
+        font-weight: 500;
+        font-size: 26px;
+        color: #FFFFFF;
+        line-height: 59px;
+        text-align: center;
+        img {
+          width: 30px;
+          transform: translateY(7px);
+          height: 30px;
+        }
+      }
+    }
+  }
+  .nav_right {
+    text-align: right;
+    .login_top {
+      font-weight: 500;
+      font-size: 14px;
+      color: #474747;
+      transform: translateY(10px);
+      height: 38px;
+    }
+  }
+}
 .popup {
   z-index: 999999999;
   position: fixed;
@@ -154,12 +272,20 @@ insertLeaveMessage(param).then(res=>{
 #side .item {
   margin-bottom: 30px;
 }
-#top-menu {
+::v-deep #top-menu {
   display: flex;
-  max-width: 1024px;
-  width: 70%;
-  margin-left: 15%;
-  margin-top: 50px;
+  .el-menu-item {
+    font-weight: 500;
+    font-size: 20px;
+    color: #474747;
+    margin: 0;
+    width: 160px;
+    text-align: center;
+  }
+  .last_li {
+    margin-right: 0 !important;
+    padding-right: 0;
+  }
 }
 
 .bak {
@@ -360,16 +486,19 @@ insertLeaveMessage(param).then(res=>{
   }
   ::v-deep .is-active::after {
     content: '';
-    width: 64%;
+    width: 110px;
     height: 3px;
     display: block;
-    background: #fff;
+    background: #0242AC;
     margin: 0 auto;
-    margin-top: -7px;
+    margin-top: -1.5px;
     border-radius: 3px;
+    position: absolute;
+    left: 30px;
 }
 
 ::v-deep .is-active {
   border: none !important;
+  position: relative;
 }
 </style>

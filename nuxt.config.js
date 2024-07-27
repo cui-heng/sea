@@ -1,5 +1,4 @@
 import i18nMessages from './i18n/i18n';
-console.log(process.env, '------')
 
 export default {
   target: 'server',
