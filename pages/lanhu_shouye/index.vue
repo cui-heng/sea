@@ -159,7 +159,7 @@ border-radius: 50%;">
 
 <!-- <style scoped lang="css" src="./assets/index.rem.css" /> -->
 <script>
-import { getArticle, getPreferredArticle } from '@/api/index'
+import { getArticle, getPreferredArticle } from '@/services/index'
 import Disclaimer from '@/components/ConSay/index.vue'
 // import friend from '../components/friend'
 import tag from '../../components/tag'
