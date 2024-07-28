@@ -1,5 +1,36 @@
 <template>
   <div class="home" >
+    <div class="front_cont">
+      <div class="cont_left">
+        <div class="swiper_wrap">
+          <el-carousel :autoplay="false" height="434px">
+            <el-carousel-item v-for="item in artList.slice(0, 3)" :key="item.id">
+              <img class="swip_big_img" :src="baseUrlImg + item.coverImg">
+              <div class="mark_swiper">
+              </div>
+              <div class="swiper_tit">
+                <nuxt-link :to="`/article/` + item.id + '/' + item.userId" tag="span">
+                  {{ item.title }}
+                </nuxt-link>
+              </div>
+            </el-carousel-item>
+          </el-carousel>
+        </div>
+        <div class="left_bottom">
+          <div class="left_item" v-for="item in artList.slice(4, artList.length)" :key="item.id">
+            <div class="item_pic_box">
+              <img :src="baseUrlImg + item.coverImg">
+            </div>
+            <div class="item_right">
+              <div class="left_tit">{{ item.title }}</div>
+              <div class="left_tit">{{ item.title }}</div>
+              <div class="left_tit">{{ item.title }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cont_right"></div>
+    </div>
     <el-row id="artList" type="flex" justify="space-around" style="background-color: #fff;display: flex;">
       <el-col :span="17">
         <el-row class="art-item">
@@ -7,7 +38,7 @@
 color: #8A8A8A;"> Today's news</span></nuxt-link></h5>
           <!-- <el-card shadow="hover"> -->
        
-            <el-carousel height="400px" style="border-radius:  15px;">
+            <!-- <el-carousel height="400px" style="border-radius:  15px;">
               <el-carousel-item v-for="item in artList.slice(0, 3)" :key="item">
                 <div>
                   <div class="swip_box" style="position: absolute;background-color: rgba(0,0,0,0.4);width: 100%;height: 100%;">
@@ -33,7 +64,7 @@ color: #8A8A8A;"> Today's news</span></nuxt-link></h5>
                 </div>
               
               </el-carousel-item>
-            </el-carousel>
+            </el-carousel> -->
             <div v-for="item in artList.slice(4, artList.length)" style="margin-top: 10px;">
               <el-row class="art-body">
                 <div class="side-img hidden-sm-and-down"><img class="art-banner" :src="baseUrlImg + item.coverImg" style="border-radius:  15px;">
@@ -127,6 +158,78 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  .front_cont {
+    width: 1200px;
+    background: red;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    .cont_left {
+      width: 780px;
+      height: auto;
+      ::v-deep .swiper_wrap {
+        margin-bottom: 27px;
+        width: 100%;
+        height: 434px;
+        border-radius: 16px;
+        .el-carousel {
+          position: relative;
+          border-radius: 16px;
+          .swip_big_img {
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            position: absolute;
+          }
+          .mark_swiper {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            height: 60px;
+            background: #000000;
+            border-radius: 0 0 16px 16px;
+            opacity: 0.4;
+          }
+          .swiper_tit {
+            font-family: PingFang SC;
+            font-weight: 500;
+            font-size: 20px;
+            color: #FFFFFF;
+            position: absolute;
+            bottom: 19px;
+            left: 18px;
+            z-index: 5;
+            cursor: pointer;
+          }
+          .el-carousel__indicators--horizontal {
+            left: 85%;
+          }
+        }
+      }
+    }
+    .cont_right {
+      width: 392px;
+      background: yellow;
+      height: auto;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #side .item {
   margin-bottom: 30px;
 }

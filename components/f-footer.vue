@@ -14,7 +14,7 @@
               <span style="margin-left: 20px;">关注</span>
             </div>
             <div style="width: 100%;border: 0.1px solid rgb(132, 132, 132,0.5);"></div>
-            <p class="font_fot"><img style="margin-left: 10px;transform: translateY(5px);" src="@/assets/gn.jpg" alt=""><span style="display: inline-block;margin: 0 10px">京公网安备11011402054225号 </span>京ICP备2024075475号-1<br/><span style="margin-left: 40%;" @click="diaShow=true">免责声明</span></p>
+            <p class="font_fot"><img style="margin-left: 10px;transform: translateY(5px);" src="@/assets/gn.jpg" alt=""><span style="display: inline-block;margin: 0 10px">1京公网安备11011402054225号 </span>京ICP备2024075475号-1<br/><span style="margin-left: 40%;" @click="diaShow=true">免责声明</span></p>
           </div>
         </el-col>
       </el-row>
