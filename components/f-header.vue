@@ -28,7 +28,7 @@
         <img class="info_text" src="@/assets/newBanner/you_need.png" alt="">
         <div class="search_box">
           <div class="ipt_box">
-            <el-input v-model="searchVal" placeholder="请输入内容"></el-input>
+            <el-input v-model="searchVal" placeholder="请输入搜索内容"></el-input>
           </div>
           <div class="search_btn">
             <img src="@/assets/newBanner/turn_big.png" alt="">
@@ -164,6 +164,7 @@ insertLeaveMessage(param).then(res=>{
 <style lang="scss" scoped>
 .header_wrap {
   font-family: PingFang;
+  margin-bottom: 36px;
   width: 100%;
   height: 510px;
   .top_line {
@@ -223,6 +224,13 @@ insertLeaveMessage(param).then(res=>{
           height: 100%;
           input {
             height: 100%;
+            font-size: 26px;
+          }
+          input::placeholder {
+            font-family: PingFang SC;
+            font-weight: 500;
+            font-size: 26px;
+            color: #CECECE;
           }
         }
       }
@@ -294,6 +302,7 @@ insertLeaveMessage(param).then(res=>{
   .last_li {
     margin-right: 0 !important;
     padding-right: 0;
+    text-align: right;
   }
 }
 

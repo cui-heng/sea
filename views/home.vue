@@ -61,7 +61,7 @@ export default {
 
 .app-content {
   background-color: #f9f9f9;
-  padding: 30px 0;
+  width: 1200px;  
 }
 
 .navBarWrap {

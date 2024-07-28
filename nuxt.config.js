@@ -4,7 +4,7 @@ export default {
   target: 'server',
 
   head: {
-    title: 'nuxt2',
+    title: '海洋财经',
     htmlAttrs: {
       lang: 'en'
     },
@@ -12,7 +12,7 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no' },
       { name: "keywords", content: "期货,期货开户,期货手续费,期货公司,期货账户,期货保证金" },
-      {  name: "description", content: "描述" }
+      {  name: "description", content: "海洋财经，股票期货、保险基金理财前找专业顾问提前问一问，避免踩雷入坑。理财问理财规划和配置，专业顾问为您提供一对一服务。海洋财经更值得信任" }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
