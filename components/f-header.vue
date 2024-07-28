@@ -14,9 +14,9 @@
           <div class="nav_click">
             <el-menu :default-active="activeIndex" :router="true" text-color="#474747" id="top-menu" active-text-color="#0242AC"
               class="el-menu-demo" mode="horizontal" @select="handleSelect">
-              <el-menu-item index="/home">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首页</el-menu-item>
+              <el-menu-item class="first_menu" index="/home">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首页</el-menu-item>
               <el-menu-item index="/archive">&nbsp;&nbsp;百问百答</el-menu-item>
-              <el-menu-item index="/about">期货手续费</el-menu-item>
+              <el-menu-item class="thired_menu" index="/about">期货手续费</el-menu-item>
               <el-menu-item index="/about1">期货保证金</el-menu-item>
               <el-menu-item class="last_li" index="/about2">期货一对一服务</el-menu-item>
             </el-menu>
@@ -25,6 +25,7 @@
       </div>
       <div class="banner_wrap">
         <img class="banner_bg" src="@/assets/newBanner/banner_bg.png" alt="">
+        <img class="info_text" src="@/assets/newBanner/you_need.png" alt="">
         <div class="search_box">
           <div class="ipt_box">
             <el-input v-model="searchVal" placeholder="请输入内容"></el-input>
@@ -198,6 +199,14 @@ insertLeaveMessage(param).then(res=>{
       position: absolute;
       width: 100%;
       height: 100%;
+    }
+    .info_text {
+      position: absolute;
+      width: 460px;
+      height: 58px;
+      margin-left: 50%;
+      transform: translateX(-230px);
+      top: 100px;
     }
     .search_box {
       display: flex;
@@ -487,7 +496,7 @@ insertLeaveMessage(param).then(res=>{
   ::v-deep .is-active::after {
     content: '';
     width: 110px;
-    height: 3px;
+    height: 4px;
     display: block;
     background: #0242AC;
     margin: 0 auto;
@@ -495,6 +504,12 @@ insertLeaveMessage(param).then(res=>{
     border-radius: 3px;
     position: absolute;
     left: 30px;
+}
+.first_menu::after {
+  left: 40px !important;
+}
+.thired_menu::after {
+  left: 23px !important;
 }
 
 ::v-deep .is-active {
