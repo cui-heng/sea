@@ -23,8 +23,12 @@
             </div>
             <div class="item_right">
               <div class="left_tit">{{ item.title }}</div>
-              <div class="left_tit">{{ item.title }}</div>
-              <div class="left_tit">{{ item.title }}</div>
+              <div class="left_mid" v-html="item.content.slice(0,100)+ '...'"></div>
+              <div class="left_bott">
+                <p>{{ item.createTime }}</p>
+                <p><i class="el-icon-view" />{{ item.browseNumber }}</p>
+                <p>作者：{{ item.nickName }}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -160,7 +164,6 @@ export default {
 <style scoped lang="scss">
   .front_cont {
     width: 1200px;
-    background: red;
     height: auto;
     display: flex;
     justify-content: space-between;
@@ -206,6 +209,52 @@ export default {
           }
         }
       }
+      .left_bottom {
+        font-family: PingFang SC;
+        margin-left: 17px;
+        .left_item {
+          display: flex;
+          height: 160px;
+          border-bottom: 2px solid #F8F8F8;
+          margin-bottom: 18px;
+          .item_pic_box {
+            width: 188px;
+            height: 140px;
+            margin-right: 20px;
+            img {
+              width: 100%;
+              height: 100%;
+              border-radius: 16px;
+            }
+          }
+          .item_right {
+            margin-top: 10px;
+            margin-right: 17px;
+            flex: 1;
+            .left_tit {
+              font-weight: 800;
+              font-size: 18px;
+              color: #3C3C3C;
+            }
+            .left_mid {
+              font-weight: 400;
+              font-size: 14px;
+              color: #969696;
+              line-height: 23px;
+              margin-bottom: -12px;
+            }
+            .left_bott {
+              display: flex;
+              justify-content: space-between;
+              font-family: PingFang SC;
+              font-weight: 500;
+              font-size: 12px;
+              color: #9E9E9E;
+            }
+          }
+        }
+      }
+
     }
     .cont_right {
       width: 392px;
