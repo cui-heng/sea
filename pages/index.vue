@@ -33,42 +33,16 @@
           </div>
         </div>
       </div>
-      <div class="cont_right"></div>
+      <div class="cont_right">
+        
+        <tag />
+      </div>
     </div>
     <el-row id="artList" type="flex" justify="space-around" style="background-color: #fff;display: flex;">
       <el-col :span="17">
         <el-row class="art-item">
           <h5><nuxt-link to="/article/1" tag="span" class="art-title">今日1资讯<span style="font-size: 12px;
 color: #8A8A8A;"> Today's news</span></nuxt-link></h5>
-          <!-- <el-card shadow="hover"> -->
-       
-            <!-- <el-carousel height="400px" style="border-radius:  15px;">
-              <el-carousel-item v-for="item in artList.slice(0, 3)" :key="item">
-                <div>
-                  <div class="swip_box" style="position: absolute;background-color: rgba(0,0,0,0.4);width: 100%;height: 100%;">
-                    <div style="position: relative;top: 52%;padding: 20px;">
-                      <nuxt-link :to="`/article/` + item.id + '/' + item.userId" tag="span">
-                      <p style="font-size: 14px;
-                        font-family: PingFang SC-Bold, PingFang SC;
-                        font-weight: bold;
-                        color: #fff;cursor: pointer;
-                        line-height: 22px;">{{ item.title }}</p>
- <div class="art-abstract" style="font-size: 12px;" v-html="item.content.slice(0,100)">
-                  </div>
-                  <div class="ava_pic">
-                    <img style="width: 100%;height: 100%;" :src="baseUrlImg + item.avatar">
-                  </div>
-                </nuxt-link>
-                  <div class="art-abstract nick_na" style="font-size: 12px;">
-                   作者：{{ item.nickName }}
-                  </div>
-                </div>
-                  </div>
-                  <img style="width: 100%;height: 100%;" :src="baseUrlImg + item.coverImg">
-                </div>
-              
-              </el-carousel-item>
-            </el-carousel> -->
             <div v-for="item in artList.slice(4, artList.length)" style="margin-top: 10px;">
               <el-row class="art-body">
                 <div class="side-img hidden-sm-and-down"><img class="art-banner" :src="baseUrlImg + item.coverImg" style="border-radius:  15px;">
@@ -258,8 +232,9 @@ export default {
     }
     .cont_right {
       width: 392px;
-      background: yellow;
       height: auto;
+      border-radius: 16px;
+      
     }
   }
 
@@ -344,11 +319,6 @@ img.art-banner:hover {
   flex-direction: column;
 }
 
-.art-abstract {
-  flex: 1;
-  color: #aaa;
-}
-
 .art-more {
 
   display: flex;
@@ -371,29 +341,6 @@ h5 {
 
 .pagination {
   background-color: #F9F9F9;
-}
-.ava_pic {
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  transform: translateY(-10px);
-  img {
-    border-radius: 50%;
-  }
-}
-.nick_na {
-  padding-left: 55px;
-}
-::v-deep .art-abstract {
-  p {
-    font-family: PingFang SC, PingFang SC;
-    font-weight: 500;
-    font-size: 14px;
-    color: #D6D6D6;
-    
-    line-height: 20px;
-  }
-  
 }
 ::v-deep .co_sty {
   p {
