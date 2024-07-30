@@ -1,64 +1,5 @@
 <template>
   <div class="container">
-    <div class="top-staff">
-      <staff-card v-for="staff of topStaffs.slice(0, 3)" :key="staff" :staff="staff">
-        <fe-button class="wechat-button" size="small" icon="message" slot="extra">咨询</fe-button>
-      </staff-card>
-    </div>
-    <div class="notice-wrapper">
-      <p class="notice">
-        <span class="notice-label">
-          <fe-icon class="notice-icon" icon="notice" />
-          <span>顾问动态：</span>
-        </span>
-        <span>{{ firstAnswer?.title }}</span>
-      </p>
-    </div>
-    <hot-staff :items="hotStaffs" @view="handleView" />
-    <div class="content">
-      <answer-card class="answer-card" title="最新回答">
-        <answer-list :items="latestAnswers" />
-      </answer-card>
-      <answer-card class="answer-card" title="最新咨询">
-        <consult-list :items="latestConsults" />
-      </answer-card>
-    </div>
-    <el-dialog
-      class="service-dialog call-dialog"
-      :visible="callDialog"
-      :show-close="false"
-      width="700px"
-    >
-      <div class="service-dialog-top">
-        <h4>金牌顾问</h4>
-        <p>一对一语音高效沟通方式，有助于解决复杂问题</p>
-      </div>
-      <div class="service-dialog-content">
-        <div class="call-dialog-number">{{ staffInfo?.phonenumber }}</div>
-        <div class="call-dialog-tips">咨询时请说明来自海洋财经，以便得到更佳服务</div>
-        <fe-button class="call-dialog-button" type="primary" @click="callDialog = false">关闭</fe-button>
-      </div>
-    </el-dialog>
-    <el-dialog
-      class="service-dialog wechat-dialog"
-      :visible="wechatDialog"
-      :show-close="false"
-      width="700px"
-    >
-      <div class="service-dialog-top">
-        <h4>金牌顾问</h4>
-        <p>一对一语音高效沟通方式，有助于解决复杂问题</p>
-      </div>
-      <div class="service-dialog-content">
-        <div class="wechat-dialog-qrcode">
-          <fe-image :src="staffInfo?.wxQrCode" :alt="staffInfo?.phonenumber" />
-          <div class="wechat-dialog-qrcode-tips">微信扫一扫  添加顾问</div>
-        </div>
-        <div class="wechat-dialog-number">{{ staffInfo?.phonenumber }}</div>
-        <div class="wechat-dialog-tips">咨询时请说明来自海洋财经，以便得到更佳服务</div>
-        <fe-button class="wechat-dialog-button" type="primary" @click="wechatDialog = false">关闭</fe-button>
-      </div>
-    </el-dialog>
   </div>
 </template>
 
@@ -70,7 +11,7 @@ import AnswerCard from './components/AnswerCard.vue';
 import AnswerList from './components/AnswerList.vue';
 import ConsultList from './components/ConsultList.vue';
 export default {
-  name: 'Service',
+  name: 'Essay',
   components: {
     StaffCard,
     HotStaff,

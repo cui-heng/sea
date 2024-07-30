@@ -75,6 +75,17 @@ export default {
     font-size: 22px;
     font-weight: 800;
     margin-bottom: 20px;
+
+    &::before{
+      content: "";
+      display: inline-block;
+      vertical-align: top;
+      width: 24px;
+      height: 24px;
+      margin-right: 6px;
+      background: url(~~/assets/images/service/ask.png) no-repeat;
+      background-size: contain;
+    }
   }
 
   &-reply {
@@ -89,6 +100,17 @@ export default {
     * {
       margin: 0;
       line-height: 1;
+    }
+
+    &::before{
+      content: "";
+      display: inline-block;
+      vertical-align: top;
+      width: 24px;
+      height: 24px;
+      margin-right: 6px;
+      background: url(~~/assets/images/service/reply.png) no-repeat;
+      background-size: contain;
     }
   }
 }

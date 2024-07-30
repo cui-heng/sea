@@ -18,8 +18,8 @@
             </div>
           </div>
           <div class="hot-staff-actions">
-            <Button>电话</Button>
-            <Button>微信</Button>
+            <fe-button size="small" icon="phone" @click="$emit('view', { type: 'call', staff })">电话</fe-button>
+            <fe-button type="wechat" size="small" icon="wechat" @click="$emit('view', { type: 'wechat', staff })">微信</fe-button>
           </div>
         </template>
       </staff-card>

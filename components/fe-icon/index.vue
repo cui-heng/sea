@@ -1,12 +1,12 @@
 <template>
-  <span class="icon">
+  <span class="fe-icon">
     <img :src="require(`@/assets/icons/${icon}.png`)" :alt="icon" />
   </span>
 </template>
 
 <script>
 export default {
-  name: 'Icon',
+  name: 'fe-icon',
   props: {
     icon: {
       type: String,
@@ -16,14 +16,17 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-.icon {
-  display: inline-block;
-  vertical-align: top;
+<style lang="scss">
+.fe-icon {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  vertical-align: -0.16em;
 
   img {
-    width: 16px;
-    height: 16px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     display: block;
   }
 }
