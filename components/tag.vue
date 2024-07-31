@@ -1,8 +1,10 @@
 <template>
   <div class="tag">
     <el-card class="box-card" style="border-radius:  15px;">
-        <!-- <img class="card-icon" src="../assets/biaoqian.png"> -->
-        <div class="right_tit">优选文章<span>Preferred articles</span></div>
+        <div class="right_tit">
+          <img class="mar_7" src="@/assets/newBanner/xiegang.png" alt="">
+          优选文章
+          <span>Preferred articles</span></div>
         <div class="art_list_item" v-for="item in cateList.slice(0,9)">
           <nuxt-link  :to="`/article/` + item.id + '/' + item.userId" tag="span">
             <p class="tit_art">{{ item.title }}</p>
@@ -24,9 +26,13 @@
 </template>
 
 <script>
-import { getPreferredArticle } from '@/services/index'
+import { website } from '@/services'
+import {  getPreferredArticle } from '@/services/index'
 export default {
   name: 'Tag',
+  props: {
+    cateList: null
+  },
   data() {
     return {
       profileInfo: {
@@ -36,9 +42,9 @@ export default {
       typeList: ['warning', 'success', 'info', 'danger']
     }
   },
+  
   mounted() {
     this.getProfileInfo()
-    // this.GetCateList()
   },
   methods: {
     // 获取个人设置
@@ -166,5 +172,8 @@ export default {
     line-height: 14px;
     margin-right: 8px;
   }
+}
+.mar_7 {
+  margin-right: 7px;
 }
 </style>

@@ -19,10 +19,12 @@
         <div class="left_bottom">
           <div class="left_item" v-for="item in artList.slice(4, artList.length)" :key="item.id">
             <div class="item_pic_box">
-              <img :src="baseUrlImg + item.coverImg">
+              <img class="art-banner" :src="baseUrlImg + item.coverImg">
             </div>
             <div class="item_right">
-              <div class="left_tit">{{ item.title }}</div>
+              <nuxt-link :to="`/article/` + item.id + '/' + item.userId" tag="span">
+                <div class="left_tit">{{ item.title }}</div>
+              </nuxt-link>
               <div class="left_mid" v-html="item.content.slice(0,100)+ '...'"></div>
               <div class="left_bott">
                 <p>{{ item.createTime }}</p>
@@ -34,64 +36,16 @@
         </div>
       </div>
       <div class="cont_right">
-        
-        <tag />
+        <tag :cateList="cateList"/>
       </div>
     </div>
-    <el-row id="artList" type="flex" justify="space-around" style="background-color: #fff;display: flex;">
-      <el-col :span="17">
-        <el-row class="art-item">
-          <h5><nuxt-link to="/article/1" tag="span" class="art-title">今日1资讯<span style="font-size: 12px;
-color: #8A8A8A;"> Today's news</span></nuxt-link></h5>
-            <div v-for="item in artList.slice(4, artList.length)" style="margin-top: 10px;">
-              <el-row class="art-body">
-                <div class="side-img hidden-sm-and-down"><img class="art-banner" :src="baseUrlImg + item.coverImg" style="border-radius:  15px;">
-                </div>
-                <div class="side-abstract">
-                  <nuxt-link :to="`/article/` + item.id + '/' + item.userId" tag="span">
-                    <span style="font-size: 14px;
-font-family: PingFang SC-Bold, PingFang SC;
-font-weight: bold;
-color: #242629;cursor: pointer">{{ item.title }}</span>
-                  </nuxt-link>
-                  <div class="art-abstract co_sty" style="font-size: 14px;font-family: PingFang SC, PingFang SC;
-font-weight: 500;
-font-size: 14px;
-color: #5b5959;" v-html="item.content.slice(0,100)">
-                  </div>
-                  <div class="art-more">
-                    <div class="view">{{ item.createTime }}</div>
-                      <div class="view"><i class="el-icon-view" />{{ item.browseNumber }}</div>
-                    <div class="view">作者：{{ item.nickName }}
-                    </div>
-                  </div>
-                </div>
-              </el-row>
-            </div>
-          <!-- </el-card> -->
-          <!-- <img class="star" src="../assets/star.png"> -->
-        </el-row>
-
-        <div class="block pagination">
-          <el-pagination layout="prev, pager, next" :page.sync="queryParam.pagenum" :limit.sync="queryParam.pagesize" :total="total" @pagination="getArtList"/>
-        </div>
-      </el-col>
-      <el-col id="side" :span="6" class="hidden-sm-and-down">
-        <div class="item">
-          <tag />
-        </div>
-        <div class="item">
-          <!-- <friend /> -->
-        </div>
-      </el-col>
-    </el-row>
 
   </div>
 </template>
 
 <script>
 import tag from '../components/tag'
-import { website } from '@/services'
+import { website } from '@/services/index'
 
 export default {
   name: 'Index',
@@ -105,7 +59,8 @@ export default {
         pagesize: 11,
         pagenum: 1
       },
-      total: 0
+      total: 0,
+      cateList: []
     }
   },
 
@@ -119,6 +74,7 @@ export default {
       total: res.total,
     }
   },
+  
   methods: {
     // 获取文章列表
     async getArtList() {
@@ -195,6 +151,7 @@ export default {
             width: 188px;
             height: 140px;
             margin-right: 20px;
+            overflow: hidden;
             img {
               width: 100%;
               height: 100%;
@@ -209,6 +166,7 @@ export default {
               font-weight: 800;
               font-size: 18px;
               color: #3C3C3C;
+              cursor: pointer;
             }
             .left_mid {
               font-weight: 400;
@@ -238,72 +196,7 @@ export default {
     }
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#side .item {
-  margin-bottom: 30px;
-}
-
-.art-item {
-  margin-bottom: 30px;
-  position: relative;
-}
-
-.art-item .star {
-  width: 60px;
-  height: 60px;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-img.tag {
-  width: 16px;
-  height: 16px;
-}
-
-.art-title {
-  border-left: 3px solid #1ABCFC;
-  padding-left: 5px;
-  cursor: pointer;
-}
-
-.art-title:hover {
-  padding-left: 10px;
-  color: #409EFF;
-}
-
-.art-time {
-  margin-right: 20px;
-}
-
-.art-body {
-  display: flex;
-  padding: 10px 0;
-}
-
-.side-img {
-  height: 124px;
-  width: 214px;
-  overflow: hidden;
-  margin-right: 20px;
-}
-
-img.art-banner {
+  img.art-banner {
   width: 100%;
   height: 100%;
   transition: all 0.6s;
@@ -313,43 +206,5 @@ img.art-banner:hover {
   transform: scale(1.4);
 }
 
-.side-abstract {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
 
-.art-more {
-
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
-.art-more .view {
-  color: #aaa;
-  font-size: 12px;
-  font-family: PingFang SC, PingFang SC;
-  font-weight: 500;
-  font-size: 12px;
-  color: #707070;
-}
-
-h5 {
-  font-size: 18px;
-}
-
-.pagination {
-  background-color: #F9F9F9;
-}
-::v-deep .co_sty {
-  p {
-    color: #5b5959;
-
-  }
-  }
-
-::v-deep .el-carousel  {
-  margin-bottom: 28px;
-}
 </style>

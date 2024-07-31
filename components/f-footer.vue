@@ -1,5 +1,5 @@
 <template>
-  <div style="position: relative;top: -230px;float: left;width: 100%;margin-top: 40px;">
+  <div style="position: relative;top: -30px;float: left;width: 100%;margin-top: 40px;">
   <div class="f-footer" style="">
     <el-main class="main">
       <el-row>
