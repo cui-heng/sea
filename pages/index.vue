@@ -4,8 +4,11 @@
       <div class="cont_left">
         <div class="swiper_wrap">
           <el-carousel :autoplay="false" height="434px">
-            <el-carousel-item v-for="item in artList.slice(0, 3)" :key="item.id">
-              <img class="swip_big_img" :src="baseUrlImg + item.coverImg">
+            <el-carousel-item v-for="(item, index) in artList.slice(0, 3)" :key="item.id">
+              <!-- <img class="swip_big_img" :src="baseUrlImg + item.coverImg"> -->
+              <img v-if="index == 0" class="swip_big_img" src="@/assets/newBanner/first.png">
+              <img v-if="index == 1" class="swip_big_img" src="@/assets/newBanner/second.png">
+              <img v-if="index == 2" class="swip_big_img" src="@/assets/newBanner/thired.png">
               <div class="mark_swiper">
               </div>
               <div class="swiper_tit">
@@ -60,22 +63,46 @@ export default {
         pagenum: 1
       },
       total: 0,
-      cateList: []
+      cateList: [],
+      fixedImgsArr: [
+        require('@/assets/newBanner/first.png'),
+        require('@/assets/newBanner/second.png'),
+        require('@/assets/newBanner/thired.png')]
     }
   },
 
-  async asyncData(context) {
-    const res = await context.$axios.$get(website.getArticle, {
-      page: context.query.current || 1,
-      size: context.query.pageSize || 10
-    });
+  // async asyncData(context) {
+  //   const res = await context.$axios.$get(website.getArticle, {
+  //     page: context.query.current || 1,
+  //     size: context.query.pageSize || 10
+  //   });
+  //   return {
+  //     artList: res.list || [],
+  //     total: res.total,
+  //   }
+  // },
+
+  async asyncData({ $axios }) {
+    const [data, data1] = await Promise.all([
+        $axios.$get(website.getPreferredArticle),
+        $axios.$get(website.getArticle, {
+        page: 1,
+        size: 10
+      })
+    ]);
     return {
-      artList: res.list || [],
-      total: res.total,
+      cateList: data,
+      artList: data1.list
     }
   },
   
   methods: {
+    formatImg(arr) {
+      let arrs = arr.map((item, index) => {
+        item.coverImg = this.fixedImgsArr[index]
+        return item
+      })
+    },
     // 获取文章列表
     async getArtList() {
       const res = await this.$axios.$get(website.getArticle, {
@@ -85,7 +112,6 @@ export default {
       this.artList = res.data.list
       this.total = res.data.total
       // eslint-disable-next-line no-console
-      console.log(this.artList)
     }
   }
 }

@@ -38,27 +38,15 @@ export default {
       profileInfo: {
         id: 1
       },
-      cateList: [],
       typeList: ['warning', 'success', 'info', 'danger']
     }
   },
-  
-  mounted() {
-    this.getProfileInfo()
-  },
   methods: {
-    // 获取个人设置
-    getProfileInfo() {
-      getPreferredArticle().then(res => {
-        console.log(res, '999');
-        this.cateList = res.data
-      })
-    },
     // 获取分类
-    async GetCateList() {
-      const data = await this.$axios.$get('/article/v1/category');
-      this.cateList = data
-    }
+    // async GetCateList() {
+    //   const data = await this.$axios.$get('/article/v1/category');
+    //   this.cateList = data
+    // }
   }
 }
 </script>

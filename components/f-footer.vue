@@ -1,6 +1,6 @@
 <template>
   <div style="position: relative;top: -30px;float: left;width: 100%;margin-top: 40px;">
-  <div class="f-footer" style="">
+  <div class="f-footer">
     <el-main class="main">
       <el-row>
         <el-col :span="24" class="item-col weside">
@@ -20,7 +20,7 @@
       </el-row>
     </el-main>
     <el-dialog :visible.sync="dialogTableVisible" width="40%" append-to-body>
-<img src="../assets/mz.png" style="width: 100%;"/>
+    <img src="../assets/mz.png" style="width: 100%;"/>
 
 
     </el-dialog>
@@ -46,10 +46,11 @@ export default {
 <style scoped>
 .f-footer {
   width: 100%;
-  padding: 20px;
+  height: 240px;
   text-align: center;
   color: #fff;
-  background-color: #555;
+  background: #3D3C44;
+  font-family: PingFang SC;
 }
 
 .main {
