@@ -1,12 +1,12 @@
 <template>
-  <component class="fe-title" :is="tag">
+  <p class="fe-paragraph">
     <slot></slot>
-  </component>
+  </p>
 </template>
 
 <script>
 export default {
-  name: 'fe-title',
+  name: 'fe-paragraph',
   props: {
     level: {
       type: Number,
@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style lang="scss">
-.fe-title {
+.fe-paragraph {
   margin: 0;
   color: #3C3C3C;
   font-weight: 800;
