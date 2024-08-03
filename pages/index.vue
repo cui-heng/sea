@@ -67,7 +67,8 @@ export default {
       fixedImgsArr: [
         require('@/assets/newBanner/first.png'),
         require('@/assets/newBanner/second.png'),
-        require('@/assets/newBanner/thired.png')]
+        require('@/assets/newBanner/thired.png')],
+      codeImgsArr: []
     }
   },
 
@@ -88,11 +89,11 @@ export default {
         $axios.$get(website.getArticle, {
         page: 1,
         size: 10
-      })
+      }),
     ]);
     return {
       cateList: data,
-      artList: data1.list
+      artList: data1.list,
     }
   },
   

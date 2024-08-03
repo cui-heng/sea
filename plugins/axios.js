@@ -5,14 +5,14 @@ export default (context) => {
    * axios prototype
    */
   context.$axios.onRequest(config => {
-    console.log(context.$cookies['TOKEN']);
-    console.log('Making request to ' + config.url);
+    // console.log(context.$cookies['TOKEN']);
+    // console.log('Making request to ' + config.url);
     context.$axios.setToken(context.$cookies['TOKEN']);
   });
 
   context.$axios.onResponse(response => {
     const result = response.data;
-    console.log('Making response ', result);
+    // console.log('Making response ', result);
 
     if (result.code === 1) {
       return result;

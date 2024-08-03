@@ -204,5 +204,13 @@ export function getAlertInfo(query) {
     params: query
   })
 }
+//PC footer CodeImgs
+export function getCodeImgs(query) {
+  return request({
+    url: '/website/common/getCustomerServiceWechatImgs',
+    method: 'get',
+    params: query
+  })
+}
 
 //获取客服信息

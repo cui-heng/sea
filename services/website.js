@@ -36,6 +36,7 @@ export const website = {
   getTransactionCategory: '/website/common/getTransactionCategory',
 
   insertLeaveMessage: '/website/common/insertLeaveMessage',
+  getCodeImgs: '/website/common/getCustomerServiceWechatImgs',
 }
 
 export default website;
