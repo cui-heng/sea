@@ -42,6 +42,7 @@ import service from '@/pages/service/index.vue'
 import answerList from '@/pages/answer/list.vue';
 import answerInfo from '@/pages/answer/info.vue';
 import answerArticle from '@/pages/answer/article.vue';
+import adviserInfo from '@/pages/adviser/info.vue';
 
 
 
@@ -65,6 +66,10 @@ const routes = [
   {
     path: '/article/:id',
     component: answerArticle
+  },
+  {
+    path: '/adviser/:id',
+    component: adviserInfo
   }
 ];
 

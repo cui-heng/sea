@@ -17,6 +17,8 @@ export default {
       if (this.src) {
         return this.src?.startsWith('http') ? this.src : this.baseUrlImg + this.src;
       }
+
+      return this.src;
     },
     classNames() {
       const classNames = [];
@@ -39,7 +41,7 @@ export default {
     display: block;
   }
 
-  &--circle {
+  &--circle img {
     border-radius: 100%;
     overflow: hidden;
   }
