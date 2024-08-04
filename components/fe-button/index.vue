@@ -44,6 +44,10 @@ export default {
   border-radius: 4px;
   cursor: pointer;
 
+  span {
+    display: inline-block;
+  }
+
   &--default {
     color: #0242AC;
     border: 1px solid #0242AC;
@@ -63,6 +67,12 @@ export default {
     height: 28px;
     line-height: 28px;
     padding: 0 15px;
+  }
+
+  &--large {
+    height: 44px;
+    line-height: 44px;
+    padding: 0 20px;
   }
 }
 </style>

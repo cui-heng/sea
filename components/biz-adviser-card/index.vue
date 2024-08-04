@@ -1,62 +1,48 @@
 <template>
-  <div class="biz-staff-card">
-    <div class="biz-staff-card-info">
-      <div class="biz-staff-card-body">
-        <p class="biz-staff-card-name">{{ staff.nickName }}</p>
-        <div class="biz-staff-card-desc">
-          <span>{{ staff.remark }}</span>
-          <span>帮助{{ staff.helpNumber }}</span>
+  <div class="biz-adviser-card">
+    <div class="biz-adviser-card-info">
+      <div class="biz-adviser-card-body">
+        <p class="biz-adviser-card-name">{{ adviser.nickName }}</p>
+        <div class="biz-adviser-card-desc">
+          <span>{{ adviser.remark }}</span>
+          <span>帮助{{ adviser.helpNumber }}</span>
         </div>
       </div>
-      <div class="biz-staff-card-meta">
+      <div class="biz-adviser-card-meta">
         <template>
-          <div class="biz-staff-card-record">
-            <div class="biz-staff-card-like">
+          <div class="biz-adviser-card-record">
+            <div class="biz-adviser-card-like">
               <fe-icon icon="like" />
-              <fe-text>好评{{ staff.positiveReviews }}</fe-text>
+              <fe-text>好评{{ adviser.positiveReviews }}</fe-text>
             </div>
-            <div class="biz-staff-card-view">
+            <div class="biz-adviser-card-view">
               <fe-icon icon="eye" />
-              <fe-text>浏览量{{ staff.userViews }}</fe-text>
+              <fe-text>浏览量{{ adviser.userViews }}</fe-text>
             </div>
           </div>
-          <div class="biz-staff-card-actions">
-            <fe-button size="small" icon="phone" @click="$emit('view', { type: 'call', staff })">电话</fe-button>
-            <fe-button type="wechat" size="small" icon="wechat" @click="$emit('view', { type: 'wechat', staff })">微信</fe-button>
+          <div class="biz-adviser-card-actions">
+            <fe-button size="small" icon="phone" @click="$emit('view', { type: 'call', adviser })">电话</fe-button>
+            <fe-button type="wechat" size="small" icon="wechat" @click="$emit('view', { type: 'wechat', adviser })">微信</fe-button>
           </div>
         </template>
       </div>
     </div>
-    <fe-image class="biz-staff-card-avatar" :src="staff.avatar" :alt="staff.nickName" />
+    <fe-image class="biz-adviser-card-avatar" :src="adviser.avatar" :alt="adviser.nickName" />
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'BizStaffCard',
+  name: 'BizAdviserCard',
   props: {
-    staff: Object,
-  },
-  data() {
-    return {
-      
-    }
-  },
-  watch: {
-    
-  },
-  mounted() {
-    console.log(this.staff);
-  },
-  methods: {
-    
+    adviser: Object,
   }
 }
 </script>
 
 <style lang="scss">
-.biz-staff-card {
+.biz-adviser-card {
   display: inline-flex;
   width: 383px;
   height: 192px;

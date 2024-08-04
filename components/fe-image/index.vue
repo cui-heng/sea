@@ -1,5 +1,5 @@
 <template>
-  <div class="fe-image">
+  <div class="fe-image" :class="classNames">
     <img v-bind="$attrs" :src="fullSrc" />
   </div>
 </template>
@@ -10,12 +10,22 @@ export default {
   inheritAttrs: false,
   props: {
     src: String,
+    circle: Boolean,
   },
   computed: {
     fullSrc() {
       if (this.src) {
         return this.src?.startsWith('http') ? this.src : this.baseUrlImg + this.src;
       }
+    },
+    classNames() {
+      const classNames = [];
+
+      if (this.circle) {
+        classNames.push('fe-image--circle');
+      }
+
+      return classNames;
     }
   }
 }
@@ -27,6 +37,11 @@ export default {
     width: 100%;
     height: 100%;
     display: block;
+  }
+
+  &--circle {
+    border-radius: 100%;
+    overflow: hidden;
   }
 }
 </style>

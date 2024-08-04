@@ -25,6 +25,6 @@ export default {
 .fe-paragraph {
   margin: 0;
   color: #3C3C3C;
-  font-weight: 800;
+  font-weight: 500;
 }
 </style>

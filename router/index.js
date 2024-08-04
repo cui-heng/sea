@@ -37,17 +37,14 @@ import wendaxiangqingphone from '@/pages/wendaxiangqingphone'
 
 
 // ======================= nuxt routes ================================
-import essay from '@/pages/essay/index.vue'
 import futures from '@/pages/futures/index.vue'
 import service from '@/pages/service/index.vue'
+import answerList from '@/pages/answer/list.vue';
+import answerInfo from '@/pages/answer/info.vue';
 
 
 
 const routes = [
-  {
-    path: '/essay',
-    component: essay,
-  },
   {
     path: '/futures',
     component: futures,
@@ -55,6 +52,14 @@ const routes = [
   {
     path: '/service',
     component: service,
+  },
+  {
+    path: '/answer',
+    component: answerList,
+  },
+  {
+    path: '/answer/:id',
+    component: answerInfo,
   },
 ];
 
