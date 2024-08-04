@@ -13,7 +13,7 @@
     </div>
     <div class="bottom_safe">
       <div class="safe_click">
-        <div v-for="item in footerList" @click="choseInd(item.code)">{{ item.name }} 
+        <div v-for="item in footerList" :key="item.code" @click="choseInd(item.code)">{{ item.name }} 
           <span class="line_sty" v-if="item.code !== 3">|</span>
         </div>
       </div>
@@ -92,7 +92,7 @@ export default {
           wxQrCode: ''
         }
       ],
-      dialogTableVisible: true,
+      dialogTableVisible: false,
       footerList: [
         {
           name: '免责声明',

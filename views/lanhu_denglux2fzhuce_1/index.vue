@@ -1,21 +1,17 @@
 <template>
-  <div>
+  <div class="login_wrap">
     <HUIYAUN v-if="!show" @dianji="godod"/>
   <div  v-if="show" class="page flex-col">
-    <img @click="$router.push('/')" class="image_1" referrerpolicy="no-referrer"
-      src="./assets/img/FigmaDDSSlicePNG98c5bc5f50d252746043a47d32d33336.png" />
-    <img class="image_2" referrerpolicy="no-referrer"
-      src="./assets/img/FigmaDDSSlicePNGc99fdf18684b30e3fef612ad5d029f3f.png" />
+    <div class="align_box">
+      <img @click="$router.push('/')" class="image_1" referrerpolicy="no-referrer"
+      src="@/assets/newBanner/sea_img_logo.png" />
     <div class="group_1 flex-row">
       <div class="group_2 flex-col">
-        <div class="image-wrapper_1 flex-col">
-          <img class="image_3" referrerpolicy="no-referrer"
-            src="./assets/img/FigmaDDSSlicePNGea77ca25fd24e7db4d20c4f1f7f8ee8b.png" />
-        </div>
+        <img class="log_img" src="@/assets/newBanner/login_img.png" alt="">
       </div>
       <div class="group_3 flex-col">
         <div class="text-wrapper_1 flex-row justify-between">
-          <span class="text_1 cur_sty">会员登录通道</span>
+          <span class="text_1 cur_sty">会员登录通道1</span>
           <span class="text_2 cur_sty" @click="dialogVisible1=true">会员入驻通道</span>
         </div>
         <div class="box_1 flex-col"></div>
@@ -67,8 +63,10 @@
       <br />
       证券投资咨询服务提供:浙江海洋财经软件有限公司(中国证监会核发证书编号:ZX0050)
     </span>
+    </div>
+    
   </div>
-  <div v-if="dialogVisible1" class="popup" style="z-index: 999999999999;">
+  <div v-if="dialogVisible1" class="popup" style="z-index: 9999;">
     <!-- 弹窗的内容 -->
     <div class="group_32 flex-col" style="position: absolute;left: 20%;">
         <div class="image-wrapper_14 flex-row">
@@ -99,7 +97,7 @@
         <div class="group_52 flex-row">
           <div class="text-wrapper_23">
             <span class="text_52">*</span>
-            <span class="text_53 reset_span">咨询时请说明来自海洋财经，以便得到更佳服务</span>
+            <span class="text_53 reset_span">1咨询时请说明来自海洋财经，以便得到更佳服务</span>
           </div>
         </div>
         <div class="back_btn" @click="toIndex()">返回</div>
@@ -339,6 +337,54 @@ $cursor: #fff;
 $bg: #2d3a4b;
 $dark_gray: #889aa4;
 $light_gray: #eee;
+
+.login_wrap {
+  .page {
+    background: linear-gradient(0deg, #7BAAF6, #FFFFFF) !important;
+    height: 100vh;
+    .align_box {
+      width: 1200px;
+      margin: 0 auto;
+      .group_3 {
+        margin: 66px 53px 0 97px !important;
+      }
+      .paragraph_1 {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        margin-left: 0;
+        color: #999
+      }
+    }
+    .image_1 {
+      width: 250px;
+      height: 52px;
+      margin-left: 0;
+    }
+    .group_1 {
+      margin-left: 0;
+      width: 100%;
+      height: 588px;
+      background: #F4F7FF;
+      box-shadow: 0px 1px 17px 1px rgba(8,1,3,0.07);
+      border-radius: 34px;
+      border: 4px solid #FFFFFF;
+      .group_2 {
+        width: 738px;
+        height: 578px;
+        background: linear-gradient(90deg, #BEDEFF, #D2E4FF, #E2EAFF);
+        border-radius: 34px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        .log_img {
+          width: 526px;
+          height: 494px;
+        }
+      }
+    }
+  }
+}
 
 .login-container {
   min-height: 100%;

@@ -7,9 +7,12 @@
         </div>
         <div class="nav_right">
           <div class="login_top">
-            <span>登录</span>
-            |
-            <span>注册</span>
+            <nuxt-link to="/login" tag="span">
+              <span>登录</span>
+              |
+              <span>注册</span>
+            </nuxt-link>
+            
           </div>
           <div class="nav_click">
             <el-menu :default-active="activeIndex" :router="true" text-color="#474747" id="top-menu" active-text-color="#0242AC"
@@ -261,6 +264,9 @@ insertLeaveMessage(param).then(res=>{
       color: #474747;
       transform: translateY(10px);
       height: 38px;
+      span {
+        cursor: pointer;
+      }
     }
   }
 }

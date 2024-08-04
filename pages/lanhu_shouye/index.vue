@@ -82,7 +82,7 @@
         </el-carousel>
       </div>
       <el-row :gutter="20">
-        <el-col :span="12" v-for="item in artList" style="padding-top: 20px;">
+        <el-col :span="12" v-for="item in artList" :key="item.id" style="padding-top: 20px;">
           <div class="image-text_13 flex-col justify-between">
             <div @click="$router.push(`/lanhu_shouyezixun/` + item.id + '/' + item.userId)" class="group_20 flex-col" :style="{ backgroundImage: 'url(' + baseUrlImg + item.coverImg + ')' }">
               <div class="block_2 flex-row justify-between">
@@ -116,7 +116,7 @@
         <span class="text_6">优选文章</span>
         <span class="text_7">Preferred&nbsp;article</span>
       </div>
-      <div v-for="item in cateList">
+      <div v-for="item in cateList" :key="item.id">
         <div class="group_5 flex-col">
           <div class="group_6 flex-col"></div>
         </div>
