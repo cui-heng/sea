@@ -35,6 +35,46 @@ import wanghaiPhone from '@/pages/wanghaiPhone'
 import wlhd from '@/pages/wlhd'
 import wendaxiangqingphone from '@/pages/wendaxiangqingphone'
 
+
+// ======================= nuxt routes ================================
+import futures from '@/pages/futures/index.vue'
+import service from '@/pages/service/index.vue'
+import answerList from '@/pages/answer/list.vue';
+import answerInfo from '@/pages/answer/info.vue';
+import answerArticle from '@/pages/answer/article.vue';
+import adviserInfo from '@/pages/adviser/info.vue';
+
+
+
+const routes = [
+  {
+    path: '/futures',
+    component: futures,
+  },
+  {
+    path: '/service',
+    component: service,
+  },
+  {
+    path: '/answer',
+    component: answerList,
+  },
+  {
+    path: '/answer/:id',
+    component: answerInfo,
+  },
+  {
+    path: '/article/:id',
+    component: answerArticle
+  },
+  {
+    path: '/adviser/:id',
+    component: adviserInfo
+  }
+];
+
+// ======================= nuxt routes ==============================
+
 /**
  * constantRoutes
  * a base page that does not have permission requirements
@@ -181,6 +221,8 @@ export const constantRoutes = [
 
 ]
 
+
+
 export const createRouter = (ssrContext, createDefaultRouter, routerOptions, config, store) => {
 
 
@@ -188,7 +230,7 @@ export const createRouter = (ssrContext, createDefaultRouter, routerOptions, con
     mode: 'history',
     scrollBehavior: () => ({ y: 0 }),
     // base: process.env.BASE_URL,
-    routes: constantRoutes
+    routes: [...constantRoutes, ...routes]
   });
 }
 
