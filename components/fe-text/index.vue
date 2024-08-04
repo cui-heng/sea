@@ -29,9 +29,9 @@ export default {
 
 <style lang="scss">
 .fe-text {
-  margin: 0;
   color: #3C3C3C;
   font-weight: 500;
+  line-height: 1;
 
   &--secondary {
     color: #969696;

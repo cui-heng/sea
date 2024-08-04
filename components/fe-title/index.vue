@@ -26,5 +26,6 @@ export default {
   margin: 0;
   color: #3C3C3C;
   font-weight: 800;
+  line-height: 1;
 }
 </style>

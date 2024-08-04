@@ -41,6 +41,7 @@ import futures from '@/pages/futures/index.vue'
 import service from '@/pages/service/index.vue'
 import answerList from '@/pages/answer/list.vue';
 import answerInfo from '@/pages/answer/info.vue';
+import answerArticle from '@/pages/answer/article.vue';
 
 
 
@@ -61,6 +62,10 @@ const routes = [
     path: '/answer/:id',
     component: answerInfo,
   },
+  {
+    path: '/article/:id',
+    component: answerArticle
+  }
 ];
 
 // ======================= nuxt routes ==============================
