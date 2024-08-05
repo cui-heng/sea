@@ -1,0 +1,44 @@
+.biz-adviser-modal {
+  ::v-deep{
+    .el-dialog {
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .el-dialog__header {
+      display: none;
+    }
+
+    .el-dialog__body {
+      padding: 0;
+    }
+  }
+
+  &-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 167px;
+    padding-left: 52px;
+    padding-right: 22px;
+    background: linear-gradient(90deg, #BEDEFF, #D2E4FF, #E2EAFF);
+
+    .fe-title {
+      color: #0242AC;
+      font-size: 30px;
+      margin-bottom: 14px;
+    }
+
+    .fe-text {
+      color: #0242AC;
+      font-size: 14px;
+    }
+  }
+
+  &-content {
+    display: flex;
+    height: 383px;
+    flex-direction: column;
+    align-items: center;
+  }
+}

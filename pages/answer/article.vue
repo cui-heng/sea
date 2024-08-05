@@ -38,7 +38,7 @@
               </div>
               <fe-space class="article-adviser-actions">
                 <fe-button size="small" icon="phone">电话</fe-button>
-                <fe-button size="small" icon="wechat" type="wechat">微信</fe-button>
+                <fe-button size="small" icon="wechat" type="wechat" ghost>微信</fe-button>
               </fe-space>
             </div>
           </div>
@@ -51,7 +51,7 @@
             <fe-image class="relative-cover" :src="relative.coverImg" />
             <div class="relative-body">
               <fe-title class="relative-title" :level="4">{{ relative.title }}</fe-title>
-              <fe-paragraph class="relative-content">{{ relative.content }}</fe-paragraph>
+              <fe-paragraph class="relative-content" :ellipsis="2">{{ relative.content }}</fe-paragraph>
               <div class="relative-meta">
                 <div class="relative-adviser">
                   <fe-image class="relative-adviser-avatar" :src="relative.avatar" circle />
@@ -267,12 +267,6 @@ export default {
       color: #969696;
       font-size: 14px;
       line-height: 24px;
-
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
 
     &-meta {

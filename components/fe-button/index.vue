@@ -29,7 +29,7 @@ export default {
       return {
         [`fe-button--${this.type}`]: !!this.type,
         [`fe-button--${this.size}`]: !!this.size,
-        [`fe-button--${this.ghost}`]: this.ghost,
+        [`fe-button--ghost`]: !!this.ghost,
       }
     }
   },

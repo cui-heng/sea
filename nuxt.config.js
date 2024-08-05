@@ -37,6 +37,7 @@ export default {
     '@/plugins/element-ui',
     '@/plugins/extend',
     '@/plugins/axios',
+    '@/plugins/adviser-modal.client.js'
   ],
 
   middleware: ['auth'],

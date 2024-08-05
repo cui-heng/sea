@@ -18,7 +18,7 @@
               <fe-icon icon="real-name" />
               <span>实名认证</span>
             </fe-text>
-            <fe-text class="adviser-tag" v-for="text of adviserInfo.tags">{{ text }}</fe-text>
+            <fe-text class="adviser-tag" v-for="text of adviserInfo.tags" :key="text">{{ text }}</fe-text>
           </div>
           <fe-paragraph class="adviser-desc">{{ adviserInfo.selfIntroduction }}</fe-paragraph>
         </div>
@@ -51,7 +51,7 @@
             <fe-text class="answer-adviser-name">{{ answer.nickName }}</fe-text>
           </div>
           <div class="answer-body">
-            <fe-paragraph class="answer-content">{{ answer.description }}</fe-paragraph>
+            <fe-paragraph class="answer-content" :ellipsis="2">{{ answer.description }}</fe-paragraph>
             <div class="answer-meta">
               <div class="">
                 <fe-icon icon="eye" />
@@ -285,6 +285,7 @@ export default {
       color: #707070;
       font-size: 16px;
       line-height: 22px;
+      height: 44px;
     }
 
     &-meta {
