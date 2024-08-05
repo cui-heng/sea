@@ -47,10 +47,6 @@ export default {
 }
 </script>
 <style scoped>
-.app {
-  font-family: "microsoft yahei", serif;
-}
-
 .app-content {
   background-color: #fff;
   width: 1200px;
