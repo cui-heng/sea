@@ -34,7 +34,7 @@
               </div>
               <fe-space class="reply-adviser-action">
                 <fe-button size="small" icon="phone">电话</fe-button>
-                <fe-button size="small" icon="wechat" type="wechat">微信</fe-button>
+                <fe-button size="small" icon="wechat" type="wechat" ghost>微信</fe-button>
               </fe-space>
             </div>
             <div class="reply-content">

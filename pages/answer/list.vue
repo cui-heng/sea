@@ -11,7 +11,7 @@
               <fe-image :src="answer.avatar" :alt="answer.nickName" />
               <fe-text>{{ answer.nickName }}</fe-text>
             </div>
-            <fe-paragraph class="answer-desc">{{ answer.description }}</fe-paragraph>
+            <fe-paragraph class="answer-desc" :ellipsis="2">{{ answer.description }}</fe-paragraph>
             <div class="answer-meta">
               <fe-text class="answer-source" type="disabled">来源：期贷</fe-text>
               <span class="answer-meta-info">
@@ -163,11 +163,6 @@ export default {
       font-weight: 400;
       line-height: 22px;
       margin-top: 10px;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
 
     &-meta {

@@ -20,7 +20,8 @@ export default {
     type: {
       type: String,
       default: 'default'
-    }
+    },
+    ghost: Boolean,
   },
 
   computed: {
@@ -28,6 +29,7 @@ export default {
       return {
         [`fe-button--${this.type}`]: !!this.type,
         [`fe-button--${this.size}`]: !!this.size,
+        [`fe-button--ghost`]: !!this.ghost,
       }
     }
   },
@@ -56,11 +58,23 @@ export default {
   &--primary {
     color: #fff;
     background: #0242AC;
+
+    &.fe-button--ghost {
+      color: #0242AC;
+      border: 1px solid #0242AC;
+      background: transparent;
+    }
   }
 
   &--wechat {
-    color: #10CB8C;
-    border: 1px solid #10CB8C;
+    color: #fff;
+    background: #10CB8C;
+
+    &.fe-button--ghost {
+      color: #10CB8C;
+      border: 1px solid #10CB8C;
+      background: transparent;
+    }
   }
 
   &--small {

@@ -21,8 +21,8 @@
             </div>
           </div>
           <div class="biz-adviser-card-actions">
-            <fe-button size="small" icon="phone" @click="$emit('view', { type: 'call', adviser })">电话</fe-button>
-            <fe-button type="wechat" size="small" icon="wechat" @click="$emit('view', { type: 'wechat', adviser })">微信</fe-button>
+            <fe-button size="small" icon="phone" @click="$adviser.phone.open(adviser)">电话</fe-button>
+            <fe-button type="wechat" size="small" icon="wechat" ghost @click="$adviser.wechat.open(adviser)">微信</fe-button>
           </div>
         </template>
       </div>
