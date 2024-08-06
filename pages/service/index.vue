@@ -1,28 +1,35 @@
 <template>
   <div class="container">
-    <div class="top-staff">
-      <staff-card v-for="staff of topStaffs.slice(0, 3)" :key="staff" :staff="staff">
-        <fe-button class="wechat-button" size="small" icon="message" slot="extra">咨询</fe-button>
-      </staff-card>
+    <div class="backdrop">
+      <img class="backdrop-img" src="@/assets/images/layout/backdrop.png" alt="" />
+      <img class="backdrop-title" src="@/assets/images/service/title.png" alt="有求必应 服务至上">
     </div>
-    <div class="notice-wrapper">
-      <div class="notice">
-        <span class="notice-label">
-          <fe-icon class="notice-icon" icon="notice" />
-          <span>顾问动态：</span>
-        </span>
-        <span>{{ firstAnswer?.title }}</span>
+    <section class="section">
+      <div class="top-staff">
+        <staff-card v-for="staff of topStaffs.slice(0, 3)" :key="staff.key" :staff="staff">
+          <fe-button class="wechat-button" size="small" icon="message" slot="extra">咨询</fe-button>
+        </staff-card>
       </div>
-    </div>
-    <hot-adviser :items="hotAdvisers" />
-    <div class="content">
-      <fe-card class="answer-card" title="最新回答">
-        <answer-list :items="latestAnswers" />
-      </fe-card>
-      <fe-card class="answer-card" title="最新咨询">
-        <consult-list :items="latestConsults" />
-      </fe-card>
-    </div>
+      <div class="notice-wrapper">
+        <div class="notice">
+          <span class="notice-label">
+            <fe-icon class="notice-icon" icon="notice" />
+            <span>顾问动态：</span>
+          </span>
+          <span>{{ firstAnswer?.title }}</span>
+        </div>
+      </div>
+      <hot-adviser :items="hotAdvisers" />
+      <div class="content">
+        <fe-card class="answer-card" title="最新回答">
+          <answer-list :items="latestAnswers" />
+        </fe-card>
+        <fe-card class="answer-card" title="最新咨询">
+          <consult-list :items="latestConsults" />
+        </fe-card>
+      </div>
+    </section>
+    
   </div>
 </template>
 
@@ -74,14 +81,38 @@ export default {
 
 <style scoped lang="scss">
 .container {
-  width: 1280px;
-  margin: 0 auto;
+  .backdrop {
+    position: relative;
+    height: 400px;
+
+    &-img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    &-title {
+      position: absolute;
+      left: 50%;
+      top: 158px;
+      width: 565px;
+      height: 60px;
+      transform: translateX(-50%);
+    }
+  }
+
+  .section {
+    position: relative;
+    width: 1280px;
+    margin: 0 auto 30px;
+    z-index: 10;
+  }
 
   .top-staff {
     display: flex;
     gap: 26px;
     justify-content: center;
-    margin-top: -60px;
+    margin-top: -130px;
 
     .wechat-button {
       width: 120px;
