@@ -1,18 +1,16 @@
 <template>
-  <div class="app">
+  <main class="main">
     <template v-if="!$isMobile">
-      <VHeader />
-      <el-row id="content" type="flex" justify="center" class="app-content">
-        <el-col :style="{ 'minHeight': minHeight + 'px' }">
-          <nuxt />
-        </el-col>
-      </el-row>
+      <biz-header />
+      <div class="body">
+        <nuxt />
+      </div>
       <VFooter />
     </template>
     <template v-else>
       <nuxt />
     </template>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -47,16 +45,11 @@ export default {
 }
 </script>
 <style scoped>
-.app-content {
-  background-color: #fff;
-  width: 1200px;
-  margin: 0 auto;
+.main {
+  min-width: max-content;
 }
 
-.navBarWrap {
-  position: fixed;
-  top: 0;
-  z-index: 999;
-  width: 100%;
+.body {
+  background-color: #fff;
 }
 </style>

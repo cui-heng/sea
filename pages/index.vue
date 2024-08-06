@@ -1,5 +1,6 @@
 <template>
-  <div class="home" >
+  <article class="container">
+    <biz-search />
     <div class="front_cont">
       <div class="cont_left">
         <div class="swiper_wrap">
@@ -42,8 +43,7 @@
         <tag :cateList="cateList"/>
       </div>
     </div>
-
-  </div>
+  </article>
 </template>
 
 <script>
@@ -121,9 +121,9 @@ export default {
 <style scoped lang="scss">
   .front_cont {
     width: 1200px;
-    height: auto;
     display: flex;
     justify-content: space-between;
+    margin: 36px auto 60px;
     .cont_left {
       width: 780px;
       height: auto;
