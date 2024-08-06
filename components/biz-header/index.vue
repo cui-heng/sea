@@ -42,11 +42,11 @@ export default {
         },
         {
           label: '期货手续费',
-          value: '/about'
+          value: '/commission'
         },
         {
           label: '期货保证金',
-          value: '/about1'
+          value: '/earnest'
         },
         {
           label: '期货一对一服务',
@@ -60,10 +60,12 @@ export default {
 
 <style lang="scss" scoped>
 .biz-header {
+  position: relative;
   min-width: 1200px;
   border-top: 8px solid #0242ac;
   background: #fff;
   box-shadow: 0px 1px 17px 1px rgba(8,1,3,0.07);
+  z-index: 5;
 
   &-inner {
     display: flex;

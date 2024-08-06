@@ -1,41 +1,44 @@
 <template>
   <div class="container">
     <biz-search />
-    <article class="main">
-      <section class="section">
-        <tabs class="tabs" />
-        <div class="answer-list">
-          <div class="answer-item" v-for="answer of answerData.list" :key="answer.id">
-            <fe-image class="answer-image" />
-            <div class="answer-info">
-              <fe-title class="answer-title" :level="3">{{ answer.title }}</fe-title>
-              <div class="answer-creater">
-                <fe-image :src="answer.avatar" :alt="answer.nickName" />
-                <fe-text>{{ answer.nickName }}</fe-text>
+    <article class="article">
+      <fe-breadcrumb :items="breadcrumbs" />
+      <div class="main">
+        <section class="section">
+          <tabs class="tabs" />
+          <div class="answer-list">
+            <div class="answer-item" v-for="answer of answerData.list" :key="answer.id">
+              <fe-image class="answer-image" />
+              <div class="answer-info">
+                <fe-title class="answer-title" :level="3">{{ answer.title }}</fe-title>
+                <div class="answer-creater">
+                  <fe-image :src="answer.avatar" :alt="answer.nickName" />
+                  <fe-text>{{ answer.nickName }}</fe-text>
+                </div>
+                <fe-paragraph class="answer-desc" :ellipsis="2">{{ answer.description }}</fe-paragraph>
+                <div class="answer-meta">
+                  <fe-text class="answer-source" type="disabled">来源：期贷</fe-text>
+                  <span class="answer-meta-info">
+                    <fe-text class="answer-message" type="disabled">{{ answer.replyCount }}个回答</fe-text>
+                    <fe-text class="answer-view" type="disabled">{{ answer.viewNumber }}次浏览</fe-text>
+                  </span>
+                </div>
+                <fe-text class="answer-time" type="disabled">{{ answer.createTime }}</fe-text>
               </div>
-              <fe-paragraph class="answer-desc" :ellipsis="2">{{ answer.description }}</fe-paragraph>
-              <div class="answer-meta">
-                <fe-text class="answer-source" type="disabled">来源：期贷</fe-text>
-                <span class="answer-meta-info">
-                  <fe-text class="answer-message" type="disabled">{{ answer.replyCount }}个回答</fe-text>
-                  <fe-text class="answer-view" type="disabled">{{ answer.viewNumber }}次浏览</fe-text>
-                </span>
-              </div>
-              <fe-text class="answer-time" type="disabled">{{ answer.createTime }}</fe-text>
             </div>
           </div>
-        </div>
-      </section>
-      <aside class="aside">
-        <fe-card class="adviser" title="期货顾问推荐">
-          <fe-text slot="extra">更多 +</fe-text>
-          <adviser-list :items="adviserList" />
-        </fe-card>
-        <fe-card class="hot-issue" title="热议问题">
-          <fe-text slot="extra">更多 +</fe-text>
-          <issue-list :items="hotAnswers" />
-        </fe-card>
-      </aside>
+        </section>
+        <aside class="aside">
+          <fe-card class="adviser" title="期货顾问推荐">
+            <fe-text slot="extra">更多 +</fe-text>
+            <adviser-list :items="adviserList" />
+          </fe-card>
+          <fe-card class="hot-issue" title="热议问题">
+            <fe-text slot="extra">更多 +</fe-text>
+            <issue-list :items="hotAnswers" />
+          </fe-card>
+        </aside>
+      </div>
     </article>
   </div>
 </template>
@@ -46,7 +49,7 @@ import tabs from './components/tabs.vue';
 import issueList from './components/issue-list.vue';
 import adviserList from './components/adviser-list.vue';
 export default {
-  name: 'Essay',
+  name: 'AnswerList',
   components: {
     tabs,
     issueList,
@@ -74,6 +77,15 @@ export default {
 
   data() {
     return {
+      breadcrumbs: [
+        {
+          label: '海洋财经',
+          pathname: '/'
+        },
+        {
+          label: '百问百答',
+        },
+      ],
       answerData: {
         list: [],
         total: 0
@@ -87,12 +99,16 @@ export default {
 
 <style scoped lang="scss">
 .container {
-  .main {
-    display: flex;
+  .article {
     min-width: 1280px;
     max-width: 1480px;
-    column-gap: 28px;
     margin: 0 auto 52px;
+    padding-top: 6px;
+  }
+
+  .main {
+    display: flex;
+    column-gap: 28px;
 
     .section {
       flex: 1;
@@ -197,32 +213,6 @@ export default {
       right: 22px;
       top: 10px;
       font-size: 12px;
-    }
-  }
-
-  .adviser-list {
-    padding: 10px 12px;
-    .biz-staff-fe-card {
-      width: 100%;
-      height: 143px;
-      background: #F3F5F9;
-      box-shadow: none;
-      margin-bottom: 10px;
-      &:last-child {
-        margin-bottom: 0;
-      }
-
-      &-info {
-        padding-left: 20px;
-      }
-
-      &-name {
-        margin-bottom: 10px;
-      }
-
-      &-avatar {
-        width: 120px;
-      }
     }
   }
 }
