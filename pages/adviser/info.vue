@@ -30,7 +30,7 @@
           <fe-title class="contact-card-title" :level="2">微信咨询</fe-title>
           <fe-text class="contact-card-desc">投资难题随时解答</fe-text>
         </div>
-        <fe-button class="contact-card-button" type="wechat" size="large">微信</fe-button>
+        <fe-button class="contact-card-button" type="wechat" size="large" icon="wechat" @click="$adviser.wechat.open(adviserInfo)">微信</fe-button>
         <div class="contact-card-tag">1对1专业解答</div>
       </div>
       <div class="contact-card contact-phone">
@@ -38,7 +38,7 @@
           <fe-title class="contact-card-title" :level="2">电话咨询</fe-title>
           <fe-text class="contact-card-desc">电话高效沟通，快速解答疑问</fe-text>
         </div>
-        <fe-button class="contact-card-button" type="primary" size="large">电话</fe-button>
+        <fe-button class="contact-card-button" type="primary" size="large" icon="phone" @click="$adviser.phone.open(adviserInfo)">电话</fe-button>
         <div class="contact-card-tag">1对1专业解答</div>
       </div>
     </div>

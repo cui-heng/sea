@@ -1,11 +1,13 @@
 <template>
   <ol class="issue-list">
-    <li class="issue-item" v-for="(answer, index) in items" :key="answer.id">
+    <li class="issue-item" v-for="(item, index) in items" :key="item.id">
       <span
         class="issue-index"
         :class="issueIndexColors[index]"
       >{{ `${index + 1}`.padStart(2, '0') }}</span>
-      <span class="issue-text">{{ answer.title }}</span>
+      <span class="issue-text">
+        <slot class="issue-text" :item="item">{{ item.title }}</slot>
+      </span>
     </li>
   </ol>
 </template>

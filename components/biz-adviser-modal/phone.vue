@@ -21,9 +21,6 @@
 
 export default {
   name: 'bizAdviserModalWechat',
-  props: {
-    adviser: Object,
-  },
   data() {
     return {
       adviser: null,

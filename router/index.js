@@ -42,8 +42,8 @@ import answerList from '@/pages/answer/list.vue';
 import answerInfo from '@/pages/answer/info.vue';
 import answerArticle from '@/pages/answer/article.vue';
 import adviserInfo from '@/pages/adviser/info.vue';
-
-
+import commission from '@/pages/commission/index.vue';
+import earnest from '@/pages/earnest/index.vue';
 
 const routes = [
   {
@@ -65,7 +65,15 @@ const routes = [
   {
     path: '/adviser/:id',
     component: adviserInfo
-  }
+  },
+  {
+    path: '/commission',
+    component: commission
+  },
+  {
+    path: '/earnest',
+    component: earnest
+  },
 ];
 
 // ======================= nuxt routes ==============================

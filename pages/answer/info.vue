@@ -1,85 +1,92 @@
 <template>
   <div class="container">
-    <article class="main">
-      <fe-card class="answer">
-        <div class="answer-tags">
-          <fe-text class="answer-tag">{{ answerInfo.tag }}</fe-text>
-        </div>
-        <div class="answer-content">
-          <fe-title class="answer-title">{{ answerInfo.title }}</fe-title>
-          <fe-text class="answer-meta">
-            <fe-text type="disabled">{{ answerInfo.position }}</fe-text>
-            <fe-text type="disabled">{{ answerInfo.viewNumber }}次浏览</fe-text>
-          </fe-text>
-          <fe-space class="answer-actions" :size="20">
-            <fe-button size="large" type="primary">我来回答</fe-button>
-            <fe-button size="large">入驻注册</fe-button>
-          </fe-space>
-        </div>
-      </fe-card>
-      <fe-card class="reply" :title="`共${answerReplyList.length}个回答`">
-        <div class="reply-list">
-          <div class="reply-item" v-for="reply of answerReplyList" :key="reply.id">
-            <div class="reply-adviser">
-              <fe-image :src="answerInfo.avatar" circle />
-              <div class="reply-adviser-info">
-                <fe-space :size="12">
-                  <span class="reply-adviser-name">{{ reply.nickName }}</span>
-                  <span class="reply-adviser-online"></span>
-                </fe-space>
-                <div class="reply-adviser-tags">
-                  <span class="reply-adviser-position">{{ reply.position }}</span>
-                  <span class="reply-adviser-help">帮助{{ reply.helpNumber }}</span>
+    <fe-breadcrumb :items="breadcrumbs" />
+    <div class="main">
+      <article class="article">
+        <fe-card class="answer">
+          <div class="answer-tags">
+            <fe-text class="answer-tag">{{ answerInfo.tag }}</fe-text>
+          </div>
+          <div class="answer-content">
+            <fe-title class="answer-title">{{ answerInfo.title }}</fe-title>
+            <fe-text class="answer-meta">
+              <fe-text>{{ answerInfo.position }}</fe-text>
+              <span class="answer-meta-text">
+                <fe-icon icon="eye" />
+                <fe-text>{{ answerInfo.viewNumber }}次浏览</fe-text>
+              </span>
+              
+            </fe-text>
+            <fe-space class="answer-actions" :size="20">
+              <fe-button size="large" type="primary" icon="edit">我来回答</fe-button>
+              <fe-button size="large" danger icon="real-name">入驻注册</fe-button>
+            </fe-space>
+          </div>
+        </fe-card>
+        <fe-card class="reply" :title="`共${answerReplyList.length}个回答`">
+          <div class="reply-list">
+            <div class="reply-item" v-for="reply of answerReplyList" :key="reply.id">
+              <div class="reply-adviser">
+                <fe-image :src="answerInfo.avatar" circle />
+                <div class="reply-adviser-info">
+                  <fe-space :size="12">
+                    <fe-title class="reply-adviser-name">{{ reply.nickName }}</fe-title>
+                    <span class="reply-adviser-online"></span>
+                  </fe-space>
+                  <div class="reply-adviser-tags">
+                    <span class="reply-adviser-position">{{ reply.position }}</span>
+                    <span class="reply-adviser-help">帮助{{ reply.helpNumber }}</span>
+                  </div>
                 </div>
+                <fe-space class="reply-adviser-action">
+                  <fe-button size="small" icon="phone" @click="$adviser.phone.open(reply)">电话</fe-button>
+                  <fe-button size="small" icon="wechat" type="wechat" ghost @click="$adviser.wechat.open(reply)">微信</fe-button>
+                </fe-space>
               </div>
-              <fe-space class="reply-adviser-action">
-                <fe-button size="small" icon="phone">电话</fe-button>
-                <fe-button size="small" icon="wechat" type="wechat" ghost>微信</fe-button>
-              </fe-space>
-            </div>
-            <div class="reply-content">
-              <fe-paragraph>{{ reply.result }}</fe-paragraph>
-              <div class="reply-toolbar">
-                <div class="reply-toolbar-group">
-                  <div class="reply-toolbar-action">
-                    <fe-icon icon="line-primary" />
-                    <span>赞</span>
+              <div class="reply-body">
+                <fe-paragraph class="reply-content">{{ reply.result }}</fe-paragraph>
+                <div class="reply-toolbar">
+                  <div class="reply-toolbar-group">
+                    <div class="reply-toolbar-action">
+                      <fe-icon icon="like" />
+                      <span>赞</span>
+                    </div>
+                    <div class="reply-toolbar-group-divider"></div>
+                    <div class="reply-toolbar-action">
+                      <fe-icon icon="dislike" />
+                      <span>踩</span>
+                    </div>
                   </div>
-                  <div class="reply-toolbar-group-divider"></div>
-                  <div class="reply-toolbar-action">
-                    <fe-icon icon="tread" />
-                    <span>踩</span>
-                  </div>
+                  <fe-space class="reply-toolbar-actions" :size="24">
+                    <div class="reply-toolbar-action">
+                      <fe-icon />
+                      <span>追问</span>
+                    </div>
+                    <div class="reply-toolbar-action">
+                      <fe-icon icon="share" />
+                      <span>分享</span>
+                    </div>
+                    <div class="reply-toolbar-action">
+                      <fe-icon icon="more" />
+                      <span>更多</span>
+                    </div>
+                  </fe-space>
                 </div>
-                <fe-space class="reply-toolbar-actions" :size="24">
-                  <div class="reply-toolbar-action">
-                    <fe-icon icon="probe" />
-                    <span>分享</span>
-                  </div>
-                  <div class="reply-toolbar-action">
-                    <fe-icon icon="share" />
-                    <span>分享</span>
-                  </div>
-                  <div class="reply-toolbar-action">
-                    <fe-icon icon="more" />
-                    <span>更多</span>
-                  </div>
-                </fe-space>
               </div>
             </div>
           </div>
-        </div>
-      </fe-card>
-    </article>
-    <div class="aside">
-      <fe-card class="adviser" title="金牌顾问">
-        <fe-text slot="extra">更多 +</fe-text>
-        <adviser-list :items="adviserList" />
-      </fe-card>
-      <fe-card class="hot-issue" title="热议问题">
-        <fe-text slot="extra">更多 +</fe-text>
-        <issue-list :items="hotAnswers" />
-      </fe-card>
+        </fe-card>
+      </article>
+      <aside class="aside">
+        <fe-card class="adviser" title="金牌顾问">
+          <fe-text slot="extra">更多 +</fe-text>
+          <adviser-list :items="adviserList" />
+        </fe-card>
+        <fe-card class="hot-issue" title="热议问题">
+          <fe-text slot="extra">更多 +</fe-text>
+          <issue-list :items="hotAnswers" />
+        </fe-card>
+      </aside>
     </div>
   </div>
 </template>
@@ -105,38 +112,57 @@ export default {
       $axios.$get(website.getHotAnswer)
     ]);
 
-    console.log(answerData, hotAnswers);
-
     return {
       answerInfo: answerData.answer,
       answerReplyList: answerData.answerReplyList,
       adviserList,
       hotAnswers,
+      breadcrumbs: [
+        {
+          label: '海洋财经',
+          pathname: '/'
+        },
+        {
+          label: answerData.answer?.title,
+        },
+      ]
     }
   },
 
   data() {
     return {
+      breadcrumbs: [],
       answerInfo: {},
       answerReplyList: [],
       adviserList: [],
       hotAnswers: [],
     }
   },
-
-  mounted() {
-    console.log(this.answerReplyList, this.hotAnswers);
-  }
 }
 </script>
 
 <style scoped lang="scss">
 .container {
-  display: flex;
   min-width: 1280px;
   max-width: 1480px;
-  column-gap: 28px;
-  margin: 0 auto;
+  margin: 0 auto 32px;
+  padding-top: 8px;
+
+  .main {
+    display: flex;
+    column-gap: 28px;
+
+    .article {
+      flex: 1;
+    }
+
+    .aside {
+      width: 392px;
+      display: flex;
+      flex-direction: column;
+      row-gap: 25px;
+    }
+  }
 
   .main {
     flex: 1;
@@ -172,6 +198,18 @@ export default {
       display: flex;
       margin-top: 15px;
       column-gap: 24px;
+
+      &-text {
+        display: flex;
+        column-gap: 4px;
+        font-size: 16px;
+        color: #9E9E9E;
+      }
+
+      .fe-text {
+        font-size: 16px;
+        color: #9E9E9E;
+      }
     }
 
     &-actions {
@@ -207,6 +245,7 @@ export default {
       &-name {
         color: #000;
         font-size: 22px;
+        font-weight: 500;
       }
 
       &-tags {
@@ -231,9 +270,15 @@ export default {
       }
     }
 
-    &-content {
-      margin-top: 16px;
+    &-body {
+      margin-top: 12px;
       margin-left: 84px;
+    }
+
+    &-content {
+      color: #707070;
+      font-size: 16px;
+      line-height: 22px;
     }
 
     &-toolbar {
@@ -257,6 +302,7 @@ export default {
 
         .reply-toolbar-action {
           width: 52px;
+          color: #0242AC;
           align-items: center;
           justify-content: center;
         }
@@ -264,21 +310,12 @@ export default {
 
       &-action {
         display: flex;
-        column-gap: 4px;
+        column-gap: 2px;
         cursor: pointer;
-        span {
-          display: inline-block;
-          line-height: 16px;
-        }
+        color: #9E9E9E;
+        font-size: 16px;
       }
     }
-  }
-
-  .aside {
-    width: 392px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 25px;
   }
 }
 </style>

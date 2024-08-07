@@ -1,16 +1,17 @@
 <template>
   <span class="fe-icon">
-    <img :src="require(`@/assets/icons/${icon}.png`)" :alt="icon" />
+    <svg-icon :name="icon" width="1em" height="1em" fill="currentColor" v-bind="$attrs"/>
   </span>
 </template>
 
 <script>
 export default {
   name: 'fe-icon',
+  inheritAttrs: false,
   props: {
     icon: {
       type: String,
-      default: 'eye'
+      default: 'question'
     },
   }
 }
@@ -19,15 +20,9 @@ export default {
 <style lang="scss">
 .fe-icon {
   display: inline-flex;
-  width: 16px;
-  height: 16px;
+  align-items: center;
+  line-height: 0;
+  text-align: center;
   vertical-align: -0.16em;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-  }
 }
 </style>

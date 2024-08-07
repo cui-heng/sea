@@ -13,7 +13,7 @@
               <div class="mark_swiper">
               </div>
               <div class="swiper_tit">
-                <nuxt-link :to="`/article/` + item.id + '/' + item.userId" tag="span">
+                <nuxt-link :to="`/article/${item.id}`" tag="span">
                   {{ item.title }}
                 </nuxt-link>
               </div>
@@ -26,7 +26,7 @@
               <img class="art-banner" :src="baseUrlImg + item.coverImg">
             </div>
             <div class="item_right">
-              <nuxt-link :to="`/article/` + item.id + '/' + item.userId" tag="span">
+              <nuxt-link :to="`/article/${item.id}`" tag="span">
                 <div class="left_tit">{{ item.title }}</div>
               </nuxt-link>
               <div class="left_mid" v-html="item.content.slice(0,100)+ '...'"></div>

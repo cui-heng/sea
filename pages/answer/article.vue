@@ -1,92 +1,104 @@
 <template>
   <div class="container">
-    <article class="main">
-      <fe-card class="article">
-        <div class="article-header">
-          <fe-title class="article-title">{{ articleInfo.title }}</fe-title>
-          <fe-space class="article-meta" :size="42">
-            <fe-space :size="4">
-              <fe-icon />
-              <fe-text type="disabled">{{ articleInfo.createTime }}</fe-text>
-            </fe-space>
-            <fe-space :size="4">
-              <fe-icon icon="eye" />
-              <fe-text type="disabled">{{ articleInfo.browseNumber }}次浏览</fe-text>
-            </fe-space>
-          </fe-space>
-        </div>
-        <div class="article-body">
-          <div class="article-adviser">
-            <fe-image class="article-adviser-avatar" :src="articleInfo.avatar" circle />
-            <div class="article-adviser-body">
-              <div class="article-adviser-info">
-                <fe-text class="article-adviser-name">{{ articleInfo.nickName }}</fe-text>
-                <fe-space class="article-adviser-tags" :size="8">
-                  <fe-text class="article-adviser-title">{{ articleInfo.position }}</fe-text>
-                  <fe-text class="article-adviser-help">帮助{{ articleInfo.helpNumber }}</fe-text>
-                </fe-space>
-                <fe-space class="article-adviser-meta" :size="30">
-                  <fe-space :size="4">
-                    <fe-icon icon="like" />
-                    <fe-text>好评{{ articleInfo.positiveReviews }}</fe-text>
-                  </fe-space>
-                  <fe-space :size="4">
-                    <fe-icon icon="eye" />
-                    <fe-text>浏览量{{ articleInfo.positiveReviews }}</fe-text>
-                  </fe-space>
-                </fe-space>
-              </div>
-              <fe-space class="article-adviser-actions">
-                <fe-button size="small" icon="phone">电话</fe-button>
-                <fe-button size="small" icon="wechat" type="wechat" ghost>微信</fe-button>
+    <fe-breadcrumb :items="breadcrumbs" />
+    <div class="main">
+      <article class="article-wrapper">
+        <fe-card class="article">
+          <div class="article-header">
+            <fe-title class="article-title">{{ articleInfo.title }}</fe-title>
+            <fe-space class="article-meta" :size="42">
+              <fe-space :size="4" class="article-meta-text">
+                <fe-icon icon="clock" />
+                <fe-text>{{ articleInfo.createTime }}</fe-text>
               </fe-space>
-            </div>
+              <fe-space :size="4" class="article-meta-text">
+                <fe-icon icon="eye" />
+                <fe-text>{{ articleInfo.browseNumber }}次浏览</fe-text>
+              </fe-space>
+            </fe-space>
           </div>
-          <div class="article-content" v-html="articleInfo.content"></div>
-        </div>
-      </fe-card>
-      <fe-card class="relative" title="推荐相关阅读">
-        <div class="relative-list">
-          <div class="relative-item" v-for="relative of relativeArticleList" :key="relative.id">
-            <fe-image class="relative-cover" :src="relative.coverImg" />
-            <div class="relative-body">
-              <fe-title class="relative-title" :level="4">{{ relative.title }}</fe-title>
-              <fe-paragraph class="relative-content" :ellipsis="2">{{ relative.content }}</fe-paragraph>
-              <div class="relative-meta">
-                <div class="relative-adviser">
-                  <fe-image class="relative-adviser-avatar" :src="relative.avatar" circle />
-                  <fe-tex class="relative-adviser-name">{{ relative.nickName }}</fe-tex>
-                </div>
-                <div class="relative-data">
-                  <fe-space :size="4">
-                    <fe-icon icon="eye" />
-                    <fe-text>阅读{{ relative.browseNumber }}</fe-text>
+          <div class="article-body">
+            <div class="article-adviser">
+              <fe-image class="article-adviser-avatar" :src="articleInfo.avatar" circle />
+              <div class="article-adviser-body">
+                <div class="article-adviser-info">
+                  <fe-text class="article-adviser-name">{{ articleInfo.nickName }}</fe-text>
+                  <fe-space class="article-adviser-tags" :size="8">
+                    <fe-text class="article-adviser-title">{{ articleInfo.position }}</fe-text>
+                    <fe-text class="article-adviser-help">帮助{{ articleInfo.helpNumber }}</fe-text>
                   </fe-space>
-                  <fe-space :size="4">
-                    <fe-icon icon="eye" />
-                    <fe-text>{{ relative.createTime }}</fe-text>
+                  <fe-space class="article-adviser-meta" :size="30">
+                    <fe-space :size="4">
+                      <fe-icon icon="like" />
+                      <fe-text>好评{{ articleInfo.positiveReviews }}</fe-text>
+                    </fe-space>
+                    <fe-space :size="4">
+                      <fe-icon icon="eye" />
+                      <fe-text>浏览量{{ articleInfo.positiveReviews }}</fe-text>
+                    </fe-space>
                   </fe-space>
                 </div>
+                <fe-space class="article-adviser-actions">
+                  <fe-button size="small" icon="phone" @click="$adviser.phone.open(articleInfo)">电话</fe-button>
+                  <fe-button size="small" icon="wechat" type="wechat" ghost @click="$adviser.wechat.open(articleInfo)">微信</fe-button>
+                </fe-space>
               </div>
             </div>
+            <div class="article-content" v-html="articleInfo.content"></div>
           </div>
-        </div>
-      </fe-card>
-    </article>
-    <div class="aside">
-      <fe-card class="adviser" title="TA的文章">
-        <fe-text slot="extra">更多 +</fe-text>
-        <issue-list :items="articleList" />
-      </fe-card>
-      <fe-card class="hot-issue" title="TA的回答">
-        <fe-text slot="extra">更多 +</fe-text>
-        <issue-list :items="answerList" />
-      </fe-card>
-      <fe-card class="hot-issue" title="金牌顾问">
-        <fe-text slot="extra">更多 +</fe-text>
-        <adviser-list :items="adviserList" />
-      </fe-card>
+        </fe-card>
+        <fe-card class="relative" title="推荐相关阅读">
+          <div class="relative-list">
+            <nuxt-link class="relative-item" v-for="relative of relativeArticleList" :key="relative.id" :to="`/article/${relative.id}`">
+              <fe-image class="relative-cover" :src="relative.coverImg" />
+              <div class="relative-body">
+                <fe-title class="relative-title" :level="4">{{ relative.title }}</fe-title>
+                <fe-paragraph class="relative-content" :ellipsis="2">{{ relative.content }}</fe-paragraph>
+                <div class="relative-meta">
+                  <div class="relative-adviser">
+                    <fe-image class="relative-adviser-avatar" :src="relative.avatar" circle />
+                    <fe-tex class="relative-adviser-name">{{ relative.nickName }}</fe-tex>
+                  </div>
+                  <div class="relative-data">
+                    <fe-space :size="4">
+                      <fe-icon icon="eye" />
+                      <fe-text>阅读{{ relative.browseNumber }}</fe-text>
+                    </fe-space>
+                    <fe-space :size="4">
+                      <fe-icon icon="clock" />
+                      <fe-text>{{ relative.createTime }}</fe-text>
+                    </fe-space>
+                  </div>
+                </div>
+              </div>
+            </nuxt-link>
+          </div>
+        </fe-card>
+      </article>
+      <aside class="aside">
+        <fe-card class="adviser" title="TA的文章">
+          <fe-text slot="extra">更多 +</fe-text>
+          <issue-list :items="articleList">
+            <template v-slot="{ item }">
+              <nuxt-link :to="`/article/${item?.id}`">{{ item?.title }}</nuxt-link>
+            </template>
+          </issue-list>
+        </fe-card>
+        <fe-card class="hot-issue" title="TA的回答">
+          <fe-text slot="extra">更多 +</fe-text>
+          <issue-list :items="answerList">
+            <template v-slot="{ item }">
+              <nuxt-link :to="`/answer/${item?.id}`">{{ item?.title }}</nuxt-link>
+            </template>
+          </issue-list>
+        </fe-card>
+        <fe-card class="hot-issue" title="金牌顾问">
+          <fe-text slot="extra">更多 +</fe-text>
+          <adviser-list :items="adviserList" />
+        </fe-card>
+      </aside>
     </div>
+    
   </div>
 </template>
 
@@ -131,11 +143,24 @@ export default {
       articleList,
       answerList,
       relativeArticleList,
+      breadcrumbs: [
+        {
+          label: '海洋财经',
+          pathname: '/'
+        },
+        {
+          label: '资讯',
+        },
+        {
+          label: articleInfo?.title,
+        },
+      ]
     }
   },
 
   data() {
     return {
+      breadcrumbs: [],
       articleInfo: {},
       adviserList: [],
       articleList: [],
@@ -152,14 +177,29 @@ export default {
 
 <style scoped lang="scss">
 .container {
-  display: flex;
   min-width: 1280px;
   max-width: 1480px;
-  column-gap: 28px;
   margin: 0 auto;
 
+  .fe-breadcrumb {
+    margin: 24px 0;
+  }
+
   .main {
-    flex: 1;
+    display: flex;
+    column-gap: 28px;
+    margin-bottom: 32px;
+    
+    .article-wrapper {
+      flex: 1;
+    }
+
+    .aside {
+      width: 392px;
+      display: flex;
+      flex-direction: column;
+      row-gap: 25px;
+    }
   }
 
   .article {
@@ -175,6 +215,11 @@ export default {
 
     &-meta {
       margin-top: 28px;
+
+      &-text, .fe-text {
+        color: #9E9E9E;
+        font-size: 16px;
+      }
     }
 
     &-body {
@@ -271,6 +316,7 @@ export default {
 
     &-meta {
       display: flex;
+      align-items: center;
       margin-top: 24px;
     }
 
@@ -300,13 +346,6 @@ export default {
         font-size: 14px;
       }
     }
-  }
-
-  .aside {
-    width: 392px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 25px;
   }
 }
 </style>

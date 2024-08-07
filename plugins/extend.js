@@ -4,9 +4,6 @@ import * as filters from '@/filters';
 import fHeader from '@/components/f-header'
 import fFooter from '@/components/f-footer'
 
-// TODO window axios
-// import './icons' // icon
-
 /**
  * register global component
  */
@@ -23,8 +20,6 @@ Vue.filter('dateformat', function(indate, outdate) {
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
 });
-
-
 
 export default (context, inject) => {
   /**
