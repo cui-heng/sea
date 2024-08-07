@@ -7,13 +7,13 @@
           <div class="article-header">
             <fe-title class="article-title">{{ articleInfo.title }}</fe-title>
             <fe-space class="article-meta" :size="42">
-              <fe-space :size="4">
-                <fe-icon />
-                <fe-text type="disabled">{{ articleInfo.createTime }}</fe-text>
+              <fe-space :size="4" class="article-meta-text">
+                <fe-icon icon="clock" />
+                <fe-text>{{ articleInfo.createTime }}</fe-text>
               </fe-space>
-              <fe-space :size="4">
+              <fe-space :size="4" class="article-meta-text">
                 <fe-icon icon="eye" />
-                <fe-text type="disabled">{{ articleInfo.browseNumber }}次浏览</fe-text>
+                <fe-text>{{ articleInfo.browseNumber }}次浏览</fe-text>
               </fe-space>
             </fe-space>
           </div>
@@ -49,7 +49,7 @@
         </fe-card>
         <fe-card class="relative" title="推荐相关阅读">
           <div class="relative-list">
-            <div class="relative-item" v-for="relative of relativeArticleList" :key="relative.id">
+            <nuxt-link class="relative-item" v-for="relative of relativeArticleList" :key="relative.id" :to="`/article/${relative.id}`">
               <fe-image class="relative-cover" :src="relative.coverImg" />
               <div class="relative-body">
                 <fe-title class="relative-title" :level="4">{{ relative.title }}</fe-title>
@@ -65,24 +65,32 @@
                       <fe-text>阅读{{ relative.browseNumber }}</fe-text>
                     </fe-space>
                     <fe-space :size="4">
-                      <fe-icon icon="eye" />
+                      <fe-icon icon="clock" />
                       <fe-text>{{ relative.createTime }}</fe-text>
                     </fe-space>
                   </div>
                 </div>
               </div>
-            </div>
+            </nuxt-link>
           </div>
         </fe-card>
       </article>
       <aside class="aside">
         <fe-card class="adviser" title="TA的文章">
           <fe-text slot="extra">更多 +</fe-text>
-          <issue-list :items="articleList" />
+          <issue-list :items="articleList">
+            <template v-slot="{ item }">
+              <nuxt-link :to="`/article/${item?.id}`">{{ item?.title }}</nuxt-link>
+            </template>
+          </issue-list>
         </fe-card>
         <fe-card class="hot-issue" title="TA的回答">
           <fe-text slot="extra">更多 +</fe-text>
-          <issue-list :items="answerList" />
+          <issue-list :items="answerList">
+            <template v-slot="{ item }">
+              <nuxt-link :to="`/answer/${item?.id}`">{{ item?.title }}</nuxt-link>
+            </template>
+          </issue-list>
         </fe-card>
         <fe-card class="hot-issue" title="金牌顾问">
           <fe-text slot="extra">更多 +</fe-text>
@@ -173,9 +181,14 @@ export default {
   max-width: 1480px;
   margin: 0 auto;
 
+  .fe-breadcrumb {
+    margin: 24px 0;
+  }
+
   .main {
     display: flex;
     column-gap: 28px;
+    margin-bottom: 32px;
     
     .article-wrapper {
       flex: 1;
@@ -202,6 +215,11 @@ export default {
 
     &-meta {
       margin-top: 28px;
+
+      &-text, .fe-text {
+        color: #9E9E9E;
+        font-size: 16px;
+      }
     }
 
     &-body {
@@ -298,6 +316,7 @@ export default {
 
     &-meta {
       display: flex;
+      align-items: center;
       margin-top: 24px;
     }
 

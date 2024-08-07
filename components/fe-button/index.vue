@@ -22,6 +22,7 @@ export default {
       default: 'default'
     },
     ghost: Boolean,
+    danger: Boolean,
   },
 
   computed: {
@@ -30,6 +31,7 @@ export default {
         [`fe-button--${this.type}`]: !!this.type,
         [`fe-button--${this.size}`]: !!this.size,
         [`fe-button--ghost`]: !!this.ghost,
+        [`fe-button--danger`]: !!this.danger,
       }
     }
   },
@@ -77,6 +79,11 @@ export default {
     }
   }
 
+  &--danger {
+    color: #FF0000;
+    border: 1px solid #FF0000;
+  }
+
   &--small {
     height: 28px;
     line-height: 28px;
@@ -87,6 +94,7 @@ export default {
     height: 44px;
     line-height: 44px;
     padding: 0 20px;
+    font-size: 18px;
   }
 }
 </style>

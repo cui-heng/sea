@@ -10,12 +10,16 @@
           <div class="answer-content">
             <fe-title class="answer-title">{{ answerInfo.title }}</fe-title>
             <fe-text class="answer-meta">
-              <fe-text type="disabled">{{ answerInfo.position }}</fe-text>
-              <fe-text type="disabled">{{ answerInfo.viewNumber }}次浏览</fe-text>
+              <fe-text>{{ answerInfo.position }}</fe-text>
+              <span class="answer-meta-text">
+                <fe-icon icon="eye" />
+                <fe-text>{{ answerInfo.viewNumber }}次浏览</fe-text>
+              </span>
+              
             </fe-text>
             <fe-space class="answer-actions" :size="20">
-              <fe-button size="large" type="primary">我来回答</fe-button>
-              <fe-button size="large">入驻注册</fe-button>
+              <fe-button size="large" type="primary" icon="edit">我来回答</fe-button>
+              <fe-button size="large" danger icon="real-name">入驻注册</fe-button>
             </fe-space>
           </div>
         </fe-card>
@@ -26,7 +30,7 @@
                 <fe-image :src="answerInfo.avatar" circle />
                 <div class="reply-adviser-info">
                   <fe-space :size="12">
-                    <span class="reply-adviser-name">{{ reply.nickName }}</span>
+                    <fe-title class="reply-adviser-name">{{ reply.nickName }}</fe-title>
                     <span class="reply-adviser-online"></span>
                   </fe-space>
                   <div class="reply-adviser-tags">
@@ -35,28 +39,28 @@
                   </div>
                 </div>
                 <fe-space class="reply-adviser-action">
-                  <fe-button size="small" icon="phone">电话</fe-button>
-                  <fe-button size="small" icon="wechat" type="wechat" ghost>微信</fe-button>
+                  <fe-button size="small" icon="phone" @click="$adviser.phone.open(reply)">电话</fe-button>
+                  <fe-button size="small" icon="wechat" type="wechat" ghost @click="$adviser.wechat.open(reply)">微信</fe-button>
                 </fe-space>
               </div>
-              <div class="reply-content">
-                <fe-paragraph>{{ reply.result }}</fe-paragraph>
+              <div class="reply-body">
+                <fe-paragraph class="reply-content">{{ reply.result }}</fe-paragraph>
                 <div class="reply-toolbar">
                   <div class="reply-toolbar-group">
                     <div class="reply-toolbar-action">
-                      <fe-icon icon="line-primary" />
+                      <fe-icon icon="like" />
                       <span>赞</span>
                     </div>
                     <div class="reply-toolbar-group-divider"></div>
                     <div class="reply-toolbar-action">
-                      <fe-icon icon="tread" />
+                      <fe-icon icon="dislike" />
                       <span>踩</span>
                     </div>
                   </div>
                   <fe-space class="reply-toolbar-actions" :size="24">
                     <div class="reply-toolbar-action">
-                      <fe-icon icon="probe" />
-                      <span>分享</span>
+                      <fe-icon />
+                      <span>追问</span>
                     </div>
                     <div class="reply-toolbar-action">
                       <fe-icon icon="share" />
@@ -194,6 +198,18 @@ export default {
       display: flex;
       margin-top: 15px;
       column-gap: 24px;
+
+      &-text {
+        display: flex;
+        column-gap: 4px;
+        font-size: 16px;
+        color: #9E9E9E;
+      }
+
+      .fe-text {
+        font-size: 16px;
+        color: #9E9E9E;
+      }
     }
 
     &-actions {
@@ -229,6 +245,7 @@ export default {
       &-name {
         color: #000;
         font-size: 22px;
+        font-weight: 500;
       }
 
       &-tags {
@@ -253,9 +270,15 @@ export default {
       }
     }
 
-    &-content {
-      margin-top: 16px;
+    &-body {
+      margin-top: 12px;
       margin-left: 84px;
+    }
+
+    &-content {
+      color: #707070;
+      font-size: 16px;
+      line-height: 22px;
     }
 
     &-toolbar {
@@ -279,6 +302,7 @@ export default {
 
         .reply-toolbar-action {
           width: 52px;
+          color: #0242AC;
           align-items: center;
           justify-content: center;
         }
@@ -286,12 +310,10 @@ export default {
 
       &-action {
         display: flex;
-        column-gap: 4px;
+        column-gap: 2px;
         cursor: pointer;
-        span {
-          display: inline-block;
-          line-height: 16px;
-        }
+        color: #9E9E9E;
+        font-size: 16px;
       }
     }
   }

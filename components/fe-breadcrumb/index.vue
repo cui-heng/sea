@@ -2,7 +2,9 @@
   <nav class="fe-breadcrumb">
     <ol>
       <template v-for="(item, index) in items">
-        <li v-if="index !== 0" class="fe-breadcrumb-separator">></li>
+        <li v-if="index !== 0" class="fe-breadcrumb-separator">
+          <fe-icon icon="right" />
+        </li>
         <li>
           <nuxt-link :to="item.pathname" v-if="index < items.length - 1 && item.pathname">{{ item.label }}</nuxt-link>
           <span v-else>{{ item.label }}</span>
@@ -37,8 +39,8 @@ export default {
     padding: 0 10px;
 
     &.fe-breadcrumb-separator {
+      width: 16px;
       padding: 0;
-      margin-right: 2px;
     }
 
     &:last-child {

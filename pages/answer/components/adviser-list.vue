@@ -30,7 +30,15 @@ export default {
       padding-left: 20px;
     }
 
-    &-name {
+    &-desc {
+      margin-top: 10px;
+    }
+
+    &-meta {
+      padding: 10px 0 14px;
+    }
+
+    &-record {
       margin-bottom: 10px;
     }
 

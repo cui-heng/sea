@@ -2,29 +2,29 @@
   <div class="biz-adviser-card">
     <div class="biz-adviser-card-info">
       <div class="biz-adviser-card-body">
-        <p class="biz-adviser-card-name">{{ adviser.nickName }}</p>
+        <fe-title class="biz-adviser-card-name" :level="2">{{ adviser.nickName }}</fe-title>
         <div class="biz-adviser-card-desc">
-          <span>{{ adviser.remark }}</span>
-          <span>帮助{{ adviser.helpNumber }}</span>
+          <fe-text>{{ adviser.remark }}</fe-text>
+          <fe-text>帮助{{ adviser.helpNumber }}</fe-text>
         </div>
       </div>
       <div class="biz-adviser-card-meta">
-        <template>
+        <slot name="meta">
           <div class="biz-adviser-card-record">
-            <div class="biz-adviser-card-like">
+            <span class="biz-adviser-card-like">
               <fe-icon icon="like" />
               <fe-text>好评{{ adviser.positiveReviews }}</fe-text>
-            </div>
-            <div class="biz-adviser-card-view">
+            </span>
+            <span class="biz-adviser-card-view">
               <fe-icon icon="eye" />
               <fe-text>浏览量{{ adviser.userViews }}</fe-text>
-            </div>
+            </span>
           </div>
           <div class="biz-adviser-card-actions">
             <fe-button size="small" icon="phone" @click="$adviser.phone.open(adviser)">电话</fe-button>
             <fe-button type="wechat" size="small" icon="wechat" ghost @click="$adviser.wechat.open(adviser)">微信</fe-button>
           </div>
-        </template>
+        </slot>
       </div>
     </div>
     <fe-image class="biz-adviser-card-avatar" :src="adviser.avatar" :alt="adviser.nickName" />
@@ -44,7 +44,7 @@ export default {
 <style lang="scss">
 .biz-adviser-card {
   display: inline-flex;
-  width: 383px;
+  width: 382px;
   height: 192px;
   background: #fff;
   box-shadow: 0px 1px 17px 1px rgba(8,1,3,0.07);
@@ -63,43 +63,49 @@ export default {
   }
 
   &-name {
-    margin: 0;
-    margin-bottom: 16px;
+    color: #000;
+    font-size: 18px;
   }
 
   &-desc {
-    color: #aaa;
-    font-size: 12px;
+    display: flex;
+    column-gap: 20px;
+    margin-top: 14px;
+
+    .fe-text {
+      color: #aaa;
+      font-size: 12px;
+    }
   }
 
   &-meta {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 10px 0 14px;
+    padding: 16px 0 24px;
   }
 
   &-record {
     display: flex;
     margin-bottom: 14px;
-    & > div {
-      flex: 1;
+    column-gap: 22px;
+    .biz-adviser-card-like, .biz-adviser-card-view {
       display: flex;
-      column-gap: 5px;
+      column-gap: 4px;
+      line-height: 16px;
     }
-    span {
+
+    .fe-icon {
+      color: #A8A8A8;
+      font-size: 16px;
+    }
+
+    .fe-text {
       color: #A8A8A8;
       font-size: 12px;
       font-weight: 800;
       line-height: 16px;
       vertical-align: middle;
-    }
-  }
-
-  &-eye {
-    ::v-deep .icon img {
-      width: 18px;
-      height: 11px;
     }
   }
 
@@ -109,7 +115,7 @@ export default {
   }
 
   &-avatar {
-    width: 143px;
+    width: 142px;
     height: 100%;
   }
 }

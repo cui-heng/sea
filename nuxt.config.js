@@ -60,6 +60,7 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/i18n',
+    '@nuxtjs/svg-sprite',
   ],
 
   router: {
@@ -84,6 +85,10 @@ export default {
       fallbackLocale: 'en',
       messages: i18nMessages,
     }
+  },
+
+  svgSprite: {
+    input: '~/assets/icons/'
   },
 
   build: {

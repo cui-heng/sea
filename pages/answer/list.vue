@@ -7,25 +7,31 @@
         <section class="section">
           <tabs class="tabs" />
           <div class="answer-list">
-            <div class="answer-item" v-for="answer of answerData.list" :key="answer.id">
+            <nuxt-link class="answer-item" v-for="answer of answerData.list" :key="answer.id" :to="`/answer/${answer.id}`">
               <fe-image class="answer-image" />
               <div class="answer-info">
                 <fe-title class="answer-title" :level="3">{{ answer.title }}</fe-title>
-                <div class="answer-creater">
+                <nuxt-link class="answer-creater" :to="`/adviser/${answer.userId}`">
                   <fe-image :src="answer.avatar" :alt="answer.nickName" />
                   <fe-text>{{ answer.nickName }}</fe-text>
-                </div>
+                </nuxt-link>
                 <fe-paragraph class="answer-desc" :ellipsis="2">{{ answer.description }}</fe-paragraph>
                 <div class="answer-meta">
-                  <fe-text class="answer-source" type="disabled">来源：期贷</fe-text>
+                  <fe-text class="answer-source">来源：期贷</fe-text>
                   <span class="answer-meta-info">
-                    <fe-text class="answer-message" type="disabled">{{ answer.replyCount }}个回答</fe-text>
-                    <fe-text class="answer-view" type="disabled">{{ answer.viewNumber }}次浏览</fe-text>
+                    <span class="answer-meta-text">
+                      <fe-icon icon="comment" />
+                      <fe-text class="answer-message">{{ answer.replyCount }}个回答</fe-text>
+                    </span>
+                    <span class="answer-meta-text">
+                      <fe-icon icon="eye" />
+                      <fe-text class="answer-view">{{ answer.viewNumber }}次浏览</fe-text>
+                    </span>
                   </span>
                 </div>
-                <fe-text class="answer-time" type="disabled">{{ answer.createTime }}</fe-text>
+                <fe-text class="answer-time">{{ answer.createTime }}</fe-text>
               </div>
-            </div>
+            </nuxt-link>
           </div>
         </section>
         <aside class="aside">
@@ -203,7 +209,15 @@ export default {
         column-gap: 20px;
       }
 
+      &-text {
+        display: flex;
+        column-gap: 4px;
+        color: #9E9E9E;
+        font-size: 12px;
+      }
+
       .fe-text {
+        color: #9E9E9E;
         font-size: 12px;
       }
     }
