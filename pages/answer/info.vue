@@ -15,7 +15,6 @@
                 <fe-icon icon="eye" />
                 <fe-text>{{ answerInfo.viewNumber }}次浏览</fe-text>
               </span>
-              
             </fe-text>
             <fe-space class="answer-actions" :size="20">
               <fe-button size="large" type="primary" icon="edit">我来回答</fe-button>
@@ -84,7 +83,11 @@
         </fe-card>
         <fe-card class="hot-issue" title="热议问题">
           <fe-text slot="extra">更多 +</fe-text>
-          <issue-list :items="hotAnswers" />
+          <issue-list :items="hotAnswers">
+            <template v-slot="{ item }">
+              <nuxt-link :to="`/answer/${item.id}`">{{ item.title }}</nuxt-link>
+            </template>
+          </issue-list>
         </fe-card>
       </aside>
     </div>

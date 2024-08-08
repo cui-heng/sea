@@ -14,11 +14,12 @@
           </div>
         </div>
         <nav class="biz-header-nav">
-          <ul class="biz-header-menu">
+          <ul class="biz-header-menu" ref="menu">
             <li class="biz-header-menu-item" v-for="menu of menus" :key="menu.value">
               <nuxt-link :to="menu.value" :exact="menu.exact">{{ menu.label }}</nuxt-link>
             </li>
           </ul>
+          <span class="biz-header-nav-line" :style="menuLineStyle"></span>
         </nav>
       </div>
     </div>
@@ -29,7 +30,6 @@
 export default {
   data() {
     return {
-      searchVal: "",
       menus: [
         {
           label: '首页',
@@ -52,9 +52,33 @@ export default {
           label: '期货一对一服务',
           value: '/service'
         },
-      ]
+      ],
+      menuLineStyle: {}
     };
   },
+  mounted() {
+    this.setMenuLine();
+  },
+  watch: {
+    ['$route.path']() {
+      this.$nextTick(this.setMenuLine);
+    }
+  },
+  methods: {
+    setMenuLine() {
+      const menuRect = this.$refs.menu.getBoundingClientRect();
+      const activeMenuRect = this.$refs.menu.querySelector('.router-link-active')?.getBoundingClientRect();
+
+      if (activeMenuRect) {
+        const left = activeMenuRect.left - menuRect.left;
+
+        this.menuLineStyle = {
+          width: `${Math.max(110, activeMenuRect.width)}px`,
+          left: `${left +( activeMenuRect.width / 2)}px`
+        }
+      }
+    }
+  }
 };
 </script>
 
@@ -88,6 +112,7 @@ export default {
 
   &-right {
     flex: 1;
+    align-self: flex-end;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -115,7 +140,17 @@ export default {
   }
 
   &-nav {
+    position: relative;
 
+    &-line {
+      position: absolute;
+      bottom: 0;
+      left: 55px;
+      transform: translateX(-50%);
+      height: 2px;
+      background: #0242AC;
+      transition: left .3s;
+    }
   }
 
   &-menu {
