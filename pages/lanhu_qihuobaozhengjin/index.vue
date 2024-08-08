@@ -44,7 +44,7 @@
 
       <div style="padding: 10px ;">
         <el-row :gutter="3">
-          <el-col :span="24" class="top_po" v-for="item in dataList.slice(0,1)">
+          <el-col :span="24" class="top_po" v-for="item in dataList.slice(0,1)" :key="item.id">
             <div class="group_5 flex-row item_in_box">
               <div class="block_1 flex-col top_img">
                 <img :src="baseUrlImg + item.avatar">
@@ -74,7 +74,7 @@
               </div>
             </div>
           </el-col>
-          <el-col :span="12" class="left_item_per" v-for="item in dataList.slice(1,3)" style="padding-top: 10px;">
+          <el-col :span="12" class="left_item_per" v-for="item in dataList.slice(1,3)" style="padding-top: 10px;" :key="item.id">
             <div class="group_5 flex-row">
               <div class="block_1 flex-col top_img">
                 <img :src="baseUrlImg + item.avatar">

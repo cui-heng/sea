@@ -3,7 +3,7 @@
     <fe-breadcrumb :items="breadcrumbs" />
     <section class="section">
       <el-tabs v-model="activeName" @tab-click="msData">
-          <el-tab-pane v-for="item in listData" :label="item.title" :name="item.title">
+          <el-tab-pane v-for="item in listData" :label="item.title" :name="item.title" :key="item.id">
             <div style="width: 100%;height: 40px;border-bottom: 1px solid #E0E0E0;font-size: 22px;
 font-family: PingFang SC-Medium, PingFang SC;
 font-weight: 500;

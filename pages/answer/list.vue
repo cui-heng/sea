@@ -29,7 +29,7 @@
                     </span>
                   </span>
                 </div>
-                <fe-text class="answer-time">{{ answer.createTime }}</fe-text>
+                <fe-text class="answer-time" type="disabled">{{ answer.createTime }}</fe-text>
               </div>
             </nuxt-link>
           </div>
@@ -41,7 +41,11 @@
           </fe-card>
           <fe-card class="hot-issue" title="热议问题">
             <fe-text slot="extra">更多 +</fe-text>
-            <issue-list :items="hotAnswers" />
+            <issue-list :items="hotAnswers">
+              <template v-slot="{ item }">
+                <nuxt-link :to="`/answer/${item.id}`">{{ item.title }}</nuxt-link>
+              </template>
+            </issue-list>
           </fe-card>
         </aside>
       </div>
