@@ -55,7 +55,7 @@
     <el-row class="main" type="flex" justify="center">
       <el-col :span="23">
         <el-tabs v-model="activeName" @tab-click="msData">
-          <el-tab-pane v-for="item in listData" :label="item.title" :name="item.title">
+          <el-tab-pane v-for="item in listData" :label="item.title" :name="item.title" :key="item.id">
             <div class="mai_sty">
               <div style="width: 100%;height: 20px;font-size: .72rem;
                 font-family: PingFang SC-Medium, PingFang SC;

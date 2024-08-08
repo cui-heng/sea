@@ -93,6 +93,13 @@ export default {
 
   build: {
     transpile: [/^element-ui/],
+    postcss: {
+      postcssOptions: {
+        plugins: {
+          autoprefixer: {}
+        }
+      }
+    }
   },
 
   env: {
