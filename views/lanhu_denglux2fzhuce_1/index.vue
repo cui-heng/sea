@@ -11,8 +11,8 @@
       </div>
       <div class="group_3 flex-col">
         <div class="text-wrapper_1 flex-row justify-between">
-          <span class="text_1 cur_sty">会员登录通道1</span>
-          <span class="text_2 cur_sty" @click="dialogVisible1=true">会员入驻通道</span>
+          <span class="text_1 cur_sty">会员登录通道</span>
+          <span class="text_2 cur_sty" @click="$adviser.wechat.open(serviceInfo)">会员入驻通道</span>
         </div>
         <div class="box_1 flex-col"></div>
         <span class="text_3 user_in">账号</span>
@@ -41,15 +41,15 @@
         <div class="box_4 flex-row justify-between">
           <div class="image-wrapper_2 flex-col">
             <img class="thumbnail_2 cur_sty" referrerpolicy="no-referrer"
-              src="./assets/img/FigmaDDSSlicePNG534daee4f5a8cb23c65b6ffc80109236.png" @click="dialogVisible1=true"/>
+              src="./assets/img/FigmaDDSSlicePNG534daee4f5a8cb23c65b6ffc80109236.png" @click="$adviser.wechat.open(serviceInfo)"/>
           </div>
           <div class="image-wrapper_3 flex-col">
             <img class="thumbnail_3 cur_sty" referrerpolicy="no-referrer"
-              src="./assets/img/FigmaDDSSlicePNGddcde72b3cc8030c3e3199d769c57996.png" @click="dialogVisible1=true"/>
+              src="./assets/img/FigmaDDSSlicePNGddcde72b3cc8030c3e3199d769c57996.png" @click="$adviser.wechat.open(serviceInfo)"/>
           </div>
           <div class="image-wrapper_4 flex-col">
             <img class="thumbnail_4 cur_sty" referrerpolicy="no-referrer"
-              src="./assets/img/FigmaDDSSlicePNG3da1abdc13d588748b2d4920635d7b95.png" @click="dialogVisible1=true"/>
+              src="./assets/img/FigmaDDSSlicePNG3da1abdc13d588748b2d4920635d7b95.png" @click="$adviser.wechat.open(serviceInfo)"/>
           </div>
         </div>
       </div>
