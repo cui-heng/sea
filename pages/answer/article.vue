@@ -19,7 +19,9 @@
           </div>
           <div class="article-body">
             <div class="article-adviser">
-              <fe-image class="article-adviser-avatar" :src="articleInfo.avatar" circle />
+              <nuxt-link class="answer-creater" :to="`/adviser/${articleInfo.userId}`">
+                <fe-image class="article-adviser-avatar" :src="articleInfo.avatar" circle />
+              </nuxt-link>
               <div class="article-adviser-body">
                 <div class="article-adviser-info">
                   <fe-text class="article-adviser-name">{{ articleInfo.nickName }}</fe-text>

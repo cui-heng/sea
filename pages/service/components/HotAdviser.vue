@@ -5,7 +5,7 @@
       <fe-text :level="3">最具影响力的理财顾问</fe-text>
     </div>
     <div class="hot-staff-list">
-      <biz-adviser-card v-for="adviser of items" :key="adviser.id" :adviser="adviser" />
+      <biz-adviser-card v-for="adviser of items.slice(0, 6)" :key="adviser.id" :adviser="adviser" />
     </div>
   </div>
 </template>

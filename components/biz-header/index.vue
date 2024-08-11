@@ -37,7 +37,7 @@ export default {
           exact: true,
         },
         {
-          label: '有问必答',
+          label: '百问百答',
           value: '/answer'
         },
         {

@@ -6,12 +6,13 @@
           优选文章
           <span>Preferred articles</span></div>
         <div class="art_list_item" v-for="item in cateList.slice(0,9)" :key="item.id">
-          <nuxt-link  :to="`/article/` + item.id + '/' + item.userId" tag="span">
+          <!-- <nuxt-link  :to="`/article/` + item.id + '/' + item.userId" tag="span"> -->
+          <nuxt-link  :to="`/article/` + item.id" tag="span">
             <p class="tit_art">{{ item.title }}</p>
             <p class="content_art_sty" v-html=" item.content.slice(0,58) + '...' "></p>
           </nuxt-link>
           <div class="bottom_box">
-            <nuxt-link class="flex_sty" :to="'/ydy/'+ item.userId">
+            <nuxt-link class="flex_sty" :to="'/adviser/'+ item.userId">
               <div class="user_img_box">
                 <img :src="baseUrlImg + item.avatar">
               </div>
@@ -104,6 +105,7 @@ export default {
   margin-bottom: 12px;
   padding-bottom: 12px;
   .tit_art {
+    cursor: pointer;
     font-family: PingFang SC;
     font-weight: 800;
     font-size: 16px;

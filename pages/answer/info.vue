@@ -26,7 +26,9 @@
           <div class="reply-list">
             <div class="reply-item" v-for="reply of answerReplyList" :key="reply.id">
               <div class="reply-adviser">
-                <fe-image :src="answerInfo.avatar" circle />
+                <nuxt-link class="flex_sty" :to="'/adviser/'+ answerInfo.userId">
+                  <fe-image :src="answerInfo.avatar" circle />
+                </nuxt-link>
                 <div class="reply-adviser-info">
                   <fe-space :size="12">
                     <fe-title class="reply-adviser-name">{{ reply.nickName }}</fe-title>
@@ -43,7 +45,7 @@
                 </fe-space>
               </div>
               <div class="reply-body">
-                <fe-paragraph class="reply-content">{{ reply.result }}</fe-paragraph>
+                <fe-paragraph class="reply-content">{{ replaceHtmlTags(reply.result) }}</fe-paragraph>
                 <div class="reply-toolbar">
                   <div class="reply-toolbar-group">
                     <div class="reply-toolbar-action">
@@ -141,6 +143,14 @@ export default {
       hotAnswers: [],
     }
   },
+  methods: {
+    replaceHtmlTags(text) {
+      var reg = /<[^<>]+>/g;//1、全局匹配g肯定忘记写,2、<>标签中不能包含标签实现过滤HTML标签
+      text = text.replace(reg, '');//替换HTML标签
+        text = text.replace(/&nbsp;/ig, '');//替换HTML空格
+        return text;
+    }
+  }
 }
 </script>
 

@@ -257,7 +257,7 @@ export default {
         remark:  this.isMain? '主力合约': '',
       }).then(res => {
         console.log(res, 'zong')
-        this.tableData = res.data
+        this.tableData = res.data.slice(0,2)
       })
       }else{
         getTransactionData({
@@ -297,7 +297,7 @@ export default {
 }
 
 ::v-deep .el-table thead.is-group th {
-  background-color: #023665;
+  background-color: #023665 !important;
   color: #fff;
 }
 
