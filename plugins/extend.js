@@ -1,14 +1,6 @@
 import Vue from 'vue'
 import day from 'dayjs'
 import * as filters from '@/filters';
-import fHeader from '@/components/f-header'
-import fFooter from '@/components/f-footer'
-
-/**
- * register global component
- */
-Vue.component('f-header', fHeader);
-Vue.component('f-footer', fFooter);
 
 /**
  * register global utility filters

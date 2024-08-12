@@ -10,7 +10,4 @@ export default {
 }
 </script>
 <style scoped>
-.app {
-  font-family: "microsoft yahei", serif;
-}
 </style>
