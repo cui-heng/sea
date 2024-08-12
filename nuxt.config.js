@@ -1,7 +1,9 @@
-import i18nMessages from './i18n/i18n';
+import i18nMessages from './client/i18n/i18n';
 
 export default {
   target: 'server',
+
+  srcDir: 'client/',
 
   head: {
     title: '海洋财经',
@@ -31,17 +33,15 @@ export default {
   ],
 
   plugins: [
-    '@/plugins/cookie',
-    '@/plugins/element-ui',
-    '@/plugins/extend',
-    '@/plugins/axios',
-    '@/plugins/adviser-modal.client.js'
+    '@@/plugins/cookie',
+    '@@/plugins/element-ui',
+    '@@/plugins/extend',
+    '@@/plugins/axios',
+    '@@/plugins/adviser-modal.client.js'
   ],
 
-  middleware: ['auth'],
-
   serverMiddleware: [
-    { path: '/api', handler: '~/api' }
+    { path: '/api', handler: '@@/api' }
   ],
 
   components: true,
@@ -51,7 +51,7 @@ export default {
   ],
 
   routerModule: {
-    path: './router',
+    path: 'client/router',
     fileName: 'index.js',
   },
 
