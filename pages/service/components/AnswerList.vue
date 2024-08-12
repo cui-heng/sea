@@ -1,15 +1,21 @@
 <template>
   <div class="answer-list">
     <div class="answer" v-for="answer of items" :key="answer.id">
-      <div class="answer-user">
-        <img class="answer-user-avatar" :src="baseUrlImg + answer.avatar" alt="">
-        <div class="answer-user-info">
-          <div class="answer-user-name">{{ answer.nickName }}</div>
-          <div class="answer-time">{{ answer.createTime }}</div>
+      <nuxt-link class="answer-creater" :to="`/adviser/${answer.userId}`">
+        <div class="answer-user">
+          <img class="answer-user-avatar" :src="baseUrlImg + answer.avatar" alt="">
+          <div class="answer-user-info">
+            <div class="answer-user-name">{{ answer.nickName }}</div>
+            <div class="answer-time">{{ answer.createTime }}</div>
+          </div>
         </div>
-      </div>
-      <div class="answer-title">{{ answer.title }}</div>
-      <div class="answer-reply" v-html="answer.result"></div>
+      </nuxt-link>
+      
+      <nuxt-link class="answer-item" :to="`/answer/${answer.id}`">
+        <div class="answer-title">{{ answer.title }}</div>
+        <div class="answer-reply" v-html="answer.result"></div>
+      </nuxt-link>
+      
     </div>
   </div>
 </template>
@@ -33,7 +39,9 @@ export default {
 .answer {
   padding: 20px 24px;
   border-bottom: 2px solid #F8F8F8;
-
+  &-item {
+    cursor: pointer;
+  }
   &:last-child {
     border-bottom: none;
   }

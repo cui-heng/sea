@@ -7,7 +7,7 @@
     <section class="section">
       <div class="top-adviser">
         <biz-adviser-card v-for="adviser of topAdvisers.slice(0, 3)" :key="adviser.id" :adviser="adviser">
-          <fe-button class="wechat-button" size="small" icon="chat" slot="meta">咨询</fe-button>
+          <fe-button class="wechat-button" size="small" @click="$adviser.wechat.open(adviser)" icon="chat" slot="meta">咨询</fe-button>
         </biz-adviser-card>
       </div>
       <div class="notice-wrapper">
