@@ -16,11 +16,9 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      // { rel: 'stylesheet', href: 'https://unpkg.com/dropzone@5/dist/min/dropzone.min.css' },
     ],
     script: [
       { src: '/flexible.js' },
-      // { src: 'https://unpkg.com/dropzone@5/dist/min/dropzone.min.js' },
     ]
   },
 

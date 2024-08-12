@@ -5,7 +5,7 @@
       <div class="body">
         <nuxt />
       </div>
-      <VFooter />
+      <biz-footer />
     </template>
     <template v-else>
       <nuxt />
@@ -14,13 +14,8 @@
 </template>
 
 <script>
-import VHeader from '@/components/f-header'
-import VFooter from '@/components/f-footer'
 export default {
-  name: 'Home',
-  components: {
-    VHeader, VFooter
-  },
+  name: 'BasicLayout',
   data() {
     return {
       isMobile: false,

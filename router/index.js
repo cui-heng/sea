@@ -6,9 +6,8 @@ Vue.use(VueRouter);
 import index from '@/pages/index'
 import archive from '@/pages/archive'
 import apply from '@/pages/apply'
-import admin from '@/views/admin'
+import login from '@/pages/login/index'
 import lanhu_denglux2fzhuce from '@/pages/lanhu_denglux2fzhuce/index'
-import lanhu_denglux2fzhuce_1 from '@/views/lanhu_denglux2fzhuce_1/index'
 import lanhu_shouyezixun1 from '@/pages/lanhu_shouyezixun1/index'
 
 import mobileRoutes from './mobile';
@@ -137,7 +136,7 @@ export const constantRoutes = [
   {
     path: '/login',
     name:'login',
-    component: lanhu_denglux2fzhuce_1,
+    component: login,
     hidden: true
   },
   {
@@ -172,12 +171,6 @@ export const constantRoutes = [
     name: 'apply',
     component: apply
   },
-  {
-    path: '/admin/',
-    name: 'admin',
-    component: admin
-  },
-
 ]
 
 
