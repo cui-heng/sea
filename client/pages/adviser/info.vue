@@ -104,17 +104,13 @@ export default {
       answerList: [],
     }
   },
-
-  mounted() {
-    console.log(this.$data);
-  }
 }
 </script>
 
 <style scoped lang="scss">
 .container {
   width: 1200px;
-  margin: 0 auto;
+  margin: 20px auto;
 
   .adviser {
     box-shadow: 0px 1px 17px 1px rgba(8,1,3,0.07);
@@ -300,4 +296,3 @@ export default {
   }
 }
 </style>
-@/client/services/index

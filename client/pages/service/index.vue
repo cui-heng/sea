@@ -52,9 +52,7 @@ export default {
       $axios.$get(website.getRecommendUser),
       $axios.$get(website.getUsers),
       $axios.$get(website.getLatestAnswer),
-      $axios.$get(website.getLasterAnswerII, {
-        params: { name: 'all' },
-      }).then(result => result.list),
+      $axios.$get(website.getLasterAnswerII).then(result => result.list),
       $axios.$get(website.getFirstAnaswer)
     ]);
 

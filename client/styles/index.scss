@@ -31,10 +31,6 @@ html {
   box-sizing: inherit;
 }
 
-a {
-  color: #0242AC;
-}
-
 .no-padding {
   padding: 0px !important;
 }
@@ -52,7 +48,7 @@ a,
 a:focus,
 a:hover {
   cursor: pointer;
-  color: inherit;
+  color: #0242AC;
   text-decoration: none;
 }
 

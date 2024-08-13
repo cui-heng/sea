@@ -1,9 +1,9 @@
 <template>
   <div class="consult-list">
-    <div class="consult" v-for="consult of items" :key="consult.id">
-      <div class="consult-title">{{ consult.title }}</div>
-      <div class="consult-reply" v-html="consult.result"></div>
-    </div>
+    <nuxt-link class="consult" v-for="article of items" :key="article.id" :to="`/answer/${article.id}`">
+      <fe-title class="consult-title">{{ article.title }}</fe-title>
+      <fe-paragraph class="consult-reply" :ellipsis="2" v-html="article.result"></fe-paragraph>
+    </nuxt-link>
   </div>
 </template>
 
@@ -14,16 +14,12 @@ export default {
   props: {
     items: Array,
   },
-  data() {
-    return {
-      
-    }
-  },
 }
 </script>
 
 <style scoped lang="scss">
 .consult {
+  display: block;
   padding: 26px 30px;
   background: #fff;
   border-bottom: 2px solid #F8F8F8;
@@ -39,19 +35,13 @@ export default {
   &-title {
     color: #000;
     font-size: 22px;
-    font-weight: 800;
     margin-bottom: 20px;
   }
 
   &-reply {
     color: #9E9E9E;
     font-size: 16px;
-    font-weight: 500;    
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-weight: 500;
 
     * {
       margin: 0;

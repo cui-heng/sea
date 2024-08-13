@@ -78,6 +78,10 @@ export default {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    
+    a {
+      color: #6D6D6D;
+    }
   }
 }
 </style>

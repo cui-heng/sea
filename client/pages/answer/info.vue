@@ -80,11 +80,17 @@
       </article>
       <aside class="aside">
         <fe-card class="adviser" title="金牌顾问">
-          <fe-text slot="extra">更多 +</fe-text>
+          <nuxt-link slot="extra" class="more-link" to="/service">
+            <span>更多</span>
+            <fe-icon icon="plus" />
+          </nuxt-link>
           <adviser-list :items="adviserList" />
         </fe-card>
         <fe-card class="hot-issue" title="热议问题">
-          <fe-text slot="extra">更多 +</fe-text>
+          <nuxt-link slot="extra" class="more-link" to="/answer">
+            <span>更多</span>
+            <fe-icon icon="plus" />
+          </nuxt-link>
           <issue-list :items="hotAnswers">
             <template v-slot="{ item }">
               <nuxt-link :to="`/answer/${item.id}`">{{ item.title }}</nuxt-link>
@@ -175,10 +181,12 @@ export default {
       flex-direction: column;
       row-gap: 25px;
     }
-  }
 
-  .main {
-    flex: 1;
+    .more-link {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: -2px;
+    }
   }
 
   .answer {
