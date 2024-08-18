@@ -2,7 +2,9 @@
   <header class="biz-header">
     <div class="biz-header-inner">
       <div class="biz-header-logo">
-        <img src="@/assets/images/layout/logo.png" alt="海洋财经LOGO" />
+        <nuxt-link to="/">
+          <img src="@/assets/images/layout/logo.png" alt="海洋财经" />
+        </nuxt-link>
       </div>
       <div class="biz-header-right">
         <div class="biz-header-exrta">
@@ -128,6 +130,7 @@ export default {
   &-actions {
     color: #474747;
     line-height: 16px;
+    font-weight: 500;
 
     &-divider {
       font-size: 12px;

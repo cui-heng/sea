@@ -36,7 +36,7 @@
                   </fe-space>
                   <div class="reply-adviser-tags">
                     <span class="reply-adviser-position">{{ reply.position }}</span>
-                    <span class="reply-adviser-help">帮助{{ reply.helpNumber }}</span>
+                    <span class="reply-adviser-help">帮助{{ reply.helpNumber | number }}</span>
                   </div>
                 </div>
                 <fe-space class="reply-adviser-action">
@@ -45,7 +45,7 @@
                 </fe-space>
               </div>
               <div class="reply-body">
-                <fe-paragraph class="reply-content">{{ replaceHtmlTags(reply.result) }}</fe-paragraph>
+                <fe-paragraph class="reply-content" v-html="reply.result"></fe-paragraph>
                 <div class="reply-toolbar">
                   <div class="reply-toolbar-group">
                     <div class="reply-toolbar-action">
@@ -59,7 +59,7 @@
                     </div>
                   </div>
                   <fe-space class="reply-toolbar-actions" :size="24">
-                    <div class="reply-toolbar-action">
+                    <div class="reply-toolbar-action" @click="$adviser.wechat.open(reply)">
                       <fe-icon />
                       <span>追问</span>
                     </div>
@@ -67,7 +67,7 @@
                       <fe-icon icon="share" />
                       <span>分享</span>
                     </div>
-                    <div class="reply-toolbar-action">
+                    <div class="reply-toolbar-action" @click="$adviser.wechat.open(reply)">
                       <fe-icon icon="more" />
                       <span>更多</span>
                     </div>
@@ -149,14 +149,6 @@ export default {
       hotAnswers: [],
     }
   },
-  methods: {
-    replaceHtmlTags(text) {
-      var reg = /<[^<>]+>/g;//1、全局匹配g肯定忘记写,2、<>标签中不能包含标签实现过滤HTML标签
-      text = text.replace(reg, '');//替换HTML标签
-        text = text.replace(/&nbsp;/ig, '');//替换HTML空格
-        return text;
-    }
-  }
 }
 </script>
 

@@ -10,12 +10,10 @@
           </div>
         </div>
       </nuxt-link>
-      
       <nuxt-link class="answer-item" :to="`/answer/${answer.id}`">
-        <div class="answer-title">{{ answer.title }}</div>
-        <div class="answer-reply" v-html="answer.result"></div>
+        <fe-title class="answer-title" :level="3">{{ answer.title }}</fe-title>
+        <div class="answer-reply">{{ answer.result | text }}</div>
       </nuxt-link>
-      
     </div>
   </div>
 </template>
@@ -26,12 +24,7 @@ export default {
   name: 'AnswerList',
   props: {
     items: Array,
-  },
-  data() {
-    return {
-      
-    }
-  },
+  }
 }
 </script>
 

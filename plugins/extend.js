@@ -1,17 +1,5 @@
 import Vue from 'vue'
-import day from 'dayjs'
-import * as filters from '@/filters';
-
-/**
- * register global utility filters
- */
-Vue.filter('dateformat', function(indate, outdate) {
-  return day(indate).format(outdate)
-});
-
-Object.keys(filters).forEach(key => {
-  Vue.filter(key, filters[key])
-});
+import '@/filters'
 
 export default (context, inject) => {
   /**
