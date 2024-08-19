@@ -44,7 +44,7 @@
     </div>
     <fe-card class="answer" title="最新问答">
       <div class="answer-list">
-        <div class="answer-item" v-for="answer of answerList" :key="answer.id">
+        <nuxt-link class="answer-item" v-for="answer of answerList" :key="answer.id" :to="`/answer/${answer.id}`">
           <fe-title class="answer-title" :level="3">{{ answer.title }}</fe-title>
           <div class="answer-adviser">
             <fe-image class="answer-adviser-avatar" :src="answer.avatar" circle />
@@ -63,7 +63,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </nuxt-link>
       </div>
     </fe-card>
   </article>
@@ -73,10 +73,6 @@
 import { website } from '@/services/index'
 export default {
   name: 'AdviserInfo',
-  components: {
-    // issueList,
-    // adviserList
-  },
   async asyncData({ $axios, params }) {
     const [adviserInfo, answerData] = await Promise.all([
       $axios.$get(website.getUserInfo, {
@@ -248,6 +244,7 @@ export default {
     margin-top: 30px;
 
     &-item {
+      display: block;
       padding: 24px 70px 20px 28px;
       border-bottom: 1px solid #F8F8F8;
     }
@@ -288,7 +285,7 @@ export default {
       display: flex;
       justify-content: space-between;
       margin-top: 20px;
-      .fe-text {
+      .fe-text, .fe-icon {
         color: #9E9E9E;
         font-size: 16px;
       }

@@ -7,4 +7,4 @@ yarn
 yarn build
 
 # start server
-yarn start
+pm2 start 

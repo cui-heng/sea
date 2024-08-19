@@ -5,7 +5,7 @@
         <fe-title class="biz-adviser-card-name" :level="2">{{ adviser.nickName }}</fe-title>
         <div class="biz-adviser-card-desc">
           <fe-text>{{ adviser.remark }}</fe-text>
-          <fe-text>帮助{{ adviser.helpNumber }}</fe-text>
+          <fe-text>帮助{{ adviser.helpNumber | number }}</fe-text>
         </div>
       </div>
       <div class="biz-adviser-card-meta">
@@ -17,7 +17,7 @@
             </span>
             <span class="biz-adviser-card-view">
               <fe-icon icon="eye" />
-              <fe-text>浏览量{{ adviser.userViews }}</fe-text>
+              <fe-text>浏览量{{ adviser.userViews | number }}</fe-text>
             </span>
           </div>
           <div class="biz-adviser-card-actions">

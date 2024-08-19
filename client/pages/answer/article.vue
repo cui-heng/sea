@@ -32,11 +32,11 @@
                   <fe-space class="article-adviser-meta" :size="30">
                     <fe-space :size="4">
                       <fe-icon icon="like" />
-                      <fe-text>好评{{ articleInfo.positiveReviews }}</fe-text>
+                      <fe-text>好评{{ articleInfo.positiveReviews | number }}</fe-text>
                     </fe-space>
                     <fe-space :size="4">
                       <fe-icon icon="eye" />
-                      <fe-text>浏览量{{ articleInfo.positiveReviews }}</fe-text>
+                      <fe-text>浏览量{{ articleInfo.positiveReviews | number }}</fe-text>
                     </fe-space>
                   </fe-space>
                 </div>
@@ -55,11 +55,11 @@
               <fe-image class="relative-cover" :src="relative.coverImg" />
               <div class="relative-body">
                 <fe-title class="relative-title" :level="4">{{ relative.title }}</fe-title>
-                <fe-paragraph class="relative-content" :ellipsis="2">{{ relative.content }}</fe-paragraph>
+                <fe-paragraph class="relative-content" :ellipsis="2">{{ relative.content | text }}</fe-paragraph>
                 <div class="relative-meta">
                   <div class="relative-adviser">
                     <fe-image class="relative-adviser-avatar" :src="relative.avatar" circle />
-                    <fe-tex class="relative-adviser-name">{{ relative.nickName }}</fe-tex>
+                    <fe-text class="relative-adviser-name">{{ relative.nickName }}</fe-text>
                   </div>
                   <div class="relative-data">
                     <fe-space :size="4">

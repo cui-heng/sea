@@ -15,6 +15,9 @@ module.exports = {
       instances: 'max', // Or a number of instances
       script: './node_modules/nuxt/bin/nuxt.js --dotenv ./.env.production',
       args: 'start'
+      // name: 'fe-serve',
+      // script: 'npm',
+      // args: 'run start'
     }
   ]
 }

@@ -14,7 +14,7 @@
         <fe-image :src="adviser?.wxQrCode" :alt="adviser?.phonenumber" />
         <div class="biz-adviser-modal-qrcode-tips">微信扫一扫  添加顾问</div>
       </div>
-      <div class="biz-adviser-modal-number">{{ adviser?.phonenumber }}</div>
+      <div class="biz-adviser-modal-number">{{ adviserNumber }}</div>
       <div class="biz-adviser-modal-tips">咨询时请说明来自海洋财经，以便得到更佳服务</div>
       <fe-button class="biz-adviser-modal-button" type="primary" @click="visible = false">关闭</fe-button>
     </div>
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import { formatNumberWithSeparator } from '@/utils';
 
 export default {
   name: 'bizAdviserModalWechat',
@@ -29,6 +30,13 @@ export default {
     return {
       visible: false,
       adviser: null,
+    }
+  },
+  computed: {
+    adviserNumber() {
+      if (this.adviser?.phonenumber) {
+        return formatNumberWithSeparator(this.adviser?.phonenumber)
+      }
     }
   }
 }

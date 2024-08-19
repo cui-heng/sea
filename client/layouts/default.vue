@@ -1,16 +1,16 @@
 <template>
-  <main class="main">
+  <div class="root">
     <template v-if="!$isMobile">
       <biz-header />
-      <div class="body">
+      <main class="main">
         <nuxt />
-      </div>
+      </main>
       <biz-footer />
     </template>
     <template v-else>
       <nuxt />
     </template>
-  </main>
+  </div>
 </template>
 
 <script>
@@ -41,11 +41,11 @@ export default {
 }
 </script>
 <style scoped>
-.main {
+.root {
   min-width: max-content;
 }
 
-.body {
+.main {
   background-color: #fff;
 }
 </style>

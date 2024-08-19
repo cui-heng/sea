@@ -10,7 +10,7 @@
       <fe-text>一对一语音高效沟通方式，有助于解决复杂问题</fe-text>
     </div>
     <div class="biz-adviser-modal-content">
-      <div class="biz-adviser-modal-number">{{ adviser?.phonenumber }}</div>
+      <div class="biz-adviser-modal-number">{{ adviserNumber }}</div>
       <div class="biz-adviser-modal-tips">咨询时请说明来自海洋财经，以便得到更佳服务</div>
       <fe-button class="biz-adviser-modal-button" type="primary" @click="visible = false">关闭</fe-button>
     </div>
@@ -18,13 +18,20 @@
 </template>
 
 <script>
-
+import { formatNumberWithSeparator } from '@/utils';
 export default {
   name: 'bizAdviserModalWechat',
   data() {
     return {
       adviser: null,
       visible: false,
+    }
+  },
+  computed: {
+    adviserNumber() {
+      if (this.adviser?.phonenumber) {
+        return formatNumberWithSeparator(this.adviser?.phonenumber)
+      }
     }
   }
 }

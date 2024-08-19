@@ -71,13 +71,14 @@ export default {
     issueList,
     adviserList
   },
-  async asyncData({ $axios }) {
+  async asyncData({ $axios, query }) {
+    console.log(query)
     const [answerData, adviserList, hotAnswers] = await Promise.all([
       $axios.$get(website.getAnswer, {
         params: {
           page: 1,
           size: 10,
-          searchText: ''
+          searchText: query?.keyword || ''
         }
       }),
       $axios.$get(website.getRecommendUser),

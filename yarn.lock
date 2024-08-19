@@ -1892,20 +1892,6 @@
   resolved "https://r.cnpmjs.org/@polka/url/-/url-1.0.0-next.25.tgz"
   integrity sha512-j7P6Rgr3mmtdkeDGTe0E/aYyWEWVtc5yFXtHCRHs28/jptDEWfaVOc5T7cblqy1XKPPfCxJc/8DwQ5YgLOZOVQ==
 
-"@toast-ui/editor@^3.1.3":
-  version "3.2.2"
-  resolved "https://r.cnpmjs.org/@toast-ui/editor/-/editor-3.2.2.tgz"
-  integrity sha512-ASX7LFjN2ZYQJrwmkUajPs7DRr9FsM1+RQ82CfTO0Y5ZXorBk1VZS4C2Dpxinx9kl55V4F8/A2h2QF4QMDtRbA==
-  dependencies:
-    dompurify "^2.3.3"
-    prosemirror-commands "^1.1.9"
-    prosemirror-history "^1.1.3"
-    prosemirror-inputrules "^1.1.3"
-    prosemirror-keymap "^1.1.4"
-    prosemirror-model "^1.14.1"
-    prosemirror-state "^1.3.4"
-    prosemirror-view "^1.18.7"
-
 "@trysound/sax@0.2.0":
   version "0.2.0"
   resolved "https://r2.cnpmjs.org/@trysound/sax/-/sax-0.2.0.tgz"
@@ -2269,19 +2255,6 @@ acorn@^8.0.4, acorn@^8.11.0, acorn@^8.8.2:
   version "8.12.1"
   resolved "https://r.cnpmjs.org/acorn/-/acorn-8.12.1.tgz"
   integrity sha512-tcpGyI9zbizT9JbV6oYE477V6mTlXvvi0T0G3SNIYE2apm/G5huBa1+K89VGeovbg+jycCrfhl3ADxErOuO6Jg==
-
-adler-32@~1.2.0:
-  version "1.2.0"
-  resolved "https://r2.cnpmjs.org/adler-32/-/adler-32-1.2.0.tgz"
-  integrity sha512-/vUqU/UY4MVeFsg+SsK6c+/05RZXIHZMGJA+PX5JyWI0ZRcBpupnRuPLU/NXXoFwMYCPCoxIfElM2eS+DUXCqQ==
-  dependencies:
-    exit-on-epipe "~1.0.1"
-    printj "~1.1.0"
-
-adler-32@~1.3.0:
-  version "1.3.1"
-  resolved "https://r.cnpmjs.org/adler-32/-/adler-32-1.3.1.tgz"
-  integrity sha512-ynZ4w/nUUv5rrsR8UUGoe1VC9hZj6V5hU9Qw1HlMDJGEJw5S7TfTErWTjMys6M7vr0YWcPqs3qAr4ss0nDfP+A==
 
 aggregate-error@^3.0.0:
   version "3.1.0"
@@ -2661,7 +2634,7 @@ bn.js@^5.0.0, bn.js@^5.2.1:
   resolved "https://r.cnpmjs.org/bn.js/-/bn.js-5.2.1.tgz"
   integrity sha512-eXRvHzWyYPBuB4NBy0cmYQjGitUrtqwbvlzP3G6VFnNRbsZQIxQ10PbKKHt8gZ/HW/D/747aDl+QkDqg3KQLMQ==
 
-body-parser@1.20.2, body-parser@^1.20.2:
+body-parser@1.20.2:
   version "1.20.2"
   resolved "https://r.cnpmjs.org/body-parser/-/body-parser-1.20.2.tgz"
   integrity sha512-ml9pReCu3M61kGlqoTm2umSXTlRTuGTx0bfYj+uIUKKYycG5NtSbeetV3faSU6R7ajOPw0g/J1PvK4qNy7s5bA==
@@ -2973,14 +2946,6 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001599, caniuse-lite@^1.0.30001629, can
   resolved "https://r.cnpmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001640.tgz"
   integrity sha512-lA4VMpW0PSUrFnkmVuEKBUovSWKhj7puyCg8StBChgu298N1AtuF1sKWEvfDuimSEDbhlb/KqPKC3fs1HbuQUA==
 
-cfb@^1.1.0:
-  version "1.2.2"
-  resolved "https://r.cnpmjs.org/cfb/-/cfb-1.2.2.tgz"
-  integrity sha512-KfdUZsSOw19/ObEWasvBP/Ac4reZvAGauZhs6S/gqNhXhI7cKwvlH7ulj+dOEYnca4bm4SGo8C1bTAQvnTjgQA==
-  dependencies:
-    adler-32 "~1.3.0"
-    crc-32 "~1.2.0"
-
 chalk@^2.4.1, chalk@^2.4.2:
   version "2.4.2"
   resolved "https://r2.cnpmjs.org/chalk/-/chalk-2.4.2.tgz"
@@ -3138,19 +3103,6 @@ coa@^2.0.2:
     chalk "^2.4.1"
     q "^1.1.2"
 
-codemirror@5.45.0:
-  version "5.45.0"
-  resolved "https://r2.cnpmjs.org/codemirror/-/codemirror-5.45.0.tgz"
-  integrity sha512-c19j644usCE8gQaXa0jqn2B/HN9MnB2u6qPIrrhrMkB+QAP42y8G4QnTwuwbVSoUS1jEl7JU9HZMGhCDL0nsAw==
-
-codepage@~1.14.0:
-  version "1.14.0"
-  resolved "https://r2.cnpmjs.org/codepage/-/codepage-1.14.0.tgz"
-  integrity sha512-iz3zJLhlrg37/gYRWgEPkaFTtzmnEv1h+r7NgZum2lFElYQPi0/5bnmuDfODHxfp0INEfnRqyfyeIJDbb7ahRw==
-  dependencies:
-    commander "~2.14.1"
-    exit-on-epipe "~1.0.1"
-
 collection-visit@^1.0.0:
   version "1.0.0"
   resolved "https://r2.cnpmjs.org/collection-visit/-/collection-visit-1.0.0.tgz"
@@ -3212,16 +3164,6 @@ commander@^7.2.0:
   version "7.2.0"
   resolved "https://r2.cnpmjs.org/commander/-/commander-7.2.0.tgz"
   integrity sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==
-
-commander@~2.14.1:
-  version "2.14.1"
-  resolved "https://r2.cnpmjs.org/commander/-/commander-2.14.1.tgz"
-  integrity sha512-+YR16o3rK53SmWHU3rEM3tPAh2rwb1yPcQX5irVn7mb0gXbwuCCrnkbV5+PBfETdfg1vui07nM6PCG1zndcjQw==
-
-commander@~2.17.1:
-  version "2.17.1"
-  resolved "https://r2.cnpmjs.org/commander/-/commander-2.17.1.tgz"
-  integrity sha512-wPMUt6FnH2yzG95SA6mzjQOEKUU3aLaDEmzs1ti+1E9h+CsrZghRlqEM/EJ4KscsQVG8uNN4uVreUeT8+drlgg==
 
 commondir@^1.0.1:
   version "1.0.1"
@@ -3391,11 +3333,6 @@ cosmiconfig@^7.0.0:
     parse-json "^5.0.0"
     path-type "^4.0.0"
     yaml "^1.10.0"
-
-crc-32@~1.2.0:
-  version "1.2.2"
-  resolved "https://r.cnpmjs.org/crc-32/-/crc-32-1.2.2.tgz"
-  integrity sha512-ROmzCKrTnOwybPcJApAA6WBWij23HVfGVNKqqrZpuyZOHqK2CwHSvpGuyt/UNNvaIjEd8X5IFGp4Mh+Ie1IHJQ==
 
 crc@^4.3.2:
   version "4.3.2"
@@ -3971,11 +3908,6 @@ domhandler@^5.0.2, domhandler@^5.0.3:
   dependencies:
     domelementtype "^2.3.0"
 
-dompurify@^2.3.3:
-  version "2.5.6"
-  resolved "https://r.cnpmjs.org/dompurify/-/dompurify-2.5.6.tgz"
-  integrity sha512-zUTaUBO8pY4+iJMPE1B9XlO2tXVYIcEA4SNGtvDELzTSCQO7RzH+j7S180BmhmJId78lqGU2z19vgVx2Sxs/PQ==
-
 domutils@^1.7.0:
   version "1.7.0"
   resolved "https://r2.cnpmjs.org/domutils/-/domutils-1.7.0.tgz#56ea341e834e06e6748af7a1cb25da67ea9f8c2a"
@@ -4020,16 +3952,6 @@ dotenv@^9.0.2:
   resolved "https://r2.cnpmjs.org/dotenv/-/dotenv-9.0.2.tgz"
   integrity sha512-I9OvvrHp4pIARv4+x9iuewrWycX6CcZtoAu1XrzPxc5UygMJXJZYmBsynku8IkrJwgypE5DGNjDPmPRhDCptUg==
 
-driver.js@0.9.5:
-  version "0.9.5"
-  resolved "https://r2.cnpmjs.org/driver.js/-/driver.js-0.9.5.tgz"
-  integrity sha512-QIMRsXR+/HdN792vYdZziC2shtHuLMV/oVTsqExOP4YmKjR7wwY4l3n80SebhUcn7z8dG4aTXIhDUGQCOczPyw==
-
-dropzone@5.5.1:
-  version "5.5.1"
-  resolved "https://r2.cnpmjs.org/dropzone/-/dropzone-5.5.1.tgz"
-  integrity sha512-3VduRWLxx9hbVr42QieQN25mx/I61/mRdUSuxAmDGdDqZIN8qtP7tcKMa3KfpJjuGjOJGYYUzzeq6eGDnkzesA==
-
 duplexer@^0.1.2:
   version "0.1.2"
   resolved "https://r2.cnpmjs.org/duplexer/-/duplexer-0.1.2.tgz"
@@ -4044,13 +3966,6 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     inherits "^2.0.1"
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
-
-echarts@4.2.1:
-  version "4.2.1"
-  resolved "https://r2.cnpmjs.org/echarts/-/echarts-4.2.1.tgz"
-  integrity sha512-pw4xScRPsLegD/cqEcoXRKeA2SD4+s+Kyo0Na166NamOWhzNl2yI5RZ2rE97tBlAopNmhyMeBVpAeD5qb+ee1A==
-  dependencies:
-    zrender "4.0.7"
 
 ee-first@1.1.1:
   version "1.1.1"
@@ -4341,11 +4256,6 @@ execa@^5.1.1:
     signal-exit "^3.0.3"
     strip-final-newline "^2.0.0"
 
-exit-on-epipe@~1.0.1:
-  version "1.0.1"
-  resolved "https://r2.cnpmjs.org/exit-on-epipe/-/exit-on-epipe-1.0.1.tgz"
-  integrity sha512-h2z5mrROTxce56S+pnvAV890uu7ls7f1kEvVGJbw1OlFH3/mlJ5bkXu0KRyW94v37zzHPiUd55iLn3DA7TjWpw==
-
 exit@^0.1.2:
   version "0.1.2"
   resolved "https://r2.cnpmjs.org/exit/-/exit-0.1.2.tgz"
@@ -4497,11 +4407,6 @@ file-loader@^6.2.0:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
 
-file-saver@2.0.1:
-  version "2.0.1"
-  resolved "https://r2.cnpmjs.org/file-saver/-/file-saver-2.0.1.tgz"
-  integrity sha512-dCB3K7/BvAcUmtmh1DzFdv0eXSVJ9IAFt1mw3XZfAexodNRoE29l3xB2EX4wH2q8m/UTzwzEPq/ArYk98kUkBQ==
-
 file-uri-to-path@1.0.0:
   version "1.0.0"
   resolved "https://r2.cnpmjs.org/file-uri-to-path/-/file-uri-to-path-1.0.0.tgz"
@@ -4613,11 +4518,6 @@ forwarded@0.2.0:
   resolved "https://registry.npmmirror.com/forwarded/-/forwarded-0.2.0.tgz"
   integrity sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==
 
-frac@~1.1.2:
-  version "1.1.2"
-  resolved "https://r2.cnpmjs.org/frac/-/frac-1.1.2.tgz"
-  integrity sha512-w/XBfkibaTl3YDqASwfDUqkna4Z2p9cFSr1aHDt0WoMTECnRfBOv2WArlZILlqgWlmdIlALXGpM2AOhEk5W3IA==
-
 fraction.js@^4.3.7:
   version "4.3.7"
   resolved "https://r.cnpmjs.org/fraction.js/-/fraction.js-4.3.7.tgz"
@@ -4702,11 +4602,6 @@ fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://r2.cnpmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz"
   integrity sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==
-
-fs@^0.0.1-security:
-  version "0.0.1-security"
-  resolved "https://registry.npmmirror.com/fs/-/fs-0.0.1-security.tgz"
-  integrity sha512-3XY9e1pP0CVEUCdj5BmfIZxRBTSDycnbqhIOGec9QYtmVH2fbLpj86CFWkrNOkt/Fvty4KZG5lTglL9j/gJ87w==
 
 fsevents@^1.2.7:
   version "1.2.13"
@@ -5191,11 +5086,6 @@ ignore@^5.2.0, ignore@^5.3.1:
   resolved "https://r.cnpmjs.org/ignore/-/ignore-5.3.1.tgz"
   integrity sha512-5Fytz/IraMjqpwfd34ke28PTVMjZjJG2MPn5t7OE4eUCUNf8BAa7b5WUS9/Qvr6mwOQS7Mk6vdsMno5he+T8Xw==
 
-immediate@~3.0.5:
-  version "3.0.6"
-  resolved "https://r2.cnpmjs.org/immediate/-/immediate-3.0.6.tgz"
-  integrity sha512-XXOFtyqDjNDAQxVfYxuF7g9Il/IbWmmlQg2MYKOH8ExIT1qg6xc4zyS3HaEEATgs1btfzxq15ciUiY7gjSXRGQ==
-
 import-fresh@^3.2.1:
   version "3.3.0"
   resolved "https://r2.cnpmjs.org/import-fresh/-/import-fresh-3.3.0.tgz"
@@ -5576,11 +5466,6 @@ jiti@^1.21.0, jiti@^1.21.6:
   resolved "https://r.cnpmjs.org/jiti/-/jiti-1.21.6.tgz"
   integrity sha512-2yTgeWTWzMWkHu6Jp9NKgePDaYHbntiwvYuuJLbbN9vl7DC9DvXKOB2BC3ZZ92D3cvV/aflH0osDfwpHepQ53w==
 
-js-cookie@2.2.0:
-  version "2.2.0"
-  resolved "https://r2.cnpmjs.org/js-cookie/-/js-cookie-2.2.0.tgz"
-  integrity sha512-7YAJP/LPE/MhDjHIdfIiT665HUSumCwPN2hAmO6OJZ8V3o1mtz2HeQ8BKetEjkh+3nqGxYaq1vPMViUR8kaOXw==
-
 js-cookie@^3.0.1:
   version "3.0.5"
   resolved "https://r.cnpmjs.org/js-cookie/-/js-cookie-3.0.5.tgz"
@@ -5657,16 +5542,6 @@ jsonfile@^6.0.1:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
-jszip@3.2.1:
-  version "3.2.1"
-  resolved "https://r2.cnpmjs.org/jszip/-/jszip-3.2.1.tgz"
-  integrity sha512-iCMBbo4eE5rb1VCpm5qXOAaUiRKRUKiItn8ah2YQQx9qymmSAY98eyQfioChEYcVQLh0zxJ3wS4A0mh90AVPvw==
-  dependencies:
-    lie "~3.3.0"
-    pako "~1.0.2"
-    readable-stream "~2.3.6"
-    set-immediate-shim "~1.0.1"
-
 kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
   version "3.2.2"
   resolved "https://r2.cnpmjs.org/kind-of/-/kind-of-3.2.2.tgz"
@@ -5713,13 +5588,6 @@ launch-editor@^2.8.0:
   dependencies:
     picocolors "^1.0.0"
     shell-quote "^1.8.1"
-
-lie@~3.3.0:
-  version "3.3.0"
-  resolved "https://r2.cnpmjs.org/lie/-/lie-3.3.0.tgz"
-  integrity sha512-UaiMJzeWRlEujzAuw5LokY1L5ecNQYZKfmyZ9L7wDHb/p5etKaxXhohBcrw0EYby+G/NA52vRSN4N39dxHAIwQ==
-  dependencies:
-    immediate "~3.0.5"
 
 lilconfig@^2.0.3:
   version "2.1.0"
@@ -6247,11 +6115,6 @@ neo-async@^2.5.0, neo-async@^2.6.1, neo-async@^2.6.2:
   resolved "https://r2.cnpmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-net@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.npmmirror.com/net/-/net-1.0.2.tgz"
-  integrity sha512-kbhcj2SVVR4caaVnGLJKmlk2+f+oLkjqdKeQlmUtz6nGzOpbcobwVIeSURNgraV/v3tlmGIX82OcPCl0K6RbHQ==
-
 no-case@^3.0.4:
   version "3.0.4"
   resolved "https://r2.cnpmjs.org/no-case/-/no-case-3.0.4.tgz"
@@ -6531,11 +6394,6 @@ optimize-css-assets-webpack-plugin@^6.0.1:
     last-call-webpack-plugin "^3.0.0"
     postcss "^8.2.1"
 
-orderedmap@^2.0.0:
-  version "2.1.1"
-  resolved "https://r.cnpmjs.org/orderedmap/-/orderedmap-2.1.1.tgz"
-  integrity sha512-TvAWxi0nDe1j/rtMcWcIj94+Ffe6n7zhow33h40SKxmsmozs6dz/e+EajymfoFcHd7sxNn8yHM8839uixMOV6g==
-
 os-browserify@^0.3.0:
   version "0.3.0"
   resolved "https://r2.cnpmjs.org/os-browserify/-/os-browserify-0.3.0.tgz"
@@ -6586,7 +6444,7 @@ p-try@^2.0.0:
   resolved "https://r2.cnpmjs.org/p-try/-/p-try-2.2.0.tgz"
   integrity sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==
 
-pako@~1.0.2, pako@~1.0.5:
+pako@~1.0.5:
   version "1.0.11"
   resolved "https://r.cnpmjs.org/pako/-/pako-1.0.11.tgz"
   integrity sha512-4hLB8Py4zZce5s4yd9XzopqwVv/yGNhV1Bl8NTmCq1763HeK2+EwVTv+leGeL13Dnh2wfbqowVPXCIO0z4taYw==
@@ -6724,11 +6582,6 @@ path-to-regexp@0.1.7:
   version "0.1.7"
   resolved "https://registry.npmmirror.com/path-to-regexp/-/path-to-regexp-0.1.7.tgz"
   integrity sha512-5DFkuoqlv1uYQKxy8omFBeJPQcdoE07Kv2sferDCrAq1ohOU+MSDswDIbnx3YAM60qIOnYa53wBhXW0EbMonrQ==
-
-path-to-regexp@2.4.0:
-  version "2.4.0"
-  resolved "https://r2.cnpmjs.org/path-to-regexp/-/path-to-regexp-2.4.0.tgz"
-  integrity sha512-G6zHoVqC6GGTQkZwF4lkuEyMbVOjoBKAEybQUypI1WTkqinCOrq2x6U2+phkJ1XsEMTy4LjtwPI7HW+NVrRR2w==
 
 path-type@^4.0.0:
   version "4.0.0"
@@ -7587,11 +7440,6 @@ pretty-time@^1.1.0:
   resolved "https://r2.cnpmjs.org/pretty-time/-/pretty-time-1.1.0.tgz"
   integrity sha512-28iF6xPQrP8Oa6uxE6a1biz+lWeTOAPKggvjB8HAs6nVMKZwf5bG++632Dx614hIWgUPkgivRfG+a8uAXGTIbA==
 
-printj@~1.1.0:
-  version "1.1.2"
-  resolved "https://r2.cnpmjs.org/printj/-/printj-1.1.2.tgz"
-  integrity sha512-zA2SmoLaxZyArQTOPj5LXecR+RagfPSU5Kw1qP+jkWeNlrq+eJZyY2oS68SU1Z/7/myXM4lo9716laOFAVStCQ==
-
 process-nextick-args@~2.0.0:
   version "2.0.1"
   resolved "https://r2.cnpmjs.org/process-nextick-args/-/process-nextick-args-2.0.1.tgz"
@@ -7615,73 +7463,6 @@ proper-lockfile@^4.1.2:
     graceful-fs "^4.2.4"
     retry "^0.12.0"
     signal-exit "^3.0.2"
-
-prosemirror-commands@^1.1.9:
-  version "1.5.2"
-  resolved "https://r.cnpmjs.org/prosemirror-commands/-/prosemirror-commands-1.5.2.tgz"
-  integrity sha512-hgLcPaakxH8tu6YvVAaILV2tXYsW3rAdDR8WNkeKGcgeMVQg3/TMhPdVoh7iAmfgVjZGtcOSjKiQaoeKjzd2mQ==
-  dependencies:
-    prosemirror-model "^1.0.0"
-    prosemirror-state "^1.0.0"
-    prosemirror-transform "^1.0.0"
-
-prosemirror-history@^1.1.3:
-  version "1.4.0"
-  resolved "https://r.cnpmjs.org/prosemirror-history/-/prosemirror-history-1.4.0.tgz"
-  integrity sha512-UUiGzDVcqo1lovOPdi9YxxUps3oBFWAIYkXLu3Ot+JPv1qzVogRbcizxK3LhHmtaUxclohgiOVesRw5QSlMnbQ==
-  dependencies:
-    prosemirror-state "^1.2.2"
-    prosemirror-transform "^1.0.0"
-    prosemirror-view "^1.31.0"
-    rope-sequence "^1.3.0"
-
-prosemirror-inputrules@^1.1.3:
-  version "1.4.0"
-  resolved "https://r.cnpmjs.org/prosemirror-inputrules/-/prosemirror-inputrules-1.4.0.tgz"
-  integrity sha512-6ygpPRuTJ2lcOXs9JkefieMst63wVJBgHZGl5QOytN7oSZs3Co/BYbc3Yx9zm9H37Bxw8kVzCnDsihsVsL4yEg==
-  dependencies:
-    prosemirror-state "^1.0.0"
-    prosemirror-transform "^1.0.0"
-
-prosemirror-keymap@^1.1.4:
-  version "1.2.2"
-  resolved "https://r.cnpmjs.org/prosemirror-keymap/-/prosemirror-keymap-1.2.2.tgz"
-  integrity sha512-EAlXoksqC6Vbocqc0GtzCruZEzYgrn+iiGnNjsJsH4mrnIGex4qbLdWWNza3AW5W36ZRrlBID0eM6bdKH4OStQ==
-  dependencies:
-    prosemirror-state "^1.0.0"
-    w3c-keyname "^2.2.0"
-
-prosemirror-model@^1.0.0, prosemirror-model@^1.14.1, prosemirror-model@^1.20.0, prosemirror-model@^1.21.0:
-  version "1.21.3"
-  resolved "https://r.cnpmjs.org/prosemirror-model/-/prosemirror-model-1.21.3.tgz"
-  integrity sha512-nt2Xs/RNGepD9hrrkzXvtCm1mpGJoQfFSPktGa0BF/aav6XsnmVGZ9sTXNWRLupAz5SCLa3EyKlFeK7zJWROKg==
-  dependencies:
-    orderedmap "^2.0.0"
-
-prosemirror-state@^1.0.0, prosemirror-state@^1.2.2, prosemirror-state@^1.3.4:
-  version "1.4.3"
-  resolved "https://r.cnpmjs.org/prosemirror-state/-/prosemirror-state-1.4.3.tgz"
-  integrity sha512-goFKORVbvPuAQaXhpbemJFRKJ2aixr+AZMGiquiqKxaucC6hlpHNZHWgz5R7dS4roHiwq9vDctE//CZ++o0W1Q==
-  dependencies:
-    prosemirror-model "^1.0.0"
-    prosemirror-transform "^1.0.0"
-    prosemirror-view "^1.27.0"
-
-prosemirror-transform@^1.0.0, prosemirror-transform@^1.1.0:
-  version "1.9.0"
-  resolved "https://r.cnpmjs.org/prosemirror-transform/-/prosemirror-transform-1.9.0.tgz"
-  integrity sha512-5UXkr1LIRx3jmpXXNKDhv8OyAOeLTGuXNwdVfg8x27uASna/wQkr9p6fD3eupGOi4PLJfbezxTyi/7fSJypXHg==
-  dependencies:
-    prosemirror-model "^1.21.0"
-
-prosemirror-view@^1.18.7, prosemirror-view@^1.27.0, prosemirror-view@^1.31.0:
-  version "1.33.8"
-  resolved "https://r.cnpmjs.org/prosemirror-view/-/prosemirror-view-1.33.8.tgz"
-  integrity sha512-4PhMr/ufz2cdvFgpUAnZfs+0xij3RsFysreeG9V/utpwX7AJtYCDVyuRxzWoMJIEf4C7wVihuBNMPpFLPCiLQw==
-  dependencies:
-    prosemirror-model "^1.20.0"
-    prosemirror-state "^1.0.0"
-    prosemirror-transform "^1.1.0"
 
 protocols@^2.0.0, protocols@^2.0.1:
   version "2.0.1"
@@ -8054,11 +7835,6 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
-rope-sequence@^1.3.0:
-  version "1.3.4"
-  resolved "https://r.cnpmjs.org/rope-sequence/-/rope-sequence-1.3.4.tgz"
-  integrity sha512-UT5EDe2cu2E/6O4igUr5PSFs23nvvukicWHx6GnOPlHAiiYbzNuCRQCuiUdHJQcqKalLKlrYJnjY0ySGsXNQXQ==
-
 run-async@^2.4.0:
   version "2.4.1"
   resolved "https://r2.cnpmjs.org/run-async/-/run-async-2.4.1.tgz"
@@ -8186,11 +7962,6 @@ schema-utils@^4.0.0:
     ajv-formats "^2.1.1"
     ajv-keywords "^5.1.0"
 
-screenfull@4.2.0:
-  version "4.2.0"
-  resolved "https://r2.cnpmjs.org/screenfull/-/screenfull-4.2.0.tgz"
-  integrity sha512-qpyI9XbwuMJElWRP5vTgxkFAl4k7HpyhIqBFOZEwX9QBXn0MAuRSpn7LOc6/4CeSwoz61oBu1VPV+2fbIWC+5Q==
-
 script-loader@0.7.2:
   version "0.7.2"
   resolved "https://r2.cnpmjs.org/script-loader/-/script-loader-0.7.2.tgz"
@@ -8306,11 +8077,6 @@ set-function-name@^2.0.1:
     es-errors "^1.3.0"
     functions-have-names "^1.2.3"
     has-property-descriptors "^1.0.2"
-
-set-immediate-shim@~1.0.1:
-  version "1.0.1"
-  resolved "https://r2.cnpmjs.org/set-immediate-shim/-/set-immediate-shim-1.0.1.tgz"
-  integrity sha512-Li5AOqrZWCVA2n5kryzEmqai6bKSIvpz5oUJHPVj6+dsbD3X1ixtsY5tEnsaNpH3pFAHmG8eIHUrtEtohrg+UQ==
 
 set-value@^2.0.0, set-value@^2.0.1:
   version "2.0.1"
@@ -8442,16 +8208,6 @@ sort-keys@^2.0.0:
   dependencies:
     is-plain-obj "^1.0.0"
 
-sortablejs@1.8.4:
-  version "1.8.4"
-  resolved "https://r2.cnpmjs.org/sortablejs/-/sortablejs-1.8.4.tgz"
-  integrity sha512-Brqnzelu1AhFuc0Fn3N/qFex1tlIiuQIUsfu2J8luJ4cRgXYkWrByxa+y5mWEBlj8A0YoABukflIJwvHyrwJ6Q==
-
-sortablejs@^1.8.4:
-  version "1.15.2"
-  resolved "https://r.cnpmjs.org/sortablejs/-/sortablejs-1.15.2.tgz"
-  integrity sha512-FJF5jgdfvoKn1MAKSdGs33bIqLi3LmsgVTliuX6iITj834F+JRQZN90Z93yql8h0K2t0RwDPBmxwlbZfDcxNZA==
-
 source-list-map@^2.0.0:
   version "2.0.1"
   resolved "https://r2.cnpmjs.org/source-list-map/-/source-list-map-2.0.1.tgz"
@@ -8517,13 +8273,6 @@ sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://r2.cnpmjs.org/sprintf-js/-/sprintf-js-1.0.3.tgz"
   integrity sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==
-
-ssf@~0.10.2:
-  version "0.10.3"
-  resolved "https://r2.cnpmjs.org/ssf/-/ssf-0.10.3.tgz"
-  integrity sha512-pRuUdW0WwyB2doSqqjWyzwCD6PkfxpHAHdZp39K3dp/Hq7f+xfMwNAWIi16DyrRg4gg9c/RvLYkJTSawTPTm1w==
-  dependencies:
-    frac "~1.1.2"
 
 ssri@^6.0.1:
   version "6.0.2"
@@ -9276,11 +9025,6 @@ vue-client-only@^2.1.0:
   resolved "https://r2.cnpmjs.org/vue-client-only/-/vue-client-only-2.1.0.tgz"
   integrity sha512-vKl1skEKn8EK9f8P2ZzhRnuaRHLHrlt1sbRmazlvsx6EiC3A8oWF8YCBrMJzoN+W3OnElwIGbVjsx6/xelY1AA==
 
-vue-count-to@1.0.13:
-  version "1.0.13"
-  resolved "https://r2.cnpmjs.org/vue-count-to/-/vue-count-to-1.0.13.tgz"
-  integrity sha512-6R4OVBVNtQTlcbXu6SJ8ENR35M2/CdWt3Jmv57jOUM+1ojiFmjVGvZPH8DfHpMDSA+ITs+EW5V6qthADxeyYOQ==
-
 vue-functional-data-merge@^3.1.0:
   version "3.1.0"
   resolved "https://r2.cnpmjs.org/vue-functional-data-merge/-/vue-functional-data-merge-3.1.0.tgz#08a7797583b7f35680587f8a1d51d729aa1dc657"
@@ -9338,11 +9082,6 @@ vue-server-renderer@^2.7.10, vue-server-renderer@^2.7.16:
     serialize-javascript "^6.0.0"
     source-map "0.5.6"
 
-vue-splitpane@1.0.4:
-  version "1.0.4"
-  resolved "https://r2.cnpmjs.org/vue-splitpane/-/vue-splitpane-1.0.4.tgz"
-  integrity sha512-aSLmwNyqWCtn4q/JlEXa/UB9/zP1SLODfmMJof+qitL91Rz6g13cJKGmNEHJtBp6ivsk6p74fGfXUJUB3Izuig==
-
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.3:
   version "4.1.3"
   resolved "https://r2.cnpmjs.org/vue-style-loader/-/vue-style-loader-4.1.3.tgz"
@@ -9372,22 +9111,10 @@ vue@^2.7.10, vue@^2.7.16:
     "@vue/compiler-sfc" "2.7.16"
     csstype "^3.1.0"
 
-vuedraggable@2.20.0:
-  version "2.20.0"
-  resolved "https://r2.cnpmjs.org/vuedraggable/-/vuedraggable-2.20.0.tgz"
-  integrity sha512-mrSWGkzY40nkgLDuuoxrs6/0u+A7VwXtQRruLQYOVjwd8HcT3BZatRvzw4qVCwJczsAYPbaMubkGOEtzDOzhsQ==
-  dependencies:
-    sortablejs "^1.8.4"
-
 vuex@^3.6.2:
   version "3.6.2"
   resolved "https://r2.cnpmjs.org/vuex/-/vuex-3.6.2.tgz"
   integrity sha512-ETW44IqCgBpVomy520DT5jf8n0zoCac+sxWnn+hMe/CzaSejb/eVw2YToiXYX+Ex/AuHHia28vWTq4goAexFbw==
-
-w3c-keyname@^2.2.0:
-  version "2.2.8"
-  resolved "https://r.cnpmjs.org/w3c-keyname/-/w3c-keyname-2.2.8.tgz"
-  integrity sha512-dpojBhNsCNN7T82Tm7k26A6G9ML3NkhDsnw9n/eoxSRlVBB4CEtIQ/KTCLI2Fwf3ataSXRhYFkQi3SlnFwPvPQ==
 
 watchpack-chokidar2@^2.0.1:
   version "2.0.1"
@@ -9605,19 +9332,6 @@ ws@^7.3.1:
   resolved "https://r.cnpmjs.org/ws/-/ws-7.5.10.tgz"
   integrity sha512-+dbF1tHwZpXcbOJdVOkzLDxZP1ailvSxM6ZweXTegylPny803bFhA+vqBYw4s31NSAk4S2Qz+AKXK9a4wkdjcQ==
 
-xlsx@0.14.1:
-  version "0.14.1"
-  resolved "https://r2.cnpmjs.org/xlsx/-/xlsx-0.14.1.tgz"
-  integrity sha512-7hjB5YuyJo1fuuzXQjwuxD8LSUzE4Rxu5ToC3fB5JSunZxGjLcgKg69bEFG9GYoxeVDx5GL0k1dUodlvaQNRQw==
-  dependencies:
-    adler-32 "~1.2.0"
-    cfb "^1.1.0"
-    codepage "~1.14.0"
-    commander "~2.17.1"
-    crc-32 "~1.2.0"
-    exit-on-epipe "~1.0.1"
-    ssf "~0.10.2"
-
 xtend@^4.0.0, xtend@~4.0.1:
   version "4.0.2"
   resolved "https://r2.cnpmjs.org/xtend/-/xtend-4.0.2.tgz"
@@ -9659,8 +9373,3 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://r2.cnpmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
-
-zrender@4.0.7:
-  version "4.0.7"
-  resolved "https://r2.cnpmjs.org/zrender/-/zrender-4.0.7.tgz"
-  integrity sha512-TNloHe0ums6zxbHfnaCryM61J4IWDajZwNq6dHk9vfWhhysO/OeFvvR0drBs/nbXha2YxSzfQj2FiCd6RVBe+Q==
