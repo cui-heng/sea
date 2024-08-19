@@ -363,6 +363,7 @@ h5 {
 }
 .zx_sty {
   background: #F6F6F6;
+  width: 100vw;
 }
 .box_3 {
   /* background: none; */

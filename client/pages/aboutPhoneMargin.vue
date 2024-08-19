@@ -254,6 +254,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.qh_box {
+  width: 100vw;
+}
 ::v-deep .el-table thead.is-group th {
   background-color: #023665;
   color: #fff;

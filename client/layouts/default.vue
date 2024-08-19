@@ -24,6 +24,7 @@ export default {
     }
   },
   mounted() {
+    console.log(this.$isMobile, '27')
     this.minHeight = document.documentElement.clientHeight
     window.addEventListener('scroll', this.watchScroll)
     window.onresize = function () {
