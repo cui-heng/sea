@@ -1,8 +1,9 @@
 module.exports = {
   apps : [
     {
-      name: 'caijing',
-      script: './start.production.sh',
+      name: 'fe-serve',
+      script: 'npm',
+      args: 'run start'
     }
   ],
 };
