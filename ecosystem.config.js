@@ -1,23 +1,11 @@
-// module.exports = {
-//   apps : [
-//     {
-//       name: 'caijing',
-//       script: './start.production.sh',
-//     }
-//   ],
-// };
-
 module.exports = {
   apps: [
     {
-      name: 'NuxtAppName',
+      name: 'fe-server',
       exec_mode: 'cluster',
-      instances: 'max', // Or a number of instances
-      script: './node_modules/nuxt/bin/nuxt.js --dotenv ./.env.production',
-      args: 'start'
-      // name: 'fe-serve',
-      // script: 'npm',
-      // args: 'run start'
+      instances: '2',
+      script: 'npm',
+      args: 'run start',
     }
   ]
 }
