@@ -44,7 +44,7 @@
     </div>
     <fe-card class="answer" title="最新问答">
       <div class="answer-list">
-        <nuxt-link class="answer-item" v-for="answer of answerList" :key="answer.id" :to="`/answer/${answer.id}`">
+        <nuxt-link class="answer-item" v-for="answer of answerList" :key="answer.id" :to="`/answer/${answer.id}`" target="_blank">
           <fe-title class="answer-title" :level="3">{{ answer.title }}</fe-title>
           <div class="answer-adviser">
             <fe-image class="answer-adviser-avatar" :src="answer.avatar" circle />
@@ -83,7 +83,8 @@ export default {
       $axios.$get(website.getAnswer, {
         params: {
           page: 1,
-          size: 10
+          size: 10,
+          userId: params.id
         }
       }),
     ]);

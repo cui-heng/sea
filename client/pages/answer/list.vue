@@ -1,17 +1,17 @@
 <template>
   <div class="container">
-    <biz-search />
+    <biz-search :defaultValue="searchParams.searchText" @search="handleSearch" />
     <article class="article">
       <fe-breadcrumb :items="breadcrumbs" />
       <div class="main">
         <section class="section">
-          <tabs class="tabs" />
+          <tabs class="tabs" v-model="searchParams.orderBy" />
           <div class="answer-list">
-            <nuxt-link class="answer-item" v-for="answer of answerData.list" :key="answer.id" :to="`/answer/${answer.id}`">
+            <nuxt-link class="answer-item" v-for="answer of answerData.list" :key="answer.id" :to="`/answer/${answer.id}`" target="_blank">
               <fe-image class="answer-image" />
               <div class="answer-info">
                 <fe-title class="answer-title" :level="3">{{ answer.title }}</fe-title>
-                <nuxt-link class="answer-creater" :to="`/adviser/${answer.userId}`">
+                <nuxt-link class="answer-creater" :to="`/adviser/${answer.userId}`" target="_blank">
                   <fe-image :src="answer.avatar" :alt="answer.nickName" />
                   <fe-text>{{ answer.nickName }}</fe-text>
                 </nuxt-link>
@@ -33,23 +33,32 @@
               </div>
             </nuxt-link>
           </div>
+          <fe-pagination class="pagination" v-model="searchParams.page" :total="answerData.total">
+            <template v-slot="{ page, type }">
+                <nuxt-link :to="{ path: '/answer', query: { ...searchParams, page } }" replace>
+                  <template v-if="type === 'page'">{{ page }}</template>
+                  <span v-if="type === 'prev'">•••</span>
+                  <span v-if="type === 'next'">•••</span>
+                </nuxt-link>
+              </template>
+          </fe-pagination>
         </section>
         <aside class="aside">
           <fe-card class="adviser" title="期货顾问推荐">
-            <nuxt-link slot="extra" class="more-link" to="/service">
+            <nuxt-link slot="extra" class="more-link" to="/service" target="_blank">
               <span>更多</span>
               <fe-icon icon="plus" />
             </nuxt-link>
             <adviser-list :items="adviserList" />
           </fe-card>
           <fe-card class="hot-issue" title="热议问题">
-            <nuxt-link slot="extra" class="more-link" to="/answer">
+            <nuxt-link slot="extra" class="more-link" to="/answer" target="_blank">
               <span>更多</span>
               <fe-icon icon="plus" />
             </nuxt-link>
             <issue-list :items="hotAnswers">
               <template v-slot="{ item }">
-                <nuxt-link :to="`/answer/${item.id}`">{{ item.title }}</nuxt-link>
+                <nuxt-link :to="`/answer/${item.id}`" target="_blank">{{ item.title }}</nuxt-link>
               </template>
             </issue-list>
           </fe-card>
@@ -72,14 +81,15 @@ export default {
     adviserList
   },
   async asyncData({ $axios, query }) {
-    console.log(query)
+    const searchParams = Object.assign({
+      page: 1,
+      size: 10,
+      orderBy: 'all',
+      searchText: ''
+    }, query);
     const [answerData, adviserList, hotAnswers] = await Promise.all([
       $axios.$get(website.getAnswer, {
-        params: {
-          page: 1,
-          size: 10,
-          searchText: query?.keyword || ''
-        }
+        params: searchParams
       }),
       $axios.$get(website.getRecommendUser),
       $axios.$get(website.getHotAnswer)
@@ -89,9 +99,9 @@ export default {
       answerData,
       adviserList,
       hotAnswers,
+      searchParams,
     }
   },
-
   data() {
     return {
       breadcrumbs: [
@@ -111,6 +121,34 @@ export default {
       hotAnswers: [],
     }
   },
+  watch: {
+    searchParams: {
+      handler() {
+        this.search();
+      },
+      deep: true
+    },
+    ['$route.query'](query) {
+      Object.assign(this.searchParams, query);
+    }
+  },
+  methods: {
+    search() {
+      this.$axios.$get(website.getAnswer, {
+        params: this.searchParams,
+      }).then(answerData => {
+        this.answerData = answerData;
+      })
+    },
+    handleSearch(text) {
+      this.searchParams.page = 1;
+      this.searchParams.searchText = text;
+      this.$router.replace({
+        path: this.$route.path,
+        query: this.searchParams
+      })
+    }
+  }
 }
 </script>
 
@@ -132,11 +170,15 @@ export default {
       background: #fff;
       border-radius: 16px;
       box-shadow: 0px 1px 17px 1px rgba(8,1,3,0.07);
-    }
 
-    .tabs {
-      padding: 24px 0 16px;
-      border-bottom: 2px solid #F8F8F8;
+      .tabs {
+        padding: 24px 0 16px;
+        border-bottom: 2px solid #F8F8F8;
+      }
+
+      .pagination {
+        padding: 0 20px;
+      }
     }
 
     .aside {
@@ -248,4 +290,3 @@ export default {
   }
 }
 </style>
-@/client/services/index

@@ -1,6 +1,6 @@
 <template>
   <div class="consult-list">
-    <nuxt-link class="consult" v-for="article of items" :key="article.id" :to="`/answer/${article.id}`">
+    <nuxt-link class="consult" v-for="article of items" :key="article.id" :to="`/answer/${article.id}`" target="_blank">
       <fe-title class="consult-title" :level="3">{{ article.title }}</fe-title>
       <fe-paragraph class="consult-reply" :ellipsis="2">{{ article.result | text }}</fe-paragraph>
     </nuxt-link>

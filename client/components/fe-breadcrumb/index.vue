@@ -46,6 +46,10 @@ export default {
     &:last-child {
       color: #000;
     }
+
+    a {
+      color: #838383;
+    }
   }
 }
 </style>

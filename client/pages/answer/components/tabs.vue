@@ -1,7 +1,13 @@
 <template>
   <div class="tabs">
     <ul class="tabs-list">
-      <li class="tabs-tab" :class="{ 'tabs-tab--active': activeKey === tab.value }" @click="activeKey = tab.value" v-for="tab of tabs" :key="tab.value">{{ tab.label }}</li>
+      <li
+        class="tabs-tab"
+        :class="{ 'tabs-tab--active': activeKey === tab.value }"
+        @click="$emit('change', tab.value)"
+        v-for="tab of tabs"
+        :key="tab.value"
+      >{{ tab.label }}</li>
     </ul>
   </div>
 </template>
@@ -11,12 +17,14 @@
 export default {
   name: 'AnswerTabs',
   props: {
-    title: String,
+    activeKey: {
+      type: String,
+      default: 'all'
+    },
   },
-  data() {
-    return {
-      activeKey: 'all'
-    }
+  model: {
+    prop: 'activeKey',
+    event: 'change',
   },
   computed: {
     tabs() {
@@ -31,15 +39,15 @@ export default {
         },
         {
           label: '最新回答',
-          value: 'latest'
+          value: 'new'
         },
         {
           label: '最新点赞回答',
-          value: 'latest-like'
+          value: 'like'
         },
         {
           label: '最新分享回答',
-          value: 'latest-share'
+          value: 'share'
         },
       ]
     }

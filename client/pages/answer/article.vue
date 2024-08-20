@@ -19,7 +19,7 @@
           </div>
           <div class="article-body">
             <div class="article-adviser">
-              <nuxt-link class="answer-creater" :to="`/adviser/${articleInfo.userId}`">
+              <nuxt-link class="answer-creater" :to="`/adviser/${articleInfo.userId}`" target="_blank">
                 <fe-image class="article-adviser-avatar" :src="articleInfo.avatar" circle />
               </nuxt-link>
               <div class="article-adviser-body">
@@ -27,7 +27,7 @@
                   <fe-text class="article-adviser-name">{{ articleInfo.nickName }}</fe-text>
                   <fe-space class="article-adviser-tags" :size="8">
                     <fe-text class="article-adviser-title">{{ articleInfo.position }}</fe-text>
-                    <fe-text class="article-adviser-help">帮助{{ articleInfo.helpNumber }}</fe-text>
+                    <fe-text class="article-adviser-help">帮助{{ articleInfo.helpNumber | number }}</fe-text>
                   </fe-space>
                   <fe-space class="article-adviser-meta" :size="30">
                     <fe-space :size="4">
@@ -51,7 +51,7 @@
         </fe-card>
         <fe-card class="relative" title="推荐相关阅读">
           <div class="relative-list">
-            <nuxt-link class="relative-item" v-for="relative of relativeArticleList" :key="relative.id" :to="`/article/${relative.id}`">
+            <nuxt-link class="relative-item" v-for="relative of relativeArticleList" :key="relative.id" :to="`/article/${relative.id}`" target="_blank">
               <fe-image class="relative-cover" :src="relative.coverImg" />
               <div class="relative-body">
                 <fe-title class="relative-title" :level="4">{{ relative.title }}</fe-title>
@@ -79,29 +79,29 @@
       </article>
       <aside class="aside">
         <fe-card class="adviser" title="TA的文章">
-          <nuxt-link slot="extra" class="more-link" to="/">
+          <nuxt-link slot="extra" class="more-link" to="/" target="_blank">
             <span>更多</span>
             <fe-icon icon="plus" />
           </nuxt-link>
           <issue-list :items="articleList">
             <template v-slot="{ item }">
-              <nuxt-link :to="`/article/${item?.id}`">{{ item?.title }}</nuxt-link>
+              <nuxt-link :to="`/article/${item?.id}`" target="_blank">{{ item?.title }}</nuxt-link>
             </template>
           </issue-list>
         </fe-card>
         <fe-card class="hot-issue" title="TA的回答">
-          <nuxt-link slot="extra" class="more-link" to="/answer">
+          <nuxt-link slot="extra" class="more-link" to="/answer" target="_blank">
             <span>更多</span>
             <fe-icon icon="plus" />
           </nuxt-link>
           <issue-list :items="answerList">
             <template v-slot="{ item }">
-              <nuxt-link :to="`/answer/${item?.id}`">{{ item?.title }}</nuxt-link>
+              <nuxt-link :to="`/answer/${item?.id}`" target="_blank">{{ item?.title }}</nuxt-link>
             </template>
           </issue-list>
         </fe-card>
         <fe-card class="hot-issue" title="金牌顾问">
-          <nuxt-link slot="extra" class="more-link" to="/service">
+          <nuxt-link slot="extra" class="more-link" to="/service" target="_blank">
             <span>更多</span>
             <fe-icon icon="plus" />
           </nuxt-link>
@@ -178,10 +178,6 @@ export default {
       answerList: [],
       relativeArticleList: [],
     }
-  },
-
-  mounted() {
-    console.log(this.$data);
   }
 }
 </script>

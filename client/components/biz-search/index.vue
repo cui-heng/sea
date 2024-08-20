@@ -6,7 +6,7 @@
       <div class="ipt_box">
         <el-input v-model="searchText" placeholder="请输入搜索内容"></el-input>
       </div>
-      <div class="search_btn" @click="handleSearch">
+      <div class="search_btn" @click="$emit('search', searchText)">
         <img src="@/assets/newBanner/turn_big.png" alt />
         搜索
       </div>
@@ -16,20 +16,13 @@
 
 <script>
 export default {
+  props: {
+    defaultValue: String
+  },
   data() {
     return {
-      searchText: ""
+      searchText: this.defaultValue
     };
-  },
-  methods: {
-    handleSearch() {
-      this.$router.push({
-        path: '/answer',
-        query: {
-          keyword: this.searchText
-        }
-      })
-    }
   }
 };
 </script>

@@ -1,16 +1,16 @@
 <template>
   <div class="answer-list">
     <div class="answer" v-for="answer of items" :key="answer.id">
-      <nuxt-link class="answer-creater" :to="`/adviser/${answer.userId}`">
+      <nuxt-link class="answer-creater" :to="`/adviser/${answer.userId}`" target="_blank">
         <div class="answer-user">
-          <img class="answer-user-avatar" :src="baseUrlImg + answer.avatar" alt="">
+          <fe-image class="answer-user-avatar" :src="answer.avatar" :alt="answer.nickName" circle />
           <div class="answer-user-info">
             <div class="answer-user-name">{{ answer.nickName }}</div>
             <div class="answer-time">{{ answer.createTime }}</div>
           </div>
         </div>
       </nuxt-link>
-      <nuxt-link class="answer-item" :to="`/answer/${answer.id}`">
+      <nuxt-link class="answer-item" :to="`/answer/${answer.id}`" target="_blank">
         <fe-title class="answer-title" :level="3">{{ answer.title }}</fe-title>
         <div class="answer-reply">{{ answer.result | text }}</div>
       </nuxt-link>
@@ -44,11 +44,9 @@ export default {
     margin-bottom: 20px;
 
     &-avatar {
-      display: block;
       width: 72px;
       height: 72px;
       margin-right: 12px;
-      border-radius: 100%;
     }
 
     &-info {
