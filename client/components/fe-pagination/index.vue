@@ -7,7 +7,7 @@
         'fe-pagination-item--jump': item.type !== 'page',
       }"
       v-for="item of items"
-      :key="item.page"
+      :key="item.page + item.type"
       :title="item.title"
     >
       <slot v-bind="item">
