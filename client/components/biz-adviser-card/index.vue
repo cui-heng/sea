@@ -115,8 +115,9 @@ export default {
   }
 
   &-avatar {
-    width: 142px;
-    height: 100%;
+    width: 132px;
+    height: calc(100% - 10px);
+    margin: 5px;
   }
 }
 </style>

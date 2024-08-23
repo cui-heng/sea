@@ -213,6 +213,7 @@ export default {
       height: 140px;
       border-radius: 12px;
       overflow: hidden;
+      display: none;
 
       img {
         width: 100%;

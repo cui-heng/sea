@@ -247,7 +247,7 @@ export default {
         productName: '',
         remark:  this.isMain? '主力合约': '',
       }).then(res => {
-        this.tableData = res.data
+        this.tableData = res.data.slice(0,2)
       })
       }else{
         getTransactionData({
