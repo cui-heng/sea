@@ -26,8 +26,8 @@
           <div class="reply-list">
             <div class="reply-item" v-for="reply of answerReplyList" :key="reply.id">
               <div class="reply-adviser">
-                <nuxt-link class="flex_sty" :to="'/adviser/'+ answerInfo.userId">
-                  <fe-image :src="answerInfo.avatar" circle />
+                <nuxt-link class="flex_sty" :to="'/adviser/'+ reply.userId">
+                  <fe-image :src="reply.avatar" circle />
                 </nuxt-link>
                 <div class="reply-adviser-info">
                   <fe-space :size="12">
