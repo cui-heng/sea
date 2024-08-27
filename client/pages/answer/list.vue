@@ -11,13 +11,13 @@
               <fe-image class="answer-image" />
               <div class="answer-info">
                 <fe-title class="answer-title" :level="3">{{ answer.title }}</fe-title>
-                <nuxt-link class="answer-creater" :to="`/adviser/${answer.userId}`" target="_blank">
-                  <fe-image :src="answer.avatar" :alt="answer.nickName" />
-                  <fe-text>{{ answer.nickName }}</fe-text>
+                <nuxt-link class="answer-creater" :to="`/adviser/${answer.replyUserId}`" target="_blank">
+                  <fe-image :src="answer.replyUserAvatar" :alt="answer.replyUserName" />
+                  <fe-text>{{ answer.replyUserName }}</fe-text>
                 </nuxt-link>
                 <fe-paragraph class="answer-desc" :ellipsis="2">{{ answer.description }}</fe-paragraph>
                 <div class="answer-meta">
-                  <fe-text class="answer-source">来源：期贷</fe-text>
+                  <fe-text class="answer-source">来源：{{ answer.tag }}</fe-text>
                   <span class="answer-meta-info">
                     <span class="answer-meta-text">
                       <fe-icon icon="comment" />

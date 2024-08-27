@@ -10,7 +10,7 @@
           <div class="answer-content">
             <fe-title class="answer-title">{{ answerInfo.title }}</fe-title>
             <fe-text class="answer-meta">
-              <fe-text>{{ answerInfo.position }}</fe-text>
+              <fe-text>{{ answerInfo.netFriendName }}</fe-text>
               <span class="answer-meta-text">
                 <fe-icon icon="eye" />
                 <fe-text>{{ answerInfo.viewNumber }}次浏览</fe-text>
