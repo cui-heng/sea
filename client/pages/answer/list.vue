@@ -7,7 +7,7 @@
         <section class="section">
           <tabs class="tabs" v-model="searchParams.orderBy" />
           <div class="answer-list">
-            <nuxt-link class="answer-item" v-for="answer of answerData.list" :key="answer.id" :to="`/answer/${answer.id}`" target="_blank">
+            <nuxt-link class="answer-item" v-if="answer.replyUserAvatar" v-for="answer of answerData.list" :key="answer.id" :to="`/answer/${answer.id}`" target="_blank">
               <fe-image class="answer-image" />
               <div class="answer-info">
                 <fe-title class="answer-title" :level="3">{{ answer.title }}</fe-title>
