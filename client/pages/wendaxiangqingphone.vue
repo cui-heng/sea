@@ -92,14 +92,14 @@
       }}万</span>
         </div>
         <div class="box_5 flex-row">
-          <div @click="diaShow = true"  class="image-text_4 flex-row justify-between">
+          <div @click="choosePhone(item)"  class="image-text_4 flex-row justify-between">
             <img class="image_4" referrerpolicy="no-referrer"
               src="https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/8ca4dec2a34e44a4a95a7c50c2d6ec25_mergeImage.png" />
             <span class="text-group_4">电话咨询</span>
           </div>
         </div>
         <div class="box_6 flex-row">
-          <div @click="diaShow = true" class="image-text_5 flex-row justify-between">
+          <div @click="choosePhone(item)" class="image-text_5 flex-row justify-between">
             <img class="thumbnail_5" referrerpolicy="no-referrer"
               src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG95e5c14581117ddb18691a993bf92982.png" />
             <span class="text-group_5">微信咨询</span>
@@ -197,11 +197,11 @@
           </div>
         </div>
         <div class="right_btn">
-          <div class="image-wrapper_3 flex-col" @click="diaShow = true">
+          <div class="image-wrapper_3 flex-col" @click="choosePhone(item)">
             <img class="label_9" referrerpolicy="no-referrer"
               src="@/pages/lanhu_qihuobaozhengjin/assets/img/FigmaDDSSlicePNG854cf5844a8ddcd486c61b1cf69fb52c.png" />
           </div>
-          <div class="image-wrapper_4 flex-col" @click="diaShow = true">
+          <div class="image-wrapper_4 flex-col" @click="choosePhone(item)">
             <img class="label_10" referrerpolicy="no-referrer"
               src="@/pages/lanhu_qihuobaozhengjin/assets/img/FigmaDDSSlicePNG7235843c577a660f1e6f88cc5aa9a3f6.png" />
           </div>
@@ -260,14 +260,14 @@
       <p class="font_fot"><img style="margin-left: 10px;transform: translateY(5px);" src="@/assets/gn.jpg" alt=""><span style="display: inline-block;margin: 0 10px">京公网安备11011402054225号 </span>京ICP备2024075475号-1<span style="margin-left: 40%;" @click="diaDis=true">免责声明</span></p>
         
     </div>
-    <Dialog :dialogVisible1="diaShow" @closeDia="closeDia()"></Dialog>
+    <Dialog :contactInformation="currentInfo" :dialogVisible1="diaShow" @closeDia="closeDia()"></Dialog>
     <Disclaimer :dialogVisible1="diaDis" @closeDia="closeDis"/>
   </div>
 </template>
 
 <script>
 import { getAnswerInfo, getRecommendUser, getHotAnswer, getOtherTypeAnswer, getUsers } from '@/services/index'
-import Dialog from '@/components/Dialog/index.vue'
+import Dialog from '@/components/Dialog/personalDia.vue'
 import Disclaimer from '@/components/ConSay/index.vue'
 export default {
 
@@ -307,7 +307,12 @@ export default {
       },
       currentPage: 1,
       count: 0,
-      total: 0
+      total: 0,
+      currentInfo: {
+        wxQrCode: '',
+        phonenumber: '',
+        nickName: ''
+      }
     }
   },
   mounted() {
@@ -321,6 +326,13 @@ export default {
     this.getArtList()
   },
   methods: {
+    choosePhone(item) {
+      this.currentInfo.wxQrCode = item.wxQrCode
+      this.currentInfo.phonenumber = item.phonenumber || item.phoneNumber
+      this.currentInfo.nickName = item.nickName
+      this.diaShow = true
+      console.log(item)
+    },
     closeDis() {
       this.diaDis = false
     },
@@ -2659,6 +2671,8 @@ html {
 }
 .answer_detail {
   background: #F6F6F6;
+  width: 100vw;
+  overflow: hidden;
 }
 .group_5 {
   border-radius: 6px;
@@ -2701,10 +2715,12 @@ html {
       font-size: .53rem;
       color: #242629;
       margin: 0;
+      margin-bottom: 10px;
     }
     p {
       margin: 0;
       margin-bottom: 10px;
+      display: flex;
       span {
         display: inline-block;
         border-radius: 3px;
@@ -2721,6 +2737,7 @@ html {
       font-family: PingFang SC, PingFang SC;
       font-weight: 500;
       font-size: .48rem;
+      display: flex;
       color: #7A7A7A;
       img {
         margin-right: 5px;

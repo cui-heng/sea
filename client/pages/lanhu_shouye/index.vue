@@ -205,7 +205,7 @@ export default {
   mounted() {
     this.getArtList()
     this.getProfileInfo()
-    this.GetCateList()
+    // this.GetCateList()
   },
   methods: {
     closeDis() {

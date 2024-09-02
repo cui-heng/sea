@@ -35,19 +35,13 @@
       <!-- <div class="text-wrapper_3 flex-col"><span class="text_6">请输入账号</span></div> -->
       <div style="width: 100%;height: 30px"></div>
       <span class="text_7">密码：</span>
-      <!-- <el-tooltip v-model="capsTooltip" content="Caps lock is On" placement="right" manual> -->
-            <!-- <el-form-item prop="password"> -->
-              <!-- <span class="svg-container">
-                <svg-icon icon-class="password" />
-              </span> -->
+      
               <el-input :key="passwordType" ref="password" v-model="loginForm.password" :type="passwordType"
                 placeholder="Password" name="password" tabindex="2" autocomplete="on" @keyup.native="checkCapslock"
                 @blur="capsTooltip = false" @keyup.enter.native="handleLogin" style="width: 70%;margin-right: 12px;"/>
               <span class="show-pwd" @click="showPwd">
                 <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
               </span>
-            <!-- </el-form-item> -->
-          <!-- </el-tooltip> -->
           </el-form>
       <!-- <div class="text-wrapper_4 flex-col"><span class="text_8">请输入密码</span></div> -->
       <div class="block_5 flex-row">

@@ -18,10 +18,10 @@
             src="./assets/img/FigmaDDSSlicePNGa248b93bac5dd25c5ba4e2eff60f7753.png" />
         </div>
         <div class="group_2 flex-col">
-          <div class="image-wrapper_2 flex-col">
+          <!-- <div class="image-wrapper_2 flex-col">
             <img @click="$router.push('/lanhu_denglux2fzhucePhone')" class="label_4" referrerpolicy="no-referrer"
               src="./assets/img/FigmaDDSSlicePNGc91b60cc0d136034d7e1cde253d50a91.png" />
-          </div>
+          </div> -->
         </div>
         <img class="label_5" referrerpolicy="no-referrer" @click="drawer = true"
           src="./assets/img/FigmaDDSSlicePNG85213edb0f33d45b7ecd052df3ec843a.png" />
@@ -138,11 +138,11 @@
               <div class="text-wrapper_6 flex-col"><span class="text_21">帮助{{ item.helpNumber
                   }}</span></div>
               <div class="image-wrapper_3 flex-col">
-                <img @click="diaShow = true" class="label_9" referrerpolicy="no-referrer"
+                <img @click="choosePhone(item)" class="label_9" referrerpolicy="no-referrer"
                   src="./assets/img/FigmaDDSSlicePNG854cf5844a8ddcd486c61b1cf69fb52c.png" />
               </div>
               <div class="image-wrapper_4 flex-col">
-                <img @click="diaShow = true" class="label_10" referrerpolicy="no-referrer"
+                <img @click="choosePhone(item)" class="label_10" referrerpolicy="no-referrer"
                   src="./assets/img/FigmaDDSSlicePNG7235843c577a660f1e6f88cc5aa9a3f6.png" />
               </div>
             </div>
@@ -228,10 +228,12 @@
             <div class="group_17 flex-col last_cir"></div>
           </div>
           <div class="text-wrapper_24 flex-col">
-            <div class="te_item" v-for="item in dataList3.slice(0,6)">
+            <div class="te_item" :class="index == 2? 'thired_sty': ''" v-for="(item, index) in dataList3.slice(0,6)">
               <span class="text_50" @click="toAanterDetail(item.id)">{{ item.title }}</span>
-              <span class="text_51" v-html="item.result.slice(0, 20)">
-              </span>
+              <span class="text_51" v-html="item.result.replace(/&nbsp;/ig, '').slice(0, 36)"></span>
+              <!-- <span class="text_51" >
+                {{ () }}
+              </span> -->
             </div>
 
           </div>
@@ -248,14 +250,14 @@
       <div class="group_18 flex-col"></div>
       <p class="font_fot"><img style="margin-left: 10px;transform: translateY(5px);" src="@/assets/gn.jpg" alt=""><span style="display: inline-block;margin: 0 10px">京公网安备11011402054225号 </span>京ICP备2024075475号-1<br/><span style="margin-left: 40%;" @click="diaDis=true">免责声明</span></p>
     </div>
-    <Dialog :dialogVisible1="diaShow" @closeDia="closeDia()"></Dialog>
+    <Dialog :contactInformation="currentInfo" :dialogVisible1="diaShow" @closeDia="closeDia()"></Dialog>
     <Disclaimer :dialogVisible1="diaDis" @closeDia="closeDis"/>
   </div>
 </template>
 
 <script>
 import { getRecommendUser, getUsers, getLatestAnswer, getLasterAnswerII } from '@/services/index'
-import Dialog from '@/components/Dialog/index.vue'
+import Dialog from '@/components/Dialog/personalDia.vue'
 import Disclaimer from '@/components/ConSay/index.vue'
 
 export default {
@@ -284,7 +286,12 @@ export default {
       dataList: [],
       dataList1: [],
       dataList2: [],
-      dataList3: []
+      dataList3: [],
+      currentInfo: {
+        wxQrCode: '',
+        phonenumber: '',
+        nickName: ''
+      }
     }
   },
   mounted() {
@@ -307,6 +314,13 @@ export default {
     },
     closeDia() {
       this.diaShow = false
+    },
+    choosePhone(item) {
+      console.log(item)
+      this.currentInfo.wxQrCode = item.wxQrCode
+      this.currentInfo.phonenumber = item.phonenumber || item.phoneNumber
+      this.currentInfo.nickName = item.nickName
+      this.diaShow = true
     },
     toAanterDetail(id) {
       this.$router.push('wendaxiangqingphone/'+id)
@@ -506,6 +520,13 @@ export default {
 }
 .box_14 {
   margin-top: 50px;
+  height: auto !important;
+  .group_10 {
+    height: auto !important;
+    .block_7 {
+      height: auto !important;
+    }
+  }
 }
 .colo_le_nick {
   border-radius: 50%;
@@ -516,9 +537,6 @@ export default {
 .box_21 {
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
   margin: 0.4rem 0 0 0.587rem;
-  .text-wrapper_23 {
-    transform: translateY(-17px);
-  }
   .group_14 {
     margin-top: .534rem;
   }
@@ -526,7 +544,10 @@ export default {
 }
 ::v-deep .text_51 {
     p { 
-      text-align: left
+      text-align: left;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
   }
   ::v-deep .te_item {
@@ -625,6 +646,23 @@ export default {
   .font_fot {
     font-size: 12px;
     color: #fff;
+  }
+  .text-group_5 a {
+    color: #fff !important;
+  }
+  .text_37 {
+    margin-top: -6px !important;
+  }
+  .thired_sty {
+    margin-top: -10px;
+    margin-bottom: 0px;
+  }
+
+  .text-wrapper_24 {
+    .te_item:nth-child(5){
+      margin-top: -8px;
+      margin-bottom: -8px;
+    }
   }
 
 </style>@/client/services/index

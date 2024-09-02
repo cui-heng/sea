@@ -347,7 +347,7 @@ export default {
       width: 3.427rem;
     }
     .text-group_2 {
-      width: 2.167rem;
+      // width: 2.167rem;
     }
     .border_bo {
       border-bottom: 1px dashed #E0E0E0;

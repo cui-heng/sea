@@ -5,6 +5,7 @@
  * @returns 
  */
 export function formatNumberWithSeparator(numbers, separator = ' ') {
+  console.log(numbers)
   const result = [];
   const reverseArr = numbers.split('').reverse();
 

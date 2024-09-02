@@ -250,9 +250,6 @@
               <div class="text-wrapper_17 flex-col">
                 <span class="text_41">响应及时</span>
               </div>
-              <div class="text-wrapper_18 flex-col">
-                <span class="text_42">经验丰富</span>
-              </div>
             </div>
           </div>
           <div class="group_10 flex-row justify-between">
@@ -649,7 +646,6 @@ html {
 }
 
 .text_5 {
-  width: 2.774rem;
   height: 0.694rem;
   overflow-wrap: break-word;
   color: rgba(255, 255, 255, 1);
@@ -2078,6 +2074,7 @@ html {
   width: 3.307rem;
   height: 0.96rem;
   margin: 1.254rem 0 0 -0.054rem;
+  margin-right: 20px;
 }
 
 .image-text_26 {
