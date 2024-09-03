@@ -13,11 +13,11 @@
 
       <div class="section_1 flex-row justify-between">
         <div class="box_1 flex-col">
-          <div class="image-wrapper_1 flex-col">
+          <!-- <div class="image-wrapper_1 flex-col">
             <img class="label_4 cl_big" style="width: 17px;height: 17px" referrerpolicy="no-referrer"
               src="./assets/img/FigmaDDSSlicePNGc91b60cc0d136034d7e1cde253d50a91.png" 
               @click="$router.push('/lanhu_denglux2fzhucePhone')"/>
-          </div>
+          </div> -->
         </div>
         <img class="label_5" referrerpolicy="no-referrer" @click="drawer = true"
           src="./assets/img/FigmaDDSSlicePNG85213edb0f33d45b7ecd052df3ec843a.png" />

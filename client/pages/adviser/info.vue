@@ -88,7 +88,7 @@ export default {
         }
       }),
     ]);
-
+      console.log(answerData.list)
     return {
       adviserInfo,
       answerList: answerData.list,

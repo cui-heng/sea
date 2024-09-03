@@ -18,10 +18,6 @@
             src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNGa248b93bac5dd25c5ba4e2eff60f7753.png" />
         </div>
         <div class="group_4 flex-col">
-          <div class="image-wrapper_2 flex-col">
-            <img class="label_4" referrerpolicy="no-referrer"
-              src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNGc91b60cc0d136034d7e1cde253d50a91.png" />
-          </div>
         </div>
         <img class="label_5"  @click="drawer = true" referrerpolicy="no-referrer"
           src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG85213edb0f33d45b7ecd052df3ec843a.png" />
@@ -357,6 +353,7 @@ export default {
       // eslint-disable-next-line no-console
       console.log(this.artList)
       const res = await getOtherTypeAnswer()
+      console.log(res.data, 'res.data,-----')
       this.artList1 = res.data
       const res1 = await getRecommendUser()
       this.qhguwt = res1.data

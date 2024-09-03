@@ -24,14 +24,14 @@
           />
         </div>
         <div class="box_1 flex-col">
-          <div class="image-wrapper_2 flex-col">
+          <!-- <div class="image-wrapper_2 flex-col">
             <img
               class="label_4"
               referrerpolicy="no-referrer"
               src="./assets/img/FigmaDDSSlicePNGc91b60cc0d136034d7e1cde253d50a91.png"
               @click="$router.push('/lanhu_denglux2fzhucePhone')"
             />
-          </div>
+          </div> -->
         </div>
         <img @click="drawer = true"
           class="label_5"
@@ -344,7 +344,7 @@ export default {
       overflow: hidden;
     }
     .image-text_2 {
-      width: 3.427rem;
+      width: 5.927rem;
     }
     .text-group_2 {
       // width: 2.167rem;

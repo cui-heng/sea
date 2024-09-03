@@ -1,7 +1,7 @@
 <template>
   <div class="qh_box">
-    <el-drawer :visible.sync="drawer" :direction="direction" :before-close="handleClose">
-      <el-menu :default-active="activeIndex" :router="true" class="el-menu-vertical-demo">
+    <el-drawer :visible.sync="drawer" >
+      <el-menu  :router="true" class="el-menu-vertical-demo">
         <el-menu-item index="/lanhu_shouye">首页</el-menu-item>
         <el-menu-item index="/lanhu_youwenbida">有问必答</el-menu-item>
         <el-menu-item index="/aboutPhone">期货手续费</el-menu-item>
@@ -24,14 +24,6 @@
           />
         </div>
         <div class="box_1 flex-col">
-          <div class="image-wrapper_2 flex-col">
-            <img
-              class="label_4"
-              referrerpolicy="no-referrer"
-              src="./lanhu_youwenbida/assets/img/FigmaDDSSlicePNGc91b60cc0d136034d7e1cde253d50a91.png"
-              @click="$router.push('/lanhu_denglux2fzhucePhone')"
-            />
-          </div>
         </div>
         <img
           @click="showRight"

@@ -24,14 +24,14 @@
           />
         </div>
         <div class="box_1 flex-col">
-          <div class="image-wrapper_2 flex-col">
+          <!-- <div class="image-wrapper_2 flex-col">
             <img
               @click="$router.push('/lanhu_denglux2fzhucePhone')"
               class="label_4 per_img_sty"
               referrerpolicy="no-referrer"
               src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNGc91b60cc0d136034d7e1cde253d50a91.png"
             />
-          </div>
+          </div> -->
         </div>
         <img
         @click="drawer = true"
@@ -67,7 +67,7 @@
             <img
               class="image_3"
               referrerpolicy="no-referrer"
-              src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNGdfa1386d28f53843d95972c52d3161ba.png"
+              :src="baseUrlImg + dataList.avatar"
             />
             <div class="text-group_2 flex-row justify-between">
               <span class="text_5">{{ dataList.nickName }}</span>
@@ -134,17 +134,17 @@
         <div class="section_9 flex-col"></div>
       </div>
       <div v-for="item in artList" class="item_box">
-      <nuxt-link class="text_18" :to="`/wendaxiangqingphone/` + item.id">{{ item.title }}</nuxt-link>
+      <nuxt-link class="text_18" :to="`/wendaxiangqingphone/` + item.replyUserId">{{ item.title }}</nuxt-link>
       <div class="section_10 flex-row justify-between">
         <img
           class="image_4"
           referrerpolicy="no-referrer"
-          :src="baseUrlImg+item.avatar"
+          :src="baseUrlImg+item.replyUserAvatar"
         />
         <div class="box_7 flex-col justify-between">
           <div class="group_4 flex-row justify-between">
             <div class="image-text_7 flex-row justify-between">
-              <span class="text-group_9">{{ item.nickName }}</span>
+              <span class="text-group_9">{{ item.replyUserName }}</span>
               <div class="section_11 flex-col"></div>
             </div>
             <img
@@ -208,7 +208,7 @@
               <img
                 class="image_8"
                 referrerpolicy="no-referrer"
-                src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNGdfa1386d28f53843d95972c52d3161ba.png"
+                :src="baseUrlImg + dataList.avatar"
               />
               <div class="section_27 flex-col justify-between">
                 <span class="text-group_25">{{ dataList.nickName }}</span>
@@ -655,6 +655,7 @@ html {
   text-align: center;
   white-space: nowrap;
   line-height: 0.694rem;
+  margin-right: 10px;
 }
 
 .text_6 {
