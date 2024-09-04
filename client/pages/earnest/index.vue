@@ -53,7 +53,7 @@ line-height: 16px;padding-right: 30px;cursor: pointer;" v-for="item1 in item.ite
             </div>
             <div style="margin-top: 14px;">
               <el-button type="primary" size="small" @click="showZhuli">{{ isMain? '显示全部': '只显示主力合约' }}</el-button>
-              <el-button class="down_btn" type="primary" size="small" @click="dlowData">下载保证金Excel表格</el-button>
+              <!-- <el-button class="down_btn" type="primary" size="small" @click="dlowData">下载保证金Excel表格</el-button> -->
               <span style="font-size: 14px;
 font-family: PingFang SC-Medium, PingFang SC;
 font-weight: 500;

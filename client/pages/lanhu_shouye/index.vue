@@ -86,7 +86,7 @@
           <div class="image-text_13 flex-col justify-between">
             <div @click="$router.push(`/lanhu_shouyezixun/` + item.id + '/' + item.userId)" class="group_20 flex-col" :style="{ backgroundImage: 'url(' + baseUrlImg + item.coverImg + ')' }">
               <div class="block_2 flex-row justify-between">
-                <span class="text_22">作者：{{ item.nickName }}1</span>
+                <span class="text_22">作者：{{ item.nickName }}</span>
                 <div class="image-text_14 flex-row justify-between">
                   <img class="thumbnail_6" referrerpolicy="no-referrer"
                     src="./assets/img/FigmaDDSSlicePNG2565f79b9fead05d415e9e5ee0dcadf3.png" />

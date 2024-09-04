@@ -103,7 +103,7 @@
                 referrerpolicy="no-referrer"
                 src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG9bd40b3d845709e9404ff86613d12d87.png"
               />
-              <span class="text-group_6" @click="diaShow = true">微信</span>
+              <span class="text-group_6" @click="choosePhone(dataList)">微信</span>
             </div>
           </div>
         </div>
@@ -122,7 +122,7 @@
                 referrerpolicy="no-referrer"
                 src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNGd29b96d9f62ec237c29dd706fbcd56eb.png"
               />
-              <span class="text-group_8" @click="diaShow = true">电话</span>
+              <span class="text-group_8" @click="choosePhone(dataList)">电话</span>
             </div>
           </div>
         </div>
@@ -260,7 +260,7 @@
                   referrerpolicy="no-referrer"
                   src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG79dd58795a0b538ba2563bab95c3e96c.png"
                 />
-                <span class="text-group_28" @click="diaShow = true">电话</span>
+                <span class="text-group_28" @click="choosePhone(dataList)">电话</span>
               </div>
             </div>
             <div class="section_29 flex-row">
@@ -270,7 +270,7 @@
                   referrerpolicy="no-referrer"
                   src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG95e5c14581117ddb18691a993bf92982.png"
                 />
-                <span class="text-group_29" @click="diaShow = true">微信</span>
+                <span class="text-group_29" @click="choosePhone(dataList)">微信</span>
               </div>
             </div>
           </div>
@@ -287,14 +287,14 @@
     </div>
       </div>
     </div>
-    <Dialog :dialogVisible1="diaShow" @closeDia="closeDia()"></Dialog>
+    <Dialog :contactInformation="currentInfo" :dialogVisible1="diaShow" @closeDia="closeDia()"></Dialog>
     <Disclaimer :dialogVisible1="diaDis" @closeDia="closeDis"/>
   </div>
 </template>
 
 <script>
 import { getUserInfo,getAnswer, } from '@/services/index'
-import Dialog from '@/components/Dialog/index.vue'
+import Dialog from '@/components/Dialog/personalDia.vue'
 import Disclaimer from '@/components/ConSay/index.vue'
 export default {
 
@@ -319,6 +319,8 @@ export default {
       dataList2: [],
       dataList3: [],
       constants: {},
+
+      currentInfo: {},
       loopData0: [
         {
           lanhuimage0:
@@ -352,6 +354,13 @@ export default {
     scrollview.removeEventListener('scroll', this.scrollChange, true)
   },
   methods: {
+    choosePhone(item) {
+      this.currentInfo.wxQrCode = item.wxQrCode
+      this.currentInfo.phonenumber = item.phonenumber || item.phoneNumber
+      this.currentInfo.nickName = item.nickName
+      this.diaShow = true
+      console.log(item)
+    },
     closeDis() {
       this.diaDis = false
     },
@@ -1969,6 +1978,7 @@ html {
 }
 
 .block_5 {
+  z-index: 9;
   background-color: rgba(6, 63, 116, 0.5);
   height: 6.32rem;
   width: 20rem;

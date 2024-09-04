@@ -51,14 +51,14 @@
             <div class="image-text_1 flex-row justify-between">
               <img class="thumbnail_3" referrerpolicy="no-referrer"
                 src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG60e4fb5985e853c498d48dc833114e70.png" />
-              <span class="text-group_1"> <nuxt-link to="/wlhd">我来回答</nuxt-link></span>
+              <span class="text-group_1" @click="diaShow1 = true"> 我来回答</span>
             </div>
           </div>
           <div class="group_6 flex-row">
             <div class="image-text_2 flex-row justify-between">
               <img class="thumbnail_4" referrerpolicy="no-referrer"
                 src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG7f1fda1bd9617e23a5d1598d93cedd60.png" />
-              <span class="text-group_2"><nuxt-link to="/lanhu_denglux2fzhucePhone">入驻注册</nuxt-link></span>
+              <span class="text-group_2" @click="diaShow1 = true">入驻注册</span>
             </div>
           </div>
         </div>
@@ -257,6 +257,7 @@
         
     </div>
     <Dialog :contactInformation="currentInfo" :dialogVisible1="diaShow" @closeDia="closeDia()"></Dialog>
+    <Dialog1 :dialogVisible1="diaShow1" @closeDia="closeDia1()"></Dialog1>
     <Disclaimer :dialogVisible1="diaDis" @closeDia="closeDis"/>
   </div>
 </template>
@@ -264,18 +265,21 @@
 <script>
 import { getAnswerInfo, getRecommendUser, getHotAnswer, getOtherTypeAnswer, getUsers } from '@/services/index'
 import Dialog from '@/components/Dialog/personalDia.vue'
+import Dialog1 from '@/components/Dialog/index.vue'
 import Disclaimer from '@/components/ConSay/index.vue'
 export default {
 
   name: 'Index',
   components: {
     Dialog,
+    Dialog1,
     Disclaimer
   },
   data() {
     return {
       diaDis: false,
       diaShow: false,
+      diaShow1: false,
       drawer:false,
       dataList1: [],
       topDataTo: {},
@@ -334,6 +338,9 @@ export default {
     },
     closeDia() {
       this.diaShow = false
+    },
+    closeDia1() {
+      this.diaShow1 = false
     },
     handleCurrentChange: function (currentPage) {
       this.queryParam.pagenum = currentPage
