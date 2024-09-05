@@ -45,7 +45,10 @@
                 </fe-space>
               </div>
               <div class="reply-body">
-                <fe-paragraph class="reply-content" v-html="reply.result"></fe-paragraph>
+                <!-- <fe-paragraph class="reply-content" v-html="reply.result"></fe-paragraph> -->
+                <div class="reply-content">
+                  <div v-html="reply.result"></div>
+                </div>
                 <div class="reply-toolbar">
                   <div class="reply-toolbar-group">
                     <div class="reply-toolbar-action">
