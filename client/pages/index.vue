@@ -12,7 +12,7 @@
               <img v-if="index == 2" class="swip_big_img" src="@/assets/newBanner/thired.png">
               <div class="mark_swiper"></div>
               <div class="swiper_tit">
-                <nuxt-link :to="`/article/${item.id}`">
+                <nuxt-link :to="`/article/${item.id}/${item.userId}`">
                   {{ item.title }}
                 </nuxt-link>
               </div>
@@ -21,7 +21,7 @@
         </div>
         <div class="article-wrapper">
           <div class="article-list">
-            <nuxt-link class="article-item" v-for="item in articleData.list" :key="item.id" :to="`/article/${item.id}`" target="_blank">
+            <nuxt-link class="article-item" v-for="item in articleData.list" :key="item.id" :to="`/article/${item.id}/${item.userId}`" target="_blank">
               <fe-image class="article-item-cover" :src="item.coverImg" />
               <div class="article-item-body">
                 <fe-title class="article-item-name" :level="2">{{ item.title }}</fe-title>

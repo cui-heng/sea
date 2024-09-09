@@ -51,7 +51,7 @@
         </fe-card>
         <fe-card class="relative" title="推荐相关阅读">
           <div class="relative-list">
-            <nuxt-link class="relative-item" v-for="relative of relativeArticleList" :key="relative.id" :to="`/article/${relative.id}`" target="_blank">
+            <nuxt-link class="relative-item" v-for="relative of relativeArticleList" :key="relative.id" :to="`/article/${relative.id}/${relative.userId}`" target="_blank">
               <fe-image class="relative-cover" :src="relative.coverImg" />
               <div class="relative-body">
                 <fe-title class="relative-title" :level="4">{{ relative.title }}</fe-title>
@@ -85,7 +85,7 @@
           </nuxt-link>
           <issue-list :items="articleList">
             <template v-slot="{ item }">
-              <nuxt-link :to="`/article/${item?.id}`" target="_blank">{{ item?.title }}</nuxt-link>
+              <nuxt-link :to="`/article/${item?.id}/${item?.userId}`" target="_blank">{{ item?.title }}</nuxt-link>
             </template>
           </issue-list>
         </fe-card>

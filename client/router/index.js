@@ -104,7 +104,7 @@ const routes = [
     component: answerInfo,
   },
   {
-    path: '/article/:id',
+    path: '/article/:id/:userId',
     component: answerArticle
   },
   {
