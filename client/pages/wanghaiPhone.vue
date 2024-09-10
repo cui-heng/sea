@@ -402,20 +402,20 @@ html {
 .page {
   background-color: rgba(246, 246, 246, 1);
   position: relative;
-  width: 20rem;
+  width: 100vw;
   height: 88.454rem;
   overflow: hidden;
 }
 
 .section_1 {
   background-color: rgba(255, 255, 255, 1);
-  width: 20rem;
+  width: 100vw;
   height: 4.694rem;
 }
 
 .block_1 {
   background-color: rgba(1, 2, 7, 1);
-  width: 20rem;
+  width: 100vw;
   height: 2.347rem;
 }
 
@@ -474,13 +474,13 @@ html {
 }
 
 .section_2 {
-  width: 20rem;
+  width: 100vw;
   height: 5.76rem;
 }
 
 .block_2 {
   background-color: rgba(2, 54, 101, 1);
-  width: 20rem;
+  width: 100vw;
   height: 2.667rem;
   justify-content: flex-center;
 }
@@ -601,7 +601,7 @@ html {
 
 .block_4 {
   background-color: rgba(224, 224, 224, 1);
-  width: 20rem;
+  width: 100vw;
   height: 0.027rem;
   margin: 0.934rem 0 0.72rem 0;
 }
@@ -609,7 +609,7 @@ html {
 .section_3 {
   background-color: rgba(255, 255, 255, 1);
   border-radius: 8px;
-  width: 18.827rem;
+  width: 100vw;
   height: 27.84rem;
   margin: -0.027rem 0 0 0.587rem;
 }
@@ -1033,7 +1033,7 @@ html {
 .section_7 {
   background-color: rgba(255, 255, 255, 1);
   border-radius: 8px;
-  width: 18.827rem;
+  width: 100vw;
   height: auto;
   margin: 0.8rem 0 0 0.587rem;
 }
@@ -1056,7 +1056,7 @@ html {
   background-color: rgba(224, 224, 224, 1);
   height: 0.027rem;
   margin-top: 0.587rem;
-  width: 18.827rem;
+  width: 100vw;
 }
 
 .section_9 {
@@ -1287,7 +1287,7 @@ html {
 }
 
 .section_13 {
-  width: 18.827rem;
+  width: 100vw;
   height: 0.027rem;
   border: 1px dashed rgba(224, 224, 224, 1);
   margin-top: 0.907rem;
@@ -1505,7 +1505,7 @@ html {
 }
 
 .section_16 {
-  width: 18.827rem;
+  width: 100vw;
   height: 0.027rem;
   border: 1px solid rgba(224, 224, 224, 1);
   margin-top: 0.907rem;
@@ -1745,7 +1745,7 @@ html {
 }
 
 .section_22 {
-  width: 18.827rem;
+  width: 100vw;
   height: 0.027rem;
   border: 1px solid rgba(224, 224, 224, 1);
   margin-top: 0.907rem;
@@ -1963,7 +1963,7 @@ html {
 }
 
 .section_25 {
-  width: 20rem;
+  width: 100vw;
   height: 13.68rem;
   margin-bottom: 0.027rem;
 }
@@ -1974,14 +1974,14 @@ html {
     100% no-repeat;
   background-size: 100% 100%;
   margin-top: 0.8rem;
-  width: 20rem;
+  width: 100vw;
 }
 
 .block_5 {
   z-index: 9;
   background-color: rgba(6, 63, 116, 0.5);
   height: 6.32rem;
-  width: 20rem;
+  width: 100vw;
   background-image: url('../assets/img/1212.png');
   background-size: 100%;
   position: fixed;
@@ -1989,7 +1989,7 @@ html {
 }
 
 .group_9 {
-  width: 18.827rem;
+  width: 100vw;
   height: 2.347rem;
   margin: 1.014rem 0 0 0.587rem;
 }
@@ -2269,7 +2269,7 @@ html {
 
 .section_30 {
   background-color: rgba(61, 60, 68, 1);
-  width: 20rem;
+  width: 100vw;
   height: 7.534rem;
   margin-bottom: 0.027rem;
   justify-content: flex-center;
@@ -2309,7 +2309,7 @@ html {
 
 .group_11 {
   background-color: rgba(110, 110, 124, 1);
-  width: 20rem;
+  width: 100vw;
   height: 0.027rem;
   margin-top: 0.267rem;
 }
@@ -2395,7 +2395,7 @@ html {
   }
   .section_40 {
   background-color: rgba(61, 60, 68, 1);
-  width: 20rem;
+  width: 100vw;
   height: 7.534rem;
   justify-content: flex-center;
   margin-bottom: 200px;
@@ -2429,7 +2429,7 @@ html {
 }
 .group_28 {
     background-color: rgba(110, 110, 124, 1);
-    width: 20rem;
+    width: 100vw;
     height: 0.027rem;
     margin-top: 0.267rem;
 }

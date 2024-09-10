@@ -8,8 +8,14 @@ export default function (context) {
   let routerStr = context.route.path.match(/[a-zA-Z_/]+/g)[0]
   if (context.isMobile) {
     const enumRouter = {
-      '/': '/lanhu_shouye',
-      '/article/': `/lanhu_shouyezixun/${queryArr}/${queryArr1}`
+      '/': '/lanhu_shouye', //首页
+      '/article/': `/lanhu_shouyezixun/${queryArr}/${queryArr1}`, //文章
+      '/answer': '/lanhu_youwenbida', //百问百答
+      '/service': '/lanhu_qihuobaozhengjin', //一对一
+      '/commission': '/aboutPhone', //手续费
+      '/earnest': '/aboutPhoneMargin', //保证金
+      '/adviser/':`/lanhu_wanghaijingli/${queryArr}`,//个人顾问首页
+      '/answer/':`/wendaxiangqingphone/${queryArr}`,//回答详情
     }
     if (enumRouter[routerStr] && context.$isMobile) {
       // context.redirect(enumRouter[context.route.path]);

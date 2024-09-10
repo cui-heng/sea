@@ -5,20 +5,20 @@ html {
 .page {
   background-color: rgba(246, 246, 246, 1);
   position: relative;
-  width: 20rem;
+  width: 100vw;
   height: 110.614rem;
   overflow: hidden;
 }
 
 .box_1 {
   background-color: rgba(255, 255, 255, 1);
-  width: 20rem;
+  width: 100vw;
   height: 4.694rem;
 }
 
 .box_2 {
   background-color: rgba(1, 2, 7, 1);
-  width: 20rem;
+  width: 100vw;
   height: 2.347rem;
 }
 
@@ -77,13 +77,13 @@ html {
 }
 
 .box_3 {
-  width: 20rem;
+  width: 100vw;
   height: 5.76rem;
 }
 
 .group_1 {
   background-color: rgba(2, 54, 101, 1);
-  width: 20rem;
+  width: 100vw;
   height: 2.667rem;
   justify-content: flex-center;
 }
@@ -184,13 +184,13 @@ html {
 
 .group_4 {
   background-color: rgba(224, 224, 224, 1);
-  width: 20rem;
+  width: 100vw;
   height: 0.027rem;
   margin: 0.934rem 0 0.72rem 0;
 }
 
 .box_4 {
-  width: 18.827rem;
+  width: 100vw;
   height: 47.494rem;
   background: url(./img/FigmaDDSSlicePNGf9057d849247aa0145ddaa60c772dd72.png)
     100% no-repeat;
@@ -1692,7 +1692,7 @@ html {
   background-color: rgba(255, 255, 255, 1);
   border-radius: 8px;
   position: relative;
-  width: 18.827rem;
+  width: 100vw;
   height: 23.094rem;
   margin: 0.8rem 0 0 0.587rem;
 }
@@ -1745,7 +1745,7 @@ html {
   background-color: rgba(224, 224, 224, 1);
   height: 0.027rem;
   margin-top: 0.64rem;
-  width: 18.827rem;
+  width: 100vw;
 }
 
 .section_18 {
@@ -1761,7 +1761,7 @@ html {
 
 .group_10 {
   width: 16.934rem;
-  height: 18.827rem;
+  height: 100vw;
   margin: 0.854rem 0 1.04rem 1.36rem;
 }
 
@@ -1774,7 +1774,7 @@ html {
 
 .block_7 {
   width: 15.814rem;
-  height: 18.827rem;
+  height: 100vw;
 }
 
 .box_15 {
@@ -2229,7 +2229,7 @@ background-size: 100% 100%;
 .box_21 {
   background-color: rgba(255, 255, 255, 1);
   border-radius: 8px;
-  width: 18.827rem;
+  width: 100vw;
   height: 20.667rem;
   margin: 0.8rem 0 0 0.587rem;
 }
@@ -2279,7 +2279,7 @@ background-size: 100% 100%;
   background-color: rgba(224, 224, 224, 1);
   height: 0.027rem;
   margin-top: 0.267rem;
-  width: 18.827rem;
+  width: 100vw;
 }
 
 .block_15 {
@@ -2541,7 +2541,7 @@ background-size: 100% 100%;
 
 .box_29 {
   background-color: rgba(61, 60, 68, 1);
-  width: 20rem;
+  width: 100vw;
   height: 7.534rem;
   margin-top: 0.8rem;
   justify-content: flex-center;
@@ -2581,7 +2581,7 @@ background-size: 100% 100%;
 
 .group_18 {
   background-color: rgba(110, 110, 124, 1);
-  width: 20rem;
+  width: 100vw;
   height: 0.027rem;
   margin-top: 0.267rem;
 }

@@ -5,20 +5,20 @@ html {
 .page {
   background-color: rgba(246, 246, 246, 1);
   position: relative;
-  width: 20rem;
+  width: 100vw;
   height: 43.307rem;
   overflow: hidden;
 }
 
 .block_1 {
   background-color: rgba(255, 255, 255, 1);
-  width: 20rem;
+  width: 100vw;
   height: 4.694rem;
 }
 
 .group_1 {
   background-color: rgba(1, 2, 7, 1);
-  width: 20rem;
+  width: 100vw;
   height: 2.347rem;
 }
 
@@ -84,7 +84,7 @@ html {
   );
   height: 12rem;
   margin-bottom: 26.614rem;
-  width: 20rem;
+  width: 100vw;
 }
 
 .image-wrapper_1 {
@@ -94,7 +94,7 @@ html {
     rgba(0, 0, 0, 0) 100%
   );
   /* background-image: url('./img/Group 2912.png'); */
-  width: 20rem;
+  width: 100vw;
   height: 12rem;
 }
 
@@ -123,7 +123,7 @@ html {
   position: absolute;
   left: 0.587rem;
   top: 10.534rem;
-  width: 18.827rem;
+  width: 100vw;
   height: 27.174rem;
 }
 

@@ -607,7 +607,7 @@ this.getPer()
   .section_12 {
     background-color: rgba(255, 255, 255, 1);
     border-radius: 8px;
-    width: 18.827rem;
+    width: 100vw;
     height: 24.72rem;
     margin: 0.747rem 0 0 0.587rem;
   }
@@ -659,7 +659,7 @@ this.getPer()
   background-color: rgba(224, 224, 224, 1);
   height: 0.027rem;
   margin-top: 0.747rem;
-  width: 18.827rem;
+  width: 100vw;
 }
 
 .group_25 {
@@ -835,7 +835,7 @@ this.getPer()
 }
 
 .section_18 {
-  width: 18.827rem;
+  width: 100vw;
   height: 0.027rem;
   margin-top: 0.8rem;
 }

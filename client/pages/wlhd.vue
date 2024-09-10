@@ -170,20 +170,20 @@ html {
 .page {
   background-color: rgba(246, 246, 246, 1);
   position: relative;
-  width: 20rem;
+  width: 100vw;
   height: 43.307rem;
   overflow: hidden;
 }
 
 .section_1 {
   background-color: rgba(255, 255, 255, 1);
-  width: 20rem;
+  width: 100vw;
   height: 4.694rem;
 }
 
 .section_2 {
   background-color: rgba(1, 2, 7, 1);
-  width: 20rem;
+  width: 100vw;
   height: 2.347rem;
 }
 
@@ -242,13 +242,13 @@ html {
 }
 
 .section_3 {
-  width: 20rem;
+  width: 100vw;
   height: 5.76rem;
 }
 
 .box_1 {
   background-color: rgba(2, 54, 101, 1);
-  width: 20rem;
+  width: 100vw;
   height: 2.667rem;
   justify-content: flex-center;
 }
@@ -349,7 +349,7 @@ html {
 
 .box_3 {
   background-color: rgba(224, 224, 224, 1);
-  width: 20rem;
+  width: 100vw;
   height: 0.027rem;
   margin: 0.934rem 0 0.72rem 0;
 }
@@ -357,7 +357,7 @@ html {
 .section_4 {
   background-color: rgba(255, 255, 255, 1);
   border-radius: 8px;
-  width: 18.827rem;
+  width: 100vw;
   height: 10.774rem;
   justify-content: flex-center;
   margin: -0.027rem 0 0 0.587rem;
@@ -535,7 +535,7 @@ html {
 }
 
 .section_6 {
-  width: 20rem;
+  width: 100vw;
   height: 22.134rem;
   margin-bottom: 0.027rem;
 }
@@ -544,7 +544,7 @@ html {
   background-color: rgba(255, 255, 255, 1);
   border-radius: 8px;
   height: 8.08rem;
-  width: 18.827rem;
+  width: 100vw;
   margin: 0.534rem 0 0 0.587rem;
 }
 
@@ -667,7 +667,7 @@ html {
 
 .group_5 {
   background-color: rgba(61, 60, 68, 1);
-  width: 20rem;
+  width: 100vw;
   height: 7.534rem;
   justify-content: flex-center;
   margin: 6.96rem 0 0.027rem 0;
@@ -707,7 +707,7 @@ html {
 
 .group_6 {
   background-color: rgba(110, 110, 124, 1);
-  width: 20rem;
+  width: 100vw;
   height: 0.027rem;
   margin-top: 0.267rem;
 }

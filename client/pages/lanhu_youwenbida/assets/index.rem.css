@@ -5,20 +5,20 @@ html {
 .page {
   background-color: rgba(246, 246, 246, 1);
   position: relative;
-  width: 20rem;
+  width: 100vw;
   height: 120.48rem;
   overflow: hidden;
 }
 
 .section_1 {
   background-color: rgba(255, 255, 255, 1);
-  width: 20rem;
+  width: 100vw;
   height: 4.694rem;
 }
 
 .section_2 {
   background-color: rgba(1, 2, 7, 1);
-  width: 20rem;
+  width: 100vw;
   height: 2.347rem;
 }
 
@@ -77,13 +77,13 @@ html {
 }
 
 .section_3 {
-  width: 20rem;
+  width: 100vw;
   height: 5.76rem;
 }
 
 .section_4 {
   background-color: rgba(2, 54, 101, 1);
-  width: 20rem;
+  width: 100vw;
   height: 2.667rem;
   justify-content: flex-center;
 }
@@ -184,7 +184,7 @@ html {
 
 .section_6 {
   background-color: rgba(224, 224, 224, 1);
-  width: 20rem;
+  width: 100vw;
   height: 0.027rem;
   margin: 0.934rem 0 0.72rem 0;
 }
@@ -192,7 +192,7 @@ html {
 .section_7 {
   background-color: rgba(255, 255, 255, 1);
   border-radius: 8px;
-  width: 18.827rem;
+  width: 100vw;
   height: 58.454rem;
   margin: -0.027rem 0 0 0.587rem;
 }
@@ -484,7 +484,7 @@ html {
 }
 
 .group_5 {
-  width: 18.827rem;
+  width: 100vw;
   height: 0.027rem;
   border: 1px solid rgba(224, 224, 224, 1);
   margin-top: 0.907rem;
@@ -742,7 +742,7 @@ html {
 }
 
 .group_9 {
-  width: 18.827rem;
+  width: 100vw;
   height: 0.027rem;
   border: 1px solid rgba(224, 224, 224, 1);
   margin-top: 0.907rem;
@@ -1000,7 +1000,7 @@ html {
 }
 
 .group_12 {
-  width: 18.827rem;
+  width: 100vw;
   height: 0.027rem;
   border: 1px solid rgba(224, 224, 224, 1);
   margin-top: 0.907rem;
@@ -1258,7 +1258,7 @@ html {
 }
 
 .group_17 {
-  width: 18.827rem;
+  width: 100vw;
   height: 0.027rem;
   border: 1px solid rgba(224, 224, 224, 1);
   margin-top: 0.907rem;
@@ -1516,7 +1516,7 @@ html {
 }
 
 .group_20 {
-  width: 18.827rem;
+  width: 100vw;
   height: 0.027rem;
   border: 1px solid rgba(224, 224, 224, 1);
   margin-top: 0.907rem;
@@ -1776,7 +1776,7 @@ html {
 .section_12 {
   background-color: rgba(255, 255, 255, 1);
   border-radius: 8px;
-  width: 18.827rem;
+  width: 100vw;
   height: 24.72rem;
   margin: 0.747rem 0 0 0.587rem;
 }
@@ -1829,7 +1829,7 @@ html {
   background-color: rgba(224, 224, 224, 1);
   height: 0.027rem;
   margin-top: 0.747rem;
-  width: 18.827rem;
+  width: 100vw;
 }
 
 .group_25 {
@@ -2005,7 +2005,7 @@ html {
 }
 
 .section_18 {
-  width: 18.827rem;
+  width: 100vw;
   height: 0.027rem;
   border: 1px solid rgba(224, 224, 224, 1);
   margin-top: 0.8rem;
@@ -2173,7 +2173,7 @@ html {
 }
 
 .section_21 {
-  width: 18.827rem;
+  width: 100vw;
   height: 0.027rem;
   border: 1px solid rgba(224, 224, 224, 1);
   margin-top: 0.8rem;
@@ -2341,7 +2341,7 @@ html {
 }
 
 .section_24 {
-  width: 18.827rem;
+  width: 100vw;
   height: 0.027rem;
   border: 1px solid rgba(224, 224, 224, 1);
   margin-top: 0.8rem;
@@ -2509,7 +2509,7 @@ html {
 }
 
 .section_27 {
-  width: 18.827rem;
+  width: 100vw;
   height: 0.027rem;
   border: 1px solid rgba(224, 224, 224, 1);
   margin-top: 0.8rem;
@@ -2679,7 +2679,7 @@ html {
 .section_30 {
   background-color: rgba(255, 255, 255, 1);
   border-radius: 8px;
-  width: 18.827rem;
+  width: 100vw;
   margin: 0.8rem 0 0 0.587rem;
 }
 
@@ -2701,7 +2701,7 @@ html {
   background-color: rgba(224, 224, 224, 1);
   height: 0.027rem;
   margin-top: 0.747rem;
-  width: 18.827rem;
+  width: 100vw;
 }
 
 .block_6 {
@@ -2957,7 +2957,7 @@ margin-left: 10px;
 
 .section_40 {
   background-color: rgba(61, 60, 68, 1);
-  width: 20rem;
+  width: 100vw;
   height: 7.534rem;
   margin-top: 0.8rem;
   justify-content: flex-center;
@@ -2997,7 +2997,7 @@ margin-left: 10px;
 
 .group_28 {
   background-color: rgba(110, 110, 124, 1);
-  width: 20rem;
+  width: 100vw;
   height: 0.027rem;
   margin-top: 0.267rem;
 }

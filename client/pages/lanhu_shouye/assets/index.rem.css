@@ -5,20 +5,20 @@ html {
 .page {
   background-color: rgba(246, 246, 246, 1);
   position: relative;
-  width: 20rem;
+  width: 100vw;
   height: 102rem;
   overflow: hidden;
 }
 
 .group_1 {
   background-color: rgba(255, 255, 255, 1);
-  width: 20rem;
+  width: 100vw;
   height: 4.694rem;
 }
 
 .group_2 {
   background-color: rgba(1, 2, 7, 1);
-  width: 20rem;
+  width: 100vw;
   height: 2.347rem;
 }
 
@@ -81,11 +81,11 @@ html {
   background: url(./img/FigmaDDSSlicePNG534126357f3a4e50b6fb266ff66242e5.png)
     100% no-repeat;
   background-size: 100% 100%;
-  width: 20rem;
+  width: 100vw;
 }
 
 .section_1 {
-  width: 18.827rem;
+  width: 100vw;
   height: 1.28rem;
   margin: 0.8rem 0 0 0.587rem;
 }
@@ -223,7 +223,7 @@ html {
 .group_4 {
   background-color: rgba(255, 255, 255, 1);
   border-radius: 8px;
-  width: 18.827rem;
+  width: 100vw;
   height: 35.867rem;
   margin: 45.254rem 0 0 0.587rem;
 }
@@ -265,7 +265,7 @@ html {
   background-color: rgba(224, 224, 224, 1);
   height: 0.027rem;
   margin-top: 0.747rem;
-  width: 18.827rem;
+  width: 100vw;
 }
 
 .group_6 {
@@ -360,7 +360,7 @@ html {
 }
 
 .group_8 {
-  width: 18.827rem;
+  width: 100vw;
   height: 0.027rem;
   border: 1px solid rgba(224, 224, 224, 1);
   margin-top: 0.747rem;
@@ -447,7 +447,7 @@ html {
 }
 
 .group_10 {
-  width: 18.827rem;
+  width: 100vw;
   height: 0.027rem;
   border: 1px solid rgba(224, 224, 224, 1);
   margin-top: 0.747rem;
@@ -534,7 +534,7 @@ html {
 }
 
 .group_12 {
-  width: 18.827rem;
+  width: 100vw;
   height: 0.027rem;
   border: 1px solid rgba(224, 224, 224, 1);
   margin-top: 0.747rem;
@@ -621,7 +621,7 @@ html {
 }
 
 .group_14 {
-  width: 18.827rem;
+  width: 100vw;
   height: 0.027rem;
   border: 1px solid rgba(224, 224, 224, 1);
   margin-top: 0.747rem;
@@ -709,7 +709,7 @@ html {
 
 .group_16 {
   background-color: rgba(61, 60, 68, 1);
-  width: 20rem;
+  width: 100vw;
   height: 7.534rem;
   margin-top: 0.8rem;
   justify-content: flex-center;
@@ -749,7 +749,7 @@ html {
 
 .group_17 {
   background-color: rgba(110, 110, 124, 1);
-  width: 20rem;
+  width: 100vw;
   height: 0.027rem;
   margin-top: 0.267rem;
 }
@@ -773,7 +773,7 @@ html {
   position: absolute;
   left: 0.587rem;
   top: 12.614rem;
-  width: 18.827rem;
+  width: 100vw;
   height: 45.387rem;
 }
 
@@ -814,7 +814,7 @@ html {
   background-color: rgba(224, 224, 224, 1);
   height: 0.027rem;
   margin-top: 0.747rem;
-  width: 18.827rem;
+  width: 100vw;
 }
 
 .group_19 {
