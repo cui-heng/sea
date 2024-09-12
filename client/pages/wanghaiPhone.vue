@@ -144,7 +144,8 @@
         <div class="box_7 flex-col justify-between">
           <div class="group_4 flex-row justify-between">
             <div class="image-text_7 flex-row justify-between">
-              <span class="text-group_9">{{ item.replyUserName }}</span>
+              <!-- <span class="text-group_9">{{ item.replyUserName }}</span> -->
+              <span class="text-group_9">{{ item.nickName }}</span>
               <div class="section_11 flex-col"></div>
             </div>
             <img
@@ -383,7 +384,8 @@ export default {
       const res = await getAnswer({
         size: this.queryParam.pagesize,
         page: this.queryParam.pagenum,
-        searchText: val
+        searchText: val,
+        userId: this.$route.params.id
       })
       this.artList = res.data.list
       this.total = res.data.total

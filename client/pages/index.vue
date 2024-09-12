@@ -77,6 +77,18 @@ export default {
       cateList: [],
     }
   },
+  head() {
+    meta: [
+      {
+        name: 'baidu-site-verification',
+        content: 'codeva-CgyebtElbc'
+      },
+      {
+        name: 'sogou_site_verification',
+        content: 'Klr1ZZLWUK'
+      }
+    ]
+  },
   async asyncData({ $axios }) {
     const searchParams = Object.assign({
       page: 1,

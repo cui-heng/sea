@@ -73,7 +73,7 @@
         </div>
         <div class="box_4 flex-col justify-between">
           <div class="block_5 flex-row">
-            <div class="image-text_4 flex-row justify-between" @click="diaShow = true">
+            <div class="image-text_4 flex-row justify-between" @click="choosePhone(queryData)">
               <img class="thumbnail_5" referrerpolicy="no-referrer"
                 src="./assets/img/FigmaDDSSlicePNG95e5c14581117ddb18691a993bf92982.png" />
               <span class="text-group_4">
@@ -82,7 +82,7 @@
             </div>
           </div>
           <div class="block_6 flex-row">
-            <div class="image-text_5 flex-row justify-between" @click="diaShow = true">
+            <div class="image-text_5 flex-row justify-between" @click="choosePhone(queryData)">
               <img class="image_4" referrerpolicy="no-referrer"
                 src="./assets/img/e9dcc2ce722143b0a548dadfd94627de_mergeImage.png" />
               <span class="text-group_5">
@@ -108,7 +108,7 @@
         </div>
         <div class="right_box">
           <div class="block_6 paddi-r flex-row">
-            <div class="image-text_5 flex-row justify-between" @click="diaShow = true">
+            <div class="image-text_5 flex-row justify-between" @click="choosePhone(queryData)">
               <img class="image_4" referrerpolicy="no-referrer"
                 src="./assets/img/e9dcc2ce722143b0a548dadfd94627de_mergeImage.png" />
               <span class="text-group_5">
@@ -201,13 +201,13 @@
       }}万</span></div>
         <div class="image-wrapper_3 flex-col" >
           <img
-            @click="diaShow = true"
+            @click="choosePhone(item)"
             class="label_6"
             referrerpolicy="no-referrer"
             src="./assets/img/FigmaDDSSlicePNG854cf5844a8ddcd486c61b1cf69fb52c.png"
           />
         </div>
-        <div class="image-wrapper_4 flex-col" @click="diaShow = true">
+        <div class="image-wrapper_4 flex-col" @click="choosePhone(item)">
           <img
             class="label_7"
             referrerpolicy="no-referrer"
@@ -251,21 +251,25 @@
       <p> <img style="  width: 17px;height: 17px; margin-left: 10px;transform: translateY(5px);" src="@/assets/gn.jpg" alt=""><span style="display: inline-block;margin: 0 10px">京公网安备11011402054225号 </span>京ICP备2024075475号-1<span style="margin-left: 10px;" @click="diaDis=true">免责声明</span></p>
     </div>
     <Dialog :dialogVisible1="diaShow" @closeDia="closeDia()"></Dialog>
+    <Dialog1 :contactInformation="currentInfo" :dialogVisible1="diaShow1" @closeDia="closeDia1()"></Dialog1>
     <Disclaimer :dialogVisible1="diaDis" @closeDia="closeDis"/>
   </div>
 </template>
 <script>
 import { getArticleInfo, getFiveArticle, getFiveAnswer, getRelativeArticle, getRecommendUser } from '@/services/index'
 import Dialog from '@/components/Dialog/index.vue'
+import Dialog1 from '@/components/Dialog/personalDia.vue'
 import Disclaimer from '@/components/ConSay/index.vue'
 export default {
   name: 'Article',
   components: {
     Dialog,
+    Dialog1,
     Disclaimer
   },
   data() {
     return {
+      diaShow1: false,
       diaDis: false,
       diaShow: false,
       drawer:false,      direction: false,
@@ -293,7 +297,8 @@ export default {
           lanhutext0: '关注'
         }
       ],
-      scrollTop: null
+      scrollTop: null,
+      currentInfo: {}
     }
   },
   created() {
@@ -323,6 +328,13 @@ this.getPer()
     that.scrollTop = scrollTop
   },
   methods: {
+    choosePhone(item) {
+      this.currentInfo.wxQrCode = item.wxQrCode
+      this.currentInfo.phonenumber = item.phonenumber || item.phoneNumber
+      this.currentInfo.nickName = item.nickName
+      this.diaShow1 = true
+      console.log(item)
+    },
     closeDis() {
       this.diaDis = false
     },
@@ -358,6 +370,9 @@ this.getPer()
           clearInterval(timer)
         }
       }, 16)
+    },
+    closeDia1() {
+      this.diaShow1 = false
     }
   }
 }
