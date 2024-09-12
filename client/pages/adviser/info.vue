@@ -48,7 +48,7 @@
           <fe-title class="answer-title" :level="3">{{ answer.title }}</fe-title>
           <div class="answer-adviser">
             <fe-image class="answer-adviser-avatar" :src="answer.avatar" circle />
-            <fe-text class="answer-adviser-name">{{ answer.nickName }}</fe-text>
+            <fe-text class="answer-adviser-name">{{ answer.replyUserName }}</fe-text>
           </div>
           <div class="answer-body">
             <fe-paragraph class="answer-content" :ellipsis="2">{{ answer.description }}</fe-paragraph>

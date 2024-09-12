@@ -145,7 +145,7 @@
           <div class="group_4 flex-row justify-between">
             <div class="image-text_7 flex-row justify-between">
               <!-- <span class="text-group_9">{{ item.replyUserName }}</span> -->
-              <span class="text-group_9">{{ item.nickName }}</span>
+              <span class="text-group_9">{{ item.replyUserName }}</span>
               <div class="section_11 flex-col"></div>
             </div>
             <img
