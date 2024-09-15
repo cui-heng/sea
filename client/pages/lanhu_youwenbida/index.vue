@@ -161,7 +161,7 @@
       }}万</span></div>
         <div class="image-wrapper_3 flex-col">
           <img
-            @click="diaShow = true"
+            @click="choosePhone(item)"
             class="label_6"
             referrerpolicy="no-referrer"
             src="./assets/img/FigmaDDSSlicePNG854cf5844a8ddcd486c61b1cf69fb52c.png"
@@ -169,7 +169,7 @@
         </div>
         <div class="image-wrapper_4 flex-col">
           <img
-            @click="diaShow = true"
+            @click="choosePhone(item)"
             class="label_7"
             referrerpolicy="no-referrer"
             src="./assets/img/FigmaDDSSlicePNG7235843c577a660f1e6f88cc5aa9a3f6.png"
@@ -214,9 +214,10 @@
         </div>
       </div>
       <div class="group_28 flex-col"></div>
-      <p class="font_fot"><img style="margin-left: 10px;transform: translateY(5px);" src="@/assets/gn.jpg" alt=""><span style="display: inline-block;margin: 0 10px">京公网安备11011402054225号 </span>京ICP备2024075475号-1<br/><span style="margin-left: 40%;" @click="diaDis=true">免责声明</span></p>
+      <p class="font_fot"><img style="margin-left: 10px;transform: translateY(5px);" src="@/assets/gn.jpg" alt=""><span style="display: inline-block;margin: 0 10px">京公网安备11011402054225号 </span><span @click="toNewWeb">京ICP备2024075475号-1</span><br/><span style="margin-left: 40%;" @click="diaDis=true">免责声明</span></p>
     </div>
     <Dialog :dialogVisible1="diaShow" @closeDia="closeDia()"></Dialog>
+    <Dialog1 :dialogVisible1="diaShow1" :contactInformation="currentInfo" @closeDia="closeDia1()"></Dialog1>
     <Disclaimer :dialogVisible1="diaDis" @closeDia="closeDis"/>
   </div>
 </template>
@@ -224,16 +225,24 @@
 <script>
 import { getAnswer, getRecommendUser, getHotAnswer } from '@/services/index'
 import Dialog from '@/components/Dialog/index.vue'
+import Dialog1 from '@/components/Dialog/personalDia.vue'
 import Disclaimer from '@/components/ConSay/index.vue'
 export default {
 
   name: 'Index',
   components: {
     Dialog,
+    Dialog1,
     Disclaimer
   },
   data() {
     return {
+      diaShow1: false,
+      currentInfo: {
+        wxQrCode: '',
+        phonenumber: '',
+        nickName: ''
+      },
       diaDis: false,
       diaShow: false,
       drawer: false,
@@ -265,6 +274,20 @@ export default {
     this.getArtList()
   },
   methods: {
+    toNewWeb() {
+      window.open('https://beian.miit.gov.cn/#/Integrated/index', '_blank')
+    },
+    closeDia1() {
+      this.diaShow1 = false
+    },
+    choosePhone(item) {
+      console.log(item)
+      this.currentInfo.wxQrCode = item.wxQrCode
+      this.currentInfo.phonenumber = item.phonenumber || item.phoneNumber
+      this.currentInfo.nickName = item.nickName
+      this.diaShow1 = true
+      console.log(item)
+    },
     closeDis() {
       this.diaDis = false
     },

@@ -248,7 +248,7 @@
         </div>
       </div>
       <div class="group_18 flex-col"></div>
-      <p class="font_fot"><img style="margin-left: 10px;transform: translateY(5px);" src="@/assets/gn.jpg" alt=""><span style="display: inline-block;margin: 0 10px">京公网安备11011402054225号 </span>京ICP备2024075475号-1<br/><span style="margin-left: 40%;" @click="diaDis=true">免责声明</span></p>
+      <p class="font_fot"><img style="margin-left: 10px;transform: translateY(5px);" src="@/assets/gn.jpg" alt=""><span style="display: inline-block;margin: 0 10px">京公网安备11011402054225号 </span><span @click="toNewWeb">京ICP备2024075475号-1</span><br/><span style="margin-left: 40%;" @click="diaDis=true">免责声明</span></p>
     </div>
     <Dialog :contactInformation="currentInfo" :dialogVisible1="diaShow" @closeDia="closeDia()"></Dialog>
     <Disclaimer :dialogVisible1="diaDis" @closeDia="closeDis"/>
@@ -309,6 +309,9 @@ export default {
     })
   },
   methods: {
+    toNewWeb() {
+      window.open('https://beian.miit.gov.cn/#/Integrated/index', '_blank')
+    },
     closeDis() {
       this.diaDis = false
     },

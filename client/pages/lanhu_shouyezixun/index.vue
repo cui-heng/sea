@@ -248,7 +248,9 @@
       </div>
       </div>
       <div class="block_14 flex-col"></div>
-      <p> <img style="  width: 17px;height: 17px; margin-left: 10px;transform: translateY(5px);" src="@/assets/gn.jpg" alt=""><span style="display: inline-block;margin: 0 10px">京公网安备11011402054225号 </span>京ICP备2024075475号-1<span style="margin-left: 10px;" @click="diaDis=true">免责声明</span></p>
+      <p> <img style="  width: 17px;height: 17px; margin-left: 10px;transform: translateY(5px);" src="@/assets/gn.jpg" alt=""><span style="display: inline-block;margin: 0 10px">京公网安备11011402054225号
+      
+      </span><span @click="toNewWeb">京ICP备2024075475号-1</span><span style="margin-left: 10px;" @click="diaDis=true">免责声明</span></p>
     </div>
     <Dialog :dialogVisible1="diaShow" @closeDia="closeDia()"></Dialog>
     <Dialog1 :contactInformation="currentInfo" :dialogVisible1="diaShow1" @closeDia="closeDia1()"></Dialog1>
@@ -328,6 +330,9 @@ this.getPer()
     that.scrollTop = scrollTop
   },
   methods: {
+    toNewWeb() {
+      window.open('https://beian.miit.gov.cn/#/Integrated/index', '_blank')
+    },
     choosePhone(item) {
       this.currentInfo.wxQrCode = item.wxQrCode
       this.currentInfo.phonenumber = item.phonenumber || item.phoneNumber

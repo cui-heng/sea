@@ -18,9 +18,9 @@
           </div>
         </div>
         
-        @2024 中国海洋财经有限公司 All Rights Reserved,<br/>
+        <!-- @2024 中国海洋财经有限公司 All Rights Reserved,<br/> -->
         <img style="margin-left: 10px;transform: translateY(5px);" src="@/assets/gn.jpg" alt="">
-        京公网安备11011402054225号    京ICP备2024075475号-1
+        京公网安备11011402054225号  <span class="curr_sty"@click="toNewWeb">京ICP备2024075475号-1</span>    <NuxtLink to="https://beian.miit.gov.cn/#/Integrated/index"></NuxtLink>
       </div>
       <el-dialog :visible.sync="dialogTableVisible" width="700px" class="footer_dia">
         <div class="submit_box" v-if="chooseType == 3 || chooseType == 2">
@@ -118,6 +118,9 @@ export default {
     this.getCode()
   },
   methods: {
+    toNewWeb() {
+      window.open('https://beian.miit.gov.cn/#/Integrated/index', '_blank')
+    },
     choseInd(code) {
       this.chooseType = code
       this.textarea2 = ''
@@ -346,6 +349,9 @@ export default {
       display: inline-block;
       width: 30px
     }
+  }
+  .curr_sty {
+    cursor: pointer;
   }
 
 </style>

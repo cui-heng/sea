@@ -151,7 +151,7 @@ border-radius: 50%;">
         </div>
       </div>
       <div class="group_17 flex-col"></div>
-      <p class="font_fot"><img style="margin-left: 10px;transform: translateY(5px);" src="@/assets/gn.jpg" alt=""><span style="display: inline-block;margin: 0 10px">京公网安备11011402054225号 </span>京ICP备2024075475号-1<br/><span style="margin-left: 40%;" @click="diaShow=true">免责声明</span></p>
+      <p class="font_fot"><img style="margin-left: 10px;transform: translateY(5px);" src="@/assets/gn.jpg" alt=""><span style="display: inline-block;margin: 0 10px">京公网安备11011402054225号 </span><span @click="toNewWeb">京ICP备2024075475号-1</span><br/><span style="margin-left: 40%;" @click="diaShow=true">免责声明</span></p>
     </div>
     <Disclaimer :dialogVisible1="diaShow" @closeDia="closeDis"/>
   </div>
@@ -208,6 +208,9 @@ export default {
     // this.GetCateList()
   },
   methods: {
+    toNewWeb() {
+      window.open('https://beian.miit.gov.cn/#/Integrated/index', '_blank')
+    },
     closeDis() {
       this.diaShow = false
     },
@@ -464,6 +467,10 @@ h5 {
 .font_fot {
   font-size: 12px;
   color: #fff;
+}
+.group_3 .section_1 {
+  margin-left: 0;
+  transform: translateX(-15px);
 }
 </style>
 <style></style>

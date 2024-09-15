@@ -378,7 +378,7 @@
         </div>
       </div>
       <div class="group_28 flex-col"></div>
-      <p><img style="margin-left: 10px;transform: translateY(5px);" src="@/assets/gn.jpg" alt=""><span style="display: inline-block;margin: 0 10px">京公网安备11011402054225号 </span>京ICP备2024075475号-1</p>
+      <p><img style="margin-left: 10px;transform: translateY(5px);" src="@/assets/gn.jpg" alt=""><span style="display: inline-block;margin: 0 10px">京公网安备11011402054225号 </span><span @click="toNewWeb">京ICP备2024075475号-1</span></p>
     </div>
   </div>
 </template>
@@ -389,7 +389,11 @@ export default {
       constants: {}
     };
   },
-  methods: {}
+  methods: {
+    toNewWeb() {
+      window.open('https://beian.miit.gov.cn/#/Integrated/index', '_blank')
+    },
+  }
 };
 </script>
 <style scoped lang="css" src="./assets/index.css" />

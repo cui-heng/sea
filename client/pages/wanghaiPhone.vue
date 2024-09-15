@@ -284,7 +284,7 @@
         </div>
       </div>
       <div class="group_28 flex-col"></div>
-      <p class="font_fot"><img style="margin-left: 10px;transform: translateY(5px);" src="@/assets/gn.jpg" alt=""><span style="display: inline-block;margin: 0 10px">京公网安备11011402054225号 </span>京ICP备2024075475号-1<br/><span style="margin-left: 40%;" @click="diaDis=true">免责声明</span></p>
+      <p class="font_fot"><img style="margin-left: 10px;transform: translateY(5px);" src="@/assets/gn.jpg" alt=""><span style="display: inline-block;margin: 0 10px">京公网安备11011402054225号 </span><span @click="toNewWeb">京ICP备2024075475号-1</span><br/><span style="margin-left: 40%;" @click="diaDis=true">免责声明</span></p>
     </div>
       </div>
     </div>
@@ -337,6 +337,7 @@ export default {
     }
   },
   mounted () {
+    
     getUserInfo({userId: this.$route.params.id }).then(res => {
       this.dataList = res.data
     })
@@ -355,6 +356,9 @@ export default {
     scrollview.removeEventListener('scroll', this.scrollChange, true)
   },
   methods: {
+    toNewWeb() {
+      window.open('https://beian.miit.gov.cn/#/Integrated/index', '_blank')
+    },
     choosePhone(item) {
       this.currentInfo.wxQrCode = item.wxQrCode
       this.currentInfo.phonenumber = item.phonenumber || item.phoneNumber
