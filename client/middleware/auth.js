@@ -15,13 +15,27 @@ export default function (context) {
       '/commission': '/aboutPhone', //手续费
       '/earnest': '/aboutPhoneMargin', //保证金
       '/adviser/':`/lanhu_wanghaijingli/${queryArr}`,//个人顾问首页
-      '/answer/':`/wendaxiangqingphone/${queryArr}`,//回答详情
+      '/answer/':`/wendaxiangqingphone/${queryArr}`//回答详情
     }
     if (enumRouter[routerStr] && context.$isMobile) {
       // context.redirect(enumRouter[context.route.path]);
       context.redirect(enumRouter[routerStr]);
 
       // ${queryArr[0]}/${queryArr[1]}
+    }
+  } else {
+    const enumRouterPc = {
+      '/lanhu_shouye': '/', //首页
+      '/lanhu_shouyezixun/': `/article/${queryArr}/${queryArr1}`, //文章
+      '/lanhu_youwenbida': '/answer', //百问百答
+      '/lanhu_qihuobaozhengjin': '/service', //一对一
+      '/aboutPhone': '/commission', //手续费
+      '/aboutPhoneMargin': '/earnest', //保证金
+      '/lanhu_wanghaijingli/':`/adviser/${queryArr}`,//个人顾问首页
+      '/wendaxiangqingphone/':`/answer/${queryArr}`//回答详情
+    }
+    if (enumRouterPc[routerStr]) {
+      context.redirect(enumRouterPc[routerStr]);
     }
   }
 }
