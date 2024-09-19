@@ -171,6 +171,22 @@ export default {
       }
     }
   },
+  head() {
+    return {
+      title: '期货手续费',
+      meta: [
+        {
+          name: "keywords",
+          content:
+            "期货,期货开户,期货手续费,期货公司,期货账户,期货保证金",
+        },
+        // hid是一个唯一标识
+        {
+            hid: '期货手续费', name: 'names', content: '期货手续费'
+        },
+      ],
+    };
+  },
   watch: {
     // 此处监听variable变量，当期有变化时执行
     $route(item1, item2) {

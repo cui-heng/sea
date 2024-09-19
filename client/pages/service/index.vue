@@ -74,6 +74,22 @@ export default {
       firstAnswer: null,
     }
   },
+  head() {
+    return {
+      title: '期货一对一服务',
+      meta: [
+        {
+          name: "keywords",
+          content:
+            "期货,期货开户,期货手续费,期货公司,期货账户,期货保证金",
+        },
+        // hid是一个唯一标识
+        {
+            hid: '期货一对一服务', name: 'names', content: '期货一对一服务'
+        },
+      ],
+    };
+  },
 }
 </script>
 

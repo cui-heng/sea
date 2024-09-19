@@ -101,6 +101,22 @@ export default {
       answerList: [],
     }
   },
+  head() {
+    return {
+      title: this.adviserInfo.nickName,
+      meta: [
+        {
+          name: "keywords",
+          content:
+            "期货,期货开户,期货手续费,期货公司,期货账户,期货保证金",
+        },
+        // hid是一个唯一标识
+        {
+            hid: this.adviserInfo.nickName, name: 'names', content: this.adviserInfo.nickName
+        },
+      ],
+    };
+  },
 }
 </script>
 

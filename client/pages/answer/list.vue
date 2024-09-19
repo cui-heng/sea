@@ -121,6 +121,22 @@ export default {
       hotAnswers: [],
     }
   },
+  head() {
+    return {
+      title: '百问百答',
+      meta: [
+        {
+          name: "keywords",
+          content:
+            "期货,期货开户,期货手续费,期货公司,期货账户,期货保证金",
+        },
+        // hid是一个唯一标识
+        {
+            hid: '百问百答', name: 'names', content: '百问百答'
+        },
+      ],
+    };
+  },
   watch: {
     searchParams: {
       handler() {
