@@ -26,6 +26,7 @@ export default function (context) {
   } else {
     const enumRouterPc = {
       '/lanhu_shouye': '/', //首页
+      // '/lanhu_shouyezixun/': `/article/${queryArr}/${queryArr1}`, //文章
       '/lanhu_shouyezixun/': `/article/${queryArr}/${queryArr1}`, //文章
       '/lanhu_youwenbida': '/answer', //百问百答
       '/lanhu_qihuobaozhengjin': '/service', //一对一
