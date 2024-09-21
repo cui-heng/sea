@@ -103,7 +103,7 @@ export default {
   },
   head() {
     return {
-      title: this.adviserInfo.nickName,
+      title: this.adviserInfo.nickName + '-海洋财经',
       meta: [
         {
           name: "keywords",

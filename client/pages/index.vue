@@ -79,7 +79,7 @@ export default {
   },
   head() {
     return {
-      title: '首页',
+      title: '首页-海洋财经',
       meta: [
         {
           name: "keywords",

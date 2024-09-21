@@ -182,7 +182,7 @@ export default {
   head() {
     // 优化seo：动态设置title，keywords 和 description
     return {
-      title: this.articleInfo.title,
+      title: this.articleInfo.title + '-海洋财经',
       meta: [
         {
           name: "keywords",

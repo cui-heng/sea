@@ -76,7 +76,7 @@ export default {
   },
   head() {
     return {
-      title: '期货一对一服务',
+      title: '期货一对一服务-海洋财经',
       meta: [
         {
           name: "keywords",

@@ -123,7 +123,7 @@ export default {
   },
   head() {
     return {
-      title: '百问百答',
+      title: '百问百答-海洋财经',
       meta: [
         {
           name: "keywords",

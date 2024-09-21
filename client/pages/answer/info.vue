@@ -154,7 +154,7 @@ export default {
   },
   head() {
     return {
-      title: this.answerInfo.title,
+      title: this.answerInfo.title + '-海洋财经',
       meta: [
         {
           name: "keywords",

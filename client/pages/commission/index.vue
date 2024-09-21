@@ -173,7 +173,7 @@ export default {
   },
   head() {
     return {
-      title: '期货手续费',
+      title: '期货手续费-海洋财经',
       meta: [
         {
           name: "keywords",

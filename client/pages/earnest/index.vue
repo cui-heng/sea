@@ -183,7 +183,7 @@ export default {
   },
   head() {
     return {
-      title: '期货保证金',
+      title: '期货保证金-海洋财经',
       meta: [
         {
           name: "keywords",
