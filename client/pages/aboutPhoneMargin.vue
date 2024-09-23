@@ -87,7 +87,7 @@ line-height: 16px;padding-right: 30px;cursor: pointer;" v-for="item1 in item.ite
 font-family: PingFang SC-Medium, PingFang SC;
 font-weight: 500;
 color: #545454;
-line-height: 24px;">(手续费更新时间:2024-03-12 17:45:12.528，价格更新时间:2024-03-12 17:45:12.528)</p>
+line-height: 24px;">(手续费更新时间:{{ getTodayDate() }}，价格更新时间:{{ getTodayDate() }})</p>
             </div>
             <div>
               <el-table :data="tableData" style="width: 100%">
@@ -193,6 +193,14 @@ export default {
     this.dataList()
   },
   methods: {
+    getTodayDate() {
+      const today = new Date();
+      const year = today.getFullYear();
+      const month = String(today.getMonth() + 1).padStart(2, '0');
+      const day = String(today.getDate()).padStart(2, '0');
+      
+      return `${year}-${month}-${day}`;
+    },
     showRight() {
       console.log(11)
       this.drawer = true
