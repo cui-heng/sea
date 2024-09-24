@@ -24,16 +24,13 @@ font-family: PingFang SC-Medium, PingFang SC;
 font-weight: 500; 
 color: #242629;">{{ item1.title }}:</p>
                 <div>
-                  <span style="font-size: 16px; font-family: PingFang SC-Medium, PingFang SC; font-weight: 500; color: #023665;
-                  line-height: 16px;padding-right: 25px;cursor: pointer;"
-                    v-for="item2 in item1.items"
-                    @click="handleClick(item1, item2)"
-                    >
-                    <nuxt-link class="answer-creater" :to="`/jumpCommission/${item1.title}/${item2}`" target="_blank">
-                      {{ item2 }}
-                    </nuxt-link>
-                    
-                  </span>
+                  <span style="font-size: 16px;
+font-family: PingFang SC-Medium, PingFang SC;
+font-weight: 500;
+color: #023665;
+line-height: 16px;padding-right: 25px;cursor: pointer;" @click="handleClick(item1, item2)"
+                    v-for="item2 in item1.items">{{ item2
+                    }}</span>
                 </div>
               </div>
             </div>
@@ -64,7 +61,8 @@ line-height: 14px;">(手续费更新时间:{{ getTodayDate() }}，价格更新�
             <div style="padding-bottom: 100px;" v-if="activeName == '手续费总表'">
               <div v-for="itemT in tableData">
                 <p class="table_title_sty" style="text-align: center;">{{ itemT.title }}</p> 
-                <el-table :data="itemT.items" style="width: 100%">
+                <!-- v-if="itemT.items.length" -->
+                <el-table  :data="itemT.items" style="width: 100%">
                 <el-table-column prop="productName" label="合约品种">
                 </el-table-column>
                 <el-table-column prop="curPrice" label="现价">
@@ -136,7 +134,7 @@ export default {
           label: '期货手续费',
         },
       ],
-      isMain: true,
+      isMain: false,
       mbx: this.$route.path,
       title1: '',
       productName1: '',
@@ -196,7 +194,8 @@ export default {
       this.mbx = this.$route.path
     }
   },
-  async asyncData({ $axios }) {
+  async asyncData({ $axios, params }) {
+    console.log(params, 'params')
     const [data, data1] = await Promise.all([
       $axios.$get(website.getTransactionCategory),
       $axios.$get(website.getExchangeInfo, {
@@ -213,7 +212,9 @@ export default {
 
     return {
       listData: newList,
-      msData1: data1.remark
+      msData1: data1.remark,
+      productName1: params.name,
+      title1: params.title1
     }
   },
   mounted() {
@@ -269,11 +270,11 @@ export default {
         window.location.href = objectUrl;
       })
     },
-    async handleClick(val, val1) {
-      // console.log(val, val1)
-      // this.title1 = val.title
-      // this.productName1 = val1
-      // this.dataList()
+    handleClick(val, val1) {
+      console.log(val, val1)
+      this.title1 = val.title
+      this.productName1 = val1
+      this.dataList()
     },
     dataList() {
 

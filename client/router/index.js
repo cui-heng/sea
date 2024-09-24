@@ -36,6 +36,7 @@ import answerInfo from '@/pages/answer/info.vue';
 import answerArticle from '@/pages/answer/article.vue';
 import adviserInfo from '@/pages/adviser/info.vue';
 import commission from '@/pages/commission/index.vue';
+import jumpCommission from '@/pages/jump_commission/index.vue';
 import earnest from '@/pages/earnest/index.vue';
 
 // ======================= next import ================================
@@ -115,6 +116,11 @@ const routes = [
     path: '/commission',
     component: commission
   },
+  {
+    path: '/jumpCommission/:title/:name',
+    component: jumpCommission
+  },
+  
   {
     path: '/earnest',
     component: earnest
