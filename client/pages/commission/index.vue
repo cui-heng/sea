@@ -133,7 +133,7 @@ export default {
           label: '期货手续费',
         },
       ],
-      isMain: false,
+      isMain: true,
       mbx: this.$route.path,
       title1: '',
       productName1: '',

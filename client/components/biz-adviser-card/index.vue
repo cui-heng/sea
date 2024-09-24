@@ -2,7 +2,11 @@
   <div class="biz-adviser-card">
     <div class="biz-adviser-card-info">
       <div class="biz-adviser-card-body">
-        <fe-title class="biz-adviser-card-name" :level="2">{{ adviser.nickName }}</fe-title>
+        <fe-title class="biz-adviser-card-name" :level="2">
+          <nuxt-link class="answer-creater" :to="`/adviser/${adviser.userId}`" target="_blank">
+            {{ adviser.nickName }}
+          </nuxt-link>
+          </fe-title>
         <div class="biz-adviser-card-desc">
           <fe-text>{{ adviser.remark }}</fe-text>
           <fe-text>帮助{{ adviser.helpNumber | number }}</fe-text>
@@ -27,7 +31,9 @@
         </slot>
       </div>
     </div>
-    <fe-image class="biz-adviser-card-avatar" :src="adviser.avatar" :alt="adviser.nickName" />
+    <nuxt-link class="answer-creater" :to="`/adviser/${adviser.userId}`" target="_blank">
+      <fe-image class="biz-adviser-card-avatar" :src="adviser.avatar" :alt="adviser.nickName" />
+    </nuxt-link>
   </div>
 </template>
 
