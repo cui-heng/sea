@@ -29,8 +29,12 @@ font-family: PingFang SC-Medium, PingFang SC;
 font-weight: 500;
 color: #023665;
 line-height: 16px;padding-right: 25px;cursor: pointer;" @click="handleClick(item1, item2)"
-                    v-for="item2 in item1.items">{{ item2
-                    }}</span>
+                    v-for="item2 in item1.items">
+
+                    <nuxt-link class="answer-creater" :to="`/jumpCommission/${item1.title}/${item2}`" target="_blank">
+                      {{ item2 }}
+                    </nuxt-link>
+                  </span>
                 </div>
               </div>
             </div>
@@ -195,7 +199,6 @@ export default {
     }
   },
   async asyncData({ $axios, params }) {
-    console.log(params, 'params')
     const [data, data1] = await Promise.all([
       $axios.$get(website.getTransactionCategory),
       $axios.$get(website.getExchangeInfo, {
@@ -251,14 +254,11 @@ export default {
         newAc = this.activeName
       }
       getExchangeInfo({ name: newAc }).then(res => {
-        console.log(res, 'shang')
         this.msData1 = res.data.remark
       })
       this.dataList()
-      console.log(this.msData1)
     },
     dlowData() {
-      console.log(this.title1, this.productName1)
       getTransactionData1({
         title: this.title1,
         productName: this.productName1,
@@ -271,10 +271,9 @@ export default {
       })
     },
     handleClick(val, val1) {
-      console.log(val, val1)
       this.title1 = val.title
       this.productName1 = val1
-      this.dataList()
+      // this.dataList()
     },
     dataList() {
 
@@ -284,7 +283,6 @@ export default {
         productName: this.productName1,
         remark:  this.isMain? '主力合约': '',
       }).then(res => {
-        console.log(res, 'zong')
         // this.tableData = res.data.slice(0,2)
         this.tableData = res.data
       })
@@ -294,15 +292,12 @@ export default {
         productName: this.productName1,
         remark: this.isMain? '主力合约': '',
       }).then(res => {
-        console.log(res, 'fen ')
         this.tableData = res.data[0].items
       })
       }
     },
     showZhuli() {
       this.isMain = !this.isMain
-      console.log(this.isMain)
-
       this.dataList('主力合约')
     },
     submitForm(formName) {
