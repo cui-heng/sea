@@ -40,8 +40,8 @@
                   </div>
                 </div>
                 <fe-space class="reply-adviser-action">
-                  <fe-button size="small" icon="phone" @click="$adviser.phone.open(reply)">电话</fe-button>
-                  <fe-button size="small" icon="wechat" type="wechat" ghost @click="$adviser.wechat.open(reply)">微信</fe-button>
+                  <fe-button size="small" icon="phone" @click="$adviser.phone.open({ ...reply, phonenumber: reply.phoneNumber })">电话</fe-button>
+                  <fe-button size="small" icon="wechat" type="wechat" ghost @click="$adviser.wechat.open({ ...reply, phonenumber: reply.phoneNumber })">微信</fe-button>
                 </fe-space>
               </div>
               <div class="reply-body">
