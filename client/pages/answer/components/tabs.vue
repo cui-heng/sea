@@ -45,10 +45,10 @@ export default {
           label: '最新点赞回答',
           value: 'like'
         },
-        {
-          label: '最新分享回答',
-          value: 'share'
-        },
+        // {
+        //   label: '最新分享回答',
+        //   value: 'share'
+        // },
       ]
     }
   }
