@@ -53,9 +53,9 @@
     <div class="box_sty_con">
       <div class="nav_cl_sty group_1 flex-col">
         <div class="text-wrapper_2">
-          <span class="text_4" @click="getArtList('全部')">全部</span>
+          <span class="text_4" @click="getArtListNew('全部')">全部</span>
           <span class="text_5">
-            &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<span @click="getArtList('热门回答')">热门回答</span>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<span @click="getArtList('全部')">最新回答</span>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<span @click="getArtList('全部')">最新点赞回答</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<span @click="getArtListNew('热门回答')">热门回答</span>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<span @click="getArtListNew('全部')">最新回答</span>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<span @click="getArtListNew('全部')">最新点赞回答</span>
           </span>
         </div>
       </div>
@@ -315,7 +315,10 @@ export default {
       this.qhguwt = res1.data
       const res2 = await getHotAnswer()
       this.HotAnswer = res2.data
-    }
+    },
+    getArtListNew() {
+      this.$router.go(0)
+    },
   }
 }
 </script>
