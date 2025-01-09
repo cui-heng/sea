@@ -76,7 +76,7 @@ export default {
   },
   head() {
     return {
-      title: '期货一对一服务-海洋财经',
+      title: '一对一服务-海洋财经',
       meta: [
         {
           name: "keywords",
@@ -85,7 +85,7 @@ export default {
         },
         // hid是一个唯一标识
         {
-            hid: '期货一对一服务', name: 'names', content: '期货一对一服务'
+            hid: '一对一服务', name: 'names', content: '一对一服务'
         },
       ],
     };

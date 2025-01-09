@@ -6,7 +6,7 @@
         <el-menu-item index="/lanhu_youwenbida">有问必答</el-menu-item>
         <el-menu-item index="/aboutPhone">期货手续费</el-menu-item>
         <el-menu-item index="/aboutPhoneMargin">期货保证金</el-menu-item>
-        <el-menu-item index="/lanhu_qihuobaozhengjin">期货一对一服务</el-menu-item>
+        <el-menu-item index="/lanhu_qihuobaozhengjin">一对一服务</el-menu-item>
       </el-menu>
     </el-drawer>
     <div class="box_3 flex-col">
@@ -31,7 +31,7 @@
         <img class="thumbnail_1" style="" referrerpolicy="no-referrer"
           src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG378c59d9ff2c6ab7928bcb7dacf26fb5.png" />
         <div class="image-text_1 flex-row justify-between">
-          <span class="text-group_1">期货一对一服务</span>
+          <span class="text-group_1">一对一服务</span>
           <img class="thumbnail_2" referrerpolicy="no-referrer"
             src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG378c59d9ff2c6ab7928bcb7dacf26fb5.png" />
         </div>

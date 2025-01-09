@@ -6,7 +6,7 @@
         <el-menu-item index="/lanhu_youwenbida">有问必答</el-menu-item>
         <el-menu-item index="/aboutPhone">期货手续费</el-menu-item>
         <el-menu-item index="/aboutPhoneMargin">期货保证金</el-menu-item>
-        <el-menu-item index="/lanhu_qihuobaozhengjin">期货一对一服务</el-menu-item>
+        <el-menu-item index="/lanhu_qihuobaozhengjin">一对一服务</el-menu-item>
       </el-menu>
     </el-drawer>
     <div class="section_2 flex-col">
@@ -45,7 +45,7 @@
         <img style=" margin: 0.107rem 0 0 0.48rem;width: 7px;height: 7px;" referrerpolicy="no-referrer"
           src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG378c59d9ff2c6ab7928bcb7dacf26fb5.png" />
         <div class="image-text_1 flex-row justify-between">
-          <span class="text-group_1">期货一对一服务</span>
+          <span class="text-group_1">一对一服务</span>
           <img class="thumbnail_2" referrerpolicy="no-referrer"
             src="https://lanhu.oss-cn-beijing.aliyuncs.com/FigmaDDSSlicePNG378c59d9ff2c6ab7928bcb7dacf26fb5.png" />
         </div>
@@ -53,7 +53,7 @@
       <div class="mb_box">
           <p class="area">海洋财经</p>
           <img src="@/assets/img/mb-rih.png" alt="">
-          <p>期货一对一服务</p>
+          <p>一对一服务</p>
           <img src="@/assets/img/mb-rih.png" alt="">
         </div>
       <div class="group_4 flex-col"></div>

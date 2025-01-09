@@ -51,7 +51,7 @@ export default {
           value: '/earnest'
         },
         {
-          label: '期货一对一服务',
+          label: '一对一服务',
           value: '/service'
         },
       ],

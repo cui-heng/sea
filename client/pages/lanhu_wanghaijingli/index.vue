@@ -28,7 +28,7 @@
           <span class="text_6">有问必答</span>
           <span class="text_7">期货手续费</span>
           <span class="text_8">期货保证金</span>
-          <span class="text_9">期货一对一服务</span>
+          <span class="text_9">一对一服务</span>
         </div>
         <div class="group_4 flex-row"><div class="box_1 flex-col"></div></div>
       </div>
